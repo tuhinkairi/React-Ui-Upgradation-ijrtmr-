@@ -10,9 +10,9 @@ export default function Hero() {
 
         <h1 className="text-4xl md:text-5xl font-bold leading-tight">
           <span className="text-primary">International Journal</span>{' '}
-          <span className="text-dark">of</span>
+          <span className="text-primaryText">of</span>
           <br />
-          <span className="text-dark">
+          <span className="text-primaryText">
             Scientific Research in Engineering & Technology
           </span>
         </h1>

@@ -19,9 +19,9 @@ const config: Config = {
         dark: '#1A1A1A',            // Deep black text
         primary_bg: '#f9f9f9',       // Background sections
         divider: '#e0e0e0',         // Dividers, outlines
-        text_primary: '#333333',        // Base paragraph text
-        text_secondary: '#6B7280',           // Secondary text (gray-600)
-        text_white: '#FFFFFF',           // White (default)
+        primaryText: '#333333',        // Base paragraph text
+        secondaryText: '#6B7280',           // Secondary text (gray-600)
+        whiteText: '#FFFFFF',           // White (default)
         accentBlue: '#007BFF',      // Link / hover
         warning: '#FBBF24',         // Icons / highlights
         notification_dark: '#1e293b',        // Footer or strong sections

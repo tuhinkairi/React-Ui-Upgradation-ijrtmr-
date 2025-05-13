@@ -27,14 +27,14 @@ export default function FeaturesSection1() {
   ];
 
   return (
-    <section className="bg-dark px-4 text-white max-w-5xl mx-auto my-16 rounded-md">
+    <section className="bg-dark px-4 text-white max-w-5xl mx-auto mt-16 rounded-md">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
         {features.map((feature, idx) => (
           <div key={idx} className="rounded-2xl bg-dark p-6">
             <h3 className="text-xl font-semibold mb-4">{feature.title}</h3>
-            <ul className="space-y-2 text-gray-300 text-sm">
+            <ul className="space-y-2 text-divider text-sm">
               {feature.items.map((item, i) => (
-                <li key={i} className="list-disc list-inside">{item}</li>
+                <li key={i} className="list-disc ml-4">{item}</li>
               ))}
             </ul>
           </div>

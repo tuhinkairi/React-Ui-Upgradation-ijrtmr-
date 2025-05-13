@@ -1,3 +1,4 @@
+import AboutSection from "../../components/AboutSection";
 import FeaturesSection1 from "../../components/FeatureSection1";
 import Hero from "../../components/Hero";
 import Navbar from "../../components/NavBar";
@@ -10,6 +11,7 @@ export default function Home() {
       <Hero />
       <TickerBar/>
       <FeaturesSection1/>
+      <AboutSection/>
     </section>
   )
 }

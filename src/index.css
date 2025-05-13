@@ -3,7 +3,7 @@
 @config "../tailwind.config.ts";
 
 body{
-    @apply text-dark bg-white text-sm
+    @apply text-primaryText bg-white text-sm
 }
 button{
     cursor: pointer;
