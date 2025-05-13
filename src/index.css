@@ -3,8 +3,12 @@
 @config "../tailwind.config.ts";
 
 body{
-    @apply text-text_dark bg-white text-sm
+    @apply text-dark bg-white text-sm
 }
 button{
     cursor: pointer;
+}
+/* classes custom */
+.clip-arrow {
+   clip-path: polygon(0 0 ,0 0, calc(100% - 15px) 0, 100% 50%, calc(100% - 15px) 100%, 0 100%);
 }

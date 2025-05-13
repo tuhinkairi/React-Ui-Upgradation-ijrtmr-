@@ -1,12 +1,22 @@
 import type { Config } from 'tailwindcss';
 
 const config: Config = {
+  content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      animation: {
+        marquee: "marquee 30s linear infinite",
+      },
+      keyframes: {
+        marquee: {
+          "0%": { transform: "translateX(0%)" },
+          "100%": { transform: "translateX(-100%)" },
+        },
+      },
       colors: {
         primary: '#FF8333',         // CTAs, highlights
         primaryHover: '#ff7519',    // CTA hover
-        text_dark: '#1A1A1A',            // Deep black text
+        dark: '#1A1A1A',            // Deep black text
         primary_bg: '#f9f9f9',       // Background sections
         divider: '#e0e0e0',         // Dividers, outlines
         text_primary: '#333333',        // Base paragraph text
