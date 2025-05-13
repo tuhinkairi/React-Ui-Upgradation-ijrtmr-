@@ -1,1 +1,10 @@
+
 @import "tailwindcss";
+@config "../tailwind.config.ts";
+
+body{
+    @apply text-text_dark bg-white text-sm
+}
+button{
+    cursor: pointer;
+}
