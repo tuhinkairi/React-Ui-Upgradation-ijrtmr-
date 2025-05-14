@@ -22,7 +22,7 @@ export default function Hero() {
           Refereed Journal
         </p>
 
-        <button className="inline-flex items-center gap-2 bg-primary hover:bg-primary-hover text-white px-6 py-3 rounded-md text-base font-medium shadow-sm transition">
+        <button className="primaryBtn">
           Submit Paper <ArrowRight className="w-4 h-4" />
         </button>
       </div>

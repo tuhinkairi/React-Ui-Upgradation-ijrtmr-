@@ -14,13 +14,14 @@ const config: Config = {
         },
       },
       colors: {
-        primary: '#FF8333',         // CTAs, highlights
-        primaryHover: '#ff7519',    // CTA hover
+        primary: '#FF8C42',         // CTAs, highlights
+        primaryHover: '#FF8333',    // CTA hover
         dark: '#1A1A1A',            // Deep black text
         primary_bg: '#f9f9f9',       // Background sections
         divider: '#e0e0e0',         // Dividers, outlines
         primaryText: '#333333',        // Base paragraph text
         secondaryText: '#6B7280',           // Secondary text (gray-600)
+        paragraph: '#6B7280',           // Secondary text (gray-600)
         whiteText: '#FFFFFF',           // White (default)
         accentBlue: '#007BFF',      // Link / hover
         warning: '#FBBF24',         // Icons / highlights

@@ -6,9 +6,14 @@ body{
     @apply  bg-white text-sm
 }
 button{
-    cursor: pointer;
+    @apply cursor-pointer rounded-md bg-primary hover:bg-primary-hover
 }
+
 /* classes custom */
 .clip-arrow {
    clip-path: polygon(0 0 ,0 0, calc(100% - 15px) 0, 100% 50%, calc(100% - 15px) 100%, 0 100%);
+}
+
+.primaryBtn{
+    @apply inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-hover text-white px-6 py-3 rounded-md text-base font-medium shadow-sm transition
 }
