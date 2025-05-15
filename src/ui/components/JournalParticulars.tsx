@@ -6,7 +6,7 @@ const JournalParticulars: React.FC = () => {
       <h2 className="text-2xl font-bold mb-8">Journal Particulars</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm leading-relaxed">
         <div className="space-y-2">
-          <p className='text-paragraph'><span className="font-semibold text-primary-text">Title :</span> International Journal Of Scientific Research In Engineering & Technology</p>
+          <p className='text-paragraph'><span className="font-semibold text-primary-text">Title :</span> npm International Journal Of Scientific Research In Engineering & Technology</p>
           <p className='text-paragraph'><span className="font-semibold text-primary-text">Publication Format :</span> Online</p>
           <p className='text-paragraph'><span className="font-semibold text-primary-text">Email-ID :</span> editorinchief@ijsreat.com</p>
           <p className='text-paragraph'><span className="font-semibold text-primary-text">Editor–in–Chief :</span> Dr. S. Sivaganesan (Professor & Head)</p>

@@ -14,6 +14,10 @@ const config: Config = {
         },
       },
       colors: {
+        peach: {
+          100: '#FCEFE5',
+          200: '#F5D5B2',
+        },
         primary: '#FF8C42',         // CTAs, highlights
         primaryHover: '#FF8333',    // CTA hover
         dark: '#1A1A1A',            // Deep black text
