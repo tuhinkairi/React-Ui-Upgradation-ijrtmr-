@@ -2,6 +2,7 @@ import AboutSection from "../../components/AboutSection";
 import AuthorFeaturesGrid from "../../components/AutherFeatureGrid";
 import FeaturesSection1 from "../../components/FeatureSection1";
 import Hero from "../../components/Hero";
+import IJSREATFeaturesSection from "../../components/IJSREATFeaturesSection";
 import JournalLayout from "../../components/layout/JournalLayout";
 import Navbar from "../../components/NavBar";
 import TickerBar from "../../components/TickerBar";
@@ -16,6 +17,7 @@ export default function Home() {
       <AboutSection/>
       <JournalLayout/>
       <AuthorFeaturesGrid/>
+      <IJSREATFeaturesSection/>
     </section>
   )
 }

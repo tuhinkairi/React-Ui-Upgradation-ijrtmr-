@@ -35,7 +35,7 @@ const features = [
 
 export default function AuthorFeaturesGrid() {
   return (
-    <div className=" mx-16 py-10">
+    <div className=" mx-16 mt-8">
       <h2 className="text-3xl font-semibold text-gray-900 mb-6">For Authors</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
         {features.map((feature, idx) => (
