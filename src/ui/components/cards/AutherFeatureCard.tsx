@@ -1,7 +1,7 @@
 
 export default function AuthorFeatureCard({ icon, title, description }:{icon:string, title:string, description:string }) {
   return (
-    <div className="bg-white border border-gray-200 rounded-xl p-5   shadow-sm hover:shadow-md transition">
+    <div className="bg-white border border-gray-200 rounded-md p-5   shadow-sm hover:shadow-md transition">
       <div className="mb-3">
         <img src={icon} alt={title} className="h-10 w-10" />
       </div>
