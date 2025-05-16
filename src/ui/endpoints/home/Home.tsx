@@ -6,6 +6,7 @@ import IJSREATFeaturesSection from "../../components/IJSREATFeaturesSection";
 import JournalLayout from "../../components/layout/JournalLayout";
 import Navbar from "../../components/NavBar";
 import TickerBar from "../../components/TickerBar";
+import WhyChooseIJSREAT from "../../components/WhyChooseIJSREAT";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
       <JournalLayout/>
       <AuthorFeaturesGrid/>
       <IJSREATFeaturesSection/>
+      <WhyChooseIJSREAT/>
     </section>
   )
 }
