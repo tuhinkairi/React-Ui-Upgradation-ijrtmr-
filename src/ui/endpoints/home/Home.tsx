@@ -1,4 +1,5 @@
 import AboutSection from "../../components/AboutSection";
+import AuthorFeaturesGrid from "../../components/AutherFeatureGrid";
 import FeaturesSection1 from "../../components/FeatureSection1";
 import Hero from "../../components/Hero";
 import JournalLayout from "../../components/layout/JournalLayout";
@@ -14,6 +15,7 @@ export default function Home() {
       <FeaturesSection1/>
       <AboutSection/>
       <JournalLayout/>
+      <AuthorFeaturesGrid/>
     </section>
   )
 }
