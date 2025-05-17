@@ -14,7 +14,7 @@ export default function RecentConferenceCard() {
       <div className="mt-6">
         <button className="w-full primaryBtn">
           Submit Inquiry
-          <ArrowRight size={16} />
+          <ArrowRight size={16}/>
         </button>
       </div>
     </div>
