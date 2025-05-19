@@ -1,5 +1,6 @@
 import AboutSection from "../../components/AboutSection";
 import AuthorFeaturesGrid from "../../components/AutherFeatureGrid";
+import EditorialFeatures from "../../components/EditorialFeatures";
 import FeaturesSection1 from "../../components/FeatureSection1";
 import Hero from "../../components/Hero";
 import IJSREATFeaturesSection from "../../components/IJSREATFeaturesSection";
@@ -20,6 +21,7 @@ export default function Home() {
       <AuthorFeaturesGrid/>
       <IJSREATFeaturesSection/>
       <WhyChooseIJSREAT/>
+      <EditorialFeatures/>
     </section>
   )
 }
