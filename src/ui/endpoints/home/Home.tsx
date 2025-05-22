@@ -3,6 +3,7 @@ import AuthorFeaturesGrid from "../../components/AutherFeatureGrid";
 import EditorialFeatures from "../../components/EditorialFeatures";
 import FAQAccordion from "../../components/FAQAccordion";
 import FeaturesSection1 from "../../components/FeatureSection1";
+import Footer from "../../components/Footer";
 import Hero from "../../components/Hero";
 import IJSREATFeaturesSection from "../../components/IJSREATFeaturesSection";
 import IndexingPartners from "../../components/IndexingPartner";
@@ -30,6 +31,7 @@ export default function Home() {
       <SubmitPaperSection/>
       <JournalsCompendium/>
       <FAQAccordion/>
+      <Footer/>
     </section>
   )
 }

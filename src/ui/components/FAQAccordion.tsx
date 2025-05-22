@@ -21,7 +21,7 @@ const FAQAccordion = () => {
   };
 
   return (
-    <section className="max-w-6xl mx-auto px-4 py-12">
+    <section className="max-w-6xl mx-auto px-4 py-12 bg-white">
       <h2 className="text-3xl font-semibold text-center text-dark mb-8">
         Frequently Asked Questions
       </h2>
