@@ -1,6 +1,7 @@
 import AboutSection from "../../components/AboutSection";
 import AuthorFeaturesGrid from "../../components/AutherFeatureGrid";
 import EditorialFeatures from "../../components/EditorialFeatures";
+import FAQAccordion from "../../components/FAQAccordion";
 import FeaturesSection1 from "../../components/FeatureSection1";
 import Hero from "../../components/Hero";
 import IJSREATFeaturesSection from "../../components/IJSREATFeaturesSection";
@@ -28,6 +29,7 @@ export default function Home() {
       <IndexingPartners/>
       <SubmitPaperSection/>
       <JournalsCompendium/>
+      <FAQAccordion/>
     </section>
   )
 }
