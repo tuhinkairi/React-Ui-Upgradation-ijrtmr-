@@ -5,6 +5,7 @@ import FeaturesSection1 from "../../components/FeatureSection1";
 import Hero from "../../components/Hero";
 import IJSREATFeaturesSection from "../../components/IJSREATFeaturesSection";
 import IndexingPartners from "../../components/IndexingPartner";
+import JournalsCompendium from "../../components/JournalsCompendium";
 import JournalLayout from "../../components/layout/JournalLayout";
 import Navbar from "../../components/NavBar";
 import SubmitPaperSection from "../../components/SubmitPaperSection";
@@ -26,6 +27,7 @@ export default function Home() {
       <EditorialFeatures/>
       <IndexingPartners/>
       <SubmitPaperSection/>
+      <JournalsCompendium/>
     </section>
   )
 }

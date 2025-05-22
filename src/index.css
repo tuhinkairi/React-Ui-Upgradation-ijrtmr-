@@ -6,7 +6,7 @@ body{
     @apply  bg-white text-sm
 }
 button{
-    @apply cursor-pointer rounded-md bg-primary hover:bg-primary-hover
+    @apply cursor-pointer rounded-md 
 }
 
 /* classes custom */
