@@ -3,7 +3,7 @@ import React from 'react';
 const JournalParticulars: React.FC = () => {
   return (
     <section className="">
-      <h2 className="text-2xl font-bold mb-8">Journal Particulars</h2>
+      <h2 className="text-3xl font-semibold mb-8">Journal Particulars</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm leading-relaxed">
         <div className="space-y-2">
           <p className='text-paragraph'><span className="font-semibold text-primary-text">Title :</span> npm International Journal Of Scientific Research In Engineering & Technology</p>

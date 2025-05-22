@@ -30,7 +30,7 @@ export default function WhyChooseIJSREAT() {
 
         {/* Textual content */}
         <div>
-          <h2 className="text-2xl md:text-3xl font-bold text-dark mb-6">
+          <h2 className="text-2xl md:text-3xl font-semibold text-dark mb-6">
             Why choose the IJSREAT journal?
           </h2>
           <ul className="space-y-4">

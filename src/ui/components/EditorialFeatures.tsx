@@ -13,12 +13,12 @@ const features = [
 
 const EditorialFeatures: React.FC = () => {
   return (
-    <section className="py-12 pt-8  px-6 lg:px-24 bg-[#f9f9f9] ">
-      <h2 className="mb-8 text-2xl md:text-3xl font-bold ">
+    <section className="py-12 pt-8  px-6 lg:px-16 bg-[#f9f9f9] ">
+      <h2 className="mb-8 text-2xl md:text-3xl font-semibold ">
         Enhanced Features of an Editorial Management System<br />
         <span >(Online submission)</span>
       </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
         {features.map((feature, idx) => (
           <div
             key={idx}

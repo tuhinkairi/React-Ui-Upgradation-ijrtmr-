@@ -9,7 +9,7 @@ export default function AboutSection() {
 
         {/* Text Content */}
         <div className="w-full md:w-1/2">
-          <h2 className="text-2xl font-semibold text-primaryText mb-4">Behind the Brand</h2>
+          <h2 className="text-3xl font-semibold text-primaryText mb-4">Behind the Brand</h2>
           <p className="text-secondaryText mb-4 text-sm leading-relaxed">
             International Journal of Scientific Research in Engineering & Technology is (e-ISSN: 2583–1240) Bi-monthly, international peer-reviewed, open-access and multidisciplinary online journal published for the enhancement of research in various disciplines of Science, Engineering & Technologies.
           </p>

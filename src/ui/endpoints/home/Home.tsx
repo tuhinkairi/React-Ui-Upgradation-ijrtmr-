@@ -7,6 +7,7 @@ import IJSREATFeaturesSection from "../../components/IJSREATFeaturesSection";
 import IndexingPartners from "../../components/IndexingPartner";
 import JournalLayout from "../../components/layout/JournalLayout";
 import Navbar from "../../components/NavBar";
+import SubmitPaperSection from "../../components/SubmitPaperSection";
 import TickerBar from "../../components/TickerBar";
 import WhyChooseIJSREAT from "../../components/WhyChooseIJSREAT";
 
@@ -24,6 +25,7 @@ export default function Home() {
       <WhyChooseIJSREAT/>
       <EditorialFeatures/>
       <IndexingPartners/>
+      <SubmitPaperSection/>
     </section>
   )
 }
