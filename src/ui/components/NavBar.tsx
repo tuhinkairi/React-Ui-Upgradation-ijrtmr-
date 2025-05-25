@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -13,13 +14,13 @@ const Navbar = () => {
 
       {/* Nav Links */}
       <ul className="flex items-center space-x-6 font-medium">
-        <li className="text-primary"><a href="/">Home</a></li>
-        <li className="hover:text-primary"><a href="/about-us">About Us</a></li>
-        <li className="hover:text-primary"><a href="/for-authors">For Authors</a></li>
-        <li className="hover:text-primary"><a href="/current-issue">Current Issue</a></li>
-        <li className="hover:text-primary"><a href="/archives">Archives</a></li>
-        <li className="hover:text-primary"><a href="/conference">Conference</a></li>
-        <li className="hover:text-primary"><a href="/contact-us">Contact Us</a></li>
+        <li className="hover:text-primary"><NavLink className={({isActive})=>isActive?'text-primary':""} to="/">Home</NavLink></li>
+        <li className="hover:text-primary"><NavLink className={({isActive})=>isActive?'text-primary':""} to="/about-us">About Us</NavLink></li>
+        <li className="hover:text-primary"><NavLink className={({isActive})=>isActive?'text-primary':""} to="/for-authors">For Authors</NavLink></li>
+        <li className="hover:text-primary"><NavLink className={({isActive})=>isActive?'text-primary':""} to="/current-issue">Current Issue</NavLink></li>
+        <li className="hover:text-primary"><NavLink className={({isActive})=>isActive?'text-primary':""} to="/archives">Archives</NavLink></li>
+        <li className="hover:text-primary"><NavLink className={({isActive})=>isActive?'text-primary':""} to="/conference">Conference</NavLink></li>
+        <li className="hover:text-primary"><NavLink className={({isActive})=>isActive?'text-primary':""} to="/contact-us">Contact Us</NavLink></li>
       </ul>
 
       {/* CTA Buttons */}
