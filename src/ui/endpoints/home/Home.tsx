@@ -9,7 +9,6 @@ import IJSREATFeaturesSection from "../../components/IJSREATFeaturesSection";
 import IndexingPartners from "../../components/IndexingPartner";
 import JournalsCompendium from "../../components/JournalsCompendium";
 import JournalLayout from "../../components/layout/JournalLayout";
-import Navbar from "../../components/NavBar";
 import SubmitPaperSection from "../../components/SubmitPaperSection";
 import TickerBar from "../../components/TickerBar";
 import WhyChooseIJSREAT from "../../components/WhyChooseIJSREAT";
@@ -17,7 +16,6 @@ import WhyChooseIJSREAT from "../../components/WhyChooseIJSREAT";
 export default function Home() {
   return (
     <section className="">
-      <Navbar />
       <Hero />
       <TickerBar/>
       <FeaturesSection1/>
