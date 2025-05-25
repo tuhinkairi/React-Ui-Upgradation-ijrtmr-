@@ -1,9 +1,11 @@
+import ArchiveLayout from "../../components/layout/ArchiveLayout"
+import ArchiveFirst from "../sections/ArchiveFirst"
 
 function Archives() {
   return (
-    <div>
-      this is archives
-    </div>
+    <ArchiveLayout>
+      <ArchiveFirst/>
+    </ArchiveLayout>
   )
 }
 
