@@ -26,7 +26,7 @@ const IndexingPartnerArchive: React.FC = () => {
             <img
               key={partner.indexing_id}
               src={partner.indexing_image_url}
-              alt={partner.indexing_name}
+              alt={partner.indexing_name || "partner Image"}
               className="h-14 w-auto object-contain hover:scale-110 transition  ease-in-out"
             />
           </a>

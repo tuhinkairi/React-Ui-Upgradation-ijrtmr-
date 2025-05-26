@@ -19,8 +19,7 @@ export default function ArchiveSection() {
   };
 
   return (
-    <div className="py-12">
-      <h2 className="text-3xl font-bold mb-6">ARCHIVES</h2>
+    <div className="mb-12">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {volumes.map((volume, index) => (
           <div key={index} className="relative border rounded-md">

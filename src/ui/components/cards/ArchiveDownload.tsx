@@ -1,4 +1,5 @@
 import { Download } from "lucide-react";
+import ArchiveBtn from "../Btns/ArchiveBtn";
 
 export default function ArchiveDownload() {
   return (
@@ -6,13 +7,13 @@ export default function ArchiveDownload() {
         <h3 className="text-lg font-semibold mb-4">Download</h3>
         
         <div className="space-y-4">
-          <button className="w-full flex items-center justify-between bg-gradient-to-r from-orange-500 to-orange-400 text-white font-medium py-2 px-4 rounded-md shadow hover:brightness-110 transition">
+          <ArchiveBtn>
             Manuscript Template <Download size={16} />
-          </button>
+            </ArchiveBtn>          
 
-          <button className="w-full flex items-center justify-between bg-gradient-to-r from-orange-500 to-orange-400 text-white font-medium py-2 px-4 rounded-md shadow hover:brightness-110 transition">
+          <ArchiveBtn>
             Copyright Form <Download size={16} />
-          </button>
+          </ArchiveBtn>
         </div>
       </div>
   );

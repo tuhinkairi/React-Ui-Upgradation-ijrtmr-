@@ -1,4 +1,3 @@
-import React from 'react'
 import ArchiveSection from '../archive/components/ArchiveSection'
 import IndexingPartnerArchive from '../archive/components/IndexingPartnerArchive'
 
