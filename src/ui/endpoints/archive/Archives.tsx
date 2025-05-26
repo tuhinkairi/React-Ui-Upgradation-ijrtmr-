@@ -1,10 +1,10 @@
+import { Outlet } from "react-router-dom"
 import ArchiveLayout from "../../components/layout/ArchiveLayout"
-import ArchiveFirst from "../sections/ArchiveFirst"
 
 function Archives() {
   return (
     <ArchiveLayout>
-      <ArchiveFirst/>
+      <Outlet/> 
     </ArchiveLayout>
   )
 }

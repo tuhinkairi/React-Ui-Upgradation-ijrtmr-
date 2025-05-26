@@ -7,7 +7,7 @@ export default function ArchiveSubmitPaperCard() {
     <div className="max-w-xs rounded-2xl shadow-md bg-white p-6 space-y-4 transition-transform hover:scale-[1.02]">
       {/* Image */}
       <img
-        src="./submitPaper.png" // Replace with your image path
+        src="/submitPaper.png" // Replace with your image path
         alt="Submit Illustration"
         className="w-full h-auto rounded-lg"
       />
