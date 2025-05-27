@@ -39,28 +39,28 @@ export default function ArchiveVolumes() {
       {/* Volume Navigation */}
       <div className="flex flex-wrap justify-center items-center gap-2 gap-x-5 text-base font-medium ">
         <button><GrFormPrevious className="text-primary-text"/></button>
-        <span className={`cursor-pointer ${active=="Volume 6, (2025)" && "text-primary font-semibold text-lg"}`}>Volume 6, (2025)</span>
-        <span className={`cursor-pointer ${active=="Volume 4, (2025)" && "text-primary font-semibold text-lg"}`}>Volume 4, (2025)</span>
-        <span className={`cursor-pointer ${active=="Volume 5, (2025)" && "text-primary font-semibold text-lg"}`}>Volume 5, (2025)</span>
-        <span className={`cursor-pointer ${active=="Volume 3, (2025)" && "text-primary font-semibold text-lg"}`}>Volume 3, (2025)</span>
+        <span className={`cursor-pointer ${active=="Volume 6, (2025)" && "text-primary font-semibold text-2xl"}`}>Volume 6, (2025)</span>
+        <span className={`cursor-pointer ${active=="Volume 4, (2025)" && "text-primary font-semibold text-2xl"}`}>Volume 4, (2025)</span>
+        <span className={`cursor-pointer ${active=="Volume 5, (2025)" && "text-primary font-semibold text-2xl"}`}>Volume 5, (2025)</span>
+        <span className={`cursor-pointer ${active=="Volume 3, (2025)" && "text-primary font-semibold text-2xl"}`}>Volume 3, (2025)</span>
         <button><GrFormNext className="text-primary-text"/></button>
-        <span className="cursor-pointer text-gray-500">See all volumes </span>
+        <span className="cursor-pointer text-primary">See all volumes </span>
       </div>
 
       {/* Issue Tabs */}
       <div className="flex items-center justify-between">
         <div className="flex gap-2">
           {["Issue 3", "Issue 2", "Issue 1"].map((issue) => (
-            <button
+            <ArchiveBtn
               key={issue}
-              className={`px-4 py-1.5 rounded-full text-sm font-semibold ${
+              className={`max-w-fit gap-1 ${
                 issue === "Issue 3"
                   ? "bg-primary text-white"
                   : "bg-gray-100 text-primary-text"
               }`}
             >
               {issue}
-            </button>
+            </ArchiveBtn>
           ))}
         </div>
 
@@ -70,15 +70,15 @@ export default function ArchiveVolumes() {
       </div>
 
       {/* Search */}
-      <div className="flex items-center gap-2 mt-2">
+      <div className="flex items-center gap-2 mt-2 w-4/5">
         <input
           type="text"
           placeholder="Search by Paper ID, Paper Name"
           className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm"
         />
-        <button className="bg-primary text-white px-4 py-2 rounded-md text-sm font-medium flex items-center gap-1">
+        <ArchiveBtn className="max-w-fit gap-1">
           <Search size={16} /> Search
-        </button>
+        </ArchiveBtn>
       </div>
 
       {/* Paper Cards */}
@@ -91,7 +91,7 @@ export default function ArchiveVolumes() {
             <div className="flex justify-between items-start">
               <Link
                 to="#"
-                className="text-xl font-serif  text-primary group-hover:underline max-w-5/6"
+                className="text-xl font-serif  text-primary hover:underline max-w-5/6"
               >
                 {paper.title} <span className="text-orange-400">↗</span>
               </Link>
@@ -100,7 +100,7 @@ export default function ArchiveVolumes() {
               </button>
             </div>
 
-            <div className="text-sm text-gray-600">
+            <div className=" text-primary-text text-base leading-8">
               Author: {paper.author}
               <br />
               Published Online: {paper.date}
@@ -109,7 +109,7 @@ export default function ArchiveVolumes() {
             </div>
 
             {/* Metrics */}
-            <div className="flex items-center gap-6 text-xs text-gray-500 mt-1">
+            <div className="flex items-center gap-6  text-gray-500 mt-1">
               <div className="flex items-center gap-1">
                 <Eye size={14} /> 256 Views
               </div>
