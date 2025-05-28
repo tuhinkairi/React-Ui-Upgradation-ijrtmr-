@@ -1,1 +1,19 @@
+
 @import "tailwindcss";
+@config "../tailwind.config.ts";
+
+body{
+    @apply  bg-white text-sm
+}
+button{
+    @apply cursor-pointer rounded-md 
+}
+
+/* classes custom */
+.clip-arrow {
+   clip-path: polygon(0 0 ,0 0, calc(100% - 15px) 0, 100% 50%, calc(100% - 15px) 100%, 0 100%);
+}
+
+.primaryBtn{
+    @apply inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-hover text-white px-6 py-3 rounded-md text-base font-medium shadow-sm transition
+}
