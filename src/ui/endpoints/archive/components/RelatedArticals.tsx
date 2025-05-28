@@ -20,7 +20,7 @@ const relatedArticles = [
 
 const RelatedArticles = () => {
   return (
-    <div className=" mx-auto ">
+    <div className=" mx-auto mt-12">
       <h2 className="text-2xl font-semibold mb-4">Related Articles</h2>
       <div className="grid md:grid-cols-3 gap-6">
         {relatedArticles.map((article, index) => (

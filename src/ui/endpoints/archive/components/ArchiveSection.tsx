@@ -1,6 +1,7 @@
 // components/ArchiveSection.tsx
 
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const volumes = [
   { year: 2025, label: "Volume 6" },
@@ -38,10 +39,10 @@ export default function ArchiveSection() {
               <div className="bg-white p-4 border-t text-sm absolute w-full z-10 shadow-md rounded-md">
                 {/* Placeholder dropdown content */}
                 <ul className="list-disc pl-4">
-                  <li>Issue 1 – January</li>
-                  <li>Issue 2 – April</li>
-                  <li>Issue 3 – July</li>
-                  <li>Issue 4 – October</li>
+                  <Link to="volumn"><li>Issue 1 – January</li></Link>
+                  <Link to="volumn"><li>Issue 2 – April</li></Link>
+                  <Link to="volumn"><li>Issue 3 – July</li></Link>
+                  <Link to="volumn"><li>Issue 4 – October</li></Link>
                 </ul>
               </div>
             )}

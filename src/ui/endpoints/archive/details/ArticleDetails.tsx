@@ -2,9 +2,18 @@ import { FileDown, Share2 } from "lucide-react";
 import ArchiveBtn from "../../../components/Btns/ArchiveBtn";
 import { FaQuoteLeft } from "react-icons/fa";
 import { IoReload } from "react-icons/io5";
+import { useState } from "react";
+import FullArtical from "./FullArtical";
 import RelatedArticles from "../components/RelatedArticals";
+import References from "./References";
+import Citations from "./Citations";
+import ArticleMetrics from "./ArticleMetrics";
+import Licensing from "./Licensing";
+
+type TabOption = "Full Article" | "References" | "Citations" | "Metrics" | "Licensing";
 
 const ArticleDetails = () => {
+  const [currentItem, setCurrentItem] = useState<TabOption>("Full Article")
   return (
     <div className="mx-auto  bg-white space-y-6 p-5">
       {/* Header + PDF Button */}
@@ -43,7 +52,7 @@ const ArticleDetails = () => {
         >
           ↗ https://doi.org/10.1080/00051144.2025.2476806
         </a>
-        <button className="bg-[#995428] text-white px-3 py-2 rounded-md font-semibold flex items-center justify-center space-x-3">
+        <button className="bg-[#995428] text-white px-3 py-2 rounded-md font-semibold flex items-center justify-center space-x-3 text-sm">
           <span>
             Check for Updates</span> <IoReload height={20} />
         </button>
@@ -57,8 +66,9 @@ const ArticleDetails = () => {
         {["Full Article", "References", "Citations", "Metrics", "Licensing"].map(
           (tab, idx) => (
             <button
+              onClick={() => setCurrentItem(tab as TabOption)}
               key={idx}
-              className={`pb-2 ${tab === "Full Article"
+              className={`pb-2 ${tab === currentItem
                   ? "text-primary font-semibold border-b-2 border-primary rounded-none"
                   : "text-primary-text"
                 }`}
@@ -69,45 +79,15 @@ const ArticleDetails = () => {
           )
         )}
       </div>
-
-      {/* Abstract */}
-      <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
-        <h3 className="font-medium text-base">Abstract</h3>
-        <p>
-          Antibiotic resistance is one of the most severe public health crises
-          that we face in current medical practice. Every year, at least 2.8
-          million people get an antibiotic-resistant infection, and more than
-          35,000 people die. In addition to the potential for serious morbidity
-          and mortality, antibiotic-resistant infections add unnecessary and
-          substantial costs to the healthcare system.
-        </p>
-        <p>
-          The impetus for finding solutions in what has been established as a
-          dire situation is overwhelmingly twofold: the necessity with which it
-          must be addressed gives doctors, patients, researchers, policymakers,
-          and caregivers the means to thoroughly address the subject, and the
-          consequences of inaction catapult researchers into a world of
-          microbial and evolutionary surveillance of unparalleled depth.
-        </p>
-        <p>
-          This review article discusses the historical, technical, and
-          futurological aspects of antibiotic resistance, presenting an
-          evidence-based collection of findings on resistance and the various
-          mechanisms of resistance that have evolved as a result of our use and
-          misuse of antibiotics.
-        </p>
-        <p>
-          The social, commercial, and economic implications of antibiotic use
-          and resistance must likewise be addressed through public health policy
-          and the motivation of those in the fields of medicine, epidemiology,
-          and microbiology. Alternative techniques to the use of antibiotics,
-          including vaccine development and phage therapy, are thoroughly
-          discussed as potential solutions to the current impasse.
-        </p>
-      </div>
+        
+      {currentItem === "Full Article" && <FullArtical/>}
+      {currentItem === "Citations" && <Citations/>}
+      {currentItem === "Licensing" && <Licensing/>}
+      {currentItem === "Metrics" && <ArticleMetrics/>}
+      {currentItem === "References" && <References/>}
       <RelatedArticles/>
     </div>
+
   );
 };
-
 export default ArticleDetails;

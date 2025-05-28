@@ -90,7 +90,7 @@ export default function ArchiveVolumes() {
           >
             <div className="flex justify-between items-start">
               <Link
-                to="#"
+                to="/archives/artical-details"
                 className="text-xl font-serif  text-primary hover:underline max-w-5/6"
               >
                 {paper.title} <span className="text-orange-400">↗</span>
