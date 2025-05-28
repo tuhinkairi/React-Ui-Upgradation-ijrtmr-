@@ -36,17 +36,35 @@ export default function ArchiveSection() {
               </span>
             </button>
             {openIndex === index && (
-              <div className="bg-white p-4 border-t text-sm absolute w-full z-10 shadow-md rounded-md">
-                {/* Placeholder dropdown content */}
-                <ul className="list-disc pl-4">
-                  <Link to="volumn"><li>Issue 1 – January</li></Link>
-                  <Link to="volumn"><li>Issue 2 – April</li></Link>
-                  <Link to="volumn"><li>Issue 3 – July</li></Link>
-                  <Link to="volumn"><li>Issue 4 – October</li></Link>
-                </ul>
+              <div className="absolute w-full z-10 border-t shadow-lg rounded-2xl border-2 bg-peach-100 mt-2">
+                <div className="p-4 space-y-2">
+                  <Link to="volumn" className="block hover:bg-peach-200 px-3 py-2 rounded-md transition-colors">
+                    <div className="flex items-center">
+                      <span className="w-2 h-2 bg-primary rounded-full mr-3"></span>
+                      Issue 1 – January
+                    </div>
+                  </Link>
+                  <Link to="volumn" className="block hover:bg-peach-200 px-3 py-2 rounded-md transition-colors">
+                    <div className="flex items-center">
+                      <span className="w-2 h-2 bg-primary rounded-full mr-3"></span>
+                      Issue 2 – April
+                    </div>
+                  </Link>
+                  <Link to="volumn" className="block hover:bg-peach-200 px-3 py-2 rounded-md transition-colors">
+                    <div className="flex items-center">
+                      <span className="w-2 h-2 bg-primary rounded-full mr-3"></span>
+                      Issue 3 – July
+                    </div>
+                  </Link>
+                  <Link to="volumn" className="block hover:bg-peach-200 px-3 py-2 rounded-md transition-colors">
+                    <div className="flex items-center">
+                      <span className="w-2 h-2 bg-primary rounded-full mr-3"></span>
+                      Issue 4 – October
+                    </div>
+                  </Link>
+                </div>
               </div>
-            )}
-          </div>
+            )}          </div>
         ))}
       </div>
     </div>

@@ -26,9 +26,34 @@ const papers = [
   },
 ];
 
+const volumes = [
+  "Volume 6, (2025)",
+  "Volume 4, (2025)",
+  "Volume 5, (2025)",
+  "Volume 3, (2025)",
+];
+
 export default function ArchiveVolumes() {
-  const [active, setActive] =useState<string>("Volume 3, (2025)");
-  const [volumeName, setVolumeName] = useState<string>("Volume 3, (2025)")
+  const [active, setActive] = useState<string>("Volume 3, (2025)");
+
+  const handleVolumeClick = (volume: string) => {
+    setActive(volume);
+  };
+
+  const handlePrevious = () => {
+    const currentIndex = volumes.indexOf(active);
+    if (currentIndex > 0) {
+      setActive(volumes[currentIndex - 1]);
+    }
+  };
+
+  const handleNext = () => {
+    const currentIndex = volumes.indexOf(active);
+    if (currentIndex < volumes.length - 1) {
+      setActive(volumes[currentIndex + 1]);
+    }
+  };
+
   return (
     <div className="mx-auto p-4 space-y-6">
       {/* Header */}
@@ -38,12 +63,17 @@ export default function ArchiveVolumes() {
 
       {/* Volume Navigation */}
       <div className="flex flex-wrap justify-center items-center gap-2 gap-x-5 text-base font-medium ">
-        <button><GrFormPrevious className="text-primary-text"/></button>
-        <span className={`cursor-pointer ${active=="Volume 6, (2025)" && "text-primary font-semibold text-2xl"}`}>Volume 6, (2025)</span>
-        <span className={`cursor-pointer ${active=="Volume 4, (2025)" && "text-primary font-semibold text-2xl"}`}>Volume 4, (2025)</span>
-        <span className={`cursor-pointer ${active=="Volume 5, (2025)" && "text-primary font-semibold text-2xl"}`}>Volume 5, (2025)</span>
-        <span className={`cursor-pointer ${active=="Volume 3, (2025)" && "text-primary font-semibold text-2xl"}`}>Volume 3, (2025)</span>
-        <button><GrFormNext className="text-primary-text"/></button>
+        <button onClick={handlePrevious}><GrFormPrevious className="text-primary-text"/></button>
+        {volumes.map((volume) => (
+          <span
+            key={volume}
+            onClick={() => handleVolumeClick(volume)}
+            className={`cursor-pointer ${active === volume && "text-primary font-semibold text-2xl"}`}
+          >
+            {volume}
+          </span>
+        ))}
+        <button onClick={handleNext}><GrFormNext className="text-primary-text"/></button>
         <span className="cursor-pointer text-primary">See all volumes </span>
       </div>
 
