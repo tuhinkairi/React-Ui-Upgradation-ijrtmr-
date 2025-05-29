@@ -14,6 +14,11 @@ export default function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/about" element={<Archives />}/>
+        <Route path="/for-authors" element={<Archives />}/>
+        <Route path="/current-issue" element={<Archives />}/>
+        <Route path="/conference" element={<Archives />}/>
+        <Route path="/contact-us" element={<Archives />}/>
         <Route path="/archives" element={<Archives />}>
           <Route index element={<ArchiveFirst />} />
           <Route path=":volumes" element={<ArchiveVolumes />} />
