@@ -2,7 +2,7 @@ import { ArrowRight } from 'lucide-react';
 
 export default function RecentConferenceCard() {
   return (
-    <div className="max-w-md mx-auto bg-white rounded-md shadow-[0px_0px_40px_5px_rgba(0,0,0,0.08)] p-6">
+    <div className="max-w-md mx-auto bg-white rounded-2xl shadow-lg p-6">
       <h3 className="text-center text-lg font-semibold text-black mb-4">Recent Conferences</h3>
 
       <div className="text-sm text-gray-800 space-y-1">

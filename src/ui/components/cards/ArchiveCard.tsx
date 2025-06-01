@@ -10,7 +10,7 @@ const archives = [
 
 export default function ArchiveCard() {
   return (
-    <div className="max-w-md mx-auto bg-white rounded-md shadow-[0px_0px_40px_5px_rgba(0,0,0,0.08)] p-6">
+    <div className="w-full bg-white rounded-md shadow-[0px_0px_40px_5px_rgba(0,0,0,0.08)] p-6">
       <h3 className="text-center text-lg font-semibold text-black mb-4">Archive</h3>
       <ul className="list-disc list-inside space-y-2 text-gray-800 text-sm">
         {archives.map((entry, index) => (

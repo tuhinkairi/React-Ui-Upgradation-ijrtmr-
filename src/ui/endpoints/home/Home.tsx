@@ -6,28 +6,33 @@ import FeaturesSection1 from "../../components/FeatureSection1";
 import Hero from "../../components/Hero";
 import IJSREATFeaturesSection from "../../components/IJSREATFeaturesSection";
 import IndexingPartners from "../../components/IndexingPartner";
+import JournalParticulars from "../../components/JournalParticulars";
 import JournalsCompendium from "../../components/JournalsCompendium";
-import JournalLayout from "../../components/layout/JournalLayout";
+import WrapperLayout from "../../components/layout/WrapperLayout";
 import SubmitPaperSection from "../../components/SubmitPaperSection";
 import TickerBar from "../../components/TickerBar";
 import WhyChooseIJSREAT from "../../components/WhyChooseIJSREAT";
+import PublishProcess from "../../PublishProcess";
 
 export default function Home() {
   return (
     <section className="">
       <Hero />
-      <TickerBar/>
-      <FeaturesSection1/>
-      <AboutSection/>
-      <JournalLayout/>
-      <AuthorFeaturesGrid/>
-      <IJSREATFeaturesSection/>
-      <WhyChooseIJSREAT/>
-      <EditorialFeatures/>
-      <IndexingPartners/>
-      <SubmitPaperSection/>
-      <JournalsCompendium/>
-      <FAQAccordion/>
+      <TickerBar />
+      <FeaturesSection1 />
+      <AboutSection />
+      <WrapperLayout>
+        <JournalParticulars />
+        <PublishProcess />
+      </WrapperLayout>
+      <AuthorFeaturesGrid />
+      <IJSREATFeaturesSection />
+      <WhyChooseIJSREAT />
+      <EditorialFeatures />
+      <IndexingPartners />
+      <SubmitPaperSection />
+      <JournalsCompendium />
+      <FAQAccordion />
     </section>
   )
 }
