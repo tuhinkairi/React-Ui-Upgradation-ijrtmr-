@@ -4,6 +4,7 @@ import ArchiveDownload from '../cards/ArchiveDownload'
 import AutherCardArchive from '../cards/AutherCardArchive'
 import { useLocation } from 'react-router-dom'
 import RecentConferenceCard from '../cards/RecentConferenceCard'
+import QuickLinks from '../cards/ListingSection'
 
 export default function CommonLayout({children}:{children:React.ReactNode}) {
   const path = useLocation().pathname
@@ -15,6 +16,7 @@ export default function CommonLayout({children}:{children:React.ReactNode}) {
       </div>
       <div className='space-y-6 flex flex-col items-end'>
         <ArchiveSubmitPaperCard/>
+        <QuickLinks/>
         <ArchiveDownload/>
         {!path.includes("about") && <AutherCardArchive/>}
         <RecentConferenceCard/>

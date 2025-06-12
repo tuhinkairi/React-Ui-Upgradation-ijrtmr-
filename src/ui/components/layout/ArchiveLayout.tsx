@@ -1,7 +1,8 @@
 import React from 'react'
 import ArchiveSubmitPaperCard from '../cards/ArchiveSubmitPaperCard'
-import AutherCardArchive from '../cards/AutherCardArchive'
 import ArchiveDownload from '../cards/ArchiveDownload'
+import ListingSection from '../cards/ListingSection'
+import { policies, quickLinks } from '../../../data/listingSection'
 
 export default function ArchiveLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -12,8 +13,9 @@ export default function ArchiveLayout({ children }: { children: React.ReactNode 
       </div>
       <div className='space-y-6 flex flex-col items-end'>
         <ArchiveSubmitPaperCard/>
+        <ListingSection data={quickLinks} title='Quick Links'/>
         <ArchiveDownload/>
-        <AutherCardArchive/>
+        <ListingSection data={policies} title='policies'/>
       </div>
     </section>
   )

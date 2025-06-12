@@ -1,30 +1,28 @@
 // components/SubmitPaperCard.tsx
 
 import { ArrowUpRight } from "lucide-react";
+import PrimaryBtn from "../Btns/PrimaryBtn";
 
 export default function ArchiveSubmitPaperCard() {
   return (
-    <div className="max-w-xs rounded-2xl shadow-md bg-white p-6 space-y-4 transition-transform hover:scale-[1.02]">
-      {/* Image */}
+    <div className="max-w-xs w-full bg-white rounded-2xl shadowSprade overflow-hidden grid grid-rows-2">
       <img
-        src="/submitPaper.png" // Replace with your image path
-        alt="Submit Illustration"
-        className="w-full h-auto rounded-lg"
+        src="/submitPaper.png"
+        alt="Online Submission"
+        className="object-cover h-52 mx-auto"
       />
-
-      {/* Title & Description */}
-      <div>
-        <h3 className="text-lg font-semibold">Submit Paper</h3>
-        <p className=" mt-2 text-base">
-          Authors submit their profile <br />
-          Paper/Manuscript doc/docx
+      <div className="p-5">
+        <h3 className="text-xl font-semibold text-primary-text mb-2">Online Submission</h3>
+        <p className="text-sm text-gray-700 mb-5 leading-relaxed">
+          Submit your paper through our advanced editorial management system
+          anytime, from anywhere in the world.
         </p>
-      </div>
+        <PrimaryBtn>
+          Submit <ArrowUpRight size={16} />
 
-      {/* CTA Button */}
-      <button className="flex items-center justify-center gap-2 bg-peach-100 text-black text-sm font-medium py-2 px-4 rounded-lg border border-peach-200 hover:bg-peach-200 transition">
-        Submit <ArrowUpRight size={16} />
-      </button>
+        </PrimaryBtn>
+      </div>
     </div>
+
   );
 }

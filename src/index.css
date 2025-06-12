@@ -13,7 +13,15 @@ button{
 .clip-arrow {
    clip-path: polygon(0 0 ,0 0, calc(100% - 15px) 0, 100% 50%, calc(100% - 15px) 100%, 0 100%);
 }
-
+.shadowSprade{
+    @apply shadow-[0_0_40px_0_rgba(0,0,0,0.1)];
+}
+.borderPrimary{
+    @apply border border-[#f4b183];
+}
+.borderPrimaryHover{
+    @apply border border-[#f0f0f0] hover:bg-[#fae0d0];
+}
 .primaryBtn{
-    @apply inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-hover text-white px-6 py-3 rounded-md text-base font-medium shadow-sm transition
+    @apply inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-hover text-white px-6 py-3 rounded-md text-base font-medium shadow-sm transition;
 }

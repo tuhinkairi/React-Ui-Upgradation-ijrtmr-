@@ -2,6 +2,7 @@ import { Search, Eye, Download, Share2, SearchIcon } from "lucide-react";
 import { useState } from "react";
 import { GrFormNext, GrFormPrevious } from "react-icons/gr";
 import { Link } from "react-router-dom";
+import PrimaryBtn from "../../components/Btns/PrimaryBtn";
 import ArchiveBtn from "../../components/Btns/ArchiveBtn";
 
 const papers = [
@@ -83,14 +84,14 @@ export default function ArchiveVolumes() {
           {["Issue 3", "Issue 2", "Issue 1"].map((issue) => (
             <ArchiveBtn
               key={issue}
+              href={"/issues/"+issue}
+              label={issue}
               className={`max-w-fit gap-1 ${
                 issue === "Issue 3"
                   ? "bg-primary text-white"
                   : "bg-gray-100 text-primary-text"
               }`}
-            >
-              {issue}
-            </ArchiveBtn>
+            />
           ))}
         </div>
 
@@ -106,9 +107,9 @@ export default function ArchiveVolumes() {
           placeholder="Search by Paper ID, Paper Name"
           className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm"
         />
-        <ArchiveBtn className="max-w-fit gap-1">
+        <PrimaryBtn>
           <Search size={16} /> Search
-        </ArchiveBtn>
+        </PrimaryBtn>
       </div>
 
       {/* Paper Cards */}
@@ -157,9 +158,9 @@ export default function ArchiveVolumes() {
                 <button className="hover:underline">References</button>
               </div>
 
-              <ArchiveBtn className="max-w-fit gap-1">
+              <PrimaryBtn>
                 View PDF <Download size={16} />
-                </ArchiveBtn>
+                </PrimaryBtn>
             </div>
           </div>
         ))}
