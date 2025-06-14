@@ -1,10 +1,19 @@
+import { FileDown } from "lucide-react";
+import PrimaryBtn from "../../../components/Btns/PrimaryBtn";
 
 
 function FullArtical() {
   return (
     <section>
       <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
-        <h3 className="font-medium text-base">Abstract</h3>
+        <div className="flex justify-between items-center">
+
+        <h3 className="font-medium text-base">Abstract</h3> 
+        <PrimaryBtn className="whitespace-nowrap"> 
+            View PDF
+            <FileDown size={18} className="ml-4"/>
+        </PrimaryBtn>
+        </div>
         <p>
           Antibiotic resistance is one of the most severe public health crises
           that we face in current medical practice. Every year, at least 2.8

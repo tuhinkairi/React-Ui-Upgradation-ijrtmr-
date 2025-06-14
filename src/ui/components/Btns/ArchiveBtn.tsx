@@ -1,5 +1,5 @@
 import { Download } from 'lucide-react';
-const ArchiveBtn = ({ label, href, className }: { label: string; href: string, className?: string }) => {
+const ArchiveBtn = ({ label, href, className }: { label:string | React.ReactNode; href: string, className?: string }) => {
   return (
     <a
       href={href}
