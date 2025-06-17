@@ -1,24 +1,41 @@
 const ArticleMetrics = () => {
   const metrics = [
-    { label: "Views", value: "216", to: "to-blue-600", from:"from-blue-300" },
-    { label: "Citations", value: "0", to: "to-red-600", from:"from-red-300" },
-    { label: "Altmetric", value: "?", to: "to-yellow-600", from:"from-yellow-300" },
+    { label: "Views", value: "216", to: "to-cyan-700", from: "from-cyan-500" },
+    { label: "Citations", value: "0", to: "to-red-700", from: "from-red-500" },
   ];
 
   return (
     <div className="min-h-72">
       <h2 className="text-base font-semibold text-gray-700 mb-6">Article Metrics</h2>
-      <div className="flex flex-wrap justify-start gap-8">
+      <div className="flex flex-wrap justify-start gap-16">
         {metrics.map((metric, index) => (
-          <div key={index} className="flex flex-col items-center">
+          <div key={index} className="grid items-center text-center">
             <div
-              className={`bg-gradient-to-b ${metric.from} ${metric.to} text-white  font-semibold w-28 h-12 flex items-center justify-center rounded-md shadow`}
+              className={`bg-gradient-to-b ${metric.from} ${metric.to} text-white  font-semibold w-42 h-24 flex items-center justify-center rounded-md shadow py-2`}
             >
               {metric.value}
             </div>
-            <span className="mt-2 text-sm text-gray-800">{metric.label}</span>
+            {/* <span className="mt-2 text-sm text-gray-800"></span> */}
+          <span className="text-base font-medium text-primary-text mt-4">{metric.label}</span>
+
           </div>
         ))}
+        <div className="flex flex-col items-center justify-between gap-4 py-2">
+          <img
+            src="/plummatrix/plum.png"
+            alt="PlumX Metrics"
+            className="max-h-28 object-contain"
+          />
+          <span className="text-base font-medium text-primary-text">PlumX Metrics</span>
+        </div>
+        <div className="flex flex-col items-center justify-between gap-4 py-2">
+        <img
+          src="/plummatrix/dynamics.png" // Replace with actual path
+          alt="Dimension"
+          className="max-h-28 object-contain"
+        />
+        <span className="text-base font-medium text-primary-text">Dimension</span>
+      </div>
       </div>
     </div>
   );

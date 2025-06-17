@@ -1,20 +1,20 @@
-import { Download } from "lucide-react";
 import ArchiveBtn from "../Btns/ArchiveBtn";
-
-export default function ArchiveDownload() {
+const DownloadCard = () => {
   return (
-      <div className="rounded-2xl bg-white p-6 w-full shadow-md">
-        <h3 className="text-lg font-semibold mb-4">Download</h3>
-        
-        <div className="space-y-4">
-          <ArchiveBtn>
-            Manuscript Template <Download size={16} />
-            </ArchiveBtn>          
-
-          <ArchiveBtn>
-            Copyright Form <Download size={16} />
-          </ArchiveBtn>
-        </div>
+    <div className="w-full max-w-xs bg-white rounded-2xl p-6 shadow-[0px_0px_60px_rgba(0,0,0,0.1)] borderPrimary">
+      <h3 className="text-lg font-semibold mb-4">Download</h3>
+      <div className="flex flex-col gap-3">
+        <ArchiveBtn
+          label="Manuscript Template"
+          href="/downloads/manuscript-template.docx"
+        />
+        <ArchiveBtn
+          label="Copyright Form"
+          href="/downloads/copyright-form.pdf"
+        />
       </div>
+    </div>
   );
-}
+};
+
+export default DownloadCard;

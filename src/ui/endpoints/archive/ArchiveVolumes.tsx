@@ -2,7 +2,10 @@ import { Search, Eye, Download, Share2, SearchIcon } from "lucide-react";
 import { useState } from "react";
 import { GrFormNext, GrFormPrevious } from "react-icons/gr";
 import { Link } from "react-router-dom";
+import PrimaryBtn from "../../components/Btns/PrimaryBtn";
 import ArchiveBtn from "../../components/Btns/ArchiveBtn";
+import { ImQuotesRight } from "react-icons/im";
+import { PiChartPieSlice } from "react-icons/pi";
 
 const papers = [
   {
@@ -63,7 +66,7 @@ export default function ArchiveVolumes() {
 
       {/* Volume Navigation */}
       <div className="flex flex-wrap justify-center items-center gap-2 gap-x-5 text-base font-medium ">
-        <button onClick={handlePrevious}><GrFormPrevious className="text-primary-text"/></button>
+        <button onClick={handlePrevious}><GrFormPrevious className="text-primary-text" /></button>
         {volumes.map((volume) => (
           <span
             key={volume}
@@ -73,7 +76,7 @@ export default function ArchiveVolumes() {
             {volume}
           </span>
         ))}
-        <button onClick={handleNext}><GrFormNext className="text-primary-text"/></button>
+        <button onClick={handleNext}><GrFormNext className="text-primary-text" /></button>
         <span className="cursor-pointer text-primary">See all volumes </span>
       </div>
 
@@ -83,32 +86,34 @@ export default function ArchiveVolumes() {
           {["Issue 3", "Issue 2", "Issue 1"].map((issue) => (
             <ArchiveBtn
               key={issue}
-              className={`max-w-fit gap-1 ${
-                issue === "Issue 3"
-                  ? "bg-primary text-white"
-                  : "bg-gray-100 text-primary-text"
-              }`}
-            >
-              {issue}
-            </ArchiveBtn>
+              href={"/issues/" + issue}
+              label={issue}
+              className={`max-w-fit gap-1 ${issue === "Issue 3"
+                ? "bg-primary text-white"
+                : "bg-gray-100 text-primary-text"
+                }`}
+            />
           ))}
         </div>
 
-        <button className="text-sm text-primary font-semibold flex items-center gap-1">
+        <PrimaryBtn className="rounded-full px-2">
           <Share2 size={16} /> Share
-        </button>
+        </PrimaryBtn>
+        {/* <button className="text-sm text-primary font-semibold flex items-center gap-1">
+          <Share2 size={16} /> Share
+        </button> */}
       </div>
 
       {/* Search */}
-      <div className="flex items-center gap-2 mt-2 w-4/5">
+      <div className="flex items-center gap-2 mt-2">
         <input
           type="text"
           placeholder="Search by Paper ID, Paper Name"
           className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm"
         />
-        <ArchiveBtn className="max-w-fit gap-1">
+        <PrimaryBtn>
           <Search size={16} /> Search
-        </ArchiveBtn>
+        </PrimaryBtn>
       </div>
 
       {/* Paper Cards */}
@@ -125,8 +130,8 @@ export default function ArchiveVolumes() {
               >
                 {paper.title} <span className="text-orange-400">↗</span>
               </Link>
-              <button className="text-base inline-flex items-center justify-center gap-2 text-primary border border-orange-400 px-3 py-1"style={{borderRadius:9999}}>
-                <SearchIcon className="w-5"/> Google
+              <button className="text-base inline-flex items-center justify-center gap-2 text-primary border border-orange-400 px-3 py-1" style={{ borderRadius: 9999 }}>
+                <SearchIcon className="w-5" /> Google
               </button>
             </div>
 
@@ -140,13 +145,17 @@ export default function ArchiveVolumes() {
 
             {/* Metrics */}
             <div className="flex items-center gap-6  text-gray-500 mt-1">
-              <div className="flex items-center gap-1">
-                <Eye size={14} /> 256 Views
+              <div className="flex items-center gap-3">
+                <Eye size={18} /> 256 Views
               </div>
-              <div className="border-l h-4" />
-              <div>0 CrossRef Citations</div>
-              <div className="border-l h-4" />
-              <div>0 Altmetric</div>
+              <div className="h-4" />
+              <div className="flex items-center gap-3">
+                <ImQuotesRight size={18}/> 0 CrossRef Citations
+              </div>
+              <div className="h-4" />
+              <div className="flex items-center gap-3">
+                 <PiChartPieSlice size={18}/> 0 Altmetric
+                </div>
             </div>
 
             {/* Actions */}
@@ -157,9 +166,9 @@ export default function ArchiveVolumes() {
                 <button className="hover:underline">References</button>
               </div>
 
-              <ArchiveBtn className="max-w-fit gap-1">
+              <PrimaryBtn>
                 View PDF <Download size={16} />
-                </ArchiveBtn>
+              </PrimaryBtn>
             </div>
           </div>
         ))}

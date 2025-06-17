@@ -6,6 +6,7 @@ import Footer from "./ui/components/Footer";
 import ArchiveVolumes from "./ui/endpoints/archive/ArchiveVolumes";
 import ArchiveFirst from "./ui/endpoints/sections/ArchiveFirst";
 import ArticleDetails from "./ui/endpoints/archive/details/ArticleDetails";
+import About from "./ui/endpoints/about/About";
 
 
 export default function App() {
@@ -14,6 +15,11 @@ export default function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/about-us" element={<About />}/>
+        <Route path="/for-authors" element={<Archives />}/>
+        <Route path="/current-issue" element={<Archives />}/>
+        <Route path="/conference" element={<Archives />}/>
+        <Route path="/contact-us" element={<Archives />}/>
         <Route path="/archives" element={<Archives />}>
           <Route index element={<ArchiveFirst />} />
           <Route path=":volumes" element={<ArchiveVolumes />} />

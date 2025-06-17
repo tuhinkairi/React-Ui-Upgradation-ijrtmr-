@@ -1,6 +1,4 @@
-import { FileDown, Share2 } from "lucide-react";
-import ArchiveBtn from "../../../components/Btns/ArchiveBtn";
-import { FaQuoteLeft } from "react-icons/fa";
+import {  Share2 } from "lucide-react";
 import { IoReload } from "react-icons/io5";
 import { useState } from "react";
 import FullArtical from "./FullArtical";
@@ -9,46 +7,59 @@ import References from "./References";
 import Citations from "./Citations";
 import ArticleMetrics from "./ArticleMetrics";
 import Licensing from "./Licensing";
+import { CgProfile } from "react-icons/cg";
+import PrimaryBtn from "../../../components/Btns/PrimaryBtn";
+import { ImQuotesLeft } from "react-icons/im";
 
 type TabOption = "Full Article" | "References" | "Citations" | "Metrics" | "Licensing";
 
 const ArticleDetails = () => {
+  const auther = ["Bisaso Samuel","Muhumuza Gilbert"]
   const [currentItem, setCurrentItem] = useState<TabOption>("Full Article")
   return (
     <div className="mx-auto  bg-white space-y-6 p-5">
       {/* Header + PDF Button */}
       <div className="flex justify-between items-start">
         <div>
-          <h2 className="text-2xl font-semibold leading-snug max-w-5/6">
+          <h2 className="text-2xl font-semibold leading-snug">
             AI-Driven Conversational Models for Supporting Migrant Career
             Guidance and Labour Market Integration: A Scoping Review
           </h2>
         </div>
-        <ArchiveBtn className="max-w-fit gap-1" >
-          View PDF
-          <FileDown size={16} className="ml-4"/> 
-        </ArchiveBtn>
       </div>
 
       {/* Meta Information */}
-      <div className="space-y-1 text-primary-text leading-7 text-base">
-        <div>
+      <div className="space-y-3 text-primary-text leading-7 text-base">
+        <div className="flex items-center gap-3 ">
           <span className="font-medium">Author:</span>{" "}
-          <span className="text-primary font-medium">Bisaso Samuel</span>,{" "}
-          <span className="text-primary font-medium">Muhumuza Gilbert</span>
+          {auther.map((author, index) => (
+            <span className="text-primary flex gap-2 items-center" key={index}>
+              <CgProfile size={18} />
+              {author}
+              {index !== auther.length - 1 && ", "}
+            </span>
+          ))}
         </div>
+        <ul className="text-secondary-text list-decimal list-inside">
+          <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi, ratione!</li>
+          <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi, ratione!</li>
+          <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi, ratione!</li>
+          <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi, ratione!</li>
+          <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi, ratione!</li>
+          <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi, ratione!</li>
+        </ul>
         <div>Published Online: 13 May 2025</div>
         <div>Pages: 01–09</div>
       </div>
 
       {/* DOI and Utilities */}
       <div className="flex items-center gap-4 w-full justify-between text-base">
-        <h3 className="text-primary flex gap-2 items-center font-medium mr-10">
-          <FaQuoteLeft className="text-primary" /> Cite this article
+        <h3 className="text-primary flex gap-2 items-center  mr-10">
+          <ImQuotesLeft className="text-primary" /> Cite this article
         </h3>
         <a
           href="https://doi.org/10.1080/00051144.2025.2476806"
-          className="text-orange-500 flex items-center gap-1 hover:underline"
+          className="text-primary flex items-center gap-1 hover:underline"
         >
           ↗ https://doi.org/10.1080/00051144.2025.2476806
         </a>
@@ -56,9 +67,9 @@ const ArticleDetails = () => {
           <span>
             Check for Updates</span> <IoReload height={20} />
         </button>
-        <button className="text-primary bg-peach-100 hover:bg-peach-200 flex items-center justify-center gap-1 h-11 w-11" style={{borderRadius:9999}}>
+        <PrimaryBtn className="rounded-full">
           <Share2 size={16} />
-        </button>
+        </PrimaryBtn>
       </div>
 
       {/* Navigation Tabs */}
@@ -89,5 +100,4 @@ const ArticleDetails = () => {
     </div>
 
   );
-};
-export default ArticleDetails;
+};export default ArticleDetails;
