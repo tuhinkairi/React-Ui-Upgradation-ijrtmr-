@@ -33,7 +33,7 @@ const References = () => {
               {ref.links.map((link, i) => (
                 <button
                   key={i}
-                  className={`text-sm hover:underline font-medium text-primary mt-2`}
+                  className={`text-sm hover:underline font-medium text-primary mt-2 ${i!==0 && references.length > i ? "border-l border-l-primary pl-4":""}`} style={{borderRadius:0}}
                 >
                   {link}
                 </button>

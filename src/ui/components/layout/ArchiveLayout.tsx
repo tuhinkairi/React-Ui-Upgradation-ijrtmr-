@@ -4,6 +4,8 @@ import ArchiveDownload from '../cards/ArchiveDownload'
 import ListingSection from '../cards/ListingSection'
 import { policies, quickLinks } from '../../../data/listingSection'
 import PlumMetricsCard from '../cards/PlumMetricsCard'
+import ArchiveBtn from '../Btns/ArchiveBtn'
+import { GrDocumentPdf } from 'react-icons/gr'
 
 export default function ArchiveLayout({ children }: { children: React.ReactNode }) {
   const isArticleDetails = window.location.pathname.includes('/volumn')
@@ -14,7 +16,12 @@ export default function ArchiveLayout({ children }: { children: React.ReactNode 
       <div className='lhs col-span-3 2xl:col-span-4 mr-2 bg-white'>
         {children}
       </div>
-      <div className='space-y-6 flex flex-col items-end'>
+      <div className='space-y-2 flex flex-col items-end'>
+        <ArchiveBtn 
+          icon={true}
+          label={<>Download Pdf <GrDocumentPdf size={18}/> </>}
+          href="/downloads/copyright-form.pdf"
+        />
         {isArticleDetails ? <ArchiveSubmitPaperCard /> : <PlumMetricsCard/>}
         <ListingSection data={quickLinks} title='Quick Links' />
         <ArchiveDownload />

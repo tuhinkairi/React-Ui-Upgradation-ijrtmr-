@@ -96,7 +96,7 @@ export default function ArchiveVolumes() {
           ))}
         </div>
 
-        <PrimaryBtn >
+        <PrimaryBtn className="rounded-full px-2">
           <Share2 size={16} /> Share
         </PrimaryBtn>
         {/* <button className="text-sm text-primary font-semibold flex items-center gap-1">

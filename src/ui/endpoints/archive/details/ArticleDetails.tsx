@@ -1,5 +1,4 @@
 import {  Share2 } from "lucide-react";
-import { FaQuoteLeft } from "react-icons/fa";
 import { IoReload } from "react-icons/io5";
 import { useState } from "react";
 import FullArtical from "./FullArtical";
@@ -10,6 +9,7 @@ import ArticleMetrics from "./ArticleMetrics";
 import Licensing from "./Licensing";
 import { CgProfile } from "react-icons/cg";
 import PrimaryBtn from "../../../components/Btns/PrimaryBtn";
+import { ImQuotesLeft } from "react-icons/im";
 
 type TabOption = "Full Article" | "References" | "Citations" | "Metrics" | "Licensing";
 
@@ -54,8 +54,8 @@ const ArticleDetails = () => {
 
       {/* DOI and Utilities */}
       <div className="flex items-center gap-4 w-full justify-between text-base">
-        <h3 className="text-primary flex gap-2 items-center font-medium mr-10">
-          <FaQuoteLeft className="text-primary" /> Cite this article
+        <h3 className="text-primary flex gap-2 items-center  mr-10">
+          <ImQuotesLeft className="text-primary" /> Cite this article
         </h3>
         <a
           href="https://doi.org/10.1080/00051144.2025.2476806"
