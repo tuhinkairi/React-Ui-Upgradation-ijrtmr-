@@ -20,6 +20,8 @@ const Navbar = () => {
         <li className="hover:text-primary"><NavLink className={({isActive})=>isActive?'text-primary':""} to="/current-issue">Current Issue</NavLink></li>
         <li className="hover:text-primary"><NavLink className={({isActive})=>isActive?'text-primary':""} to="/archives">Archives</NavLink></li>
         <li className="hover:text-primary"><NavLink className={({isActive})=>isActive?'text-primary':""} to="/conference">Conference</NavLink></li>
+        <li className="hover:text-primary"><NavLink className={({isActive})=>isActive?'text-primary':""} to="/thesis">Thesis</NavLink></li>
+        <li className="hover:text-primary"><NavLink className={({isActive})=>isActive?'text-primary':""} to="/blog">Blog</NavLink></li>
         <li className="hover:text-primary"><NavLink className={({isActive})=>isActive?'text-primary':""} to="/contact-us">Contact Us</NavLink></li>
       </ul>
 
@@ -27,9 +29,6 @@ const Navbar = () => {
       <div className="flex space-x-4">
         <button className="bg-primary hover:bg-primary-hover text-white px-4 py-3 rounded-md font-medium">
           Author Login
-        </button>
-        <button className="bg-primary hover:bg-primary-hover text-white px-4 py-3 rounded-md font-medium">
-          IJSREAT Partner Network Login
         </button>
       </div>
     </nav>
