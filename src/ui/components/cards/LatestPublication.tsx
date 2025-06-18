@@ -16,7 +16,7 @@ const publications = [
 
 export default function LatestPublication() {
   return (
-    <div className="max-w-md mx-auto bg-white rounded-md shadow-[0px_0px_40px_5px_rgba(0,0,0,0.08)] p-6 space-y-6">
+    <div className="max-w-md mx-auto bg-white rounded-2xl shadow-[0px_0px_40px_5px_rgba(0,0,0,0.08)] p-6 space-y-6">
       <h3 className="text-center text-lg font-semibold text-dark">Latest Publication</h3>
 
       {publications.map((pub, index) => (

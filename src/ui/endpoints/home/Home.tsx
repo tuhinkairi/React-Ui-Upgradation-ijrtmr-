@@ -2,7 +2,7 @@ import AboutSection from "../../components/AboutSection";
 import AuthorFeaturesGrid from "../../components/AutherFeatureGrid";
 import EditorialFeatures from "../../components/EditorialFeatures";
 import FAQAccordion from "../../components/FAQAccordion";
-import FeaturesSection1 from "../../components/FeatureSection1";
+// import FeaturesSection1 from "../../components/FeatureSection1";
 import Hero from "../../components/Hero";
 import IJSREATFeaturesSection from "../../components/IJSREATFeaturesSection";
 import IndexingPartners from "../../components/IndexingPartner";
@@ -19,13 +19,13 @@ export default function Home() {
     <section className="">
       <Hero />
       <TickerBar />
-      <FeaturesSection1 />
+      {/* <FeaturesSection1 /> */}
       <AboutSection />
       <WrapperLayout>
         <JournalParticulars />
         <PublishProcess />
+        <AuthorFeaturesGrid />
       </WrapperLayout>
-      <AuthorFeaturesGrid />
       <IJSREATFeaturesSection />
       <WhyChooseIJSREAT />
       <EditorialFeatures />
