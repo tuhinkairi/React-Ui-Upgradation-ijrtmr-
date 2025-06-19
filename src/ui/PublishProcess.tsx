@@ -48,7 +48,7 @@ export default function PublishProcess() {
             <h4 className="text-lg font-semibold text-gray-900">{step.title}</h4>
             <p className="text-sm text-paragraph">{step.description}</p>
             {step.button && (
-              <button className="mt-2 bg-orange-200 text-white border border-peach-200 text-sm px-4 py-2 rounded-lg hover:bg-peach-200 transition inline-flex items-center gap-2">
+              <button className="mt-2 bg-[#FF8C4233]  border border-peach-200 text-sm px-4 py-2 rounded-lg hover:bg-peach-200 transition inline-flex items-center gap-2">
                 Submit
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M12 5l7 7-7 7" />

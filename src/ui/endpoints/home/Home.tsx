@@ -6,9 +6,10 @@ import FAQAccordion from "../../components/FAQAccordion";
 import Hero from "../../components/Hero";
 import IJSREATFeaturesSection from "../../components/IJSREATFeaturesSection";
 import IndexingPartners from "../../components/IndexingPartner";
-import JournalParticulars from "../../components/JournalParticulars";
+// import JournalParticulars from "../../components/JournalParticulars";
 import JournalsCompendium from "../../components/JournalsCompendium";
 import WrapperLayout from "../../components/layout/WrapperLayout";
+import OpenAccessBenefitsGrid from "../../components/OpenAccessBenefitsGrid";
 import SubmitPaperSection from "../../components/SubmitPaperSection";
 import TickerBar from "../../components/TickerBar";
 import WhyChooseIJSREAT from "../../components/WhyChooseIJSREAT";
@@ -22,7 +23,8 @@ export default function Home() {
       {/* <FeaturesSection1 /> */}
       <AboutSection />
       <WrapperLayout>
-        <JournalParticulars />
+        {/* <JournalParticulars /> */}
+        <OpenAccessBenefitsGrid/>
         <PublishProcess />
         <AuthorFeaturesGrid />
       </WrapperLayout>
