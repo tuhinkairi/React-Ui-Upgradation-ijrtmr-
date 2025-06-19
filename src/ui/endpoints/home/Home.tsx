@@ -1,6 +1,7 @@
 import AboutSection from "../../components/AboutSection";
 import AuthorFeaturesGrid from "../../components/AutherFeatureGrid";
-import EditorialFeatures from "../../components/EditorialFeatures";
+// import EditorialFeatures from "../../components/EditorialFeatures";
+import EditorialManagement from "../../components/EditorialManagement";
 import FAQAccordion from "../../components/FAQAccordion";
 // import FeaturesSection1 from "../../components/FeatureSection1";
 import Hero from "../../components/Hero";
@@ -12,7 +13,8 @@ import WrapperLayout from "../../components/layout/WrapperLayout";
 import OpenAccessBenefitsGrid from "../../components/OpenAccessBenefitsGrid";
 import SubmitPaperSection from "../../components/SubmitPaperSection";
 import TickerBar from "../../components/TickerBar";
-import WhyChooseIJSREAT from "../../components/WhyChooseIJSREAT";
+// import WhyChooseIJSREAT from "../../components/WhyChooseIJSREAT";
+import WhyPublishWithUs from "../../components/WhyPublishWithUs";
 import PublishProcess from "../../PublishProcess";
 
 export default function Home() {
@@ -29,8 +31,10 @@ export default function Home() {
         <AuthorFeaturesGrid />
       </WrapperLayout>
       <IJSREATFeaturesSection />
-      <WhyChooseIJSREAT />
-      <EditorialFeatures />
+      {/* <WhyChooseIJSREAT /> */}
+      {/* <EditorialFeatures /> */}
+      <WhyPublishWithUs/>
+      <EditorialManagement/>
       <IndexingPartners />
       <SubmitPaperSection />
       <JournalsCompendium />
