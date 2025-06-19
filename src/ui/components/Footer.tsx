@@ -13,7 +13,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#FF8C421A] py-12 px-6">
+    <footer className="bg-[#FF8C421A] py-12 px-6 mt-6">
       <div className="max-w-6xl mx-auto">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
@@ -89,7 +89,7 @@ export default function Footer() {
 
         {/* Bottom Section */}
         <div className="border-t border-gray-200 pt-8">
-          <div className="flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0">
+          <div className="flex flex-col lg:flex-row justify-between items-start space-y-4 lg:space-y-0">
             {/* Copyright and Licensing */}
             <div className="text-center w-fit mx-auto">
               <p className="text-sm text-gray-600 mb-2">
