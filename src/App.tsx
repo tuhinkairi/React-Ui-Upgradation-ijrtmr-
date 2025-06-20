@@ -4,7 +4,7 @@ import Archives from "./ui/endpoints/archive/Archives";
 import Navbar from "./ui/components/NavBar";
 import Footer from "./ui/components/Footer";
 import ArchiveVolumes from "./ui/endpoints/archive/ArchiveVolumes";
-import ArchiveFirst from "./ui/endpoints/sections/ArchiveFirst";
+import ArchiveFirst from "./ui/endpoints/archive/sections/ArchiveFirst";
 import ArticleDetails from "./ui/endpoints/archive/details/ArticleDetails";
 import About from "./ui/endpoints/about/About";
 

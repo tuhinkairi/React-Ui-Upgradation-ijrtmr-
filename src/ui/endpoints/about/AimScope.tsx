@@ -1,9 +1,11 @@
+import Title2 from "../../other/Title2";
+
 const AimScope = () => {
   return (
     <div className=" px-6 py-10 space-y-8 ">
       {/* Aim Section */}
       <section>
-        <h2 className="text-3xl font-semibold mb-2">Aim</h2>
+        <Title2>Aim</Title2>
         <p className="text-base leading-relaxed text-gray-600">
           The International Journal Of Scientific Research in Engineering & Technology (IJSREAT) is an international journal dedicated to the latest advancements in engineering and technology. This journal aims to provide a platform for scientists and academicians worldwide to promote, share, and discuss various new issues and developments in different areas of engineering and technologies.
         </p>
@@ -11,7 +13,7 @@ const AimScope = () => {
 
       {/* Scope Section */}
       <section>
-        <h2 className="text-3xl font-semibold mb-2">Scope</h2>
+        <Title2>Scope</Title2>
         <p className="text-base leading-relaxed mb-4 text-gray-600">
           The journal's scope is to provide an academic medium and an essential reference for advancing and disseminating research results that support high-level learning, teaching, and research in engineering & technology. We bring together scientists, academicians, engineers, scholars, and students of related fields.
         </p>

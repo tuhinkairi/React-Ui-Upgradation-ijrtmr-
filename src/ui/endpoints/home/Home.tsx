@@ -17,6 +17,8 @@ import TickerBar from "../../components/TickerBar";
 import WhyPublishWithUs from "../../components/WhyPublishWithUs";
 import PublishProcess from "../../PublishProcess";
 
+
+// todo home titles make more flexible
 export default function Home() {
   return (
     <section className="">
