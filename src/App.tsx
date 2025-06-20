@@ -9,6 +9,7 @@ import ArticleDetails from "./ui/endpoints/archive/details/ArticleDetails";
 import About from "./ui/endpoints/about/About";
 import IndexAbstract from "./ui/endpoints/indexing&abstract/IndexAbstract";
 import PeerReviewPolicy from "./ui/endpoints/about/PeerReview/PeerReviewPolicy";
+import CrossMarkPolicy from "./ui/endpoints/about/crossmark/CrossMarkPolicy";
 
 
 export default function App() {
@@ -33,6 +34,7 @@ export default function App() {
         {/* non showing */}
         <Route path="/indexing&abstraction" element={<IndexAbstract />} />
         <Route path="/peer-review-policy" element={<PeerReviewPolicy />} />
+        <Route path="/cross-mark-policy" element={<CrossMarkPolicy />} />
       </Routes>
       <Footer/>
 
