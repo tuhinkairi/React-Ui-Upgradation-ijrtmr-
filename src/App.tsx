@@ -11,6 +11,7 @@ import IndexAbstract from "./ui/endpoints/indexing&abstract/IndexAbstract";
 import PeerReviewPolicy from "./ui/endpoints/about/PeerReview/PeerReviewPolicy";
 import CrossMarkPolicy from "./ui/endpoints/about/crossmark/CrossMarkPolicy";
 import PublicationPolicy from "./ui/endpoints/about/publication-policy/PublicationPolicy";
+import ImactFactor from "./ui/endpoints/about/Impact/ImactFactor";
 
 
 export default function App() {
@@ -37,6 +38,7 @@ export default function App() {
         <Route path="/peer-review-policy" element={<PeerReviewPolicy />} />
         <Route path="/cross-mark-policy" element={<CrossMarkPolicy />} />
         <Route path="/publication-policy" element={<PublicationPolicy />} />
+        <Route path="/impactfactor" element={<ImactFactor />} />
       </Routes>
       <Footer/>
 
