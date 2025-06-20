@@ -12,6 +12,7 @@ import PeerReviewPolicy from "./ui/endpoints/about/PeerReview/PeerReviewPolicy";
 import CrossMarkPolicy from "./ui/endpoints/about/crossmark/CrossMarkPolicy";
 import PublicationPolicy from "./ui/endpoints/about/publication-policy/PublicationPolicy";
 import ImactFactor from "./ui/endpoints/about/Impact/ImactFactor";
+import FAQ from "./ui/endpoints/about/FAQ/FAQ";
 
 
 export default function App() {
@@ -39,6 +40,7 @@ export default function App() {
         <Route path="/cross-mark-policy" element={<CrossMarkPolicy />} />
         <Route path="/publication-policy" element={<PublicationPolicy />} />
         <Route path="/impactfactor" element={<ImactFactor />} />
+        <Route path="/faq" element={<FAQ />} />
       </Routes>
       <Footer/>
 
