@@ -1,14 +1,12 @@
 import React from 'react'
 import ArchiveSubmitPaperCard from '../cards/ArchiveSubmitPaperCard'
 import ArchiveDownload from '../cards/ArchiveDownload'
-import AutherCardArchive from '../cards/AutherCardArchive'
-import { useLocation } from 'react-router-dom'
+// import AutherCardArchive from '../cards/AutherCardArchive'
 // import RecentConferenceCard from '../cards/RecentConferenceCard'
 import QuickLinks from '../cards/ListingSection'
-import { policies } from '../../../data/listingSection'
+import { policies, quickLinks } from '../../../data/listingSection'
 
 export default function CommonLayout({children}:{children:React.ReactNode}) {
-  const path = useLocation().pathname
 
   return (
     <section className="_journalLayout ml-16 grid grid-cols-4 2xl:grid-cols-5 justify-between gap-5 mr-4 xl:mr-16">
@@ -17,9 +15,10 @@ export default function CommonLayout({children}:{children:React.ReactNode}) {
       </div>
       <div className='space-y-2 flex flex-col items-end'>
         <ArchiveSubmitPaperCard/>
-        <QuickLinks data={policies} title='Policies'/>
+        <QuickLinks data={quickLinks} title='Quick Links'/>
         <ArchiveDownload/>
-        {!path.includes("about") && <AutherCardArchive/>}
+        <QuickLinks data={policies} title='Policies'/>
+        {/* {!path.includes("about") && <AutherCardArchive/>} */}        
         {/* <RecentConferenceCard/> */}
       </div>
     </section>
