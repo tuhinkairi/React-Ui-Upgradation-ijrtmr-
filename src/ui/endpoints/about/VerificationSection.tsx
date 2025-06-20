@@ -1,6 +1,6 @@
 const VerificationSection = () => {
   return (
-    <section className="w-full  pb-8 px-4">
+    <section className="w-full py-8 px-4">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         
         {/* CrossRef Card */}

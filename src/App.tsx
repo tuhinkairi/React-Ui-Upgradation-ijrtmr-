@@ -7,6 +7,7 @@ import ArchiveVolumes from "./ui/endpoints/archive/ArchiveVolumes";
 import ArchiveFirst from "./ui/endpoints/archive/sections/ArchiveFirst";
 import ArticleDetails from "./ui/endpoints/archive/details/ArticleDetails";
 import About from "./ui/endpoints/about/About";
+import IndexAbstract from "./ui/endpoints/indexing&abstract/IndexAbstract";
 
 
 export default function App() {
@@ -28,6 +29,8 @@ export default function App() {
           <Route path=":volumes" element={<ArchiveVolumes />} />
           <Route path="artical-details" element={<ArticleDetails />} />
         </Route>
+        {/* non showing */}
+        <Route path="/indexing&abstraction" element={<IndexAbstract />} />
       </Routes>
       <Footer/>
 

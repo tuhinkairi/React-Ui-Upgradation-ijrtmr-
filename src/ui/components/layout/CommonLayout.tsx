@@ -9,7 +9,7 @@ import { policies, quickLinks } from '../../../data/listingSection'
 export default function CommonLayout({children}:{children:React.ReactNode}) {
 
   return (
-    <section className="_journalLayout ml-16 grid grid-cols-4 2xl:grid-cols-5 justify-between gap-5 mr-4 xl:mr-16">
+    <section className="_journalLayout ml-16 grid grid-cols-4 2xl:grid-cols-5 justify-between gap-5 mr-4 mt-6 xl:mr-16">
       <div className='lhs col-span-3 2xl:col-span-4 mr-2 bg-white'>
         {children}
       </div>

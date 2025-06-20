@@ -10,7 +10,7 @@ const IndexingPartnerArchive: React.FC = () => {
   }, [])
 
   useEffect(() => {
-    const loadData = async () => {
+  const loadData = async () => {
       const data = await fetchIndexData();
       setIndexData(data as Indexing[]);
     };
@@ -18,7 +18,7 @@ const IndexingPartnerArchive: React.FC = () => {
   }, [fetchIndexData]);
   console.log(indexData);
   return (
-    <section className="bg-white text-center mt-6">
+    <section className="bg-white text-center py-6 px-3">
       <div className="grid grid-cols-5 items-center justify-center gap-10">
         {indexData && indexData.map((partner) => (
           <a href={partner.indexing_url}>
