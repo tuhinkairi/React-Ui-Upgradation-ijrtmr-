@@ -8,6 +8,7 @@ import ArchiveFirst from "./ui/endpoints/archive/sections/ArchiveFirst";
 import ArticleDetails from "./ui/endpoints/archive/details/ArticleDetails";
 import About from "./ui/endpoints/about/About";
 import IndexAbstract from "./ui/endpoints/indexing&abstract/IndexAbstract";
+import PeerReviewPolicy from "./ui/endpoints/about/PeerReview/PeerReviewPolicy";
 
 
 export default function App() {
@@ -31,6 +32,7 @@ export default function App() {
         </Route>
         {/* non showing */}
         <Route path="/indexing&abstraction" element={<IndexAbstract />} />
+        <Route path="/peer-review-policy" element={<PeerReviewPolicy />} />
       </Routes>
       <Footer/>
 
