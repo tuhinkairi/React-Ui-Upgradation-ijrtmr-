@@ -15,6 +15,7 @@ import ImactFactor from "./ui/endpoints/about/Impact/ImactFactor";
 import FAQ from "./ui/endpoints/about/FAQ/FAQ";
 import EthicsAndPolicy from "./ui/endpoints/about/ethics&policy/EthicsAndPolicy";
 import { EditorBoard } from "./ui/endpoints/Editorial/EditorialBoard";
+import EditoralSingle from "./ui/endpoints/Editorial/EditorialPage/EditoralSingle";
 
 
 export default function App() {
@@ -45,6 +46,7 @@ export default function App() {
         <Route path="/faq" element={<FAQ />} />
         <Route path="/ethics&policy" element={<EthicsAndPolicy />} />
         <Route path="/editorial-board" element={<EditorBoard />} />
+        <Route path="/editorial-board/:data" element={<EditoralSingle />} />
       </Routes>
       <Footer/>
 
