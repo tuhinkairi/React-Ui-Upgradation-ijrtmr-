@@ -13,6 +13,8 @@ import CrossMarkPolicy from "./ui/endpoints/about/crossmark/CrossMarkPolicy";
 import PublicationPolicy from "./ui/endpoints/about/publication-policy/PublicationPolicy";
 import ImactFactor from "./ui/endpoints/about/Impact/ImactFactor";
 import FAQ from "./ui/endpoints/about/FAQ/FAQ";
+import EthicsAndPolicy from "./ui/endpoints/about/ethics&policy/EthicsAndPolicy";
+import { EditorBoard } from "./ui/endpoints/Editorial/EditorialBoard";
 
 
 export default function App() {
@@ -41,6 +43,8 @@ export default function App() {
         <Route path="/publication-policy" element={<PublicationPolicy />} />
         <Route path="/impactfactor" element={<ImactFactor />} />
         <Route path="/faq" element={<FAQ />} />
+        <Route path="/ethics&policy" element={<EthicsAndPolicy />} />
+        <Route path="/editorial-board" element={<EditorBoard />} />
       </Routes>
       <Footer/>
 
