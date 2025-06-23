@@ -11,13 +11,13 @@ export const Pagination = ({ currentPage, totalPages, onPageChange }: Pagination
 
     return (
         <div className="flex gap-6 justify-center">
-            <button onClick={()=>onPageChange(currentPage-1)}><BiLeftArrow className="text-primary"/></button>
-            <div className="flex gap-2">
+            <button onClick={()=>onPageChange(currentPage-1)}><BiLeftArrow className="hover:text-primary"/></button>
+            <div className="flex gap-6">
             {pages.map((page) => (
                 <button
                     key={page}
                     onClick={() => onPageChange(page)}
-                    className={`w-8 h-10 rounded-md border border-primary font-medium transition 
+                    className={`w-8 h-8 rounded-sm border border-primary font-medium transition 
                         ${page === currentPage
                             ? 'bg-primary text-white'
                             : 'bg-white text-primary hover:bg-primary-hover hover:text-white'
@@ -27,7 +27,7 @@ export const Pagination = ({ currentPage, totalPages, onPageChange }: Pagination
                 </button>
             ))}
             </div>
-            <button onClick={()=>onPageChange(currentPage+1)}><BiRightArrow className="text-primary" /></button>
+            <button onClick={()=>onPageChange(currentPage+1)}><BiRightArrow className="hover:text-primary" /></button>
         </div>
     );
 };

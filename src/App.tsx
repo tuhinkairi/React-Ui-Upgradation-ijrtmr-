@@ -16,6 +16,8 @@ import FAQ from "./ui/endpoints/about/FAQ/FAQ";
 import EthicsAndPolicy from "./ui/endpoints/about/ethics&policy/EthicsAndPolicy";
 import { EditorBoard } from "./ui/endpoints/Editorial/EditorialBoard";
 import EditoralSingle from "./ui/endpoints/Editorial/EditorialPage/EditoralSingle";
+import Blog from "./ui/endpoints/blog/Blog";
+import BlogShow from "./ui/endpoints/blog/show/BlogShow";
 
 
 export default function App() {
@@ -28,15 +30,18 @@ export default function App() {
         <Route path="/for-authors" element={<Archives />}/>
         <Route path="/current-issue" element={<Archives />}/>
         <Route path="/conference" element={<Archives />}/>
-        <Route path="/blog" element={<Archives />}/>
+        <Route path="/blog" element={<Blog />}/>
+        <Route path="/blog/:slug" element={<BlogShow />}/>
         <Route path="/Thesis" element={<Archives />}/>
         <Route path="/contact-us" element={<Archives />}/>
+
         <Route path="/archives" element={<Archives />}>
           <Route index element={<ArchiveFirst />} />
           <Route path=":volumes" element={<ArchiveVolumes />} />
           <Route path="artical-details" element={<ArticleDetails />} />
         </Route>
-        {/* non showing */}
+        
+        {/* about section */}
         <Route path="/aim&scope" element={<About />}/>
         {/* editorial start */}
         <Route path="/editorial-board" element={<EditorBoard />} />
