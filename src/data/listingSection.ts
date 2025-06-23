@@ -26,13 +26,24 @@ export const quickLinks = [
 
 // menu
 export const about_menu = [
-  "Aim & Scope",
-  "Editorial Board",
-  "Indexing & Abstracting",
-  "Publication Ethics Policy",
-  "Peer Review Policy",
-  "Ethics & Policy",
-  "Cross Mark Policy",
-  "Impact Factor",
-  "FAQ’S"
+  {"title":"Aim & Scope","link":"aim&scope"},
+  {"title":"Editorial Board","link":"editorial-board"},
+  {"title":"Indexing & Abstracting","link":"indexing&abstraction"},
+  {"title":"Publication Ethics Policy","link":"publication-ethics-policy"},
+  {"title":"Peer Review Policy","link":"/peer-review-policy"},
+  {"title":"Ethics & Policy","link":"ethics&policy"},
+  {"title":"Cross Mark Policy","link":"cross-mark-policy"},
+  {"title":"Impact Factor","link":"impactfactor"},
+  {"title":"FAQ’S","link":"faq"}
+    
 ];
+export const archive_menu = [
+{"title":"Journal Publishing Process","link":"journal-publishing-process"},
+{"title":"Topics","link":"topics"},
+{"title":"Call for Paper","link":"Call-for-Paper"},
+{"title":"Guide for Author","link":"Guide-for-Author"},
+{"title":"Editorial Management System","link":"Editorial-Management-System"},
+{"title":"Article Processing Charge","link":"article-processing-charge"},
+{"title":"Article Status","link":"article-status"},
+{"title":"Downloads","link":"downloads"}
+]

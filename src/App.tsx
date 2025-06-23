@@ -25,7 +25,6 @@ export default function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/about-us" element={<About />}/>
         <Route path="/for-authors" element={<Archives />}/>
         <Route path="/current-issue" element={<Archives />}/>
         <Route path="/conference" element={<Archives />}/>
@@ -38,15 +37,18 @@ export default function App() {
           <Route path="artical-details" element={<ArticleDetails />} />
         </Route>
         {/* non showing */}
-        <Route path="/indexing&abstraction" element={<IndexAbstract />} />
-        <Route path="/peer-review-policy" element={<PeerReviewPolicy />} />
-        <Route path="/cross-mark-policy" element={<CrossMarkPolicy />} />
-        <Route path="/publication-policy" element={<PublicationPolicy />} />
-        <Route path="/impactfactor" element={<ImactFactor />} />
-        <Route path="/faq" element={<FAQ />} />
-        <Route path="/ethics&policy" element={<EthicsAndPolicy />} />
+        <Route path="/aim&scope" element={<About />}/>
+        {/* editorial start */}
         <Route path="/editorial-board" element={<EditorBoard />} />
         <Route path="/editorial-board/:data" element={<EditoralSingle />} />
+        {/* editorial end*/}
+        <Route path="/indexing&abstraction" element={<IndexAbstract />} />
+        <Route path="/publication-ethics-policy" element={<PublicationPolicy />} />
+        <Route path="/peer-review-policy" element={<PeerReviewPolicy />} />
+        <Route path="/ethics&policy" element={<EthicsAndPolicy />} />
+        <Route path="/cross-mark-policy" element={<CrossMarkPolicy />} />
+        <Route path="/impactfactor" element={<ImactFactor />} />
+        <Route path="/faq" element={<FAQ />} />
       </Routes>
       <Footer/>
 
