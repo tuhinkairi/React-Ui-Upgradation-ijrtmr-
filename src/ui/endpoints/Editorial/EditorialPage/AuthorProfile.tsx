@@ -28,7 +28,7 @@ const publications = [
 
 export default function AuthorProfile() {
   return (
-    <div className="space-y-6 ">
+    <div className="space-y-6">
       <h2 className="text-lg font-bold text-primary">
         Prof. Dr. Alireza Heidari, Ph.D., D.Sc.
       </h2>

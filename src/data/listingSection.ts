@@ -23,3 +23,16 @@ export const quickLinks = [
   "Cross mark Policy",
   "Contact Us"
 ]
+
+// menu
+export const about_menu = [
+  "Aim & Scope",
+  "Editorial Board",
+  "Indexing & Abstracting",
+  "Publication Ethics Policy",
+  "Peer Review Policy",
+  "Ethics & Policy",
+  "Cross Mark Policy",
+  "Impact Factor",
+  "FAQ’S"
+];

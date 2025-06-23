@@ -1,6 +1,19 @@
 import { NavLink } from "react-router-dom";
+import MenuCard from "./cards/MenuCard";
+import React, { useRef } from "react";
+import { about_menu } from "../../data/listingSection";
 
 const Navbar = () => {
+  const about = useRef<HTMLDivElement>(null);
+  const archive = useRef<HTMLDivElement>(null);
+  const handelpop = (e: React.MouseEvent<HTMLAnchorElement>, element:React.RefObject<HTMLDivElement | null>) => {
+    e.preventDefault();    
+    const pop = element.current;
+    if (pop) {
+      pop.classList.toggle("hidden");
+      pop.classList.toggle("flex");
+    }
+  }
   return (
     <nav className="flex justify-between items-center py-6 gap-4 mx-auto ml-16 mr-4 xl:mr-16">
       {/* Logo Section */}
@@ -15,10 +28,14 @@ const Navbar = () => {
       {/* Nav Links */}
       <ul className="flex items-center space-x-6 font-medium">
         <li className="hover:text-primary"><NavLink className={({isActive})=>isActive?'text-primary':""} to="/">Home</NavLink></li>
-        <li className="hover:text-primary"><NavLink className={({isActive})=>isActive?'text-primary':""} to="/about-us">About Us</NavLink></li>
+        <li className="hover:text-primary relative"><NavLink onMouseEnter={(e)=>handelpop(e,about)} className={({isActive})=>isActive?'text-primary':""} to="/about-us">About Us</NavLink>
+        <MenuCard ref={about} links={about_menu}/>
+        </li>
         <li className="hover:text-primary"><NavLink className={({isActive})=>isActive?'text-primary':""} to="/for-authors">For Authors</NavLink></li>
         <li className="hover:text-primary"><NavLink className={({isActive})=>isActive?'text-primary':""} to="/current-issue">Current Issue</NavLink></li>
-        <li className="hover:text-primary"><NavLink className={({isActive})=>isActive?'text-primary':""} to="/archives">Archives</NavLink></li>
+        <li className="hover:text-primary relative"><NavLink onMouseEnter={(e)=>handelpop(e,archive)} className={({isActive})=>isActive?'text-primary':""} to="/archives">Archives</NavLink>
+        <MenuCard ref={archive} links={about_menu}/>
+        </li>
         <li className="hover:text-primary"><NavLink className={({isActive})=>isActive?'text-primary':""} to="/conference">Conference</NavLink></li>
         <li className="hover:text-primary"><NavLink className={({isActive})=>isActive?'text-primary':""} to="/thesis">Thesis</NavLink></li>
         <li className="hover:text-primary"><NavLink className={({isActive})=>isActive?'text-primary':""} to="/blog">Blog</NavLink></li>
