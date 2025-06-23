@@ -27,13 +27,13 @@ export default function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/for-authors" element={<Archives />}/>
-        <Route path="/current-issue" element={<Archives />}/>
-        <Route path="/conference" element={<Archives />}/>
+        <Route path="/for-authors" element={<>comming soon</>}/>
+        <Route path="/current-issue" element={<>comming soon</>}/>
+        <Route path="/conference" element={<>comming soon</>}/>
         <Route path="/blog" element={<Blog />}/>
         <Route path="/blog/:slug" element={<BlogShow />}/>
-        <Route path="/Thesis" element={<Archives />}/>
-        <Route path="/contact-us" element={<Archives />}/>
+        <Route path="/Thesis" element={<>comming soon</>}/>
+        <Route path="/contact-us" element={<>comming soon</>}/>
 
         <Route path="/archives" element={<Archives />}>
           <Route index element={<ArchiveFirst />} />
