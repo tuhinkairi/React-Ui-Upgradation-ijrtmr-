@@ -18,6 +18,7 @@ import { EditorBoard } from "./ui/endpoints/Editorial/EditorialBoard";
 import EditoralSingle from "./ui/endpoints/Editorial/EditorialPage/EditoralSingle";
 import Blog from "./ui/endpoints/blog/Blog";
 import BlogShow from "./ui/endpoints/blog/show/BlogShow";
+import Thesis from "./ui/endpoints/Thesis/Thesis";
 
 
 export default function App() {
@@ -32,7 +33,7 @@ export default function App() {
         <Route path="/conference" element={<>comming soon</>}/>
         <Route path="/blog" element={<Blog />}/>
         <Route path="/blog/:slug" element={<BlogShow />}/>
-        <Route path="/Thesis" element={<>comming soon</>}/>
+        <Route path="/Thesis" element={<Thesis/>}/>
         <Route path="/contact-us" element={<>comming soon</>}/>
 
         <Route path="/archives" element={<Archives />}>
@@ -54,6 +55,9 @@ export default function App() {
         <Route path="/cross-mark-policy" element={<CrossMarkPolicy />} />
         <Route path="/impactfactor" element={<ImactFactor />} />
         <Route path="/faq" element={<FAQ />} />
+        {/* about end */}
+
+        
       </Routes>
       <Footer/>
 

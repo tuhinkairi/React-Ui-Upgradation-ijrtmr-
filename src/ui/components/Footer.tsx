@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Twitter, Facebook, Instagram, Linkedin } from 'lucide-react';
+import { NavLink } from 'react-router-dom';
 
 export default function Footer() {
   const [email, setEmail] = useState('');
@@ -27,8 +28,8 @@ export default function Footer() {
               <p>No: 38D5F, Rajaji nagar, Ariyalur-621713.</p>
               <p>Tamilnadu, India.</p>
               <div className="mt-4">
-                <p>Email: <a href="mailto:editorinchief@ijsreat.com" className="text-blue-600 hover:text-blue-800">editorinchief@ijsreat.com</a></p>
-                <p><a href="mailto:Support@fdrpjournals.org" className="text-blue-600 hover:text-blue-800">Support@fdrpjournals.org</a></p>
+                <p>Email: <NavLink to="mailto:editorinchief@ijsreat.com" className="text-blue-600 hover:text-blue-800">editorinchief@ijsreat.com</NavLink></p>
+                <p><NavLink to="mailto:Support@fdrpjournals.org" className="text-blue-600 hover:text-blue-800">Support@fdrpjournals.org</NavLink></p>
               </div>
               <p>Mobile: +91 9840521421</p>
             </div>
@@ -40,12 +41,12 @@ export default function Footer() {
               GUIDELINES
             </h3>
             <ul className="space-y-3 text-sm text-gray-600">
-              <li><a href="#" className="pointer hover:text-primary">Instructions for Authors</a></li>
-              <li><a href="#" className="pointer hover:text-primary">Editor guidelines</a></li>
-              <li><a href="#" className="pointer hover:text-primary">Journal Publishing Process</a></li>
-              <li><a href="#" className="pointer hover:text-primary">Archives</a></li>
-              <li><a href="#" className="pointer hover:text-primary">Call for Papers</a></li>
-              <li><a href="#" className="pointer hover:text-primary">Editorial Management System</a></li>
+              <li><NavLink to="/instructions-for-authors" className="pointer hover:text-primary">Instructions for Authors</NavLink></li>
+              <li><NavLink to="/editor-guidelines" className="pointer hover:text-primary">Editor guidelines</NavLink></li>
+              <li><NavLink to="/journal-publishing-process" className="pointer hover:text-primary">Journal Publishing Process</NavLink></li>
+              <li><NavLink to="/archives" className="pointer hover:text-primary">Archives</NavLink></li>
+              <li><NavLink to="/call-for-papers" className="pointer hover:text-primary">Call for Papers</NavLink></li>
+              <li><NavLink to="/editorial-management-system" className="pointer hover:text-primary">Editorial Management System</NavLink></li>
             </ul>
           </div>
 
@@ -55,12 +56,12 @@ export default function Footer() {
               POLICIES
             </h3>
             <ul className="space-y-3 text-sm text-gray-600">
-              <li><a href="#" className="hover:text-primary">Peer Review Policy</a></li>
-              <li><a href="#" className="hover:text-primary">Publication Policy</a></li>
-              <li><a href="#" className="hover:text-primary">Ethics And Policies</a></li>
-              <li><a href="#" className="hover:text-primary">Crossmark Policy</a></li>
-              <li><a href="#" className="hover:text-primary">Open Access Policy</a></li>
-              <li><a href="#" className="hover:text-primary">Plagiarism Policy</a></li>
+              <li><NavLink to="/peer-review-policy" className="hover:text-primary">Peer Review Policy</NavLink></li>
+              <li><NavLink to="/publication-ethics-policy" className="hover:text-primary">Publication Policy</NavLink></li>
+              <li><NavLink to="/ethics&policy" className="hover:text-primary">Ethics And Policies</NavLink></li>
+              <li><NavLink to="/cross-mark-policy" className="hover:text-primary">Crossmark Policy</NavLink></li>
+              <li><NavLink to="/open-Access-policy" className="hover:text-primary">Open Access Policy</NavLink></li>
+              <li><NavLink to="/plagiarism-policy" className="hover:text-primary">Plagiarism Policy</NavLink></li>
             </ul>
           </div>
 
@@ -100,29 +101,29 @@ export default function Footer() {
               </p>
               <div className="mt-2 text-center">
                 <div className="flex flex-wrap justify-center space-x-1 text-sm">
-                  <a href="#" className="text-primary hover:text-primary-hover">Privacy Policy</a>
+                  <NavLink to="#" className="text-primary hover:text-primary-hover">Privacy Policy</NavLink>
                   <span className="text-gray-400">|</span>
-                  <a href="#" className="text-primary hover:text-primary-hover">Terms And Conditions</a>
+                  <NavLink to="#" className="text-primary hover:text-primary-hover">Terms And Conditions</NavLink>
                   <span className="text-gray-400">|</span>
-                  <a href="#" className="text-primary hover:text-primary-hover">Refund Policy</a>
+                  <NavLink to="#" className="text-primary hover:text-primary-hover">Refund Policy</NavLink>
                 </div>
               </div>
             </div>
 
             {/* Social Media Icons */}
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-gray-500">
+              <NavLink to="#" className="text-gray-400 hover:text-gray-500">
                 <Twitter size={20} />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-gray-500">
+              </NavLink>
+              <NavLink to="#" className="text-gray-400 hover:text-gray-500">
                 <Facebook size={20} />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-gray-500">
+              </NavLink>
+              <NavLink to="#" className="text-gray-400 hover:text-gray-500">
                 <Instagram size={20} />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-gray-500">
+              </NavLink>
+              <NavLink to="#" className="text-gray-400 hover:text-gray-500">
                 <Linkedin size={20} />
-              </a>
+              </NavLink>
             </div>
           </div>
 
