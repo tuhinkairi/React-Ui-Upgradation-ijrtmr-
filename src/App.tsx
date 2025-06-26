@@ -20,6 +20,7 @@ import Blog from "./ui/endpoints/blog/Blog";
 import BlogShow from "./ui/endpoints/blog/show/BlogShow";
 import Thesis from "./ui/endpoints/Thesis/Thesis";
 import ContactUs from "./ui/endpoints/contact-us/ContactUs";
+import Download from "./ui/endpoints/for-authors/download-section/Download";
 
 
 export default function App() {
@@ -58,7 +59,8 @@ export default function App() {
         <Route path="/faq" element={<FAQ />} />
         {/* about end */}
 
-        
+        {/* for authors */}
+        <Route path="/downloads" element={<Download />} />
       </Routes>
       <Footer/>
 
