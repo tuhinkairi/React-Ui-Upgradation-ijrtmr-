@@ -19,6 +19,7 @@ import EditoralSingle from "./ui/endpoints/Editorial/EditorialPage/EditoralSingl
 import Blog from "./ui/endpoints/blog/Blog";
 import BlogShow from "./ui/endpoints/blog/show/BlogShow";
 import Thesis from "./ui/endpoints/Thesis/Thesis";
+import ContactUs from "./ui/endpoints/contact-us/ContactUs";
 
 
 export default function App() {
@@ -34,7 +35,7 @@ export default function App() {
         <Route path="/blog" element={<Blog />}/>
         <Route path="/blog/:slug" element={<BlogShow />}/>
         <Route path="/Thesis" element={<Thesis/>}/>
-        <Route path="/contact-us" element={<>comming soon</>}/>
+        <Route path="/contact-us" element={<ContactUs/>}/>
 
         <Route path="/archives" element={<Archives />}>
           <Route index element={<ArchiveFirst />} />
