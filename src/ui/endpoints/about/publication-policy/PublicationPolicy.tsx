@@ -5,7 +5,7 @@ import VerificationSection from "../VerificationSection";
 export default function PublicationPolicy() {
     return (
         <CommonLayout>
-            <div className="space-y-4 pb-4 text-muted-foreground text-base">
+            <div className="space-y-4 pb-4 text-muted-foreground text-base text-[#333333]">
             <Title>Publication Ethics</Title>
                 <p className="mt-6">
                     <span className="font-semibold">Originality & Plagiarism:</span> Submitted manuscripts must be original and not plagiarized. Proper citations must be given for any borrowed content.

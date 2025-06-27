@@ -6,9 +6,9 @@ import IndexingPartnerArchive from "../archive/components/IndexingPartnerArchive
 export default function IndexAbstract() {
   return (
     <CommonLayout>
-      <div className="mb-3">
+      <div className="mb-3 text-[#333333]">
       <Title>Indexing & Abstraction</Title>
-      <p className=" w-1/2">Indexed in leading academic databases, Boosting visibility, reach, and research impact</p>
+      <p className=" w-1/2 text-base">Indexed in leading academic databases, Boosting visibility, reach, and research impact.</p>
       </div>
       <IndexingPartnerArchive/>
       <VerificationSection/>

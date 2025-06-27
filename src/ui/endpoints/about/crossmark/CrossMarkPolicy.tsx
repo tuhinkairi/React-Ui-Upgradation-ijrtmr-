@@ -5,13 +5,13 @@ import VerificationSection from '../VerificationSection'
 function CrossMarkPolicy() {
     return (
         <CommonLayout>
-            <div className='flex items-center justify-between'>
+            <div className='flex items-center justify-between text-base '>
                 <Title>Crossmark Policy</Title>
                 <p className="text-sm text-muted-foreground mt-1">
                     Crossmark Policy DOI: <a href="http://dx.doi.org/10.59256/ijsreat/CrossMark-Policy-Page" className="text-primary hover:text-primary-hover underline">http://dx.doi.org/10.59256/ijsreat/CrossMark-Policy-Page</a>
                 </p>
             </div>
-            <div className="mt-4 space-y-4 text-sm text-muted-foreground">
+            <div className="my-4 mt-2 space-y-4 text-base text-[#333333]">
                 <p>
                     Our journal participates in CrossMark, a multi-publisher initiative that has developed a standard way for readers to locate
                     the current version of an article. By enforcing CrossMark policies, <strong>Our journal</strong> is committed to maintaining
@@ -54,7 +54,7 @@ function CrossMarkPolicy() {
                 </p>
             </div>
             <VerificationSection />
-            <div className="text-muted-foreground text-base space-y-10  my-6">
+            <div className="text-[#333333] text-base space-y-10  my-6">
                 <div>
                     <h1 className='font-semibold text-xl mb-2'>What does it look like?</h1>
                     <p>
@@ -72,9 +72,6 @@ function CrossMarkPolicy() {
                     </p>
                 </div>
             </div>
-
-
-
         </CommonLayout>
     )
 }

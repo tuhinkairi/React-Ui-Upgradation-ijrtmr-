@@ -4,7 +4,7 @@ import Title from "../../../other/Title";
 export default function PeerReviewPolicy() {
   return (
     <CommonLayout>
-    <section className=" max-w-5xl mx-auto leading-7 space-y-6">
+    <section className=" leading-7 space-y-6 text-base text-[#333333]">
       <Title>
         Peer Review Policy
       </Title>

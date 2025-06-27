@@ -13,7 +13,7 @@ export default function CommonLayout({children, className,title}:{children:React
   return (
     <section className="_journalLayout ml-16 grid grid-cols-4 2xl:grid-cols-5 justify-between gap-5 mr-4 xl:mr-16 ">
       {title && <Title>{title}</Title>}
-      <div className={`lhs col-span-3 2xl:col-span-4 mr-2  ${className?className:"bg-white px-6"}`}>
+      <div className={`lhs col-span-3 2xl:col-span-4 mr-2 text-base text-[#333333] ${className?className:"bg-white px-6"}`}>
         {children}
       </div>
       <div className='space-y-2 flex flex-col items-end'>

@@ -9,14 +9,13 @@ export default function EthicsAndPolicy() {
     <CommonLayout>
       {/* section1 */}
       <section className='space-y-7 text-muted-foreground text-base mb-6'>
-
         <div className="w-full flex justify-center items-center text-[#333333]">
           <div className="">
             <Title>Ethics &amp; Policies</Title>
-            <p className="text-[16px] leading-[1.9] mb-5 ">
+            <p className=" leading-[1.9] my-5">
               International Journal of Scientific Research in Engineering &amp; Technology (IJSREAT) is (Online), Bi-monthly international journal for publication of new ideas founded by academicians, educationist, engineers and corporate people. The research results and fund FDRP ental advancement are all aspects of Innovative Research in Advanced Engineering &amp; Technology and various engineering disciplines, etc. IJSREAT is a scholarly open access, Peer Review Journal which helps to academic person as well as student community. IJSREAT provides the academic community and industry for the submission of original research and applications related to Various Engineering discipline and Advanced Technologies by Fifth Dimension Research Publications (FDRP) Tamil Nadu, India since year 2020.
             </p>
-            <p className="text-[16px] leading-[1.9] ">
+            <p className=" leading-[1.9] ">
               The publication of an article in a peer-reviewed journal is an essential building block in the development of a coherent and respected network of knowledge. It is a direct reflection of the quality of work of the author and the institutions that support them. Double Blind Peer-reviewed articles support and embody the scientific method. It is therefore important to agree upon standards of expected ethical behaviour.
             </p>
           </div>
