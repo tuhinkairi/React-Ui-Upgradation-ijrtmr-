@@ -1,4 +1,5 @@
 import CommonLayout from "../../../components/layout/CommonLayout";
+import VerificationSection from "../../about/VerificationSection";
 import Paper from "./Paper";
 
 const CallForPapers = () => {
@@ -6,6 +7,7 @@ const CallForPapers = () => {
 
     <CommonLayout className="px-6 bg-white text-base">
         <Paper/>
+        <VerificationSection />
     </CommonLayout>
   );
 };
