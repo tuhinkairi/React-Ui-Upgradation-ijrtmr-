@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
-import MenuCard from "./cards/MenuCard";
 import React, { useRef } from "react";
 import { about_menu, archive_menu } from "../../data/listingSection";
+import MenuCard from "./cards/MenuCard";
 
 const Navbar = () => {
   const about = useRef<HTMLDivElement>(null);
@@ -10,10 +10,11 @@ const Navbar = () => {
     e.preventDefault();    
     const pop = element.current;
     if (pop) {
-      pop.classList.toggle("hidden");
-      pop.classList.toggle("flex");
+      pop.classList.remove("hidden");
+      pop.classList.add("flex");
     }
   }
+    
   return (
     <nav className="flex justify-between items-center py-6 gap-4 mx-auto ml-16 mr-4 xl:mr-16">
       {/* Logo Section */}

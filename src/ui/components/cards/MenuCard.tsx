@@ -4,9 +4,29 @@ import { NavLink } from "react-router-dom";
 const MenuCard = React.forwardRef<HTMLDivElement, { links: {title:string,link:string}[]}>(({ links}, ref) => {
     const handelHide = () => {
         const pop = ref as React.RefObject<HTMLDivElement>;
-        if (pop.current) {
-            pop.current.classList.toggle("hidden");
-        }        
+        
+        const hideMenu = () => {
+            if (pop.current) {
+                pop.current.classList.add("hidden");
+                pop.current.classList.remove("flex");
+            }
+        };
+
+        const timeoutId = setTimeout(hideMenu, 1000);
+
+        const handleClickOutside = (event: MouseEvent) => {
+            if (pop.current && !pop.current.contains(event.target as Node)) {
+                hideMenu();
+                document.removeEventListener('click', handleClickOutside);
+            }
+        };
+
+        document.addEventListener('click', handleClickOutside);
+
+        return () => {
+            clearTimeout(timeoutId);
+            document.removeEventListener('click', handleClickOutside);
+        };
     }
     return (
         <div ref={ref} onMouseLeave={handelHide} className="absolute top-8 items-center justify-center hidden bg-gradient-radial z-10 from-black via-gray-800 to-black">
