@@ -26,6 +26,7 @@ import CallForPapers from "./ui/endpoints/for-authors/call-for-paper/CallForPape
 import ArticalProcessing from "./ui/endpoints/for-authors/artical-processing/ArticalProcessing";
 import Conference from "./ui/endpoints/conference/Conference";
 import ConferenceIndex from "./ui/endpoints/conference/ConferenceIndex";
+import Topics from "./ui/endpoints/for-authors/topics/Topics";
 
 
 export default function App() {
@@ -68,6 +69,7 @@ export default function App() {
         <Route path="/downloads" element={<Download />} />
         <Route path="/journal-publishing-process" element={<JournalPublishingProcess />} />
         <Route path="/call-for-paper" element={<CallForPapers />} />
+        <Route path="/topics" element={<Topics />} />
         <Route path="/article-status" element={<ArticalProcessing />} />
 
 
