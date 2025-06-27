@@ -24,6 +24,8 @@ import Download from "./ui/endpoints/for-authors/download-section/Download";
 import JournalPublishingProcess from "./ui/endpoints/for-authors/journal-publishing-process/JournalPublishingProcess";
 import CallForPapers from "./ui/endpoints/for-authors/call-for-paper/CallForPaper";
 import ArticalProcessing from "./ui/endpoints/for-authors/artical-processing/ArticalProcessing";
+import Conference from "./ui/endpoints/conference/Conference";
+import ConferenceIndex from "./ui/endpoints/conference/ConferenceIndex";
 
 
 export default function App() {
@@ -67,6 +69,14 @@ export default function App() {
         <Route path="/journal-publishing-process" element={<JournalPublishingProcess />} />
         <Route path="/call-for-paper" element={<CallForPapers />} />
         <Route path="/article-status" element={<ArticalProcessing />} />
+
+
+        {/* conference */}
+        <Route path="/conference" element={<Conference />}>
+          <Route index element={<ConferenceIndex />} />
+          {/* <Route path=":volumes" element={<ArchiveVolumes />} />
+          <Route path="artical-details" element={<ArticleDetails />} /> */}
+        </Route>
       </Routes>
       <Footer/>
 

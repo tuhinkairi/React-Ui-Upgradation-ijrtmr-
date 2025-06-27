@@ -6,3 +6,11 @@ export interface BlogPost {
   imageUrl:string
 }
 
+// conference card interface
+export interface ConferenceCardProps {
+  acronym: string;
+  title: string;
+  organizer: string;
+  date: string;
+  articleLink: string;
+}
