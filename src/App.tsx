@@ -21,6 +21,7 @@ import BlogShow from "./ui/endpoints/blog/show/BlogShow";
 import Thesis from "./ui/endpoints/Thesis/Thesis";
 import ContactUs from "./ui/endpoints/contact-us/ContactUs";
 import Download from "./ui/endpoints/for-authors/download-section/Download";
+import JournalPublishingProcess from "./ui/endpoints/for-authors/journal-publishing-process/JournalPublishingProcess";
 
 
 export default function App() {
@@ -61,6 +62,7 @@ export default function App() {
 
         {/* for authors */}
         <Route path="/downloads" element={<Download />} />
+        <Route path="/journal-publishing-process" element={<JournalPublishingProcess />} />
       </Routes>
       <Footer/>
 
