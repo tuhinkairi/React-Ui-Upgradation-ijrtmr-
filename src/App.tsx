@@ -23,6 +23,7 @@ import ContactUs from "./ui/endpoints/contact-us/ContactUs";
 import Download from "./ui/endpoints/for-authors/download-section/Download";
 import JournalPublishingProcess from "./ui/endpoints/for-authors/journal-publishing-process/JournalPublishingProcess";
 import CallForPapers from "./ui/endpoints/for-authors/call-for-paper/CallForPaper";
+import ArticalProcessing from "./ui/endpoints/for-authors/artical-processing/ArticalProcessing";
 
 
 export default function App() {
@@ -65,6 +66,7 @@ export default function App() {
         <Route path="/downloads" element={<Download />} />
         <Route path="/journal-publishing-process" element={<JournalPublishingProcess />} />
         <Route path="/call-for-paper" element={<CallForPapers />} />
+        <Route path="/article-status" element={<ArticalProcessing />} />
       </Routes>
       <Footer/>
 
