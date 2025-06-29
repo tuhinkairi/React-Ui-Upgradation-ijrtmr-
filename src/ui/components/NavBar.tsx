@@ -1,11 +1,12 @@
 import { NavLink } from "react-router-dom";
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { about_menu, archive_menu } from "../../data/listingSection";
 import MenuCard from "./cards/MenuCard";
 
 const Navbar = () => {
   const about = useRef<HTMLDivElement>(null);
   const archive = useRef<HTMLDivElement>(null);
+
   const handelpop = (e: React.MouseEvent<HTMLAnchorElement>, element:React.RefObject<HTMLDivElement | null>) => {
     e.preventDefault();    
     const pop = element.current;
@@ -14,6 +15,29 @@ const Navbar = () => {
       pop.classList.add("flex");
     }
   }
+
+  const handelHide = (ref : React.RefObject<HTMLDivElement | null>) => {
+    if (ref.current) {
+      ref.current.classList.add("hidden");
+      ref.current.classList.remove("flex");
+    }
+  }
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (about.current && !about.current.contains(event.target as Node)) {
+        handelHide(about);
+      }
+      if (archive.current && !archive.current.contains(event.target as Node)) {
+        handelHide(archive);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
     
   return (
     <nav className="flex justify-between items-center py-6 gap-4 mx-auto ml-16 mr-4 xl:mr-16">
@@ -29,13 +53,15 @@ const Navbar = () => {
       {/* Nav Links */}
       <ul className="flex items-center space-x-6 font-medium">
         <li className="hover:text-primary"><NavLink className={({isActive})=>isActive?'text-primary':""} to="/">Home</NavLink></li>
-        <li className="hover:text-primary relative"><NavLink onMouseOver={(e)=>handelpop(e,about)} className={({isActive})=>isActive?'text-primary':""} to="/aim&scope">About Us</NavLink>
-        <MenuCard ref={about} links={about_menu}/>
+        <li className="hover:text-primary relative">
+          <NavLink onMouseEnter={(e)=>handelpop(e,about)} className={({isActive})=>isActive?'text-primary':""} to="/aim&scope">About Us</NavLink>
+          <MenuCard ref={about} links={about_menu} />
         </li>
         <li className="hover:text-primary"><NavLink className={({isActive})=>isActive?'text-primary':""} to="/for-authors">For Authors</NavLink></li>
         <li className="hover:text-primary"><NavLink className={({isActive})=>isActive?'text-primary':""} to="/current-issue">Current Issue</NavLink></li>
-        <li className="hover:text-primary relative"><NavLink onMouseOver={(e)=>handelpop(e,archive)} className={({isActive})=>isActive?'text-primary':""} to="/archives">Archives</NavLink>
-        <MenuCard ref={archive} links={archive_menu}/>
+        <li className="hover:text-primary relative">
+          <NavLink onMouseEnter={(e)=>handelpop(e,archive)} className={({isActive})=>isActive?'text-primary':""} to="/archives">Archives</NavLink>
+          <MenuCard ref={archive} links={archive_menu}/>
         </li>
         <li className="hover:text-primary"><NavLink className={({isActive})=>isActive?'text-primary':""} to="/conference">Conference</NavLink></li>
         <li className="hover:text-primary"><NavLink className={({isActive})=>isActive?'text-primary':""} to="/thesis">Thesis</NavLink></li>
