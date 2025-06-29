@@ -1,18 +1,52 @@
+
+import { useCallback, useEffect, useState } from "react";
 import type { ConferenceCardProps } from "../../../types/Api";
 import ConferenceCard from "./ConferenceCard";
+import conference_categories from "../../../lib/axios/api/conference";
+import { useAppDispatch, useAppSelector } from "../../../lib/store/store";
+import { setConferenceList } from "../../../lib/store/Features/conferenceSlice";
 
-const ConferenceIndex = () => {
-  const conferenceInfo:ConferenceCardProps = {
-    acronym: 'REACT',
-    title: 'Recent Advances in Civil Engineering and Technology–2024',
-    organizer: 'Vidya Academy of Science and Technology, Kerala, India',
-    date: '19 & 20 June 2024',
-    articleLink: 'https://example.com/view-article',
-  };
+const ConferenceIndex =() => {
+  // Local state to store conference data
+  const [conferenceData, setConferenceData] = useState<ConferenceCardProps[]>([]);
+  const dispatch = useAppDispatch();
+  // Get conference list from Redux store
+  const conferenceState = useAppSelector((state) => state.conference.list);
+
+  /**
+   * Fetches conference data from the API and updates both local state and Redux store
+   * If no data is found, sets empty arrays in both states
+   */
+  const fetchConference = useCallback(async () => {
+    const data = await conference_categories();
+    if (!data || data.length === 0) {
+      console.error("No conference data found");
+      setConferenceData([]);
+      dispatch(setConferenceList([]))
+      return;
+    }
+    setConferenceData(data);
+    dispatch(setConferenceList(data))
+  }, [dispatch]);
+
+  /**
+   * Effect hook to initialize conference data
+   * If data exists in Redux store, uses that
+   * Otherwise, fetches new data from API
+   */
+  useEffect(() => {
+    if (conferenceState.length > 0) {
+      setConferenceData(conferenceState);
+      return;
+    }
+    fetchConference();
+  }, [fetchConference, conferenceState]);
 
   return (
     <div className="max-w-6xl mx-auto py-4 ">
-      <ConferenceCard {...conferenceInfo} />
+      {conferenceData.length > 0 && conferenceData.map((e, index) => (
+        <ConferenceCard key={index} {...e} />
+      ))}
     </div>
   );
 };

@@ -8,9 +8,15 @@ export interface BlogPost {
 
 // conference card interface
 export interface ConferenceCardProps {
-  acronym: string;
-  title: string;
-  organizer: string;
-  date: string;
-  articleLink: string;
+    id: number;
+    name: string;
+    title: string;
+    organised_by: string;
+    conference_date: string;
+    volume: string;
+    year: string;
+    issue: string;
+    created_at: Date;
+    updated_at: Date;
+
 }

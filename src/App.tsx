@@ -38,7 +38,6 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/for-authors" element={<>comming soon</>}/>
         <Route path="/current-issue" element={<>comming soon</>}/>
-        <Route path="/conference" element={<>comming soon</>}/>
         <Route path="/blog" element={<Blog />}/>
         <Route path="/blog/:slug" element={<BlogShow />}/>
         <Route path="/Thesis" element={<Thesis/>}/>
