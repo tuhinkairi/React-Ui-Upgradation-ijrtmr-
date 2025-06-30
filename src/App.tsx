@@ -45,7 +45,7 @@ export default function App() {
 
         <Route path="/archives" element={<Archives />}>
           <Route index element={<ArchiveFirst />} />
-          <Route path=":volumes" element={<ArchiveVolumes />} />
+          <Route path=":volumes" element={<ArchiveVolumes active="archive"/>} />
           <Route path="artical-details" element={<ArticleDetails />} />
         </Route>
         
@@ -75,8 +75,8 @@ export default function App() {
         {/* conference */}
         <Route path="/conference" element={<Conference />}>
           <Route index element={<ConferenceIndex />} />
-          {/* <Route path=":volumes" element={<ArchiveVolumes />} />
-          <Route path="artical-details" element={<ArticleDetails />} /> */}
+          <Route path=":volumes" element={<ArchiveVolumes active="conference"/>} />
+          <Route path="artical-details" element={<ArticleDetails />} />
         </Route>
       </Routes>
       <Footer/>

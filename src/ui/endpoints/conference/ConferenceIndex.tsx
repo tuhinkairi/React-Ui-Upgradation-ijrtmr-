@@ -5,8 +5,11 @@ import ConferenceCard from "./ConferenceCard";
 import conference_categories from "../../../lib/axios/api/conference";
 import { useAppDispatch, useAppSelector } from "../../../lib/store/store";
 import { setConferenceList } from "../../../lib/store/Features/conferenceSlice";
+import Loading from "../../components/Loading";
+import Title2 from "../../other/Title2";
 
 const ConferenceIndex =() => {
+  const [loading, setLoading] =useState<boolean>(true) 
   // Local state to store conference data
   const [conferenceData, setConferenceData] = useState<ConferenceCardProps[]>([]);
   const dispatch = useAppDispatch();
@@ -35,18 +38,24 @@ const ConferenceIndex =() => {
    * Otherwise, fetches new data from API
    */
   useEffect(() => {
-    if (conferenceState.length > 0) {
-      setConferenceData(conferenceState);
-      return;
+    const preFetch = async ()=>{
+      if (conferenceState.length > 0) {
+        setConferenceData(conferenceState);
+        setLoading(false)
+        return;
+      }
+      await fetchConference();
+      setLoading(false)
     }
-    fetchConference();
+    preFetch()
   }, [fetchConference, conferenceState]);
 
   return (
     <div className="max-w-6xl mx-auto py-4 ">
-      {conferenceData.length > 0 && conferenceData.map((e, index) => (
+      {loading ? <Loading title="Conference"/> :
+      conferenceData.length > 0 ? conferenceData.map((e, index) => (
         <ConferenceCard key={index} {...e} />
-      ))}
+      )): <Title2>Opps Somthing Went Wrong</Title2>}
     </div>
   );
 };

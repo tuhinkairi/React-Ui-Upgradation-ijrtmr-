@@ -8,7 +8,7 @@ import { policies, quickLinks } from '../../../data/listingSection'
 import Title from '../../other/Title'
 import { useLocation } from 'react-router-dom'
 
-export default function CommonLayout({children, className,title}:{children:React.ReactNode, className?:string, title?:string}) {
+export default function CommonLayout({children, className,title}:{children:React.ReactNode, className?:string, title?:string|React.ReactNode}) {
   const path = useLocation();
   return (
     <section className="_journalLayout ml-16 grid grid-cols-4 2xl:grid-cols-5 justify-between gap-5 mr-4 xl:mr-16 ">
