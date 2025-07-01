@@ -2,12 +2,16 @@ import { configureStore } from '@reduxjs/toolkit';
 import {  useDispatch, useSelector, type TypedUseSelectorHook } from 'react-redux';
 import conferenceSlice from './Features/conferenceSlice';
 import conferenceArticleSlice from './Features/conferenceDetailseSlice';
+import loadingSlice from './Features/loadingSlice';
+import paginationSlice from './Features/paginationSlice';
 
 // Create the store
 const store = configureStore({
     reducer: {
         conference: conferenceSlice.reducer,
         conferenceArtical: conferenceArticleSlice.reducer,
+        loadingScreen: loadingSlice.reducer,
+        pagination:paginationSlice.reducer
     },
 });
 

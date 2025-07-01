@@ -7,7 +7,7 @@ interface PaginationProps {
     rangeList?: number[];
 }
 
-export const Pagination = ({ currentPage, totalPages, onPageChange,rangeList }: PaginationProps) => {
+export const Pagination = ({ currentPage, totalPages, onPageChange, rangeList }: PaginationProps) => {
     let currentIndex = currentPage - 1;
     
     const pages = Array.from({ length: totalPages }, () => currentIndex++).map((page) => page + 1);

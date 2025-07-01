@@ -7,9 +7,11 @@ import { useAppDispatch, useAppSelector } from "../../../lib/store/store";
 import { setConferenceList } from "../../../lib/store/Features/conferenceSlice";
 import Loading from "../../components/Loading";
 import Title2 from "../../other/Title2";
+import { setLoading } from "../../../lib/store/Features/loadingSlice";
 
 const ConferenceIndex =() => {
-  const [loading, setLoading] =useState<boolean>(true) 
+  const loading = useAppSelector((state)=> state.loadingScreen.loading)
+  
   // Local state to store conference data
   const [conferenceData, setConferenceData] = useState<ConferenceCardProps[]>([]);
   const dispatch = useAppDispatch();
@@ -39,16 +41,17 @@ const ConferenceIndex =() => {
    */
   useEffect(() => {
     const preFetch = async ()=>{
+      dispatch(setLoading(true))
       if (conferenceState.length > 0) {
         setConferenceData(conferenceState);
-        setLoading(false)
+        dispatch(setLoading(false))
         return;
       }
       await fetchConference();
-      setLoading(false)
+      dispatch(setLoading(false))
     }
     preFetch()
-  }, [fetchConference, conferenceState]);
+  }, [fetchConference, conferenceState,dispatch]);
 
   return (
     <div className="max-w-6xl mx-auto py-4 ">
