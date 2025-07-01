@@ -45,3 +45,13 @@ export interface ConferenceArticleProps {
   doi: string | null;
   doi_link: string | null;
 }
+
+
+// Archive
+export interface ArchiveIndexVolume{
+    year: string;
+    volumes: {
+      volume: string;
+      issue: string[];
+    }[]
+}
