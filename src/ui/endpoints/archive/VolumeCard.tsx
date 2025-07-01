@@ -5,14 +5,15 @@ import { ImQuotesRight } from "react-icons/im";
 import { PiChartPieSlice } from "react-icons/pi";
 import PrimaryBtn from "../../components/Btns/PrimaryBtn";
 
-export default function VolumeCard({ paper}: { paper: ConferenceArticleProps }) {
+export default function VolumeCard({ paper, setActive, section}: { paper: ConferenceArticleProps, setActive:(arg:ConferenceArticleProps)=>void, section:string}) {
     return (
         <div
             className="bg-white shadow rounded-xl p-4 space-y-2 border"
         >
             <div className="flex justify-between items-start">
                 <Link
-                    to="/archives/artical-details"
+                    onClick={()=>setActive(paper)}
+                    to={`/${section}/artical-details`}
                     className="text-xl font-serif  text-primary hover:underline max-w-5/6"
                 >
                     {paper.title} <span className="text-orange-400">↗</span>

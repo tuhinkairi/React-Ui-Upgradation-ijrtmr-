@@ -14,8 +14,11 @@ import Loading from "../../components/Loading";
 import { setLoading } from "../../../lib/store/Features/loadingSlice";
 import VolumeCard from "./VolumeCard";
 import { setCurrentPage } from "../../../lib/store/Features/paginationSlice";
+import { setActiveConferenceArticle } from "../../../lib/store/Features/conferenceDetailseSlice";
+import type { activeSection } from "../../../types/UI";
 
-export default function ArchiveVolumes({ active }: { active: "archive" | "conference" | "issue" | "thesis" }) {
+
+export default function ArchiveVolumes({ active }: activeSection) {
   const url = useLocation().pathname;
   const dispatch = useAppDispatch();
   const loading = useAppSelector((state) => state.loadingScreen.loading)
@@ -45,6 +48,10 @@ export default function ArchiveVolumes({ active }: { active: "archive" | "confer
   }
   // listing pagination
 
+  // setting active papers
+  const setActiveArtical = (paper: ConferenceArticleProps) => {
+    dispatch(setActiveConferenceArticle(paper));
+  }
 
   // set volumes based on active state
   const fetchData = useCallback(async () => {
@@ -130,7 +137,7 @@ export default function ArchiveVolumes({ active }: { active: "archive" | "confer
       {/* Paper Cards */}
       {(trackPage === pageNumber || !loading) ?<div className="space-y-6">
         {volumes.length != 0 && volumes.map((paper, idx) => (
-          <VolumeCard paper={paper} key={idx} />
+          <VolumeCard paper={paper} key={idx} setActive={setActiveArtical} section={active} />
         ))}
       </div>:
       <Loading title="Volume Pages"/>

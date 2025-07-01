@@ -11,3 +11,5 @@ export interface Indexing {
 export interface IndexingList {
     indexingList: Indexing[]
 }
+
+export type activeSection = { active: "archive" | "conference" | "issue" | "thesis" }
