@@ -8,7 +8,6 @@ import Citations from "./Citations";
 import ArticleMetrics from "./ArticleMetrics";
 import Licensing from "./Licensing";
 import { CgProfile } from "react-icons/cg";
-import PrimaryBtn from "../../../components/Btns/PrimaryBtn";
 import { ImQuotesLeft } from "react-icons/im";
 import { useAppSelector } from "../../../../lib/store/store";
 import { Link, useNavigate } from "react-router-dom";
@@ -40,15 +39,28 @@ const ArticleDetails = () => {
 
       {/* Meta Information */}
       <div className="space-y-3 text-primary-text leading-7 text-base">
-        <div className="flex items-center gap-3 ">
+        <div className="flex gap-3 ">
           <span className="font-medium">Author:</span>{" "}
-          {auther.map((author, index) => (
-            <span className="text-primary flex gap-2 items-center" key={index}>
-              <CgProfile size={18} />
-              {author}
-              {index !== auther.length - 1 && ", "}
-            </span>
-          ))}
+          <div className="text-base flex flex-col gap-3 font-medium">
+            <div className="flex gap-3">
+              {auther.map((author, index) => (
+                index<=2 && <span className="text-primary flex gap-2 items-center" key={index}>
+                  <CgProfile size={20} />
+                  {author}
+                  {index !== auther.length - 1 && ", "}
+                </span>
+              ))}
+            </div>
+            <div className="flex gap-3">
+              {auther.map((author, index) => (
+                index>2 &&  <span className="text-primary flex gap-2 items-center" key={index}>
+                  <CgProfile size={20} />
+                  {author}
+                  {index !== auther.length - 1 && ", "}
+                </span>
+              ))}
+            </div>
+          </div>
         </div>
         <ul className="text-secondary-text list-decimal list-inside">
           {
@@ -67,20 +79,20 @@ const ArticleDetails = () => {
         <h3 className="text-primary flex gap-2 items-center  mr-10">
           <ImQuotesLeft className="text-primary" /> Cite this article
         </h3>
-        
+
         {ActiveArtical?.doi && <Link
           to={ActiveArtical?.doi}
           className="text-primary flex items-center gap-1 hover:underline"
         >
           ↗ {ActiveArtical?.doi}
         </Link>}
-        <button className="bg-[#995428] text-white px-3 py-2 rounded-md font-semibold flex items-center justify-center space-x-3 text-sm">
+        <button className="bg-gradient-to-b from-gray-100  to-zinc-300 border border-gray-300 hover:scale-105 transition-all text-dark px-3 py-2 rounded-md font-semibold flex items-center justify-center space-x-3 text-sm">
           <span>
             Check for Updates</span> <IoReload height={20} />
         </button>
-        <PrimaryBtn className="rounded-full">
-          <Share2 size={16} />
-        </PrimaryBtn>
+        <button className="inline-flex items-center justify-center bg-[#fae0d0] text-primary-text text-sm font-medium w-12 h-12 hover:bg-[#f6d5c3] transition-colors rounded-full">
+          <Share2 size={16} className="inline-block" />
+        </button>
       </div>
 
       {/* Navigation Tabs */}
@@ -103,7 +115,7 @@ const ArticleDetails = () => {
       </div>
 
       {currentItem === "Full Article" && <FullArtical content={ActiveArtical?.abstract ?? ""} pdf_url={ActiveArtical?.pdf_url ?? ""} />}
-      {currentItem === "Citations" && <Citations />}
+      {currentItem === "Citations" && <Citations content={ActiveArtical?.citation ?? ""} />}
       {currentItem === "Licensing" && <Licensing />}
       {currentItem === "Metrics" && <ArticleMetrics />}
       {currentItem === "References" && <References content={ActiveArtical?.references ?? ""} />}

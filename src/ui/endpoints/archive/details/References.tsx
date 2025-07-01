@@ -33,12 +33,14 @@ const References = ({ content }: { content: string }) => {
       <h2 className="text-base font-semibold">References</h2>
       <ul className="space-y-6 text-sm text-gray-800">
         <>
-          {refContent.length !== 0 ?(refContent.map((item, index) => {
+          {refContent.length !== 0 ? (
+            refContent.map((item, index) => (
               <li key={index}>
-                <p className="mb-1">{item}</p>
+                <p className="">{item}</p>
               </li>
-            })):
-            (references.map((ref) => (
+            ))
+          ) : (
+            references.map((ref) => (
               <li key={ref.id}>
                 <p className="mb-1">{ref.id}. {ref.citation}</p>
                 <div className="flex gap-x-4 gap-y-2 mt-1">
@@ -51,9 +53,9 @@ const References = ({ content }: { content: string }) => {
                     </button>
                   ))}
                 </div>
-              </li>)
-            ))}
-          
+              </li>
+            ))
+          )}
         </>
       </ul>
     </div>
