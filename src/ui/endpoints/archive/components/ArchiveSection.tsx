@@ -7,11 +7,13 @@ import { useAppDispatch, useAppSelector } from "../../../../lib/store/store";
 import { setLoading } from "../../../../lib/store/Features/loadingSlice";
 import Loading from "../../../components/Loading";
 import type { ArchiveIndexVolume } from "../../../../types/Api";
+import { setArchiveIndexVolume } from "../../../../lib/store/Features/ArchiveSlice";
 
 
 export default function ArchiveSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
-  const [volume, setVolumes] = useState<ArchiveIndexVolume[]>([]);
+
+  const [volume, setVolumes] = useState<ArchiveIndexVolume[]>(useAppSelector(state => state.archiveSection.indexPage));
   const dispatch = useAppDispatch()
   const loading = useAppSelector(state => state.loadingScreen.loading)
 
@@ -19,16 +21,19 @@ export default function ArchiveSection() {
 
   // fetch the archives
   useEffect(() => {
-    dispatch(setLoading(true))
-    fetchArchive().then((data) => {
-      setVolumes(data)
-      return data
-    }).catch(err => {
-      console.log(err)
-      return []
-    }).finally(() => dispatch(setLoading(false))
-    )
-  }, [dispatch])
+    if (volume.length===0) {
+      dispatch(setLoading(true))
+      fetchArchive().then((data) => {
+        setVolumes(data)
+        dispatch(setArchiveIndexVolume(data)) //store the list
+        return data
+      }).catch(err => {
+        console.log(err)
+        return []
+      }).finally(() => dispatch(setLoading(false))
+      )
+    }
+  }, [dispatch,volume])
 
   const toggleDropdown = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -60,7 +65,7 @@ export default function ArchiveSection() {
                       elem.issue.map((issue) => (
                         <Link
                           key={`${elem.volume}-${issue}`}
-                          to={`/archives/year-${vol.year}-volume-${elem.volume}-issue-${issue}}`}
+                          to={`/archives/year-${vol.year}-volume-${elem.volume}-issue-${issue}`}
                           className="block hover:bg-peach-200 px-3 py-2 rounded-md transition-colors"
                         >
                           <div className="flex items-center">
