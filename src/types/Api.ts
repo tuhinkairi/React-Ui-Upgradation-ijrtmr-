@@ -55,3 +55,39 @@ export interface ArchiveIndexVolume{
       issue: string[];
     }[]
 }
+export interface ActiveIndexArchive{
+  year: string;
+  volume: string;
+  issue: string;
+}
+
+
+// artical paper
+export interface ArchivePaperDetailProps {
+  paper_id: number;
+  paper_title: string;
+  paper_abstract: string;
+  issue: string;
+  volume: string;
+  paper_month: string;
+  paper_author: string;
+  year: string;
+  paper_url: string;
+  paper_doi: string;
+  is_deleted: number;
+  paper_articletype: string;
+  paper_pages: string;
+  paper_uniqueid: string | null;
+  created_at: string;
+  updated_at: string;
+  author_1: string | null;
+  author_2: string | null;
+  author_3: string | null;
+  author_4: string | null;
+  author_5: string | null;
+  author_6: string | null;
+  paper_references: string | null;
+  paper_citation: string | null;
+  paper_designation: string | null;
+  paper_doi_Link: string | null;
+}

@@ -3,7 +3,6 @@ import Home from "./ui/endpoints/home/Home";
 import Archives from "./ui/endpoints/archive/Archives";
 import Navbar from "./ui/components/NavBar";
 import Footer from "./ui/components/Footer";
-import ArchiveVolumes from "./ui/endpoints/archive/ArchiveVolumes";
 import ArchiveFirst from "./ui/endpoints/archive/sections/ArchiveFirst";
 import ArticleDetails from "./ui/endpoints/archive/details/ArticleDetails";
 import About from "./ui/endpoints/about/About";
@@ -18,7 +17,6 @@ import { EditorBoard } from "./ui/endpoints/Editorial/EditorialBoard";
 import EditoralSingle from "./ui/endpoints/Editorial/EditorialPage/EditoralSingle";
 import Blog from "./ui/endpoints/blog/Blog";
 import BlogShow from "./ui/endpoints/blog/show/BlogShow";
-import Thesis from "./ui/endpoints/Thesis/Thesis";
 import ContactUs from "./ui/endpoints/contact-us/ContactUs";
 import Download from "./ui/endpoints/for-authors/download-section/Download";
 import JournalPublishingProcess from "./ui/endpoints/for-authors/journal-publishing-process/JournalPublishingProcess";
@@ -27,6 +25,10 @@ import ArticalProcessing from "./ui/endpoints/for-authors/artical-processing/Art
 import Conference from "./ui/endpoints/conference/Conference";
 import ConferenceIndex from "./ui/endpoints/conference/ConferenceIndex";
 import Topics from "./ui/endpoints/for-authors/topics/Topics";
+import ThesisIndex from "./ui/endpoints/Thesis/ThesisIndex";
+import Thesis from "./ui/endpoints/Thesis/Thesis";
+import ArchiveVolumes from "./ui/endpoints/archive/ArchiveVolumes";
+import ConferenceDetails from "./ui/endpoints/conference/ConferenceDetails";
 
 
 export default function App() {
@@ -35,22 +37,27 @@ export default function App() {
     <section className={`main_body ${path.pathname == "/" && "bg-gradient-to-b from-0% from-[#E9EFFE] to-13%  to-white"}`}>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/for-authors" element={<>comming soon</>}/>
-        <Route path="/current-issue" element={<>comming soon</>}/>
-        <Route path="/blog" element={<Blog />}/>
-        <Route path="/blog/:slug" element={<BlogShow />}/>
-        <Route path="/Thesis" element={<Thesis/>}/>
-        <Route path="/contact-us" element={<ContactUs/>}/>
+        <Route path="/" loader={true} element={<Home />} />
+        <Route path="/for-authors" element={<>comming soon</>} />
+        <Route path="/current-issue" element={<>comming soon</>} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/:slug" element={<BlogShow />} />
+        <Route path="/contact-us" element={<ContactUs />} />
+
+        <Route path="/thesis" element={<ThesisIndex />} />
+        <Route path="/thesis/:volumes" element={<Thesis />}>
+          <Route index element={<ArchiveVolumes active="thesis" />} />
+          <Route path="artical-details" element={<ArticleDetails />} />
+        </Route>
 
         <Route path="/archives" element={<Archives />}>
           <Route index element={<ArchiveFirst />} />
-          <Route path=":volumes" element={<ArchiveVolumes active="archive"/>} />
+          <Route path=":volumes" element={<ArchiveVolumes active="archive" />} />
           <Route path="artical-details" element={<ArticleDetails />} />
         </Route>
-        
+
         {/* about section */}
-        <Route path="/aim&scope" element={<About />}/>
+        <Route path="/aim&scope" element={<About />} />
         {/* editorial start */}
         <Route path="/editorial-board" element={<EditorBoard />} />
         <Route path="/editorial-board/:data" element={<EditoralSingle />} />
@@ -75,11 +82,11 @@ export default function App() {
         {/* conference */}
         <Route path="/conference" element={<Conference />}>
           <Route index element={<ConferenceIndex />} />
-          <Route path=":volumes" element={<ArchiveVolumes active="conference"/>} />
-          <Route path="artical-details" element={<ArticleDetails />} />
+          <Route path=":volumes" element={<ArchiveVolumes active="conference" />} />
+          <Route path="artical-details" element={<ConferenceDetails />} />
         </Route>
       </Routes>
-      <Footer/>
+      <Footer />
 
     </section>
   )

@@ -1,29 +1,28 @@
 import { Share2 } from "lucide-react";
 import { IoReload } from "react-icons/io5";
 import { useEffect, useState } from "react";
-import FullArtical from "./FullArtical";
-import RelatedArticles from "../components/RelatedArticals";
-import References from "./References";
-import Citations from "./Citations";
-import ArticleMetrics from "./ArticleMetrics";
-import Licensing from "./Licensing";
+
+import { Link, useNavigate } from "react-router-dom";
+import { useAppSelector } from "../../../lib/store/store";
 import { CgProfile } from "react-icons/cg";
 import { ImQuotesLeft } from "react-icons/im";
-import { useAppSelector } from "../../../../lib/store/store";
-import { Link, useNavigate, useSearchParams } from "react-router-dom";
+import FullArtical from "../archive/details/FullArtical";
+import Citations from "../archive/details/Citations";
+import Licensing from "../archive/details/Licensing";
+import ArticleMetrics from "../archive/details/ArticleMetrics";
+import References from "../archive/details/References";
+import RelatedArticles from "../archive/components/RelatedArticals";
 
 type TabOption = "Full Article" | "References" | "Citations" | "Metrics" | "Licensing";
 
-const ArticleDetails = () => {
-  const searchQuery = useSearchParams();
-  const [currentItem, setCurrentItem] = useState<TabOption>(searchQuery[0].get("section")?.replace("-"," ") as TabOption || "Full Article")
-
+const ConferenceDetails = () => {
+  const [currentItem, setCurrentItem] = useState<TabOption>("Full Article")
   const navigate = useNavigate()
 
   // store data
-  const ActiveArtical = useAppSelector((state) => state.archiveSection.activePaper)
+  const ActiveArtical = useAppSelector((state) => state.conferenceArtical.selectedArticle)
   const auther = [ActiveArtical?.author_1, ActiveArtical?.author_2, ActiveArtical?.author_3, ActiveArtical?.author_4, ActiveArtical?.author_5, ActiveArtical?.author_6].filter(item => item !== null)
-  const designation: string[] = ActiveArtical?.paper_designation?.split(",") ?? []
+  const designation: string[] = ActiveArtical?.designation?.split(",") ?? []
   // functions
   useEffect(() => {
     if (!ActiveArtical) navigate("/conference")
@@ -34,7 +33,7 @@ const ArticleDetails = () => {
       <div className="flex justify-between items-start">
         <div>
           <h2 className="text-2xl font-semibold leading-snug">
-            {ActiveArtical?.paper_title}
+            {ActiveArtical?.title}
           </h2>
         </div>
       </div>
@@ -46,7 +45,7 @@ const ArticleDetails = () => {
           <div className="text-base flex flex-col gap-3 font-medium">
             <div className="flex gap-3">
               {auther.map((author, index) => (
-                index <= 2 && <span className="text-primary flex gap-2 items-center" key={index}>
+                index<=2 && <span className="text-primary flex gap-2 items-center" key={index}>
                   <CgProfile size={20} />
                   {author}
                   {index !== auther.length - 1 && ", "}
@@ -55,7 +54,7 @@ const ArticleDetails = () => {
             </div>
             <div className="flex gap-3">
               {auther.map((author, index) => (
-                index > 2 && <span className="text-primary flex gap-2 items-center" key={index}>
+                index>2 &&  <span className="text-primary flex gap-2 items-center" key={index}>
                   <CgProfile size={20} />
                   {author}
                   {index !== auther.length - 1 && ", "}
@@ -73,7 +72,7 @@ const ArticleDetails = () => {
           }
         </ul>
         <div>Published Online: {ActiveArtical?.created_at.split("T")[0]}</div>
-        <div>Pages: {ActiveArtical?.paper_pages}</div>
+        <div>Pages: {ActiveArtical?.pages}</div>
       </div>
 
       {/* DOI and Utilities */}
@@ -82,11 +81,11 @@ const ArticleDetails = () => {
           <ImQuotesLeft className="text-primary" /> Cite this article
         </h3>
 
-        {ActiveArtical?.paper_doi && <Link
-          to={ActiveArtical?.paper_doi_Link ?? ""}
+        {ActiveArtical?.doi && <Link
+          to={ActiveArtical?.doi}
           className="text-primary flex items-center gap-1 hover:underline"
         >
-          ↗ {ActiveArtical?.paper_doi}
+          ↗ {ActiveArtical?.doi}
         </Link>}
         <button className="bg-gradient-to-b from-gray-100  to-zinc-300 border border-gray-300 hover:scale-105 transition-all text-dark px-3 py-2 rounded-md font-semibold flex items-center justify-center space-x-3 text-sm">
           <span>
@@ -116,13 +115,13 @@ const ArticleDetails = () => {
         )}
       </div>
 
-      {currentItem === "Full Article" && <FullArtical content={ActiveArtical?.paper_abstract ?? ""} pdf_url={ActiveArtical?.paper_url ?? ""} />}
-      {currentItem === "Citations" && <Citations content={ActiveArtical?.paper_citation ?? ""} />}
+      {currentItem === "Full Article" && <FullArtical content={ActiveArtical?.abstract ?? ""} pdf_url={ActiveArtical?.pdf_url ?? ""} />}
+      {currentItem === "Citations" && <Citations content={ActiveArtical?.citation ?? ""} />}
       {currentItem === "Licensing" && <Licensing />}
       {currentItem === "Metrics" && <ArticleMetrics />}
-      {currentItem === "References" && <References content={ActiveArtical?.paper_references ?? ""} />}
+      {currentItem === "References" && <References content={ActiveArtical?.references ?? ""} />}
       <RelatedArticles />
     </div>
 
   );
-}; export default ArticleDetails;
+}; export default ConferenceDetails;

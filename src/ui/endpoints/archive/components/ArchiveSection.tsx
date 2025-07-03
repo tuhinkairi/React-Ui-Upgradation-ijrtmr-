@@ -6,8 +6,8 @@ import { fetchArchive } from "../../../../lib/axios/api/archive";
 import { useAppDispatch, useAppSelector } from "../../../../lib/store/store";
 import { setLoading } from "../../../../lib/store/Features/loadingSlice";
 import Loading from "../../../components/Loading";
-import type { ArchiveIndexVolume } from "../../../../types/Api";
-import { setArchiveIndexVolume } from "../../../../lib/store/Features/ArchiveSlice";
+import type { ActiveIndexArchive, ArchiveIndexVolume } from "../../../../types/Api";
+import { setActiveIndexVolume, setArchiveIndexVolume } from "../../../../lib/store/Features/ArchiveSlice";
 
 
 export default function ArchiveSection() {
@@ -21,20 +21,22 @@ export default function ArchiveSection() {
 
   // fetch the archives
   useEffect(() => {
-    if (volume.length===0) {
+    if (volume.length === 0) {
       dispatch(setLoading(true))
       fetchArchive().then((data) => {
         setVolumes(data)
         dispatch(setArchiveIndexVolume(data)) //store the list
-        return data
       }).catch(err => {
         console.log(err)
-        return []
       }).finally(() => dispatch(setLoading(false))
       )
     }
-  }, [dispatch,volume])
+  }, [dispatch, volume])
 
+  const handelActiveIndex=(arg:ActiveIndexArchive)=>{
+
+    dispatch(setActiveIndexVolume(arg))
+  }
   const toggleDropdown = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
@@ -64,6 +66,11 @@ export default function ArchiveSection() {
                     vol.volumes.map((elem) =>
                       elem.issue.map((issue) => (
                         <Link
+                          onClick={()=>handelActiveIndex({
+                            year: vol.year,
+                            volume: elem.volume,
+                            issue: issue
+                          })}
                           key={`${elem.volume}-${issue}`}
                           to={`/archives/year-${vol.year}-volume-${elem.volume}-issue-${issue}`}
                           className="block hover:bg-peach-200 px-3 py-2 rounded-md transition-colors"

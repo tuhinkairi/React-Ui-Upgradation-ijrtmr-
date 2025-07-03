@@ -10,9 +10,9 @@ interface PaginationState {
 
 const initialState: PaginationState = {
   current_page: 1,
-  per_page: 5,
-  total_items: 16,
-  total_pages: 4,
+  per_page: 10,
+  total_items: 0,
+  total_pages: 0,
 };
 
 const paginationSlice = createSlice({
@@ -24,14 +24,15 @@ const paginationSlice = createSlice({
     },
     setPerPage: (state, action) => {
       state.per_page = action.payload;
-      state.total_pages = Math.ceil(state.total_items / action.payload);
     },
     setTotalItems: (state, action) => {
       state.total_items = action.payload;
-      state.total_pages = Math.ceil(action.payload / state.per_page);
     },
+    setTotalPages: (state, action) => {
+      state.total_pages = action.payload;
+    }
   },
 });
 
-export const { setCurrentPage, setPerPage, setTotalItems } = paginationSlice.actions;
+export const { setCurrentPage, setPerPage, setTotalItems,setTotalPages } = paginationSlice.actions;
 export default paginationSlice;
