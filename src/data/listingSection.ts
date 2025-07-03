@@ -38,12 +38,18 @@ export const about_menu = [
     
 ];
 export const archive_menu = [
-{"title":"Journal Publishing Process","link":"journal-publishing-process"},
-{"title":"Topics","link":"topics"},
-{"title":"Call for Paper","link":"Call-for-Paper"},
-{"title":"Guide for Author","link":"Guide-for-Author"},
-{"title":"Editorial Management System","link":"Editorial-Management-System"},
-{"title":"Article Processing Charge","link":"article-processing-charge"},
-{"title":"Article Status","link":"article-status"},
-{"title":"Downloads","link":"downloads"}
+  {"title":"Journal Publishing Process","link":"journal-publishing-process"},
+  {"title":"Topics","link":"topics"},
+  {"title":"Call for Paper","link":"Call-for-Paper"},
+  {"title":"Guide for Author","link":"Guide-for-Author"},
+  {"title":"Editorial Management System","link":"Editorial-Management-System"},
+  {"title":"Article Processing Charge","link":"article-processing-charge"},
+  {"title":"Article Status","link":"article-status"},
+  {"title":"Downloads","link":"downloads"}
+]
+
+export const thesis_menu = [
+  {"title":"Publications","link":"/thesis"},
+  {"title":"Archives","link":"/thesis/archives"},
+  
 ]

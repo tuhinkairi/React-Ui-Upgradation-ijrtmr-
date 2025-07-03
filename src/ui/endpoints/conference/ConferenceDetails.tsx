@@ -45,9 +45,9 @@ const ConferenceDetails = () => {
           <div className="text-base flex flex-col gap-3 font-medium">
             <div className="flex gap-3">
               {auther.map((author, index) => (
-                index<=2 && <span className="text-primary flex gap-2 items-center" key={index}>
+                index<=2 && <span className=" text-primary flex gap-2 items-center" key={index}>
                   <CgProfile size={20} />
-                  {author}
+                  {author}<span className="text-xs h-full flex items-start -ml-1">{index+1}</span>
                   {index !== auther.length - 1 && ", "}
                 </span>
               ))}
