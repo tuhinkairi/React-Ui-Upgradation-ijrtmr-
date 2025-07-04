@@ -32,6 +32,9 @@ const Navbar = () => {
       if (archive.current && !archive.current.contains(event.target as Node)) {
         handelHide(archive);
       }
+      if (thesis.current && !thesis.current.contains(event.target as Node)) {
+        handelHide(thesis);
+      }
     };
 
     document.addEventListener('mousedown', handleClickOutside);
@@ -69,7 +72,7 @@ const Navbar = () => {
         </li>
         <li className="hover:text-primary relative">
           <NavLink onMouseEnter={(e) => handelpop(e, thesis)} className={({ isActive }) => isActive ? 'text-primary' : ""} to="/thesis">Thesis</NavLink>
-          <MenuCard ref={thesis} links={thesis_menu} />
+          <MenuCard ref={thesis} links={thesis_menu}/>
         </li>
         <li className="hover:text-primary"><NavLink className={({ isActive }) => isActive ? 'text-primary' : ""} to="/blog">Blog</NavLink></li>
         <li className="hover:text-primary"><NavLink className={({ isActive }) => isActive ? 'text-primary' : ""} to="/contact-us">Contact Us</NavLink></li>

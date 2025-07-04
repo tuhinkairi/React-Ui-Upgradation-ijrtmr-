@@ -8,7 +8,7 @@ interface AdvisoryBoardCardProps {
 }
 
 export const AdvisoryBoardCard = ({
-  // image,
+  image,
   boardTitle,
   name,
   designation,
@@ -17,8 +17,8 @@ export const AdvisoryBoardCard = ({
 }: AdvisoryBoardCardProps) => {
   return (
     <div className="grid grid-cols-3 items-center justify-center bg-white shadow shadowSprade rounded-2xl overflow-hidden max-w-3xl w-full">
-      <div className="col-span-1 h-full bg-red-300 flex items-center justify-center">
-        {/* <img src={image} alt={name} className="w-full h-full object-cover" style={{ aspectRatio: "1/1"}} /> */}
+      <div className="col-span-1 h-full flex items-center justify-center">
+        <img src={image} alt={name} className="w-full h-full object-cover" style={{ aspectRatio: "1/1"}} />
       </div>
       <div className="col-span-2 justify-between px-4 py-3 w-full">
         <div className="space-y-1">

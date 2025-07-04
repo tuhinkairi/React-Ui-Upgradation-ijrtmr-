@@ -8,57 +8,79 @@ interface PaginationProps {
 }
 
 export const Pagination = ({ currentPage, totalPages, onPageChange, rangeList }: PaginationProps) => {
-    let currentIndex = currentPage - 1;
-    const pages = Array.from({ length: totalPages }, () => currentIndex++).map((page) => page + 1);
+    // Create pages array correctly
+    const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
+    
     const scrollToTop = () => {
         setTimeout(() => {
             window.scrollTo({ top: 10, behavior: 'smooth' });
         }, 0);
     };
-    const handelPrev = ()=>{
-        scrollToTop()
-        return currentPage>1 && onPageChange(currentPage-1)
-    }
-    const handelChange = (page: number) => {
-        scrollToTop()
-        onPageChange(page)
-    }
-    const handelNext = ()=>{
-        scrollToTop()
-        return totalPages>currentPage && onPageChange(currentPage+1)
-    }
-    return (
-        <div className="flex gap-6 justify-center">
-            <button onClick={handelPrev}><BiLeftArrow className="hover:text-primary"/></button>
-            <div className="flex gap-6">
-            {rangeList? rangeList.map((page) => (
-                <button
-                    key={page}
-                    onClick={() => handelChange(page)}
-                    className={`w-8 h-8 rounded-sm border border-primary font-medium transition 
-                        ${page === currentPage
-                            ? 'bg-primary text-white'
-                            : 'bg-white text-primary hover:bg-primary-hover hover:text-white'
-                        }`}
-                >
-                    {page}
-                </button>
-            )):pages.map((page) => (
-                <button
-                    key={page}
-                    onClick={handelNext}
-                    className={`w-8 h-8 rounded-sm border border-primary font-medium transition 
-                        ${page === currentPage
-                            ? 'bg-primary text-white'
-                            : 'bg-white text-primary hover:bg-primary-hover hover:text-white'
-                        }`}
-                >
-                    {page}
-                </button>
-            ))
+    
+    const handlePrev = () => {
+        if (currentPage > 1) {
+            scrollToTop();
+            onPageChange(currentPage - 1);
         }
+    };
+    
+    const handleChange = (page: number) => {
+        scrollToTop();
+        onPageChange(page);
+    };
+    
+    const handleNext = () => {
+        if (currentPage < totalPages) {
+            scrollToTop();
+            onPageChange(currentPage + 1);
+        }
+    };
+    
+    return (
+        <div className="flex gap-6 justify-center items-center">
+            <button 
+                onClick={handlePrev}
+                disabled={currentPage <= 1}
+                className={`p-2 ${currentPage <= 1 ? 'opacity-50 cursor-not-allowed' : 'hover:text-primary'}`}
+            >
+                <BiLeftArrow />
+            </button>
+            
+            <div className="flex gap-6">
+                {rangeList ? rangeList.map((page) => (
+                    <button
+                        key={page}
+                        onClick={() => handleChange(page)}
+                        className={`w-8 h-8 rounded-sm border border-primary font-medium transition 
+                            ${page === currentPage
+                                ? 'bg-primary text-white'
+                                : 'bg-white text-primary hover:bg-primary-hover hover:text-white'
+                            }`}
+                    >
+                        {page}
+                    </button>
+                )) : pages.map((page) => (
+                    <button
+                        key={page}
+                        onClick={() => handleChange(page)} // Fixed: was handelNext
+                        className={`w-8 h-8 rounded-sm border border-primary font-medium transition 
+                            ${page === currentPage
+                                ? 'bg-primary text-white'
+                                : 'bg-white text-primary hover:bg-primary-hover hover:text-white'
+                            }`}
+                    >
+                        {page}
+                    </button>
+                ))}
             </div>
-            <button onClick={handelNext}><BiRightArrow className="hover:text-primary" /></button>
+            
+            <button 
+                onClick={handleNext}
+                disabled={currentPage >= totalPages}
+                className={`p-2 ${currentPage >= totalPages ? 'opacity-50 cursor-not-allowed' : 'hover:text-primary'}`}
+            >
+                <BiRightArrow />
+            </button>
         </div>
     );
 };

@@ -16,7 +16,7 @@ type TabOption = "Full Article" | "References" | "Citations" | "Metrics" | "Lice
 
 const ArticleDetails = () => {
   const searchQuery = useSearchParams();
-  const [currentItem, setCurrentItem] = useState<TabOption>(searchQuery[0].get("section")?.replace("-"," ") as TabOption || "Full Article")
+  const [currentItem, setCurrentItem] = useState<TabOption>(searchQuery[0].get("section")?.replace("-", " ") as TabOption || "Full Article")
 
   const navigate = useNavigate()
 
@@ -48,7 +48,7 @@ const ArticleDetails = () => {
               {auther.map((author, index) => (
                 index <= 2 && <span className=" text-primary flex gap-2 items-center" key={index}>
                   <CgProfile size={20} />
-                  {author}<span className="text-xs h-full flex items-start -ml-1">{index+1}</span>
+                  {author}<span className="text-xs h-full flex items-start -ml-1">{index + 1}</span>
                   {index !== auther.length - 1 && ", "}
                 </span>
               ))}
@@ -57,7 +57,7 @@ const ArticleDetails = () => {
               {auther.map((author, index) => (
                 index > 2 && <span className="text-primary flex gap-2 items-center" key={index}>
                   <CgProfile size={20} />
-                  {author}
+                  {author}<span className="text-xs h-full flex items-start -ml-1">{index + 1}</span>
                   {index !== auther.length - 1 && ", "}
                 </span>
               ))}

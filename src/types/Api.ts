@@ -91,3 +91,27 @@ export interface ArchivePaperDetailProps {
   paper_designation: string | null;
   paper_doi_Link: string | null;
 }
+
+// editorial
+export interface EditorialMember {
+    member_id: number
+    is_active: number
+    is_deleted: number
+    member_role: string
+    member_address: string
+    member_image_url: string
+    member_researcharea: string
+    member_email: string
+    member_website: string
+    member_country: string
+    member_name: string
+    member_designation: string
+    created_at: string
+    updated_at: string
+    member_publication_list: string
+    member_orcid_id: string
+    member_scopus_id: string | null
+    member_thomson_reuters: string | null
+    member_google_scholar_id: string
+    member_linkedin: string | null
+}

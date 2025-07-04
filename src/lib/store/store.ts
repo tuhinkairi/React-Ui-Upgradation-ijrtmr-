@@ -5,6 +5,7 @@ import conferenceArticleSlice from './Features/conferenceDetailseSlice';
 import loadingSlice from './Features/loadingSlice';
 import paginationSlice from './Features/paginationSlice';
 import ArchiveSlice from './Features/ArchiveSlice';
+import editorialSlice from './Features/editorialSlice';
 
 // Create the store
 const store = configureStore({
@@ -14,6 +15,7 @@ const store = configureStore({
         loadingScreen: loadingSlice.reducer,
         pagination:paginationSlice.reducer,
         archiveSection: ArchiveSlice.reducer,
+        editorial: editorialSlice.reducer,
     },
 });
 
