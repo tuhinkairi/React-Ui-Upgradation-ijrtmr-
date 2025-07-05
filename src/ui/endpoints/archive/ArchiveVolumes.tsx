@@ -1,5 +1,5 @@
 import { Search } from "lucide-react";
-import {  useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import PrimaryBtn from "../../components/Btns/PrimaryBtn";
 
 import ArchiveVolumnHeader from "./components/ArchiveVolumnHeader";
@@ -12,7 +12,7 @@ import { setActiveConference } from "../../../lib/store/Features/conferenceSlice
 import { getConferenceDetails } from "../../../lib/utils/conference/conferenceFunctions";
 import Loading from "../../components/Loading";
 import { setLoading } from "../../../lib/store/Features/loadingSlice";
-import { setCurrentPage} from "../../../lib/store/Features/paginationSlice";
+import { setCurrentPage } from "../../../lib/store/Features/paginationSlice";
 import { setActiveConferenceArticle } from "../../../lib/store/Features/conferenceDetailseSlice";
 import type { activeSection } from "../../../types/UI";
 import { type ArchivePaperListtingArg } from "../../../lib/axios/api/archive";
@@ -36,37 +36,40 @@ export default function ArchiveVolumes({ active }: activeSection) {
 
   // listing pagination
   const trackPage = useAppSelector((state) => state.pagination.current_page)
-  const totalItems = useAppSelector((state) => state.pagination.total_items)
+  // const totalItems = useAppSelector((state) => state.pagination.total_items)
   const totalPage = useAppSelector((state) => state.pagination.total_pages)
   const perPage = useAppSelector((state) => state.pagination.per_page)
 
   const [pageNumber, setPageNumber] = useState<number>(1);
-  const [limit, setLimit] = useState<number>(totalPage); //how many screens to show in
-  const [pageList, setPageList] = useState<number[]>([]);
+  const getVisiblePages = () => {
+    const maxVisible = 5;
+    if (totalPage <= maxVisible) {
+      return Array.from({ length: totalPage }, (_, i) => i + 1);
+    }
 
-  // Handle pagination logic in useEffect
-  useEffect(() => {
-    const pageListing = Array.from({ length: totalItems }, (_, i) => i + 1);
+    const halfVisible = Math.floor(maxVisible / 2);
+    let startPage = Math.max(1, pageNumber - halfVisible);
+    let endPage = Math.min(totalPage, pageNumber + halfVisible);
 
-    if (pageNumber > 0 && pageNumber <= pageListing.length) {
-      if (pageNumber > limit) {
-        setPageList(pageListing.slice(pageNumber - 1, pageNumber + 4));
-        setLimit(prev => prev + 5);
-      } else if (pageList.length > 0 && pageNumber < pageList[0]) {
-        setPageList(pageListing.slice(Math.max(0, pageNumber - 5), pageNumber));
-        setLimit(prev => Math.max(5, prev - 5));
-      } else if (pageList.length === 0 && totalItems > 0) {
-        // Initial setup
-        const initialLimit = totalPage < 5 ? totalPage : 5;
-        setPageList(pageListing.slice(0, initialLimit));
+    if (endPage - startPage + 1 < maxVisible) {
+      if (startPage === 1) {
+        endPage = Math.min(totalPage, startPage + maxVisible - 1);
+      } else if (endPage === totalPage) {
+        startPage = Math.max(1, endPage - maxVisible + 1);
       }
     }
-  }, [pageNumber, totalItems, totalPage, limit, pageList]); // Removed limit and pageList from dependencies
+
+    return Array.from({ length: endPage - startPage + 1 }, (_, i) => startPage + i);
+  };
+
+
+  // Handle pagination logic in useEffect
+
 
   // setting active papers
   const setActiveArtical = (paper: ConferenceArticleProps | ArchivePaperDetailProps) => {
     if ('article_type' in paper) {
-      console.log("jhghj",paper)
+      console.log("jhghj", paper)
       dispatch(setActiveConferenceArticle(paper as ConferenceArticleProps));
     } else {
       dispatch(setActivePaper(paper as ArchivePaperDetailProps));
@@ -202,7 +205,12 @@ export default function ArchiveVolumes({ active }: activeSection) {
         <Loading title="Volume Pages" />
       }
       <div className="mt-16">
-        <Pagination currentPage={pageNumber} rangeList={pageList} totalPages={totalPage} onPageChange={setPageNumber} />
+        <Pagination
+          currentPage={pageNumber}
+          totalPages={totalPage}
+          onPageChange={setPageNumber}
+          rangeList={getVisiblePages()}
+        />
       </div>
     </div>
   );
