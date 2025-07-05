@@ -1,10 +1,3 @@
-export interface BlogPost {
-  title: string,
-  subtitle: string,
-  category: string,
-  date: string,
-  imageUrl: string
-}
 
 // conference card interface
 export interface ConferenceCardProps {
@@ -114,4 +107,19 @@ export interface EditorialMember {
     member_thomson_reuters: string | null
     member_google_scholar_id: string
     member_linkedin: string | null
+}
+
+// blog
+export interface Blog {
+    id: number | null,
+    created_at: string | null,
+    updated_at: string | null,
+    image: string | null,
+    description: string | null,
+    title: string | null,
+    url_title: string | null,
+    category: string | null,
+    meta_title: string | null,
+    meta_description: string | null,
+    tags: string | null
 }

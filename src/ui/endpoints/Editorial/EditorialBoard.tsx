@@ -132,7 +132,7 @@ export const EditorBoard = () => {
                                 address={member.member_address}
                                 onViewMore={() => {
                                     dispatch(setCurrentMember(member));
-                                    navigate(`/editorial-board/${member.member_name}`);
+                                    navigate(`/editorial-board/id=${member.member_id}&&name=${member.member_name}`);
                                 }}
                             />
                         ))}
