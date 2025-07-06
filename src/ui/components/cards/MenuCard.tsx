@@ -1,10 +1,10 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-const MenuCard = React.forwardRef<HTMLDivElement, { links: {title:string,link:string}[]}>(({ links}, ref) => {
-    
+const MenuCard = React.forwardRef<HTMLDivElement, { links: {title:string,link:string}[], hide:()=>void}>(({ links, hide}, ref) => {
+
     return (
-        <div ref={ref} className="absolute top-8 items-center justify-center hidden bg-gradient-radial z-10 from-black via-gray-800 to-black">
+        <div ref={ref} onMouseLeave={hide} className="absolute top-8 items-center justify-center hidden bg-gradient-radial z-10 from-black via-gray-800 to-black">
             <div className="bg-white rounded-2xl shadow-xl p-6 w-60">
                 <ul className="space-y-4">
                     {links.map((item, index) => (
