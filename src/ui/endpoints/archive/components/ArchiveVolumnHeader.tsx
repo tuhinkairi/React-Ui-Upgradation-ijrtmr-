@@ -1,19 +1,24 @@
 import { useState } from 'react'
 import PrimaryBtn from '../../../components/Btns/PrimaryBtn'
 import { Share2 } from 'lucide-react'
-import ArchiveBtn from '../../../components/Btns/ArchiveBtn'
 import { GrFormNext, GrFormPrevious } from 'react-icons/gr'
 const volumes = [
-  "Volume 6, (2025)",
-  "Volume 4, (2025)",
-  "Volume 5, (2025)",
-  "Volume 3, (2025)",
+    "Volume 6, (2025)",
+    "Volume 4, (2025)",
+    "Volume 5, (2025)",
+    "Volume 3, (2025)",
 ];
+
 function ArchiveVolumnHeader() {
     const [active, setActive] = useState<string>("Volume 3, (2025)");
+    const [activeIssue, setActiveIssue] = useState<string>("Issue 3");
 
     const handleVolumeClick = (volume: string) => {
         setActive(volume);
+    };
+
+    const handleIssueClick = (issue: string) => {
+        setActiveIssue(issue);
     };
 
     const handlePrevious = () => {
@@ -29,10 +34,27 @@ function ArchiveVolumnHeader() {
             setActive(volumes[currentIndex + 1]);
         }
     };
+
+    const issues = ["Issue 3", "Issue 2", "Issue 1"];
+
+    const handlePreviousIssue = () => {
+        const currentIndex = issues.indexOf(activeIssue);
+        if (currentIndex > 0) {
+            setActiveIssue(issues[currentIndex - 1]);
+        }
+    };
+
+    const handleNextIssue = () => {
+        const currentIndex = issues.indexOf(activeIssue);
+        if (currentIndex < issues.length - 1) {
+            setActiveIssue(issues[currentIndex + 1]);
+        }
+    };
+
     return (
         <>
             {/* Volume Navigation */}
-            <div className="flex flex-wrap justify-center items-center gap-2 gap-x-5 text-base font-medium ">
+            <div className="flex flex-wrap justify-between items-center gap-2 gap-x-5 text-base font-medium ">
                 <button onClick={handlePrevious}><GrFormPrevious className="text-primary-text" /></button>
                 {volumes.map((volume) => (
                     <span
@@ -50,25 +72,26 @@ function ArchiveVolumnHeader() {
             {/* Issue Tabs */}
             <div className="flex items-center justify-between">
                 <div className="flex gap-2">
-                    {["Issue 3", "Issue 2", "Issue 1"].map((issue) => (
-                        <ArchiveBtn
+                    <button onClick={handlePreviousIssue}><GrFormPrevious className="text-primary-text text-base" /></button>
+                    {issues.map((issue) => (
+                        <button
                             key={issue}
-                            href={"/issues/" + issue}
-                            label={issue}
-                            className={`max-w-fit gap-1 ${issue === "Issue 3"
-                                ? "bg-primary text-white"
-                                : "bg-gray-100 text-primary-text"
+                            onClick={() => handleIssueClick(issue)}
+                            className={`flex whitespace-nowrap justify-between items-center w-full px-8 py-3 font-medium rounded-md  transition 
+                                ${issue === activeIssue
+                                    ? "text-white bg-gradient-to-b from-[#FF8C42] to-[#995428] hover:from-[#fae0d0] hover:to-[#fae0d0] hover:text-primary-text"
+                                    : "hover:text-white bg-gradient-to-b hover:from-[#FF8C42] hover:to-[#995428] from-[#fae0d0] to-[#fae0d0] text-primary-text"
                                 }`}
-                        />
+                        >
+                            {issue}
+                        </button>
                     ))}
+                    <button onClick={handleNextIssue}><GrFormNext className="text-primary-text text-base" /></button>
                 </div>
 
                 <PrimaryBtn className="rounded-full px-2">
                     <Share2 size={16} /> Share
                 </PrimaryBtn>
-                {/* <button className="text-sm text-primary font-semibold flex items-center gap-1">
-          <Share2 size={16} /> Share
-        </button> */}
             </div>
         </>
     )
