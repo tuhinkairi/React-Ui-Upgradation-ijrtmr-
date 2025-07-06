@@ -19,7 +19,7 @@ import { searchArchive, type ArchivePaperListtingArg } from "../../../lib/axios/
 import { getArticalDetails } from "../../../lib/utils/conference/articalFunctions";
 import VolumeCardArchive from "./VolumeCardArchive";
 import { setActivePaper } from "../../../lib/store/Features/ArchiveSlice";
-import VolumeCardConference from "./VolumeCardConference copy";
+import VolumeCardConference from "./VolumeCardConference";
 
 
 
@@ -225,7 +225,7 @@ export default function ArchiveVolumes({ active }: activeSection) {
         <>
           {/* conference */}
           {active === "conference" && ConferenceVolumes.length != 0 && ConferenceVolumes.map((paper, idx) => (
-            <VolumeCardConference paper={paper} key={idx} setActive={setActiveArtical} section={active} />
+            <VolumeCardConference paper={paper} key={idx} setActive={setActiveArtical} navigate={navigate}/>
           ))}
           {active === "archive" && ArticalVolumes.length != 0 && ArticalVolumes.map((paper, idx) => (
             <VolumeCardArchive paper={paper} key={idx} setActive={setActiveArtical} navigate={navigate} />

@@ -47,13 +47,13 @@ export default function App() {
         <Route path="/thesis" element={<ThesisIndex />} />
         <Route path="/thesis/:volumes" element={<Thesis />}>
           <Route index element={<ArchiveVolumes active="thesis" />} />
-          <Route path="artical-details" element={<ArticleDetails />} />
+          <Route path="paper-details" element={<ArticleDetails />} />
         </Route>
 
         <Route path="/archives" element={<Archives />}>
           <Route index element={<ArchiveFirst />} />
           <Route path=":volumes" element={<ArchiveVolumes active="archive" />} />
-          <Route path="artical-details" element={<ArticleDetails />} />
+          <Route path="paper-details" element={<ArticleDetails />} />
         </Route>
 
         {/* about section */}
@@ -83,7 +83,7 @@ export default function App() {
         <Route path="/conference" element={<Conference />}>
           <Route index element={<ConferenceIndex />} />
           <Route path=":volumes" element={<ArchiveVolumes active="conference" />} />
-          <Route path="artical-details" element={<ConferenceDetails />} />
+          <Route path="paper-details" element={<ConferenceDetails />} />
         </Route>
       </Routes>
       <Footer />

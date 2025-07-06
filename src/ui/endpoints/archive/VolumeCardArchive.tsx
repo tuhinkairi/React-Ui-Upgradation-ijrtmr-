@@ -6,17 +6,15 @@ import { PiChartPieSlice } from "react-icons/pi";
 import PrimaryBtn from "../../components/Btns/PrimaryBtn";
 
 export default function VolumeCardArchive({ paper, setActive, navigate }: { paper: ArchivePaperDetailProps, setActive: (arg: ArchivePaperDetailProps) => void, navigate: NavigateFunction }) {
-    const endpoint = `/archives/artical-details?paperId=${paper.paper_id}&papertitle=${encodeURIComponent(paper.paper_title)}`
-    const redirecting = () => {
-        setActive(paper)
-    }
+    const endpoint = `/archives/paper-details?paperId=${paper.paper_id}&papertitle=${encodeURIComponent(paper.paper_title.replace(/ /g, "-"))}`
+
     return (
         <div
             className="bg-white shadow rounded-xl p-4 space-y-2 border"
         >
             <div className="flex justify-between items-start">
                 <Link
-                    onClick={redirecting}
+                    onClick={()=>setActive(paper)}
                     to={endpoint}
                     className="text-xl font-serif  text-primary hover:underline max-w-5/6"
                 >
@@ -55,13 +53,13 @@ export default function VolumeCardArchive({ paper, setActive, navigate }: { pape
                 <div className="flex gap-3 text-sm text-primary font-medium">
                     <button
                         className="hover:underline"
-                        onClick={() => navigate(`${endpoint}&section=Abstract`)}
+                        onClick={() => navigate(`${endpoint}&section=FullArticle`)}
                     >
                         Abstract
                     </button>
                     <button
                         className="hover:underline"
-                        onClick={() => navigate(`${endpoint}&section=Full-Text`)}
+                        onClick={() => navigate(`${endpoint}&section=FullArticle`)}
                     >
                         Full Text
                     </button>

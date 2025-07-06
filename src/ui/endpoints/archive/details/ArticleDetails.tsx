@@ -9,32 +9,59 @@ import ArticleMetrics from "./ArticleMetrics";
 import Licensing from "./Licensing";
 import { CgProfile } from "react-icons/cg";
 import { ImQuotesLeft } from "react-icons/im";
-import { useAppSelector } from "../../../../lib/store/store";
+import { useAppDispatch, useAppSelector } from "../../../../lib/store/store";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
+import { FetchActiveArticle } from "../../../../lib/axios/api/archive";
+import { setActivePaper } from "../../../../lib/store/Features/ArchiveSlice";
+import { setLoading } from "../../../../lib/store/Features/loadingSlice";
+import Loading from "../../../components/Loading";
+import type { ArchivePaperDetailProps } from "../../../../types/Api";
 
-type TabOption = "Full Article" | "References" | "Citations" | "Metrics" | "Licensing";
+type TabOption = "FullArticle" | "References" | "Citations" | "Metrics" | "Licensing";
 
 const ArticleDetails = () => {
   const searchQuery = useSearchParams();
-  const [currentItem, setCurrentItem] = useState<TabOption>(searchQuery[0].get("section")?.replace("-", " ") as TabOption || "Full Article")
+  const id = searchQuery[0].get("paperId")
+  const [solo, setSolo] = useState(false)
+  const [currentItem, setCurrentItem] = useState<TabOption>(searchQuery[0].get("section")?.replace("-", " ") as TabOption || "FullArticle")
+  const ActiveArticle = useAppSelector((state) => state.archiveSection.activePaper)
+  const [activePaper, setPaper] = useState<ArchivePaperDetailProps | null>(ActiveArticle)
 
   const navigate = useNavigate()
 
   // store data
-  const ActiveArtical = useAppSelector((state) => state.archiveSection.activePaper)
-  const auther = [ActiveArtical?.author_1, ActiveArtical?.author_2, ActiveArtical?.author_3, ActiveArtical?.author_4, ActiveArtical?.author_5, ActiveArtical?.author_6].filter(item => item !== null)
-  const designation: string[] = ActiveArtical?.paper_designation?.split(",") ?? []
+  const loading = useAppSelector((state) => state.loadingScreen.loading)
+  const dispatch = useAppDispatch()
+  const auther = [activePaper?.author_1, activePaper?.author_2, activePaper?.author_3, activePaper?.author_4, activePaper?.author_5, activePaper?.author_6].filter(item => item !== null)
+  const designation: string[] = activePaper?.paper_designation?.split(",") ?? []
   // functions
   useEffect(() => {
-    if (!ActiveArtical) navigate("/conference")
-  }, [navigate, ActiveArtical])
+    if (id && activePaper?.paper_id !== parseInt(id)) {
+
+      FetchActiveArticle({ paperid: id }).then((data) => {
+        dispatch(setLoading(true))
+        if (data) {
+          dispatch(setActivePaper(data))
+          setPaper(data)
+          setSolo(true)
+        }
+      }).finally(() => {
+        dispatch(setLoading(false))
+      })
+    }
+  }, [navigate, activePaper, id, dispatch, ActiveArticle])
+
+  console.log("part1", activePaper?.created_at, ActiveArticle,solo)
+  if (loading || !activePaper) {
+    return <Loading title="Paper Details"/>
+  }
   return (
     <div className="mx-auto  bg-white space-y-6 p-5">
       {/* Header + PDF Button */}
       <div className="flex justify-between items-start">
         <div>
           <h2 className="text-2xl font-semibold leading-snug">
-            {ActiveArtical?.paper_title}
+            {activePaper?.paper_title}
           </h2>
         </div>
       </div>
@@ -72,8 +99,8 @@ const ArticleDetails = () => {
             )
           }
         </ul>
-        <div>Published Online: {ActiveArtical?.created_at.split("T")[0]}</div>
-        <div>Pages: {ActiveArtical?.paper_pages}</div>
+        <div>Published Online: {activePaper.created_at.split("T")[0]??activePaper.created_at}</div>
+        <div>Pages: {activePaper?.paper_pages}</div>
       </div>
 
       {/* DOI and Utilities */}
@@ -82,11 +109,11 @@ const ArticleDetails = () => {
           <ImQuotesLeft className="text-primary" /> Cite this article
         </h3>
 
-        {ActiveArtical?.paper_doi && <Link
-          to={ActiveArtical?.paper_doi_Link ?? ""}
+        {activePaper?.paper_doi && <Link
+          to={activePaper?.paper_doi_Link ?? ""}
           className="text-primary flex items-center gap-1 hover:underline"
         >
-          ↗ {ActiveArtical?.paper_doi}
+          ↗ {activePaper?.paper_doi}
         </Link>}
         <button className="bg-gradient-to-b from-gray-100  to-zinc-300 border border-gray-300 hover:scale-105 transition-all text-dark px-3 py-2 rounded-md font-semibold flex items-center justify-center space-x-3 text-sm">
           <span>
@@ -99,7 +126,7 @@ const ArticleDetails = () => {
 
       {/* Navigation Tabs */}
       <div className="flex gap-6 text-lg border-b border-gray-200">
-        {["Full Article", "References", "Citations", "Metrics", "Licensing"].map(
+        {["FullArticle", "References", "Citations", "Metrics", "Licensing"].map(
           (tab, idx) => (
             <button
               onClick={() => setCurrentItem(tab as TabOption)}
@@ -116,11 +143,11 @@ const ArticleDetails = () => {
         )}
       </div>
 
-      {currentItem === "Full Article" && <FullArtical content={ActiveArtical?.paper_abstract ?? ""} pdf_url={ActiveArtical?.paper_url ?? ""} />}
-      {currentItem === "Citations" && <Citations content={ActiveArtical?.paper_citation ?? ""} />}
+      {currentItem === "FullArticle" && <FullArtical content={activePaper?.paper_abstract ?? ""} pdf_url={activePaper?.paper_url ?? ""} />}
+      {currentItem === "Citations" && <Citations content={activePaper?.paper_citation ?? ""} />}
       {currentItem === "Licensing" && <Licensing />}
       {currentItem === "Metrics" && <ArticleMetrics />}
-      {currentItem === "References" && <References content={ActiveArtical?.paper_references ?? ""} />}
+      {currentItem === "References" && <References content={activePaper?.paper_references ?? ""} />}
       <RelatedArticles />
     </div>
 

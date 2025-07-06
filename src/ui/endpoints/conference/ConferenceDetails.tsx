@@ -13,10 +13,10 @@ import ArticleMetrics from "../archive/details/ArticleMetrics";
 import References from "../archive/details/References";
 import RelatedArticles from "../archive/components/RelatedArticals";
 
-type TabOption = "Full Article" | "References" | "Citations" | "Metrics" | "Licensing";
+type TabOption = "FullArticle" | "References" | "Citations" | "Metrics" | "Licensing";
 
 const ConferenceDetails = () => {
-  const [currentItem, setCurrentItem] = useState<TabOption>("Full Article")
+  const [currentItem, setCurrentItem] = useState<TabOption>("FullArticle")
   const navigate = useNavigate()
 
   // store data
@@ -98,7 +98,7 @@ const ConferenceDetails = () => {
 
       {/* Navigation Tabs */}
       <div className="flex gap-6 text-lg border-b border-gray-200">
-        {["Full Article", "References", "Citations", "Metrics", "Licensing"].map(
+        {["FullArticle", "References", "Citations", "Metrics", "Licensing"].map(
           (tab, idx) => (
             <button
               onClick={() => setCurrentItem(tab as TabOption)}
@@ -115,7 +115,7 @@ const ConferenceDetails = () => {
         )}
       </div>
 
-      {currentItem === "Full Article" && <FullArtical content={ActiveArtical?.abstract ?? ""} pdf_url={ActiveArtical?.pdf_url ?? ""} />}
+      {currentItem === "FullArticle" && <FullArtical content={ActiveArtical?.abstract ?? ""} pdf_url={ActiveArtical?.pdf_url ?? ""} />}
       {currentItem === "Citations" && <Citations content={ActiveArtical?.citation ?? ""} />}
       {currentItem === "Licensing" && <Licensing />}
       {currentItem === "Metrics" && <ArticleMetrics />}

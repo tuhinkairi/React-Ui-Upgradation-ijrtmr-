@@ -9,7 +9,7 @@ import { GrDocumentPdf } from 'react-icons/gr'
 import Title from '../../other/Title'
 
 export default function ArchiveLayout({ children }: { children: React.ReactNode }) {
-  const isArticleDetails = window.location.pathname.includes('/artical-details')
+  const isArticleDetails = window.location.pathname.includes('/paper-details')
 
   return (
     <section className="_archiveLayout ml-16 grid grid-cols-4 2xl:grid-cols-5 justify-between gap-5 mr-4 xl:mr-16">

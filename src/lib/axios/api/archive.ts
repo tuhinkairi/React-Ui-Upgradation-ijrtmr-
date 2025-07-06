@@ -1,4 +1,5 @@
 import type { ArchiveIndexVolume, SearchProp } from "../../../types/Api";
+import { UpdateOneFetch } from "../../utils/archive/UpdateOneFetch";
 import { ArchiveIndexJsonUpdate } from "../../utils/other/jsonFormator";
 import { axiosClient } from "../axios-client";
 
@@ -45,6 +46,22 @@ export const suggestedArchivePost = async (req: SearchProp) => {
         console.log(error)
     }
 }
+export const FetchActiveArticle = async (
+  req: { paperid: string }
+) => {
+  try {
+    const res = await axiosClient.post("/archivePaperNew", req);
+    const modify = UpdateOneFetch(res.data.paperdetails)
+    
+    console.log(modify);
+    return modify;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+
+
 export const searchArchive = async (req: SearchProp) => {
     try {
         const res = await axiosClient.post("/searchArchive",

@@ -1,11 +1,12 @@
 import { Download, Eye, SearchIcon } from "lucide-react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, type NavigateFunction } from "react-router-dom";
 import type { ConferenceArticleProps } from "../../../types/Api";
 import { ImQuotesRight } from "react-icons/im";
 import { PiChartPieSlice } from "react-icons/pi";
 import PrimaryBtn from "../../components/Btns/PrimaryBtn";
 
-export default function VolumeCardConference({ paper, setActive, section}: { paper: ConferenceArticleProps, setActive:(arg:ConferenceArticleProps)=>void, section:string}) {
+export default function VolumeCardConference({ paper, setActive,navigate}: { paper: ConferenceArticleProps, setActive:(arg:ConferenceArticleProps)=>void,navigate: NavigateFunction }) {
+    const endpoint = `/conference/paper-details?paperId=${paper.id}&papertitle=${encodeURIComponent(paper.title.replace(/ /g, "-"))}`
     return (
         <div
             className="bg-white shadow rounded-xl p-4 space-y-2 border"
@@ -13,7 +14,7 @@ export default function VolumeCardConference({ paper, setActive, section}: { pap
             <div className="flex justify-between items-start">
                 <Link
                     onClick={()=>setActive(paper)}
-                    to={`/${section}/artical-details`}
+                    to={endpoint}
                     className="text-xl font-serif  text-primary hover:underline max-w-5/6"
                 >
                     {paper.title} <span className="text-orange-400">↗</span>
@@ -49,9 +50,24 @@ export default function VolumeCardConference({ paper, setActive, section}: { pap
             {/* Actions */}
             <div className="flex justify-between items-center mt-2">
                 <div className="flex gap-3 text-sm text-primary font-medium">
-                    <button className="hover:underline">Abstract</button>
-                    <button className="hover:underline">Full Text</button>
-                    <button className="hover:underline">References</button>
+                    <button
+                        className="hover:underline"
+                        onClick={() => navigate(`${endpoint}&section=FullArticle`)}
+                    >
+                        Abstract
+                    </button>
+                    <button
+                        className="hover:underline"
+                        onClick={() => navigate(`${endpoint}&section=FullArticle`)}
+                    >
+                        Full Text
+                    </button>
+                    <button
+                        className="hover:underline"
+                        onClick={() => navigate(`${endpoint}&section=References`)}
+                    >
+                        References
+                    </button>
                 </div>
                 <NavLink to={paper.pdf_url}>
                     <PrimaryBtn>
