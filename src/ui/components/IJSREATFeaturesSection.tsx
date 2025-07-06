@@ -16,7 +16,7 @@ const features = [
 
 export default function IJSREATFeaturesSection() {
   return (
-    <section className="bg-white pt-4 px-6 lg:px-20">
+    <section className="bg-white pt-4 px-6 lg:px-16">
 
       {/* Features + Illustration */}
       <div className="grid md:grid-cols-2 items-center gap-10">

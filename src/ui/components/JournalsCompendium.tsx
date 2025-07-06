@@ -1,34 +1,43 @@
-import { CheckCircle } from "lucide-react";
+import CompodiumCard from "./cards/CompodiumCard";
 
 const journals = [
   {
-    title: "IJIRE",
-    subtitle: "International Journal of Innovative Research in Engineering",
-    issn: "2582-8746",
-    type: "Journals",
-    publisher: "Fifth Dimension Research Publication",
-    months: "Bimonthly (Feb, Apr, Jun, Aug, Oct, Dec)",
-    mode: "Online",
+    code: 'IJIRE',
+    title: 'International Journal of Innovative Research in Engineering',
+    eIssn: '2582-8746',
+    publicationMonths: 'Bimonthly(Feb,Apr,Jun,Aug,Oct,Dec)',
+    url: '/journals/ijire',
   },
   {
-    title: "IJRTMR",
-    subtitle: "International Journal of Innovative Research in Engineering",
-    issn: "2582-8746",
-    type: "Journals",
-    publisher: "Fifth Dimension Research Publication",
-    months: "Bimonthly (Feb, Apr, Jun, Aug, Oct, Dec)",
-    mode: "Online",
+    code: 'IJRTMR',
+    title: 'International Journal of Recent Trends in Multidisciplinary Research',
+    eIssn: '2583-0368',
+    publicationMonths: 'Bimonthly(Feb,Apr,Jun,Aug,Oct,Dec)',
+    url: '/journals/ijrtmr',
   },
   {
-    title: "INDJEEE",
-    subtitle: "International Journal of Innovative Research in Engineering",
-    issn: "2582-8746",
-    type: "Journals",
-    publisher: "Fifth Dimension Research Publication",
-    months: "Bimonthly (Feb, Apr, Jun, Aug, Oct, Dec)",
-    mode: "Online",
+    code: 'INDJEEE',
+    title: 'Indian Journal of Electrical and Electronics Engineering',
+    eIssn: 'Applied',
+    publicationMonths: '3 Issues Per Year (Apr,Aug,Dec)',
+    url: '/journals/indjeee',
+  },
+  {
+    code: 'INDJECE',
+    title: 'Indian Journal of Electronics and Communication Engineering',
+    eIssn: '3048-6408',
+    publicationMonths: '3 Issues Per Year (Apr,Aug,Dec)',
+    url: '/journals/indjece',
+  },
+  {
+    code: 'INDJCST',
+    title: 'Indian Journal of Computer Science and Technology',
+    eIssn: '2583-5300',
+    publicationMonths: '3 Issues Per Year (Apr,Aug,Dec)',
+    url: '/journals/indjcst',
   },
 ];
+
 
 const JournalsCompendium = () => {
   return (
@@ -42,47 +51,48 @@ const JournalsCompendium = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-5xl mx-auto">
         {journals.map((journal, idx) => (
-          <div
-            key={idx}
-            className="border border-orange-300 rounded-lg p-6 text-left shadow-sm hover:shadow-md transition duration-300 px-8"
-          >
-            <h3 className="text-2xl font-semibold mb-1 text-dark">
-              {journal.title}
-            </h3>
-            <p className="text-gray-700 mb-4">{journal.subtitle}</p>
-            <hr className="border-t border-gray-400 mb-4" />
+          // <div
+          //   key={idx}
+          //   className="border border-orange-300 rounded-lg p-6 text-left shadow-sm hover:shadow-md transition duration-300 px-8"
+          // >
+          //   <h3 className="text-2xl font-semibold mb-1 text-dark">
+          //     {journal.title}
+          //   </h3>
+          //   <p className="text-gray-700 mb-4">{journal.subtitle}</p>
+          //   <hr className="border-t border-gray-400 mb-4" />
 
-            <ul className="space-y-2 text-sm text-gray-800">
-              <li className="flex items-start gap-2">
-                <CheckCircle className="text-secondary-text w-4 h-4 mt-1" />
-                <span>e-ISSN: {journal.issn}</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <CheckCircle className="text-secondary-text w-4 h-4 mt-1" />
-                <span>Product type: {journal.type}</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <CheckCircle className="text-secondary-text min-w-4 h-4 mt-1" />
-                <span>Published By: {journal.publisher}</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <CheckCircle className="text-secondary-text min-w-4 h-4 mt-1" />
-                <span>
-                  Publication Month: {journal.months}
-                </span>
-              </li>
-              <li className="flex items-start gap-2">
-                <CheckCircle className="text-secondary-text w-4 h-4 mt-1" />
-                <span>Mode: {journal.mode}</span>
-              </li>
-            </ul>
+          //   <ul className="space-y-2 text-sm text-gray-800">
+          //     <li className="flex items-start gap-2">
+          //       <CheckCircle className="text-secondary-text w-4 h-4 mt-1" />
+          //       <span>e-ISSN: {journal.issn}</span>
+          //     </li>
+          //     <li className="flex items-start gap-2">
+          //       <CheckCircle className="text-secondary-text w-4 h-4 mt-1" />
+          //       <span>Product type: {journal.type}</span>
+          //     </li>
+          //     <li className="flex items-start gap-2">
+          //       <CheckCircle className="text-secondary-text min-w-4 h-4 mt-1" />
+          //       <span>Published By: {journal.publisher}</span>
+          //     </li>
+          //     <li className="flex items-start gap-2">
+          //       <CheckCircle className="text-secondary-text min-w-4 h-4 mt-1" />
+          //       <span>
+          //         Publication Month: {journal.months}
+          //       </span>
+          //     </li>
+          //     <li className="flex items-start gap-2">
+          //       <CheckCircle className="text-secondary-text w-4 h-4 mt-1" />
+          //       <span>Mode: {journal.mode}</span>
+          //     </li>
+          //   </ul>
 
-            <div className="mt-6">
-              <button className="w-full bg-[#071A34] text-white py-2 rounded-md hover:invert transition duration-200">
-                Visit Journal
-              </button>
-            </div>
-          </div>
+          //   <div className="mt-6">
+          //     <button className="w-full bg-[#071A34] text-white py-2 rounded-md hover:invert transition duration-200">
+          //       Visit Journal
+          //     </button>
+          //   </div>
+          // </div>
+          <CompodiumCard key={idx} {...journal}/>
         ))}
       </div>
     </section>

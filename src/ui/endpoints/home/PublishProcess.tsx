@@ -1,44 +1,44 @@
 
 const steps = [
   {
-    title: 'Submit Paper',
-    description: 'Authors submit their profile Paper/Manuscript doc/docx',
+    title: 'Online Submission',
+    description: 'Submit your paper through our advanced editorial management system anytime, from anywhere in the world.',
     image: './submitPaper.png',
     button: true,
   },
   {
-    title: 'Review Process',
-    description: 'Paper review by Reviewer committee.',
+    title: 'Initial Review',
+    description: 'Our editorial team conducts a quick quality check and assigns reviewers within 12 hours of submission.',
     image: './review.png',
   },
   {
-    title: 'Acceptance Status',
-    description: 'If a paper is accepted after review, the author will be notified via their registered email address.',
+    title: 'Peer Review',
+    description: 'Expert reviewers evaluate your paper\'s quality, originality, and significance within 2-7 days.',
     image: './acceptance.png',
   },
   {
-    title: 'Processing Charges',
-    description: 'Pay paper processing charges as per mentioned in acceptance letter.',
+    title: 'Decision Notification',
+    description: 'Receive acceptance, revision, or rejection notification within 3-7 days of submission.',
     image: './processing.png',
   },
   {
-    title: 'Copyright Submission',
-    description: 'Submit the signed copyright and undertaking forms.',
+    title: 'Publication & Certification',
+    description: 'Accepted papers are published immediately with open access, and authors receive digital certificates.',
     image: './copyright.png',
   },
-  {
-    title: 'Published',
-    description: 'The paper will be published, and the author will be notified via their registered email address.',
-    image: './publication.png',
-  },
+  // {
+  //   title: 'Published',
+  //   description: 'The paper will be published, and the author will be notified via their registered email address.',
+  //   image: './publication.png',
+  // },
 ];
 
 export default function PublishProcess() {
   return (
     <section className="py-16">
       <div className=" mb-16">
-        <h2 className="text-3xl font-semibold">How to Publish Research Paper online</h2>
-        <p className="mt-2 text-sm text-secondaryText">2,157 people have said how good Rareblocks</p>
+        <h2 className="text-3xl font-semibold">Streamlined Publication Process</h2>
+        <p className="mt-2 text-sm text-secondaryText">Our efficient workflow ensures your research gets published quickly without sacrificing quality</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-8">
