@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
+import { type ContactUs } from '../../../types/Api';
+import { SendContactUs } from '../../../lib/axios/api/contact';
+import { setLoading } from '../../../lib/store/Features/loadingSlice';
+import { useAppDispatch, useAppSelector } from '../../../lib/store/store';
+import Loading from '../../components/Loading';
 
 const ContactForm = () => {
-  const [form, setForm] = useState({
+  const dispatch = useAppDispatch()
+  const loading = useAppSelector(state=>state.loadingScreen.loading)
+  const [form, setForm] = useState<ContactUs>({
     name: '',
     email: '',
     phone: '',
@@ -34,12 +41,18 @@ const ContactForm = () => {
     e.preventDefault();
     if (validate()) {
       // Simulated submission
-      alert('Message sent successfully!');
       console.log('Form submitted:', form);
+      dispatch(setLoading(true))
+      SendContactUs(form).then(() => alert('Message sent successfully!')).catch(() => alert("soming went wrong")).finally(() => {
+        dispatch(setLoading(false))
+      })
       setForm({ name: '', email: '', phone: '', message: '' });
+
     }
   };
-
+  if (loading) {
+    return <Loading title='Sending Message'/>
+  }
   return (
     <form onSubmit={handleSubmit} className="max-w-5xl mx-auto bg-white rounded-xl p-6 shadow">
       <div className="grid md:grid-cols-3 gap-4 mb-4">

@@ -1,4 +1,4 @@
-import type { ArchiveIndexVolume } from "../../../types/Api";
+import type { ArchiveIndexVolume, SearchProp } from "../../../types/Api";
 import { ArchiveIndexJsonUpdate } from "../../utils/other/jsonFormator";
 import { axiosClient } from "../axios-client";
 
@@ -28,6 +28,18 @@ export const ArchivePaperListting = async (req: ArchivePaperListtingArg) => {
         );
         console.log(res.data)
         return res.data
+    }
+    catch (error) {
+        console.log(error)
+    }
+}
+export const searchArchive = async (req: SearchProp) => {
+    try {
+        const res = await axiosClient.post("/searchArchive",
+            req
+        );
+        console.log(res.data.papersList)
+        return res.data.papersList
     }
     catch (error) {
         console.log(error)

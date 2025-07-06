@@ -3,11 +3,11 @@ import { useLocation, useNavigate } from "react-router-dom";
 import PrimaryBtn from "../../components/Btns/PrimaryBtn";
 
 import ArchiveVolumnHeader from "./components/ArchiveVolumnHeader";
-import type { ArchivePaperDetailProps, ConferenceArticleProps } from "../../../types/Api";
+import type { ArchivePaperDetailProps, SearchProp, ConferenceArticleProps } from "../../../types/Api";
 import React, { useCallback, useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../../lib/store/store";
 import { Pagination } from "../Editorial/Pagination";
-import conference_categories from "../../../lib/axios/api/conference";
+import conference_categories, { searchConference } from "../../../lib/axios/api/conference";
 import { setActiveConference } from "../../../lib/store/Features/conferenceSlice";
 import { getConferenceDetails } from "../../../lib/utils/conference/conferenceFunctions";
 import Loading from "../../components/Loading";
@@ -15,7 +15,7 @@ import { setLoading } from "../../../lib/store/Features/loadingSlice";
 import { setCurrentPage } from "../../../lib/store/Features/paginationSlice";
 import { setActiveConferenceArticle } from "../../../lib/store/Features/conferenceDetailseSlice";
 import type { activeSection } from "../../../types/UI";
-import { type ArchivePaperListtingArg } from "../../../lib/axios/api/archive";
+import { searchArchive, type ArchivePaperListtingArg } from "../../../lib/axios/api/archive";
 import { getArticalDetails } from "../../../lib/utils/conference/articalFunctions";
 import VolumeCardArchive from "./VolumeCardArchive";
 import { setActivePaper } from "../../../lib/store/Features/ArchiveSlice";
@@ -30,17 +30,19 @@ export default function ArchiveVolumes({ active }: activeSection) {
   const loading = useAppSelector((state) => state.loadingScreen.loading)
   const activeConferencePage = useAppSelector((state) => state.conference.active); //single card detials
   const activeArchiveIndex = useAppSelector((state) => state.archiveSection.activeIndexPage); //single card detials
+
   // store data
   const [ConferenceVolumes, setConferenceVolumes] = useState<ConferenceArticleProps[] | []>(useAppSelector((state) => state.conferenceArtical.articleList));
   const [ArticalVolumes, setArticalVolumes] = useState<ArchivePaperDetailProps[] | []>(useAppSelector((state) => state.archiveSection.papers));
 
   // listing pagination
-  const trackPage = useAppSelector((state) => state.pagination.current_page)
+  // const trackPage = useAppSelector((state) => state.pagination.current_page)
   // const totalItems = useAppSelector((state) => state.pagination.total_items)
   const totalPage = useAppSelector((state) => state.pagination.total_pages)
   const perPage = useAppSelector((state) => state.pagination.per_page)
 
   const [pageNumber, setPageNumber] = useState<number>(1);
+  const [trackPage, setTrackPage] = useState<number>(1);
   const getVisiblePages = () => {
     const maxVisible = 5;
     if (totalPage <= maxVisible) {
@@ -121,7 +123,9 @@ export default function ArchiveVolumes({ active }: activeSection) {
         if (ArticalVolumes.length === 0 || trackPage !== pageNumber) {
           await getArticalDetails(params, setArticalVolumes, dispatch, ArticalVolumes)
           console.log("fin")
+          setTrackPage(pageNumber);
           dispatch(setCurrentPage(pageNumber));
+          console.log("condition", trackPage, pageNumber)
         }
       }
     } catch (err) {
@@ -160,11 +164,34 @@ export default function ArchiveVolumes({ active }: activeSection) {
     }
   }, [active, fetchConferenceData, dispatch, perPage, trackPage, fetchArticalData, ArticalVolumes, activeArchiveIndex, navigate]);
 
+  // search
+  const [form, setForm] = useState<SearchProp>({ search: "", page: pageNumber, per_page: 100 })
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     // Implement your search logic here
+    dispatch(setLoading(true))
+    searchArchive(form).then((data) => {
+      switch (active) {
+        case "archive":
+          setArticalVolumes(data)
+          break
+        case "conference":
+          searchConference(data)
+          break
+        case "thesis":
+          searchConference(data)
+          break
+        case "issue":
+          searchConference(data)
+          break
+          
+      }
+    }).finally(() => dispatch(setLoading(false)))
+    setForm({ ...form, search: "" })
   }
-
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
   // component return
   if (useAppSelector((state) => state.loadingScreen.loading)) return <Loading title="Volumes" />
 
@@ -182,6 +209,9 @@ export default function ArchiveVolumes({ active }: activeSection) {
       <form onSubmit={handleSearch} className="flex items-center gap-2 mt-2">
         <input
           type="text"
+          name="search"
+          onChange={handleChange}
+          value={form.search}
           placeholder="Search by Paper ID, Paper Name"
           className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm"
         />

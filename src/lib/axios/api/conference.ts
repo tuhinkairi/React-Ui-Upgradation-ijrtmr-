@@ -1,5 +1,5 @@
 
-import type { ConferenceArticleProps, ConferenceCardProps } from "../../../types/Api";
+import type { ConferenceArticleProps, ConferenceCardProps, SearchProp } from "../../../types/Api";
 import { axiosClient } from "../axios-client";
 
 // #page 1
@@ -38,3 +38,15 @@ export const conference_detials = async (params: conferenceDetailsType): Promise
     throw error;
   }
 };
+export const searchConference = async (req: SearchProp) => {
+    try {
+        const res = await axiosClient.post("/searchConference",
+            req
+        );
+        console.log(res.data.papersList)
+        return res.data.papersList
+    }
+    catch (error) {
+        console.log(error)
+    }
+}

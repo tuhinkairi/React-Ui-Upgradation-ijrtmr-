@@ -123,3 +123,17 @@ export interface Blog {
     meta_description: string | null,
     tags: string | null
 }
+//contact us
+export interface ContactUs{
+    name: string,
+    email: string,
+    phone: string,
+    message: string,
+  }
+
+// search
+export interface SearchProp{
+    search: string,
+    page: number,
+    per_page: number
+}
