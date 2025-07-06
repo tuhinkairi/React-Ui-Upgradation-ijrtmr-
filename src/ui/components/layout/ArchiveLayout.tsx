@@ -7,10 +7,13 @@ import PlumMetricsCard from '../cards/PlumMetricsCard'
 import ArchiveBtn from '../Btns/ArchiveBtn'
 import { GrDocumentPdf } from 'react-icons/gr'
 import Title from '../../other/Title'
+import { useLocation } from 'react-router-dom'
+import { useAppSelector } from '../../../lib/store/store'
 
 export default function ArchiveLayout({ children }: { children: React.ReactNode }) {
-  const isArticleDetails = window.location.pathname.includes('/paper-details')
-
+  const isArticleDetails = useLocation().pathname.includes('/paper-details')
+  const activeArticle = useAppSelector(state=> state.archiveSection.activePaper)
+  
   return (
     <section className="_archiveLayout ml-16 grid grid-cols-4 2xl:grid-cols-5 justify-between gap-5 mr-4 xl:mr-16">
       <Title>ARCHIVES</Title>
@@ -18,12 +21,16 @@ export default function ArchiveLayout({ children }: { children: React.ReactNode 
         {children}
       </div>
       <div className='space-y-2 flex flex-col items-end'>
+        {!isArticleDetails ? <ArchiveSubmitPaperCard /> : 
+        <>
         <ArchiveBtn 
           icon={true}
           label={<>Download Pdf <GrDocumentPdf size={18}/> </>}
-          href="/downloads/copyright-form.pdf"
+          href={activeArticle?.paper_url??""}
         />
-        {!isArticleDetails ? <ArchiveSubmitPaperCard /> : <PlumMetricsCard/>}
+        <PlumMetricsCard/>
+        </>
+        }
         <ListingSection data={quickLinks} title='Quick Links' />
         <ArchiveDownload />
         <ListingSection data={policies} title='policies' />
