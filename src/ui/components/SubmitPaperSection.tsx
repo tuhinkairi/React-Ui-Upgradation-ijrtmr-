@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const SubmitPaperSection = () => {
   return (
     <section className="flex flex-col-reverse md:flex-row items-center justify-between bg-[#FFF4EF] my-12 mt-8 pl-16">
@@ -7,9 +9,11 @@ const SubmitPaperSection = () => {
         <p className="text-gray-700 mb-6 max-w-md mx-auto md:mx-0">
           Join our network of esteemed researchers and experience the IJSREAT advantage - where efficiency meets excellence in academic publishing.
         </p>
+        <Link to="https://editorial.fdrpjournals.org/login?journal=2">
         <button className="w-full md:w-auto primaryBtn">
           Submit Paper
         </button>
+        </Link>
       </div>
 
       {/* Image Section */}
