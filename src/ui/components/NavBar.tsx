@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import React, { useRef, useEffect } from "react";
 import { about_menu, archive_menu, thesis_menu } from "../../data/listingSection";
 import MenuCard from "./cards/MenuCard";
@@ -80,9 +80,9 @@ const Navbar = () => {
 
       {/* CTA Buttons */}
       <div className="flex space-x-4">
-        <button className="bg-primary hover:bg-primary-hover text-white px-4 py-3 rounded-md font-medium">
+        <Link to="https://editorial.fdrpjournals.org/login?journal=2" target="_blank"><button className="bg-primary hover:bg-primary-hover text-white px-4 py-3 rounded-md font-medium">
           Author Login
-        </button>
+        </button></Link>
       </div>
     </nav>
   )
