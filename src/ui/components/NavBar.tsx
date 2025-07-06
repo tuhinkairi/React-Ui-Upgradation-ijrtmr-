@@ -19,7 +19,7 @@ const Navbar = () => {
 
   const handlePopup = (
     e: React.MouseEvent<HTMLAnchorElement>,
-    element: React.RefObject<HTMLDivElement |null>
+    element: React.RefObject<HTMLDivElement | null>
   ) => {
     e.preventDefault();
     hideAllMenus();
@@ -72,28 +72,29 @@ const Navbar = () => {
           <MenuCard hide={hideAllMenus} ref={about} links={about_menu} />
         </li>
 
-        <li className="hover:text-primary">
-          <NavLink className={({ isActive }) => (isActive ? "text-primary" : "")} to="/for-authors">
-            For Authors
-          </NavLink>
-        </li>
-
-        <li className="hover:text-primary">
-          <NavLink className={({ isActive }) => (isActive ? "text-primary" : "")} to="/current-issue">
-            Current Issue
-          </NavLink>
-        </li>
 
         <li className="hover:text-primary relative">
           <NavLink
             onMouseEnter={(e) => handlePopup(e, archive)}
             className={({ isActive }) => (isActive ? "text-primary" : "")}
-            to="/archives"
+            to="/for-authors"
           >
-            Archives
+            For Authors
+
           </NavLink>
           <MenuCard hide={hideAllMenus} ref={archive} links={archive_menu} />
         </li>
+        <li className="hover:text-primary">
+          <NavLink className={({ isActive }) => (isActive ? "text-primary" : "")} to="/current-issue">
+            Current Issue
+          </NavLink>
+        </li>
+        <li className="hover:text-primary">
+          <NavLink className={({ isActive }) => (isActive ? "text-primary" : "")} to="/archives">
+            Archives
+          </NavLink>
+        </li>
+
 
         <li className="hover:text-primary">
           <NavLink className={({ isActive }) => (isActive ? "text-primary" : "")} to="/conference">

@@ -84,6 +84,10 @@ export interface ArchivePaperDetailProps {
   paper_designation: string | null;
   paper_doi_Link: string | null;
 }
+export interface ArticleSuggestionProp{
+  paper_title : string,
+  year : string
+}
 
 // editorial
 export interface EditorialMember {
@@ -137,3 +141,5 @@ export interface SearchProp{
     page: number,
     per_page: number
 }
+
+

@@ -33,6 +33,18 @@ export const ArchivePaperListting = async (req: ArchivePaperListtingArg) => {
         console.log(error)
     }
 }
+export const suggestedArchivePost = async (req: SearchProp) => {
+    try {
+        const res = await axiosClient.post("/archiveSuggestions",
+            req
+        );
+        console.log(res.data.papersList)
+        return res.data.papersList
+    }
+    catch (error) {
+        console.log(error)
+    }
+}
 export const searchArchive = async (req: SearchProp) => {
     try {
         const res = await axiosClient.post("/searchArchive",
