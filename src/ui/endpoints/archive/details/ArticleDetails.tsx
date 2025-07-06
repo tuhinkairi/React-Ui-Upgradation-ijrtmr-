@@ -22,7 +22,6 @@ type TabOption = "FullArticle" | "References" | "Citations" | "Metrics" | "Licen
 const ArticleDetails = () => {
   const searchQuery = useSearchParams();
   const id = searchQuery[0].get("paperId")
-  const [solo, setSolo] = useState(false)
   const [currentItem, setCurrentItem] = useState<TabOption>(searchQuery[0].get("section")?.replace("-", " ") as TabOption || "FullArticle")
   const ActiveArticle = useAppSelector((state) => state.archiveSection.activePaper)
   const [activePaper, setPaper] = useState<ArchivePaperDetailProps | null>(ActiveArticle)
@@ -36,24 +35,24 @@ const ArticleDetails = () => {
   const designation: string[] = activePaper?.paper_designation?.split(",") ?? []
   // functions
   useEffect(() => {
-    if (id && activePaper?.paper_id !== parseInt(id)) {
+    if (id) {
+      if (activePaper?.paper_id !== parseInt(id)) {
 
-      FetchActiveArticle({ paperid: id }).then((data) => {
-        dispatch(setLoading(true))
-        if (data) {
-          dispatch(setActivePaper(data))
-          setPaper(data)
-          setSolo(true)
-        }
-      }).finally(() => {
-        dispatch(setLoading(false))
-      })
-    }
+        FetchActiveArticle({ paperid: id }).then((data) => {
+          dispatch(setLoading(true))
+          if (data) {
+            dispatch(setActivePaper(data))
+            setPaper(data)
+          }
+        }).finally(() => {
+          dispatch(setLoading(false))
+        })
+      }
+    }else navigate("/archives")
   }, [navigate, activePaper, id, dispatch, ActiveArticle])
 
-  console.log("part1", activePaper?.created_at, ActiveArticle,solo)
   if (loading || !activePaper) {
-    return <Loading title="Paper Details"/>
+    return <Loading title="Paper Details" />
   }
   return (
     <div className="mx-auto  bg-white space-y-6 p-5">
@@ -99,8 +98,8 @@ const ArticleDetails = () => {
             )
           }
         </ul>
-        <div>Published Online: {activePaper.created_at.split("T")[0]??activePaper.created_at}</div>
-        <div>Pages: {activePaper?.paper_pages}</div>
+        <h3 className="font-medium">Published Online: {activePaper.created_at.split("T")[0] ?? activePaper.created_at}</h3>
+        <h3 className="font-medium">Pages: {activePaper?.paper_pages}</h3>
       </div>
 
       {/* DOI and Utilities */}
@@ -110,7 +109,8 @@ const ArticleDetails = () => {
         </h3>
 
         {activePaper?.paper_doi && <Link
-          to={activePaper?.paper_doi_Link ?? ""}
+          target="_blank"
+          to={activePaper?.paper_doi_Link ?? "#"}
           className="text-primary flex items-center gap-1 hover:underline"
         >
           ↗ {activePaper?.paper_doi}
@@ -125,13 +125,13 @@ const ArticleDetails = () => {
       </div>
 
       {/* Navigation Tabs */}
-      <div className="flex gap-6 text-lg border-b border-gray-200">
+      <div className="flex justify-between gap-6 text-lg border-b border-gray-200">
         {["FullArticle", "References", "Citations", "Metrics", "Licensing"].map(
           (tab, idx) => (
             <button
               onClick={() => setCurrentItem(tab as TabOption)}
               key={idx}
-              className={`pb-2 ${tab === currentItem
+              className={`pb-2 px-4 ${tab === currentItem
                 ? "text-primary font-semibold border-b-2 border-primary rounded-none"
                 : "text-primary-text"
                 }`}

@@ -41,14 +41,14 @@ export interface ConferenceArticleProps {
 
 
 // Archive
-export interface ArchiveIndexVolume{
-    year: string;
-    volumes: {
-      volume: string;
-      issue: string[];
-    }[]
+export interface ArchiveIndexVolume {
+  year: string;
+  volumes: {
+    volume: string;
+    issue: string[];
+  }[]
 }
-export interface ActiveIndexArchive{
+export interface ActiveIndexArchive {
   year: string;
   volume: string;
   issue: string;
@@ -84,62 +84,69 @@ export interface ArchivePaperDetailProps {
   paper_designation: string | null;
   paper_doi_Link: string | null;
 }
-export interface ArticleSuggestionProp{
-  paper_title : string,
-  year : string
+// suggested article
+export interface ArticleSuggestion {
+  paper_id: number,
+  paper_title: string,
+  paper_author: string,
+  year: string
+}
+export interface ArticleSuggestionProp {
+  paper_title: string,
+  year: string
 }
 
 // editorial
 export interface EditorialMember {
-    member_id: number
-    is_active: number
-    is_deleted: number
-    member_role: string
-    member_address: string
-    member_image_url: string
-    member_researcharea: string
-    member_email: string
-    member_website: string
-    member_country: string
-    member_name: string
-    member_designation: string
-    created_at: string
-    updated_at: string
-    member_publication_list: string
-    member_orcid_id: string
-    member_scopus_id: string | null
-    member_thomson_reuters: string | null
-    member_google_scholar_id: string
-    member_linkedin: string | null
+  member_id: number
+  is_active: number
+  is_deleted: number
+  member_role: string
+  member_address: string
+  member_image_url: string
+  member_researcharea: string
+  member_email: string
+  member_website: string
+  member_country: string
+  member_name: string
+  member_designation: string
+  created_at: string
+  updated_at: string
+  member_publication_list: string
+  member_orcid_id: string
+  member_scopus_id: string | null
+  member_thomson_reuters: string | null
+  member_google_scholar_id: string
+  member_linkedin: string | null
 }
 
 // blog
 export interface Blog {
-    id: number | null,
-    created_at: string | null,
-    updated_at: string | null,
-    image: string | null,
-    description: string | null,
-    title: string | null,
-    url_title: string | null,
-    category: string | null,
-    meta_title: string | null,
-    meta_description: string | null,
-    tags: string | null
+  id: number | null,
+  created_at: string | null,
+  updated_at: string | null,
+  image: string | null,
+  description: string | null,
+  title: string | null,
+  url_title: string | null,
+  category: string | null,
+  meta_title: string | null,
+  meta_description: string | null,
+  tags: string | null
 }
 //contact us
-export interface ContactUs{
-    name: string,
-    email: string,
-    phone: string,
-    message: string,
-  }
+export interface ContactUs {
+  name: string,
+  email: string,
+  phone: string,
+  message: string,
+}
 
 // search
-export interface SearchProp{
-    search: string,
-    page: number,
-    per_page: number
+export interface SearchProp {
+  search: string,
+  page: number,
+  per_page: number
 }
 
 

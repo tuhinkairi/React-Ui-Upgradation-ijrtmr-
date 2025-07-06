@@ -1,24 +1,32 @@
 import { ArrowUpRight } from "lucide-react";
+import { useAppSelector } from "../../../../lib/store/store";
+import { useNavigate } from "react-router-dom";
+import { SuggestedArchivePost } from "../../../../lib/axios/api/archive";
+import { useCallback, useEffect, useState } from "react";
+import type { ArticleSuggestion } from "../../../../types/Api";
 
-const relatedArticles = [
-  {
-    year: 2025,
-    title:
-      "AI-Driven Conversational Models for Supporting Migrant Career Guidance and Labour Market Integration: A Scoping Review",
-  },
-  {
-    year: 2025,
-    title:
-      "AI-Powered Career Advisor (A Personalized Career Guidance System)",
-  },
-  {
-    year: 2025,
-    title:
-      "AI-Powered Career Advisor (A Personalized Career Guidance System)",
-  },
-];
 
 const RelatedArticles = () => {
+  const navigate = useNavigate();
+  const activeArticle = useAppSelector((state) => state.archiveSection.activePaper);
+  const [relatedArticles, setRelatedArticles] = useState<ArticleSuggestion[]>([]);
+  // redirectable dynamic endpoint 
+  const endpoint = (paper_id:number, paper_title:string)=> {return `/archives/paper-details?paperId=${paper_id}&papertitle=${encodeURIComponent(paper_title.replace(/ /g, "-"))}`}
+
+  
+  const SuggestedArchive = useCallback(() => SuggestedArchivePost({
+    paper_title: activeArticle?.paper_title ?? "",
+    year: activeArticle?.year ?? "",
+  }).then((data) => {
+    setRelatedArticles(data)
+  }), [activeArticle])
+  
+  
+  useEffect(() => {
+    if (!activeArticle?.paper_title) navigate("/archives");
+    SuggestedArchive()
+  }, [SuggestedArchive, navigate, activeArticle?.paper_title])
+  
   return (
     <div className=" mx-auto mt-12">
       <h2 className="text-2xl font-semibold mb-4">Related Articles</h2>
@@ -31,11 +39,11 @@ const RelatedArticles = () => {
             <div>
               <p className="text-sm text-gray-400 font-medium mb-1">{article.year}</p>
               <p className="text-base font-semibold text-gray-900 leading-snug">
-                {article.title}
+                {article.paper_title}
               </p>
             </div>
             <div className="mt-4">
-              <button className="primaryBtn ">
+              <button className="primaryBtn " onClick={() => navigate(endpoint(article.paper_id, article.paper_title))}>
                 <span className="text-sm">View More</span><ArrowUpRight size={16} />
               </button>
             </div>

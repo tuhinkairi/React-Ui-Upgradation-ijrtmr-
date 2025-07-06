@@ -1,4 +1,4 @@
-import type { ArchiveIndexVolume, SearchProp } from "../../../types/Api";
+import type { ArchiveIndexVolume, ArticleSuggestionProp, SearchProp } from "../../../types/Api";
 import { UpdateOneFetch } from "../../utils/archive/UpdateOneFetch";
 import { ArchiveIndexJsonUpdate } from "../../utils/other/jsonFormator";
 import { axiosClient } from "../axios-client";
@@ -34,18 +34,20 @@ export const ArchivePaperListting = async (req: ArchivePaperListtingArg) => {
         console.log(error)
     }
 }
-export const suggestedArchivePost = async (req: SearchProp) => {
+export const SuggestedArchivePost = async (req: ArticleSuggestionProp) => {
     try {
         const res = await axiosClient.post("/archiveSuggestions",
             req
         );
-        console.log(res.data.papersList)
-        return res.data.papersList
+        console.log(res.data.suggestions)
+        return res.data.suggestions
     }
     catch (error) {
         console.log(error)
     }
 }
+
+
 export const FetchActiveArticle = async (
   req: { paperid: string }
 ) => {
