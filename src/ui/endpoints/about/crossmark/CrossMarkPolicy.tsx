@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import CommonLayout from '../../../components/layout/CommonLayout'
 import Title from '../../../other/Title'
 import VerificationSection from '../VerificationSection'
@@ -8,7 +9,7 @@ function CrossMarkPolicy() {
             <div className='flex items-center justify-between text-base '>
                 <Title>Crossmark Policy</Title>
                 <p className="text-sm text-muted-foreground mt-1">
-                    Crossmark Policy DOI: <a href="http://dx.doi.org/10.59256/ijsreat/CrossMark-Policy-Page" className="text-primary hover:text-primary-hover underline">http://dx.doi.org/10.59256/ijsreat/CrossMark-Policy-Page</a>
+                    <span className='font-medium text-base'>Crossmark Policy DOI : </span><Link target='_blank' to="http://dx.doi.org/10.59256/ijsreat/CrossMark-Policy-Page" className="text-primary hover:text-primary-hover underline">http://dx.doi.org/10.59256/ijsreat/CrossMark-Policy-Page</Link>
                 </p>
             </div>
             <div className="my-4 mt-2 space-y-4 text-base text-[#333333]">

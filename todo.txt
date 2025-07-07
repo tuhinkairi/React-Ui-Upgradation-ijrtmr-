@@ -1,14 +1,17 @@
-update quick links -> done -> few links in policy page not created
-update content
 update conference for like archive - done
 update the cards to slidebar -> done
-update google search
+update google search -> done
 update filter -> done
-update thesis
-update faq questions -> ans add pending
 update the urls -> done
-update issues
-volumns functionality in archive
-paper subscribe
 submit links update -> done
+update content
+
+update faq questions -> ans add pending
+volumns functionality in archive -> pending
+
+update quick links -> done -> few links in policy page not created
+
 conference space problem
+update issues
+paper subscribe
+update thesis
