@@ -3,26 +3,26 @@ import { ChevronDown, ChevronUp } from "lucide-react";
 
 const faqData = [
   {
-    question: "What is the journal's e-ISSN?",
-    answer: "",
+    question: "When it was started? | when first issue of the journal was published?",
+    answer: "It was started in year 2021. IJSREAT is being published by 5th Dimension Research Publication. First Issue: January-February 2021.",
   },
   {
-    question: "What is the product type of the journal?",
-    answer: "",
+    question: "What is the plagiarism policy",
+    answer: "We do not accept papers that are having plagiarized contents. Good quality plagiarism software/tool will be used to check similarity that would not be more than 30% including reference section. In the case of exclusion of references, it should be less than 5%.",
   },
   {
-    question: "Who is the publisher of the journal?",
-    answer: "",
+    question: "How to submit my Article?",
+    answer: "By Editorial Management System (EMS) Online submission System. For more details see Guidance for Editorial management System.",
   },
   {
     question:
-      "What are the publication months for the journal?",
-    answer: "",
+      "My paper has been published. Can make any changes now in the paper?",
+    answer: "Author(s) can make rectification in the final paper but after the final submission to the journal, rectification is not possible.",
   },
   {
-    question:"What is the publication mode of the journal?",
+    question:"What are the Terms & Conditions of the journal?",
 
-    answer: "",
+    answer: "Please visit journal website. It is available in the “Ethics & Policy” page.",
   },
 ];
 
@@ -55,7 +55,7 @@ const FAQAccordion = () => {
               )}
             </div>
             {activeIndex === idx && (
-              <div className="mt-3 text-gray-600 text-sm">
+              <div className="mt-3 text-gray-600 text-base">
                 {item.answer}
               </div>
             )}
