@@ -1,45 +1,44 @@
+import { useState, useEffect } from "react";
 import CompodiumCard from "./cards/CompodiumCard";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const journals = [
-  {
-    code: 'IJIRE',
-    title: 'International Journal of Innovative Research in Engineering',
-    eIssn: '2582-8746',
-    publicationMonths: 'Bimonthly(Feb,Apr,Jun,Aug,Oct,Dec)',
-    url: '/journals/ijire',
-  },
-  {
-    code: 'IJRTMR',
-    title: 'International Journal of Recent Trends in Multidisciplinary Research',
-    eIssn: '2583-0368',
-    publicationMonths: 'Bimonthly(Feb,Apr,Jun,Aug,Oct,Dec)',
-    url: '/journals/ijrtmr',
-  },
-  {
-    code: 'INDJEEE',
-    title: 'Indian Journal of Electrical and Electronics Engineering',
-    eIssn: 'Applied',
-    publicationMonths: '3 Issues Per Year (Apr,Aug,Dec)',
-    url: '/journals/indjeee',
-  },
-  {
-    code: 'INDJECE',
-    title: 'Indian Journal of Electronics and Communication Engineering',
-    eIssn: '3048-6408',
-    publicationMonths: '3 Issues Per Year (Apr,Aug,Dec)',
-    url: '/journals/indjece',
-  },
-  {
-    code: 'INDJCST',
-    title: 'Indian Journal of Computer Science and Technology',
-    eIssn: '2583-5300',
-    publicationMonths: '3 Issues Per Year (Apr,Aug,Dec)',
-    url: '/journals/indjcst',
-  },
+  { code: 'IJIRE', title: 'International Journal of Innovative Research in Engineering', eIssn: '2582-8746', publicationMonths: 'Bimonthly(Feb,Apr,Jun,Aug,Oct,Dec)', url: '/journals/ijire' },
+  { code: 'IJRTMR', title: 'International Journal of Recent Trends in Multidisciplinary Research', eIssn: '2583-0368', publicationMonths: 'Bimonthly(Feb,Apr,Jun,Aug,Oct,Dec)', url: '/journals/ijrtmr' },
+  { code: 'INDJEEE', title: 'Indian Journal of Electrical and Electronics Engineering', eIssn: 'Applied', publicationMonths: '3 Issues Per Year (Apr,Aug,Dec)', url: '/journals/indjeee' },
+  { code: 'INDJECE', title: 'Indian Journal of Electronics and Communication Engineering', eIssn: '3048-6408', publicationMonths: '3 Issues Per Year (Apr,Aug,Dec)', url: '/journals/indjece' },
+  { code: 'INDJCST', title: 'Indian Journal of Computer Science and Technology', eIssn: '2583-5300', publicationMonths: '3 Issues Per Year (Apr,Aug,Dec)', url: '/journals/indjcst' },
 ];
 
-
 const JournalsCompendium = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      handleNextClick();
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const handlePrevClick = () => {
+    setCurrentIndex((prevIndex) =>
+      (prevIndex - 1 + journals.length) % journals.length
+    );
+  };
+
+  const handleNextClick = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % journals.length);
+  };
+
+  const getVisibleJournals = () => {
+    const visibleJournals = [];
+    for (let i = 0; i < 3; i++) {
+      const index = (currentIndex + i) % journals.length;
+      visibleJournals.push(journals[index]);
+    }
+    return visibleJournals;
+  };
+
   return (
     <section className="px-6 md:px-24 py-12 bg-white text-center">
       <h2 className="text-2xl md:text-3xl font-semibold text-dark mb-2">
@@ -49,51 +48,26 @@ const JournalsCompendium = () => {
         Fifth Dimension Research Publication
       </p>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-5xl mx-auto">
-        {journals.map((journal, idx) => (
-          // <div
-          //   key={idx}
-          //   className="border border-orange-300 rounded-lg p-6 text-left shadow-sm hover:shadow-md transition duration-300 px-8"
-          // >
-          //   <h3 className="text-2xl font-semibold mb-1 text-dark">
-          //     {journal.title}
-          //   </h3>
-          //   <p className="text-gray-700 mb-4">{journal.subtitle}</p>
-          //   <hr className="border-t border-gray-400 mb-4" />
+      <div className="relative max-w-5xl mx-auto">
+        <button
+          onClick={handlePrevClick}
+          className="absolute -left-10 top-1/2 transform -translate-y-1/2 z-10 bg-gray-800 text-white p-2 rounded-full"
+        >
+          <ChevronLeft />
+        </button>
 
-          //   <ul className="space-y-2 text-sm text-gray-800">
-          //     <li className="flex items-start gap-2">
-          //       <CheckCircle className="text-secondary-text w-4 h-4 mt-1" />
-          //       <span>e-ISSN: {journal.issn}</span>
-          //     </li>
-          //     <li className="flex items-start gap-2">
-          //       <CheckCircle className="text-secondary-text w-4 h-4 mt-1" />
-          //       <span>Product type: {journal.type}</span>
-          //     </li>
-          //     <li className="flex items-start gap-2">
-          //       <CheckCircle className="text-secondary-text min-w-4 h-4 mt-1" />
-          //       <span>Published By: {journal.publisher}</span>
-          //     </li>
-          //     <li className="flex items-start gap-2">
-          //       <CheckCircle className="text-secondary-text min-w-4 h-4 mt-1" />
-          //       <span>
-          //         Publication Month: {journal.months}
-          //       </span>
-          //     </li>
-          //     <li className="flex items-start gap-2">
-          //       <CheckCircle className="text-secondary-text w-4 h-4 mt-1" />
-          //       <span>Mode: {journal.mode}</span>
-          //     </li>
-          //   </ul>
+        <div className="flex gap-6 justify-center items-center transition-all duration-700 ease-in-out">
+          {getVisibleJournals().map((journal, idx) => (
+            <CompodiumCard key={`${journal.code}-${idx}`} {...journal} />
+          ))}
+        </div>
 
-          //   <div className="mt-6">
-          //     <button className="w-full bg-[#071A34] text-white py-2 rounded-md hover:invert transition duration-200">
-          //       Visit Journal
-          //     </button>
-          //   </div>
-          // </div>
-          <CompodiumCard key={idx} {...journal}/>
-        ))}
+        <button
+          onClick={handleNextClick}
+          className="absolute -right-10 top-1/2 transform -translate-y-1/2 z-10 bg-gray-800 text-white p-2 rounded-full"
+        >
+          <ChevronRight />
+        </button>
       </div>
     </section>
   );

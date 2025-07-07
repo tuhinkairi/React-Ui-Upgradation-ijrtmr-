@@ -23,7 +23,7 @@ export default function CompodiumCard({
         navigate(url)
     }
     return (
-        <div className="border text-start border-orange-300 rounded-md p-4 shadow-md flex flex-col justify-between h-full">
+        <div className="border text-start border-orange-300 rounded-md p-4 shadow-md flex flex-col justify-between h-full w-80">
             <div>
                 <h3 className="text-2xl font-semibold text-[#111827]">{code}</h3>
                 <p className="text-[#374151] mt-2 mb-4 border-b border-gray-300 pb-2 font-medium">
