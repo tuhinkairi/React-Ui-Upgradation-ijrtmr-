@@ -1,8 +1,8 @@
 import React from 'react'
 
-function PrimaryBtn({ children, className }: { children: React.ReactNode, className?: string }) {
+function PrimaryBtn({ children, className, event }: { children: React.ReactNode, className?: string, event?: () => void }) {
     return (
-        <button className={`inline-flex items-center gap-3 bg-[#fae0d0] text-primary-text text-sm font-medium px-6 py-2 hover:bg-[#f6d5c3] transition-colors ${className?.includes("rounded-full")? className:"rounded-md"}`}>
+        <button onClick={event} className={`inline-flex items-center gap-3 bg-[#fae0d0] text-primary-text text-sm font-medium px-6 py-2 hover:bg-[#f6d5c3] transition-colors ${className?.includes("rounded-full")? className:"rounded-md"}`}>
             {children}
         </button>
     )

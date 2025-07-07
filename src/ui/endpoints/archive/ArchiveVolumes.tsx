@@ -20,6 +20,8 @@ import { getArticalDetails } from "../../../lib/utils/conference/articalFunction
 import VolumeCardArchive from "./VolumeCardArchive";
 import { setActivePaper } from "../../../lib/store/Features/ArchiveSlice";
 import VolumeCardConference from "./VolumeCardConference";
+import Title from "../../other/Title";
+import { GrClear } from "react-icons/gr";
 
 
 
@@ -30,10 +32,16 @@ export default function ArchiveVolumes({ active }: activeSection) {
   const loading = useAppSelector((state) => state.loadingScreen.loading)
   const activeConferencePage = useAppSelector((state) => state.conference.active); //single card detials
   const activeArchiveIndex = useAppSelector((state) => state.archiveSection.activeIndexPage); //single card detials
+  // state 
 
   // store data
-  const [ConferenceVolumes, setConferenceVolumes] = useState<ConferenceArticleProps[] | []>(useAppSelector((state) => state.conferenceArtical.articleList));
-  const [ArticalVolumes, setArticalVolumes] = useState<ArchivePaperDetailProps[] | []>(useAppSelector((state) => state.archiveSection.papers));
+  const ConferenceData = useAppSelector((state) => state.conferenceArtical.articleList)
+  const ArchiveData = useAppSelector((state) => state.archiveSection.papers)
+  const [ConferenceVolumes, setConferenceVolumes] = useState<ConferenceArticleProps[] | []>(ConferenceData);
+  const [ArticalVolumes, setArticalVolumes] = useState<ArchivePaperDetailProps[] | []>(ArchiveData);
+
+  const [ConferenceVolumesSearch, setConferenceVolumesSearch] = useState<ConferenceArticleProps[] | null>(null);
+  const [ArticalVolumesSearch, setArticalVolumesSearch] = useState<ArchivePaperDetailProps[] | null>(null);
 
   // listing pagination
   // const trackPage = useAppSelector((state) => state.pagination.current_page)
@@ -65,7 +73,7 @@ export default function ArchiveVolumes({ active }: activeSection) {
   };
 
 
-  // Handle pagination logic in useEffect
+
 
 
   // setting active papers
@@ -168,26 +176,33 @@ export default function ArchiveVolumes({ active }: activeSection) {
   const [form, setForm] = useState<SearchProp>({ search: "", page: pageNumber, per_page: 100 })
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
+    if (form.search === "") return
     // Implement your search logic here
     dispatch(setLoading(true))
-    searchArchive(form).then((data) => {
-      switch (active) {
-        case "archive":
-          setArticalVolumes(data)
-          break
+    console.log(form)
+    switch (active) {
+      case "archive":
+        searchArchive(form).then((data) => {
+          const tempo = data?data:[]          
+          setArticalVolumesSearch(tempo)
+        }).finally(() => dispatch(setLoading(false)))
+        setForm({ ...form, search: "" })
+        break
         case "conference":
-          searchConference(data)
-          break
-        case "thesis":
-          searchConference(data)
-          break
-        case "issue":
-          searchConference(data)
-          break
-          
-      }
-    }).finally(() => dispatch(setLoading(false)))
-    setForm({ ...form, search: "" })
+          searchConference(form).then((data) => {
+          const tempo = data?data:[]          
+          setConferenceVolumesSearch(tempo)
+        }).finally(() => dispatch(setLoading(false)))
+        setForm({ ...form, search: "" })
+        break
+      case "thesis":
+        searchConference(form)
+        break
+      case "issue":
+        searchConference(form)
+        break
+
+    }
   }
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -206,7 +221,7 @@ export default function ArchiveVolumes({ active }: activeSection) {
       {!["conference", "issue"].includes(active) && <ArchiveVolumnHeader />}
 
       {/* Search */}
-      <form onSubmit={handleSearch} className="flex items-center gap-2 mt-2">
+      <form onSubmitCapture={handleSearch} className="flex items-center gap-2 mt-2">
         <input
           type="text"
           name="search"
@@ -215,33 +230,85 @@ export default function ArchiveVolumes({ active }: activeSection) {
           placeholder="Search by Paper ID, Paper Name"
           className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm"
         />
-        <PrimaryBtn >
-          <Search size={16} /> Search
-        </PrimaryBtn>
+        {(active === "conference") && (
+          ConferenceVolumesSearch ? (
+            <PrimaryBtn event={() => {
+              setConferenceVolumesSearch(null)
+              console.log(ConferenceVolumesSearch)
+            }}>
+              <GrClear size={16} /> Clear
+            </PrimaryBtn>
+          ) : (
+            <PrimaryBtn>
+              <Search size={16} /> Search
+            </PrimaryBtn>
+          )
+        )}
+        {(active === "archive") && (
+          ArticalVolumesSearch ? (
+            <PrimaryBtn event={() => setArticalVolumesSearch(null)}>
+              <GrClear size={16} /> Clear
+            </PrimaryBtn>
+          ) : (
+            <PrimaryBtn>
+              <Search size={16} /> Search
+            </PrimaryBtn>
+          )
+        )}
+
       </form>
 
       {/* Paper Cards */}
       {(trackPage === pageNumber || !loading) ? <div className="space-y-6">
         <>
           {/* conference */}
-          {active === "conference" && ConferenceVolumes.length != 0 && ConferenceVolumes.map((paper, idx) => (
-            <VolumeCardConference paper={paper} key={idx} setActive={setActiveArtical} navigate={navigate}/>
-          ))}
-          {active === "archive" && ArticalVolumes.length != 0 && ArticalVolumes.map((paper, idx) => (
-            <VolumeCardArchive paper={paper} key={idx} setActive={setActiveArtical} navigate={navigate} />
-          ))}
+
+          {active === "archive" && (
+            ArticalVolumesSearch !== null
+              ? ArticalVolumesSearch?.length
+                ? ArticalVolumesSearch.map((paper, idx) => (
+                  <VolumeCardArchive paper={paper} key={idx} setActive={setActiveArtical} navigate={navigate} />
+                ))
+                : <Title>No Paper Found</Title>
+              : ArticalVolumes?.length
+                ? ArticalVolumes.map((paper, idx) => (
+                  <VolumeCardArchive paper={paper} key={idx} setActive={setActiveArtical} navigate={navigate} />
+                ))
+                : <Title>No Paper Found</Title>
+          )}
+          {active === "conference" && (
+            ConferenceVolumesSearch !== null
+              ? ConferenceVolumesSearch?.length
+                ? ConferenceVolumesSearch.map((paper, idx) => (
+                  <VolumeCardConference paper={paper} key={idx} setActive={setActiveArtical} navigate={navigate} />
+                ))
+                : <Title>No Paper Found</Title>
+              : ConferenceVolumes?.length
+                ? ConferenceVolumes.map((paper, idx) => (
+                  <VolumeCardConference paper={paper} key={idx} setActive={setActiveArtical} navigate={navigate} />
+                ))
+                : <Title>No Paper Found</Title>
+          )}
         </>
       </div> :
         <Loading title="Volume Pages" />
       }
-      <div className="mt-16">
+      {active == "conference" && ConferenceVolumesSearch === null && <div className="mt-16">
         <Pagination
           currentPage={pageNumber}
           totalPages={totalPage}
           onPageChange={setPageNumber}
           rangeList={getVisiblePages()}
         />
-      </div>
+      </div>}
+      {active === "archive" && ArticalVolumesSearch === null && <div className="mt-16">
+        <Pagination
+          currentPage={pageNumber}
+          totalPages={totalPage}
+          onPageChange={setPageNumber}
+          rangeList={getVisiblePages()}
+        />
+      </div>}
     </div>
   );
 }
