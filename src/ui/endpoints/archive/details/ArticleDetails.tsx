@@ -48,7 +48,7 @@ const ArticleDetails = () => {
           dispatch(setLoading(false))
         })
       }
-    }else navigate("/archives")
+    } else navigate("/archives")
   }, [navigate, activePaper, id, dispatch, ActiveArticle])
 
   if (loading || !activePaper) {
@@ -68,23 +68,22 @@ const ArticleDetails = () => {
       {/* Meta Information */}
       <div className="space-y-3 text-primary-text leading-7 text-base">
         <div className="flex gap-3 ">
-          <span className="font-medium">Author:</span>{" "}
-          <div className="text-base flex flex-col gap-3 font-medium">
-            <div className="flex gap-3">
+          <div className="text-base flex flex-col gap-3 ">
+            <div className="flex gap-3 gap-x-6">
               {auther.map((author, index) => (
-                index <= 2 && <span className=" text-primary flex gap-2 items-center" key={index}>
-                  <CgProfile size={20} />
+                index <= 3 && <span className=" text-primary flex gap-2 items-center text-lg" key={index}>
+                  <CgProfile size={24} />
                   {author}<span className="text-xs h-full flex items-start -ml-1">{index + 1}</span>
-                  {index !== auther.length - 1 && ", "}
+                  {/* {index !== auther.length - 1 && ", "} */}
                 </span>
               ))}
             </div>
             <div className="flex gap-3">
               {auther.map((author, index) => (
-                index > 2 && <span className="text-primary flex gap-2 items-center" key={index}>
-                  <CgProfile size={20} />
+                index > 3 && <span className="text-primary flex gap-2 items-center text-lg" key={index}>
+                  <CgProfile size={24} />
                   {author}<span className="text-xs h-full flex items-start -ml-1">{index + 1}</span>
-                  {index !== auther.length - 1 && ", "}
+                  {/* {index !== auther.length - 1 && ", "} */}
                 </span>
               ))}
             </div>
@@ -104,7 +103,7 @@ const ArticleDetails = () => {
 
       {/* DOI and Utilities */}
       <div className="flex items-center gap-4 w-full justify-between text-base">
-        <h3 className="text-primary flex gap-2 items-center  mr-10">
+        <h3 className="text-primary text-lg flex gap-2 items-center  mr-10">
           <ImQuotesLeft className="text-primary" /> Cite this article
         </h3>
 
@@ -120,7 +119,7 @@ const ArticleDetails = () => {
             Check for Updates</span> <IoReload height={20} />
         </button>
         <button className="inline-flex items-center justify-center bg-[#fae0d0] text-primary-text text-sm font-medium w-12 h-12 hover:bg-[#f6d5c3] transition-colors rounded-full">
-          <Share2 size={16} className="inline-block" />
+          <Share2 size={13} className="inline-block" />
         </button>
       </div>
 

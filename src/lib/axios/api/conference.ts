@@ -50,3 +50,17 @@ export const searchConference = async (req: SearchProp) => {
         console.log(error)
     }
 }
+
+// page3 
+export const FetchActiveConference = async (
+  req: { id: string }
+) => {
+  try {
+    const res = await axiosClient.post("/conferenceDetails", req);
+    
+    console.log(res.data.ConferenceDetails);
+    return res.data.ConferenceDetails;
+  } catch (error) {
+    console.error(error);
+  }
+};

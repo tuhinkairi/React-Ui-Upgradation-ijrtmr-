@@ -1,6 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
 import { useAppSelector } from "../../../../lib/store/store";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { SuggestedArchivePost } from "../../../../lib/axios/api/archive";
 import { useCallback, useEffect, useState } from "react";
 import type { ArticleSuggestion } from "../../../../types/Api";
@@ -8,6 +8,7 @@ import type { ArticleSuggestion } from "../../../../types/Api";
 
 const RelatedArticles = () => {
   const navigate = useNavigate();
+  const location = useLocation()
   const activeArticle = useAppSelector((state) => state.archiveSection.activePaper);
   const [relatedArticles, setRelatedArticles] = useState<ArticleSuggestion[]>([]);
   // redirectable dynamic endpoint 
@@ -23,10 +24,13 @@ const RelatedArticles = () => {
   
   
   useEffect(() => {
-    if (!activeArticle?.paper_title) navigate("/archives");
-    SuggestedArchive()
-  }, [SuggestedArchive, navigate, activeArticle?.paper_title])
-  
+    if (!activeArticle?.paper_title && "/archives".includes(location.pathname)) navigate("/archives");
+    if(location.pathname.includes("/archives"))SuggestedArchive()
+  }, [SuggestedArchive, navigate, activeArticle?.paper_title,location])
+// update it for suggestions
+  if (relatedArticles.length===0) {
+    return null
+  }
   return (
     <div className=" mx-auto mt-12">
       <h2 className="text-2xl font-semibold mb-4">Related Articles</h2>
