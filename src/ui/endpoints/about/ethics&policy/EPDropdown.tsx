@@ -3,6 +3,8 @@ import { ChevronDown, ChevronUp } from "lucide-react";
 import PublicationContent from "../publication-policy/PublicationContent";
 import EditorialPolicy from "./policyCards/EditorialPolicy";
 import AuthorResponsiblity from "./policyCards/AuthorResponsiblity";
+import GuidePaper from "../../for-authors/guide-for-auther/GuidePaper";
+import PublicationEthicsAndMalpracticeStatement from "./policyCards/PublicationEthicsAndMalpracticeStatement";
 
 interface AccordionItem {
   id: string;
@@ -29,12 +31,12 @@ const policy:AccordionItem[] = [
   {
     "id": "instructions-for-authors",
     "title": "Instructions for Authors",
-    "component": "InstructionsForAuthors"
+    "component": <GuidePaper/>
   },
   {
     "id": "ethics-malpractice",
     "title": "Publication Ethics & Malpractice Statement",
-    "component": "EthicsMalpractice"
+    "component": <PublicationEthicsAndMalpracticeStatement/>
   },
   {
     "id": "article-withdrawal",
