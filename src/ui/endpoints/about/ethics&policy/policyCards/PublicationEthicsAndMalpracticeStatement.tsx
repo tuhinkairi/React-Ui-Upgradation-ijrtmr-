@@ -6,7 +6,7 @@ export default function PublicationEthicsAndMalpracticeStatement() {
       <Title>
         Publication Ethics & Malpractice Statement
       </Title>
-      <h1 className="text-center">(The following statements are based on Elsevier recommendations <br />
+      <h1 className="text-center mt-6">(The following statements are based on Elsevier recommendations <br />
         and COPE’s Best Practice Guidelines for Journal Editors)
       </h1>
       <h2>To maintain fair practice we at FDRP Publications strongly believe in following these

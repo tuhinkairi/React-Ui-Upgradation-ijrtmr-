@@ -4,7 +4,7 @@ export default function WithdrawPolicy() {
     return (
         <article className="leading-7 space-y-6">
             <Title>Article withdraw policy</Title>
-            <p>It is a general principle of scholarly communication that the editor/guest editor of a
+            <p className="mt-6">It is a general principle of scholarly communication that the editor/guest editor of a
                 learned journal/series is solely and independently responsible for deciding which
                 articles submitted to the journal shall be published. In making this decision the
                 editor/guest editor is guided by policies of the journal’s editorial board and
