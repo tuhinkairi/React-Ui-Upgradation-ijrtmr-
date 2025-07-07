@@ -21,7 +21,6 @@ import ContactUs from "./ui/endpoints/contact-us/ContactUs";
 import Download from "./ui/endpoints/for-authors/download-section/Download";
 import JournalPublishingProcess from "./ui/endpoints/for-authors/journal-publishing-process/JournalPublishingProcess";
 import CallForPapers from "./ui/endpoints/for-authors/call-for-paper/CallForPaper";
-import ArticalProcessing from "./ui/endpoints/for-authors/artical-processing/ArticalProcessing";
 import Conference from "./ui/endpoints/conference/Conference";
 import ConferenceIndex from "./ui/endpoints/conference/ConferenceIndex";
 import Topics from "./ui/endpoints/for-authors/topics/Topics";
@@ -30,6 +29,8 @@ import Thesis from "./ui/endpoints/Thesis/Thesis";
 import ArchiveVolumes from "./ui/endpoints/archive/ArchiveVolumes";
 import ConferenceDetails from "./ui/endpoints/conference/ConferenceDetails";
 import GuideForAuther from "./ui/endpoints/for-authors/guide-for-auther/GuideForAuther";
+import ArticleStatus from "./ui/endpoints/for-authors/artical-status/ArticleStatus";
+import ArticleProcessingCharges from "./ui/endpoints/for-authors/article-processing-charges/ArticleProcessingCharges";
 
 
 export default function App() {
@@ -77,8 +78,9 @@ export default function App() {
         <Route path="/journal-publishing-process" element={<JournalPublishingProcess />} />
         <Route path="/call-for-paper" element={<CallForPapers />} />
         <Route path="/topics" element={<Topics />} />
-        <Route path="/article-status" element={<ArticalProcessing />} />
+        <Route path="/article-status" element={<ArticleStatus />} />
         <Route path="/guide-for-author" element={<GuideForAuther />} />
+        <Route path="/article-processing-charge" element={<ArticleProcessingCharges />} />
 
 
         {/* conference */}

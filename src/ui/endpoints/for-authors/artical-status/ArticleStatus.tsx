@@ -1,7 +1,7 @@
 import CommonLayout from '../../../components/layout/CommonLayout'
 
 
-export default function ArticalProcessing() {
+export default function ArticleStatus() {
   return (
     <CommonLayout className=''>
       <div className='text-center space-y-10 my-12'>
