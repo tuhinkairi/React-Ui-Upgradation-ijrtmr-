@@ -11,10 +11,16 @@ export default function AboutSection() {
         <div className="w-full md:w-1/2">
           <h2 className="text-3xl font-semibold text-primaryText mb-4">Welcome to IJSREAT</h2>
           <p className="text-secondaryText mb-4 text-sm leading-relaxed">
-            International Journal of Scientific Research in Engineering & Technology is (e-ISSN: 2583–1240) Bi-monthly, international peer-reviewed, open-access and multidisciplinary online journal published for the enhancement of research in various disciplines of Science, Engineering & Technologies.
+            International Journal of Scientific Research in Engineering & Technology is (e-ISSN: 2583-1240) Bi-monthly, international peer-reviewed, open-access and multidisciplinary online journal published for the enhancement of research in various disciplines of Science, Engineering &Technologies.
           </p>
           <p className="text-secondaryText text-sm leading-relaxed">
-            Publishing an article in a Peer-Reviewed Journal is critical for developing a cohesive and acknowledged knowledge network. It immediately reflects the authors and the institutions that support them’s work excellence. Articles that have been peer-reviewed support and represent the scientific process. As a result, it is critical to agree on required ethical conduct norms.
+            International journal for publishing new ideas founded by academicians, educationists,
+            engineers, and corporate people. The research results and fundamental advancement are all
+            aspects of Innovative Research in Science, Engineering &amp; Technology, various engineering
+            disciplines, etc. IJSREAT is a scholarly, open, accessible, Peer Review Journal that helps an
+            academic person and student community. IJSREAT provides the academic community and
+            industry for submitting original research and applications related to Various Engineering
+            disciplines and Innovative Technologies.
           </p>
         </div>
       </div>
