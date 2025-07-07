@@ -38,7 +38,7 @@ export const about_menu = [
   {"title":"FAQ'S","link":"faq"}
     
 ];
-export const archive_menu = [
+export const auther_menu = [
   {"title":"Journal Publishing Process","link":"journal-publishing-process"},
   {"title":"Topics","link":"topics"},
   {"title":"Call for Paper","link":"call-for-paper"},

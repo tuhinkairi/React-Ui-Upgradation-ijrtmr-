@@ -29,6 +29,7 @@ import ThesisIndex from "./ui/endpoints/Thesis/ThesisIndex";
 import Thesis from "./ui/endpoints/Thesis/Thesis";
 import ArchiveVolumes from "./ui/endpoints/archive/ArchiveVolumes";
 import ConferenceDetails from "./ui/endpoints/conference/ConferenceDetails";
+import GuideForAuther from "./ui/endpoints/for-authors/guide-for-auther/GuideForAuther";
 
 
 export default function App() {
@@ -77,6 +78,7 @@ export default function App() {
         <Route path="/call-for-paper" element={<CallForPapers />} />
         <Route path="/topics" element={<Topics />} />
         <Route path="/article-status" element={<ArticalProcessing />} />
+        <Route path="/guide-for-author" element={<GuideForAuther />} />
 
 
         {/* conference */}

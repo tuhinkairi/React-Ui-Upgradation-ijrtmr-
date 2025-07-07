@@ -1,15 +1,15 @@
 import { Link, NavLink } from "react-router-dom";
 import React, { useRef, useEffect } from "react";
-import { about_menu, archive_menu, thesis_menu } from "../../data/listingSection";
+import { about_menu, auther_menu, thesis_menu } from "../../data/listingSection";
 import MenuCard from "./cards/MenuCard";
 
 const Navbar = () => {
   const about = useRef<HTMLDivElement>(null);
-  const archive = useRef<HTMLDivElement>(null);
+  const auther = useRef<HTMLDivElement>(null);
   const thesis = useRef<HTMLDivElement>(null);
 
   const hideAllMenus = () => {
-    [about, archive, thesis].forEach(ref => {
+    [about, auther, thesis].forEach(ref => {
       if (ref.current) {
         ref.current.classList.add("hidden");
         ref.current.classList.remove("flex");
@@ -33,7 +33,7 @@ const Navbar = () => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
         !about.current?.contains(event.target as Node) &&
-        !archive.current?.contains(event.target as Node) &&
+        !auther.current?.contains(event.target as Node) &&
         !thesis.current?.contains(event.target as Node)
       ) {
         hideAllMenus();
@@ -75,14 +75,14 @@ const Navbar = () => {
 
         <li className="hover:text-primary relative">
           <NavLink
-            onMouseEnter={(e) => handlePopup(e, archive)}
+            onMouseEnter={(e) => handlePopup(e, auther)}
             className={({ isActive }) => (isActive ? "text-primary" : "")}
             to="/for-authors"
           >
             For Authors
 
           </NavLink>
-          <MenuCard hide={hideAllMenus} ref={archive} links={archive_menu} />
+          <MenuCard hide={hideAllMenus} ref={auther} links={auther_menu} />
         </li>
         <li className="hover:text-primary">
           <NavLink className={({ isActive }) => (isActive ? "text-primary" : "")} to="/current-issue">
