@@ -2,6 +2,7 @@ import { useState } from 'react'
 import PrimaryBtn from '../../../components/Btns/PrimaryBtn'
 import { Share2 } from 'lucide-react'
 import { GrFormNext, GrFormPrevious } from 'react-icons/gr'
+// import { useAppSelector } from '../../../../lib/store/store';
 const volumes = [
     "Volume 6, (2025)",
     "Volume 4, (2025)",
@@ -10,8 +11,10 @@ const volumes = [
 ];
 
 function ArchiveVolumnHeader() {
-    const [active, setActive] = useState<string>("Volume 3, (2025)");
-    const [activeIssue, setActiveIssue] = useState<string>("Issue 3");
+    // const ActiveVolumes = useAppSelector((state) => state.archiveSection.activeIndexPage)
+    // const VolumeList = useAppSelector((state) => state.archiveSection.indexPage)
+    const [active, setActive] = useState<string>(`"Volume 6, (2025)"`);
+    const [activeIssue, setActiveIssue] = useState<string>(`Issue 1`);
 
     const handleVolumeClick = (volume: string) => {
         setActive(volume);

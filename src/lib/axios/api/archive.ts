@@ -14,6 +14,17 @@ export const fetchArchive = async (): Promise<ArchiveIndexVolume[]> => {
         throw new Error(`Failed to fetch archive: ${error}`);
     }
 }
+export const fetchArchiveNormal = async () => {
+    try {
+        const response = await axiosClient.post("/archiveYearListing");
+        // parse the response data
+        const parsed =response.data["archives"]
+        console.log(parsed)
+        return parsed; //return years volumn issues
+    } catch (error) {
+        throw new Error(`Failed to fetch archive: ${error}`);
+    }
+}
 export type ArchivePaperListtingArg = {
     year: number,
     volume: number,
