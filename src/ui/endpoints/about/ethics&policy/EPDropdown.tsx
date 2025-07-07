@@ -5,6 +5,7 @@ import EditorialPolicy from "./policyCards/EditorialPolicy";
 import AuthorResponsiblity from "./policyCards/AuthorResponsiblity";
 import GuidePaper from "../../for-authors/guide-for-auther/GuidePaper";
 import PublicationEthicsAndMalpracticeStatement from "./policyCards/PublicationEthicsAndMalpracticeStatement";
+import WithdrawPolicy from "./policyCards/WithdrawPolicy";
 
 interface AccordionItem {
   id: string;
@@ -41,7 +42,7 @@ const policy:AccordionItem[] = [
   {
     "id": "article-withdrawal",
     "title": "Article withdraw policy",
-    "component": "ArticleWithdrawPolicy"
+    "component": <WithdrawPolicy/>
   },
   {
     "id": "plagiarism-policy",
