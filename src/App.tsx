@@ -31,6 +31,7 @@ import ConferenceDetails from "./ui/endpoints/conference/ConferenceDetails";
 import GuideForAuther from "./ui/endpoints/for-authors/guide-for-auther/GuideForAuther";
 import ArticleStatus from "./ui/endpoints/for-authors/artical-status/ArticleStatus";
 import ArticleProcessingCharges from "./ui/endpoints/for-authors/article-processing-charges/ArticleProcessingCharges";
+import EMS from "./ui/endpoints/for-authors/editorial-management/EMS";
 
 
 export default function App() {
@@ -81,6 +82,7 @@ export default function App() {
         <Route path="/article-status" element={<ArticleStatus />} />
         <Route path="/guide-for-author" element={<GuideForAuther />} />
         <Route path="/article-processing-charge" element={<ArticleProcessingCharges />} />
+        <Route path="/editorial-management-system" element={<EMS />} />
 
 
         {/* conference */}
