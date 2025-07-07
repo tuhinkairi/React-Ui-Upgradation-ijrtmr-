@@ -1,28 +1,29 @@
 export const quickLinks = [
-  "Aim & Scope",
-  "Instruction for Authors",
-  "Journal Publishing Process",
-  "Paper Submission",
-  "Editorial Management System",
-  "Paper Status",
-  "Topics",
-  "Call for papers",
-  "Indexing & Abstracting",
-  "Impact Factor",
-  "Article Processing Charges"
+  { title: "Aim & Scope", link: "aim&scope" },
+  { title: "Instruction for Authors", link: "guide-for-author" },
+  { title: "Journal Publishing Process", link: "journal-publishing-process" },
+  { title: "Paper Submission", link: "editorial-management-system" },
+  { title: "Editorial Management System", link: "editorial-management-system" },
+  { title: "Paper Status", link: "article-status" },
+  { title: "Topics", link: "topics" },
+  { title: "Call for papers", link: "call-for-paper" },
+  { title: "Indexing & Abstracting", link: "indexing&abstraction" },
+  { title: "Impact Factor", link: "impactfactor" },
+  { title: "Article Processing Charges", link: "article-processing-charge" }
 ];
- export const policies =[
-  "Ethics & Policies",
-  "Publication Ethics & Malpractice Statement",
-  "Peer Review Policy",
-  "Plagiarism Policy",
-  "Editorial policies",
-  "Article withdraw policy",
-  "Copyright, Grants and Ownership Declaration",
-  "Open Access Policy",
-  "Cross mark Policy",
-  "Contact Us"
-]
+
+export const policies = [
+  { title: "Ethics & Policies", link: "ethics&policy" },
+  { title: "Publication Ethics & Malpractice Statement", link: "publication-ethics-policy" },
+  { title: "Peer Review Policy", link: "peer-review-policy" },
+  { title: "Plagiarism Policy", link: "ethics&policy" },
+  { title: "Editorial policies", link: "ethics&policy" },
+  { title: "Article withdraw policy", link: "ethics&policy" },
+  { title: "Copyright, Grants and Ownership Declaration", link: "ethics&policy" },
+  { title: "Open Access Policy", link: "ethics&policy" },
+  { title: "Cross mark Policy", link: "cross-mark-policy" },
+  { title: "Contact Us", link: "contact-us" }
+];
 
 // menu
 export const about_menu = [
@@ -34,22 +35,21 @@ export const about_menu = [
   {"title":"Ethics & Policy","link":"ethics&policy"},
   {"title":"Cross Mark Policy","link":"cross-mark-policy"},
   {"title":"Impact Factor","link":"impactfactor"},
-  {"title":"FAQ’S","link":"faq"}
+  {"title":"FAQ'S","link":"faq"}
     
 ];
 export const archive_menu = [
   {"title":"Journal Publishing Process","link":"journal-publishing-process"},
   {"title":"Topics","link":"topics"},
-  {"title":"Call for Paper","link":"Call-for-Paper"},
-  {"title":"Guide for Author","link":"Guide-for-Author"},
-  {"title":"Editorial Management System","link":"Editorial-Management-System"},
+  {"title":"Call for Paper","link":"call-for-paper"},
+  {"title":"Guide for Author","link":"guide-for-author"},
+  {"title":"Editorial Management System","link":"editorial-management-system"},
   {"title":"Article Processing Charge","link":"article-processing-charge"},
   {"title":"Article Status","link":"article-status"},
   {"title":"Downloads","link":"downloads"}
-]
+];
 
 export const thesis_menu = [
   {"title":"Publications","link":"/thesis"},
   {"title":"Archives","link":"/thesis/archives"},
-  
-]
+];

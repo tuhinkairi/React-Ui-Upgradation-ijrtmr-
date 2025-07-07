@@ -1,4 +1,5 @@
 import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function Hero() {
   return (
@@ -21,10 +22,11 @@ export default function Hero() {
           An International Scholarly Open Access Journal, Peer-reviewed,
           Refereed Journal
         </p>
-
-        <button className="primaryBtn">
-          Submit Paper <ArrowRight className="w-4 h-4" />
-        </button>
+        <Link to="https://editorial.fdrpjournals.org/login?journal=2" target='_blank'>
+          <button className="primaryBtn">
+            Submit Paper <ArrowRight className="w-4 h-4" />
+          </button>
+        </Link>
       </div>
       <div className='w-1/2'>
         <img className='block' src="/HomeBanner.png" alt="bannerimage" />

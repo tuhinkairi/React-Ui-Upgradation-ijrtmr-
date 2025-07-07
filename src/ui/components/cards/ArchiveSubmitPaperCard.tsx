@@ -2,6 +2,7 @@
 
 import { ArrowUpRight } from "lucide-react";
 import PrimaryBtn from "../Btns/PrimaryBtn";
+import { Link } from "react-router-dom";
 
 export default function ArchiveSubmitPaperCard() {
   return (
@@ -17,10 +18,11 @@ export default function ArchiveSubmitPaperCard() {
           Submit your paper through our advanced editorial management system
           anytime, from anywhere in the world.
         </p>
+        <Link target="_blank" to="https://editorial.fdrpjournals.org/login?journal=2">
         <PrimaryBtn>
           Submit <ArrowUpRight size={16} />
-
         </PrimaryBtn>
+        </Link>
       </div>
     </div>
 

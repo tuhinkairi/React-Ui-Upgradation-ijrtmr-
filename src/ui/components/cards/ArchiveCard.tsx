@@ -1,4 +1,5 @@
 import { ArrowRight } from 'lucide-react'; // Optional: if using lucide icons
+import { NavLink } from 'react-router-dom';
 
 const archives = [
   'Volume 11, Issue 7 Dec, 2024',
@@ -19,10 +20,12 @@ export default function ArchiveCard() {
       </ul>
 
       <div className="mt-6">
+        <NavLink to="/archives">
         <button className="w-full primaryBtn">
           View More
           <ArrowRight size={16} />
         </button>
+        </NavLink>
       </div>
     </div>
   );
