@@ -7,6 +7,9 @@ import PrimaryBtn from "../../components/Btns/PrimaryBtn";
 
 export default function VolumeCardConference({ paper, setActive,navigate}: { paper: ConferenceArticleProps, setActive:(arg:ConferenceArticleProps)=>void,navigate: NavigateFunction }) {
     const endpoint = `/conference/paper-details?paperId=${paper.id}&papertitle=${encodeURIComponent(paper.title.replace(/ /g, "-"))}`
+    const HandleGoolge =()=>{
+        window.open(`https://www.google.com/search?q=${encodeURIComponent(paper.title)}`, '_blank')
+    }
     return (
         <div
             className="bg-white shadow rounded-xl p-4 space-y-2 border"
@@ -19,7 +22,7 @@ export default function VolumeCardConference({ paper, setActive,navigate}: { pap
                 >
                     {paper.title} <span className="text-orange-400">↗</span>
                 </Link>
-                <button className="text-base inline-flex items-center justify-center gap-2 text-primary border border-orange-400 px-3 py-1" style={{ borderRadius: 9999 }}>
+                <button onClick={HandleGoolge} className="text-base inline-flex items-center justify-center gap-2 text-primary border border-orange-400 px-3 py-1" style={{ borderRadius: 9999 }}>
                     <SearchIcon className="w-5" /> Google
                 </button>
             </div>

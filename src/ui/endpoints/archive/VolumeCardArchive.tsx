@@ -7,7 +7,9 @@ import PrimaryBtn from "../../components/Btns/PrimaryBtn";
 
 export default function VolumeCardArchive({ paper, setActive, navigate }: { paper: ArchivePaperDetailProps, setActive: (arg: ArchivePaperDetailProps) => void, navigate: NavigateFunction }) {
     const endpoint = `/archives/paper-details?paperId=${paper.paper_id}&papertitle=${encodeURIComponent(paper.paper_title.replace(/ /g, "-"))}`
-
+const HandleGoolge =()=>{
+        window.open(`https://www.google.com/search?q=${encodeURIComponent(paper.paper_title)}`, '_blank')
+    }
     return (
         <div
             className="bg-white shadow rounded-xl p-4 space-y-2 border"
@@ -20,7 +22,7 @@ export default function VolumeCardArchive({ paper, setActive, navigate }: { pape
                 >
                     {paper.paper_title} <span className="text-orange-400">↗</span>
                 </Link>
-                <button className="text-base inline-flex items-center justify-center gap-2 text-primary border border-orange-400 px-3 py-1" style={{ borderRadius: 9999 }}>
+                <button onClick={HandleGoolge} className="text-base inline-flex items-center justify-center gap-2 text-primary border border-orange-400 px-3 py-1" style={{ borderRadius: 9999 }}>
                     <SearchIcon className="w-5" /> Google
                 </button>
             </div>

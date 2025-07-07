@@ -201,7 +201,6 @@ export default function ArchiveVolumes({ active }: activeSection) {
       case "issue":
         searchConference(form)
         break
-
     }
   }
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
