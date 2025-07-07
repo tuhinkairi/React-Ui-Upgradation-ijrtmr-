@@ -2,6 +2,7 @@ import { useState, type JSX } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import PublicationContent from "../publication-policy/PublicationContent";
 import EditorialPolicy from "./policyCards/EditorialPolicy";
+import AuthorResponsiblity from "./policyCards/AuthorResponsiblity";
 
 interface AccordionItem {
   id: string;
@@ -23,7 +24,7 @@ const policy:AccordionItem[] = [
   {
     "id": "author-responsibilities",
     "title": "Author Responsibilities",
-    "component": "AuthorResponsibilities"
+    "component": <AuthorResponsiblity/>
   },
   {
     "id": "instructions-for-authors",
