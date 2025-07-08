@@ -6,12 +6,10 @@ export default function Hero() {
     <section className=" flex items-start justify-between pl-16 py-6 ">
       <div className="max-w-1/2 text-left space-y-4">
 
-        <h1 className="text-4xl md:text-5xl font-bold leading-tight">
-          <span className="bg-gradient-to-b from-primary  to-orange-600 text-transparent bg-clip-text">International Journal</span>{' '}
-          <span className="text-primaryText">of</span>
-          <br />
+        <h1 className="text-4xl font-bold leading-tight">
+          <span className="bg-gradient-to-b from-[#FF8C42]  to-[#C85104] text-transparent bg-clip-text md:text-5xl block">International Journal</span>{' '}
           <span className="text-primaryText">
-            Scientific Research in Engineering & Technology
+            of Scientific Research in Engineering & Technology
           </span>
         </h1>
         <p className=" text-lg ">

@@ -18,7 +18,7 @@ const Navbar = () => {
   };
 
   const handlePopup = (
-    e: React.MouseEvent<HTMLDivElement>,
+    e: React.MouseEvent<HTMLButtonElement>,
     element: React.RefObject<HTMLDivElement | null>
   ) => {
     e.preventDefault();
@@ -62,25 +62,25 @@ const Navbar = () => {
         </li>
 
         <li className="hover:text-primary relative">
-          <div
+          <button
             onMouseEnter={(e) => handlePopup(e, about)}
             onClick={(e) => e.preventDefault()}
           >
             About Us
-          </div>
+          </button>
           <MenuCard hide={hideAllMenus} ref={about} links={about_menu} />
         </li>
 
 
         <li className="hover:text-primary relative">
-          <div
+          <button
             onMouseEnter={(e) => handlePopup(e, auther)}
             onClick={(e) => e.preventDefault()}
 
           >
             For Authors
 
-          </div>
+          </button>
           <MenuCard hide={hideAllMenus} ref={auther} links={auther_menu} />
         </li>
         <li className="hover:text-primary">
@@ -102,11 +102,11 @@ const Navbar = () => {
         </li>
 
         <li className="hover:text-primary relative">
-          <div
+          <button
             onMouseEnter={(e) => handlePopup(e, thesis)}
           >
             Thesis
-          </div>
+          </button>
           <MenuCard hide={hideAllMenus} ref={thesis} links={thesis_menu} />
         </li>
 
