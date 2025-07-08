@@ -11,6 +11,7 @@ import PeerReviewPaper from "../PeerReview/PeerReviewPaper";
 import OwnerShip from "./policyCards/OwnerShip";
 import OpenAccessPolicy from "./policyCards/OpenAccessPolicy";
 import ArchivePolicy from "./policyCards/ArchivePolicy";
+import RepositoryPolicy from "./policyCards/RepositoryPolicy";
 
 interface AccordionItem {
   id: string;
@@ -77,7 +78,7 @@ const policy:AccordionItem[] = [
   {
     "id": "repository-policy",
     "title": "Repository policy",
-    "component": "RepositoryPolicy"
+    "component": <RepositoryPolicy/>
   },
   {
     "id": "journal-metrics",
