@@ -1,45 +1,46 @@
+import React from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
-import Home from "./ui/endpoints/home/Home";
-import Archives from "./ui/endpoints/archive/Archives";
-import Navbar from "./ui/components/NavBar";
-import Footer from "./ui/components/Footer";
-import ArchiveFirst from "./ui/endpoints/archive/sections/ArchiveFirst";
-import ArticleDetails from "./ui/endpoints/archive/details/ArticleDetails";
-import About from "./ui/endpoints/about/About";
-import IndexAbstract from "./ui/endpoints/indexing&abstract/IndexAbstract";
-import PeerReviewPolicy from "./ui/endpoints/about/PeerReview/PeerReviewPolicy";
-import CrossMarkPolicy from "./ui/endpoints/about/crossmark/CrossMarkPolicy";
-import PublicationPolicy from "./ui/endpoints/about/publication-policy/PublicationPolicy";
-import ImactFactor from "./ui/endpoints/about/Impact/ImactFactor";
-import FAQ from "./ui/endpoints/about/FAQ/FAQ";
-import EthicsAndPolicy from "./ui/endpoints/about/ethics&policy/EthicsAndPolicy";
-import { EditorBoard } from "./ui/endpoints/Editorial/EditorialBoard";
-import EditoralSingle from "./ui/endpoints/Editorial/EditorialPage/EditoralSingle";
-import Blog from "./ui/endpoints/blog/Blog";
-import BlogShow from "./ui/endpoints/blog/show/BlogShow";
-import ContactUs from "./ui/endpoints/contact-us/ContactUs";
-import Download from "./ui/endpoints/for-authors/download-section/Download";
-import JournalPublishingProcess from "./ui/endpoints/for-authors/journal-publishing-process/JournalPublishingProcess";
-import CallForPapers from "./ui/endpoints/for-authors/call-for-paper/CallForPaper";
-import Conference from "./ui/endpoints/conference/Conference";
-import ConferenceIndex from "./ui/endpoints/conference/ConferenceIndex";
-import Topics from "./ui/endpoints/for-authors/topics/Topics";
-import ThesisIndex from "./ui/endpoints/Thesis/ThesisIndex";
-import Thesis from "./ui/endpoints/Thesis/Thesis";
-import ArchiveVolumes from "./ui/endpoints/archive/ArchiveVolumes";
-import ConferenceDetails from "./ui/endpoints/conference/ConferenceDetails";
-import GuideForAuther from "./ui/endpoints/for-authors/guide-for-auther/GuideForAuther";
-import ArticleStatus from "./ui/endpoints/for-authors/artical-status/ArticleStatus";
-import ArticleProcessingCharges from "./ui/endpoints/for-authors/article-processing-charges/ArticleProcessingCharges";
-import EMS from "./ui/endpoints/for-authors/editorial-management/EMS";
-import ScrollToTop from "./ui/other/ScrollToTop";
+const Home = React.lazy(() => import("./ui/endpoints/home/Home"));
+const Archives = React.lazy(() => import("./ui/endpoints/archive/Archives"));
+const Navbar = React.lazy(() => import("./ui/components/NavBar"));
+const Footer = React.lazy(() => import("./ui/components/Footer"));
+const ArchiveFirst = React.lazy(() => import("./ui/endpoints/archive/sections/ArchiveFirst"));
+const ArticleDetails = React.lazy(() => import("./ui/endpoints/archive/details/ArticleDetails"));
+const About = React.lazy(() => import("./ui/endpoints/about/About"));
+const IndexAbstract = React.lazy(() => import("./ui/endpoints/indexing&abstract/IndexAbstract"));
+const PeerReviewPolicy = React.lazy(() => import("./ui/endpoints/about/PeerReview/PeerReviewPolicy"));
+const CrossMarkPolicy = React.lazy(() => import("./ui/endpoints/about/crossmark/CrossMarkPolicy"));
+const PublicationPolicy = React.lazy(() => import("./ui/endpoints/about/publication-policy/PublicationPolicy"));
+const ImactFactor = React.lazy(() => import("./ui/endpoints/about/Impact/ImactFactor"));
+const FAQ = React.lazy(() => import("./ui/endpoints/about/FAQ/FAQ"));
+const EthicsAndPolicy = React.lazy(() => import("./ui/endpoints/about/ethics&policy/EthicsAndPolicy"));
+const EditoralSingle = React.lazy(() => import("./ui/endpoints/Editorial/EditorialPage/EditoralSingle"));
+const Blog = React.lazy(() => import("./ui/endpoints/blog/Blog"));
+const BlogShow = React.lazy(() => import("./ui/endpoints/blog/show/BlogShow"));
+const ContactUs = React.lazy(() => import("./ui/endpoints/contact-us/ContactUs"));
+const Download = React.lazy(() => import("./ui/endpoints/for-authors/download-section/Download"));
+const JournalPublishingProcess = React.lazy(() => import("./ui/endpoints/for-authors/journal-publishing-process/JournalPublishingProcess"));
+const CallForPapers = React.lazy(() => import("./ui/endpoints/for-authors/call-for-paper/CallForPaper"));
+const Conference = React.lazy(() => import("./ui/endpoints/conference/Conference"));
+const ConferenceIndex = React.lazy(() => import("./ui/endpoints/conference/ConferenceIndex"));
+const Topics = React.lazy(() => import("./ui/endpoints/for-authors/topics/Topics"));
+const ThesisIndex = React.lazy(() => import("./ui/endpoints/Thesis/ThesisIndex"));
+const Thesis = React.lazy(() => import("./ui/endpoints/Thesis/Thesis"));
+const ArchiveVolumes = React.lazy(() => import("./ui/endpoints/archive/ArchiveVolumes"));
+const ConferenceDetails = React.lazy(() => import("./ui/endpoints/conference/ConferenceDetails"));
+const GuideForAuther = React.lazy(() => import("./ui/endpoints/for-authors/guide-for-auther/GuideForAuther"));
+const ArticleStatus = React.lazy(() => import("./ui/endpoints/for-authors/artical-status/ArticleStatus"));
+const ArticleProcessingCharges = React.lazy(() => import("./ui/endpoints/for-authors/article-processing-charges/ArticleProcessingCharges"));
+const EMS = React.lazy(() => import("./ui/endpoints/for-authors/editorial-management/EMS"));
+const ScrollToTop = React.lazy(() => import("./ui/other/ScrollToTop"));
+const EditorBoard = React.lazy(() => import("./ui/endpoints/Editorial/EditorialBoard"));
 
 export default function App() {
   const path = useLocation();
-  
+
   return (
     <section id="container-main" className={`main_body ${path.pathname == "/" && "bg-gradient-to-b from-0% from-[#E9EFFE] to-13%  to-white"}`}>
-      <ScrollToTop/>
+      <ScrollToTop />
       <Navbar />
       <Routes>
         <Route path="/" loader={true} element={<Home />} />
@@ -49,7 +50,7 @@ export default function App() {
         <Route path="/blog/:slug" element={<BlogShow />} />
         <Route path="/contact-us" element={<ContactUs />} />
 
-        <Route path="/thesis" element={<ThesisIndex />} />
+        <Route path="/publications" element={<ThesisIndex />} />
         <Route path="/thesis/:volumes" element={<Thesis />}>
           <Route index element={<ArchiveVolumes active="thesis" />} />
           <Route path="paper-details" element={<ArticleDetails />} />
