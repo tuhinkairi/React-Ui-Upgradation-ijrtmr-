@@ -18,22 +18,22 @@ export default function ArchiveSection() {
   const dispatch = useAppDispatch()
   const loading = useAppSelector(state => state.loadingScreen.loading)
 
-
+  
 
   // fetch the archives
   useEffect(() => {
     if (volume.length === 0) {
       dispatch(setLoading(true))
       fetchArchive().then((data) => {
-        setVolumes(data)
-        dispatch(setArchiveIndexVolume(data)) //store the list
+        const reversedData = [...data].reverse()
+        setVolumes(reversedData)
+        dispatch(setArchiveIndexVolume(reversedData)) //store the list
       }).catch(err => {
         console.log(err)
       }).finally(() => dispatch(setLoading(false))
       )
     }
   }, [dispatch, volume])
-
   const handelActiveIndex=(arg:ActiveIndexArchive)=>{
 
     dispatch(setActiveIndexVolume(arg))

@@ -214,7 +214,7 @@ export default function ArchiveVolumes({ active }: activeSection) {
       {/* Header */}
       <div className="text-center">
         {active == "conference" && <h1 className="text-2xl font-semibold">Volume {activeConferencePage?.volume}, Issue {activeConferencePage?.issue} ({activeConferencePage?.year})</h1>}
-        {active == "archive" && <h1 className="text-2xl font-semibold">Volume {activeArchiveIndex?.volume}, Issue {activeArchiveIndex?.issue} ({4})</h1>}
+        {active == "archive" && <h1 className="text-2xl font-semibold">Volume {activeArchiveIndex?.volume}, Issue {activeArchiveIndex?.issue} ({activeArchiveIndex?.year})</h1>}
       </div>
 
       {!["conference", "issue"].includes(active) && <ArchiveVolumnHeader />}
