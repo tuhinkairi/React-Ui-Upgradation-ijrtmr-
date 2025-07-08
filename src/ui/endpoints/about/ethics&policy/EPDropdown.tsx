@@ -12,6 +12,8 @@ import OwnerShip from "./policyCards/OwnerShip";
 import OpenAccessPolicy from "./policyCards/OpenAccessPolicy";
 import ArchivePolicy from "./policyCards/ArchivePolicy";
 import RepositoryPolicy from "./policyCards/RepositoryPolicy";
+import JournalMetrix from "./policyCards/JournalMetrix";
+import AdvetisingPolicy from "./policyCards/AdvetisingPolicy";
 
 interface AccordionItem {
   id: string;
@@ -83,12 +85,12 @@ const policy:AccordionItem[] = [
   {
     "id": "journal-metrics",
     "title": "Journal Metrics",
-    "component": "JournalMetrics"
+    "component": <JournalMetrix/>
   },
   {
     "id": "advertising-policy",
     "title": "Advertising Policy",
-    "component": "AdvertisingPolicy"
+    "component": <AdvetisingPolicy/>
   }
 ]
 
