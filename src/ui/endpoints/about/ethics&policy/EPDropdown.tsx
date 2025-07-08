@@ -8,6 +8,7 @@ import PublicationEthicsAndMalpracticeStatement from "./policyCards/PublicationE
 import WithdrawPolicy from "./policyCards/WithdrawPolicy";
 import PlagiarismPolicy from "./policyCards/PlagiarismPolicy";
 import PeerReviewPaper from "../PeerReview/PeerReviewPaper";
+import OwnerShip from "./policyCards/OwnerShip";
 
 interface AccordionItem {
   id: string;
@@ -59,7 +60,7 @@ const policy:AccordionItem[] = [
   {
     "id": "copyright-ownership",
     "title": "Copyright, Grants and Ownership Declaration",
-    "component": "CopyrightOwnership"
+    "component": <OwnerShip/>
   },
   {
     "id": "open-access-policy",
