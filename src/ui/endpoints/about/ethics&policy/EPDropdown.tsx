@@ -9,6 +9,7 @@ import WithdrawPolicy from "./policyCards/WithdrawPolicy";
 import PlagiarismPolicy from "./policyCards/PlagiarismPolicy";
 import PeerReviewPaper from "../PeerReview/PeerReviewPaper";
 import OwnerShip from "./policyCards/OwnerShip";
+import OpenAccessPolicy from "./policyCards/OpenAccessPolicy";
 
 interface AccordionItem {
   id: string;
@@ -65,7 +66,7 @@ const policy:AccordionItem[] = [
   {
     "id": "open-access-policy",
     "title": "Open Access Policy",
-    "component": "OpenAccessPolicy"
+    "component": <OpenAccessPolicy/>
   },
   {
     "id": "archiving-policy",
