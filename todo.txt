@@ -4,12 +4,13 @@ update google search -> done
 update filter -> done
 update the urls -> done
 submit links update -> done
-update content
-
-update faq questions -> ans add pending
-volumns functionality in archive -> pending
+update faq questions -> done
 
 update quick links -> done -> few links in policy page not created
+update content -> ethics 4 page pending 
+
+volumns functionality in archive -> pending
+
 
 conference space problem
 update issues

@@ -18,7 +18,7 @@ const Navbar = () => {
   };
 
   const handlePopup = (
-    e: React.MouseEvent<HTMLAnchorElement>,
+    e: React.MouseEvent<HTMLDivElement>,
     element: React.RefObject<HTMLDivElement | null>
   ) => {
     e.preventDefault();
@@ -62,26 +62,25 @@ const Navbar = () => {
         </li>
 
         <li className="hover:text-primary relative">
-          <NavLink
+          <div
             onMouseEnter={(e) => handlePopup(e, about)}
-            className={({ isActive }) => (isActive ? "text-primary" : "")}
-            to="/aim&scope"
+            onClick={(e) => e.preventDefault()}
           >
             About Us
-          </NavLink>
+          </div>
           <MenuCard hide={hideAllMenus} ref={about} links={about_menu} />
         </li>
 
 
         <li className="hover:text-primary relative">
-          <NavLink
+          <div
             onMouseEnter={(e) => handlePopup(e, auther)}
-            className={({ isActive }) => (isActive ? "text-primary" : "")}
-            to="/for-authors"
+            onClick={(e) => e.preventDefault()}
+
           >
             For Authors
 
-          </NavLink>
+          </div>
           <MenuCard hide={hideAllMenus} ref={auther} links={auther_menu} />
         </li>
         <li className="hover:text-primary">
@@ -103,13 +102,11 @@ const Navbar = () => {
         </li>
 
         <li className="hover:text-primary relative">
-          <NavLink
+          <div
             onMouseEnter={(e) => handlePopup(e, thesis)}
-            className={({ isActive }) => (isActive ? "text-primary" : "")}
-            to="/thesis"
           >
             Thesis
-          </NavLink>
+          </div>
           <MenuCard hide={hideAllMenus} ref={thesis} links={thesis_menu} />
         </li>
 

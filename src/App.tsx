@@ -41,7 +41,7 @@ export default function App() {
       <Navbar />
       <Routes>
         <Route path="/" loader={true} element={<Home />} />
-        <Route path="/for-authors" element={<>comming soon</>} />
+        {/* <Route path="/for-authors" element={<>comming soon</>} /> */}
         <Route path="/current-issue" element={<>comming soon</>} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:slug" element={<BlogShow />} />

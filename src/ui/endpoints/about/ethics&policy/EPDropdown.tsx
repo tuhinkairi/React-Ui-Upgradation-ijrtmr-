@@ -7,6 +7,7 @@ import GuidePaper from "../../for-authors/guide-for-auther/GuidePaper";
 import PublicationEthicsAndMalpracticeStatement from "./policyCards/PublicationEthicsAndMalpracticeStatement";
 import WithdrawPolicy from "./policyCards/WithdrawPolicy";
 import PlagiarismPolicy from "./policyCards/PlagiarismPolicy";
+import PeerReviewPaper from "../PeerReview/PeerReviewPaper";
 
 interface AccordionItem {
   id: string;
@@ -53,7 +54,7 @@ const policy:AccordionItem[] = [
   {
     "id": "peer-review-policy",
     "title": "Peer Review Policy",
-    "component": "PeerReviewPolicy"
+    "component": <PeerReviewPaper/>  
   },
   {
     "id": "copyright-ownership",
