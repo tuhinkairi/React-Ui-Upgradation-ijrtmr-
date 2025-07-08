@@ -32,12 +32,14 @@ import GuideForAuther from "./ui/endpoints/for-authors/guide-for-auther/GuideFor
 import ArticleStatus from "./ui/endpoints/for-authors/artical-status/ArticleStatus";
 import ArticleProcessingCharges from "./ui/endpoints/for-authors/article-processing-charges/ArticleProcessingCharges";
 import EMS from "./ui/endpoints/for-authors/editorial-management/EMS";
-
+import ScrollToTop from "./ui/other/ScrollToTop";
 
 export default function App() {
   const path = useLocation();
+  
   return (
-    <section className={`main_body ${path.pathname == "/" && "bg-gradient-to-b from-0% from-[#E9EFFE] to-13%  to-white"}`}>
+    <section id="container-main" className={`main_body ${path.pathname == "/" && "bg-gradient-to-b from-0% from-[#E9EFFE] to-13%  to-white"}`}>
+      <ScrollToTop/>
       <Navbar />
       <Routes>
         <Route path="/" loader={true} element={<Home />} />

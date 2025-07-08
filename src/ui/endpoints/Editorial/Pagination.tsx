@@ -13,7 +13,7 @@ export const Pagination = ({ currentPage, totalPages, onPageChange, rangeList }:
     
     const scrollToTop = () => {
         setTimeout(() => {
-            window.scrollTo({ top: 10, behavior: 'smooth' });
+            window.document.getElementById('container-main')?.scrollIntoView({ behavior: 'smooth' });
         }, 0);
     };
     
