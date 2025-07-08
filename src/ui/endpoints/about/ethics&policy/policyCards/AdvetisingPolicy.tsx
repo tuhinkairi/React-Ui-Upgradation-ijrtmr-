@@ -5,7 +5,6 @@ export default function AdvetisingPolicy() {
         <article className='space-y-8 leading-7'>
             <Title>
                 Advertising Policy:
-
             </Title>
             <p className='mt-6'>
 
