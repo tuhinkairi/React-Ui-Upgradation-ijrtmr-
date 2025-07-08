@@ -10,6 +10,7 @@ import PlagiarismPolicy from "./policyCards/PlagiarismPolicy";
 import PeerReviewPaper from "../PeerReview/PeerReviewPaper";
 import OwnerShip from "./policyCards/OwnerShip";
 import OpenAccessPolicy from "./policyCards/OpenAccessPolicy";
+import ArchivePolicy from "./policyCards/ArchivePolicy";
 
 interface AccordionItem {
   id: string;
@@ -71,7 +72,7 @@ const policy:AccordionItem[] = [
   {
     "id": "archiving-policy",
     "title": "Archiving policy",
-    "component": "ArchivingPolicy"
+    "component": <ArchivePolicy/>
   },
   {
     "id": "repository-policy",
@@ -109,12 +110,13 @@ const EPDropdown: React.FC = () => {
             {openIndex === item.id ? <ChevronUp /> : <ChevronDown />}
           </button>
           {openIndex === item.id && (
-            <div className="bg-white text-dark p-4 border border-orange-300 rounded-md mt-2 shadow shadowSprade">
+            <div className="cardPolicy bg-white text-gray-800 p-4 border border-orange-300 rounded-md mt-2 shadow shadowSprade">
               {item.component}
             </div>
           )}
         </div>
       ))}
+      
     </div>
   );
 };

@@ -25,3 +25,8 @@ button{
 .primaryBtn{
     @apply inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-hover text-white px-6 py-3 rounded-md text-base font-medium shadow-sm transition;
 }
+    /* .cardPolicy h2,
+    .cardPolicy h3
+    {
+        @apply text-dark
+    } */
