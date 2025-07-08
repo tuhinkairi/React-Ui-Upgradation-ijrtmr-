@@ -13,7 +13,7 @@ import { setLoading } from "../../../lib/store/Features/loadingSlice";
 import Loading from "../../components/Loading";
 import { setCurrentPage, setPerPage, setTotalItems, setTotalPages } from "../../../lib/store/Features/paginationSlice";
 
-export const EditorBoard = () => {
+const EditorBoard = () => {
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
     
@@ -154,3 +154,4 @@ export const EditorBoard = () => {
         </section>
     );
 };
+export default EditorBoard;

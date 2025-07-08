@@ -50,6 +50,6 @@ export const auther_menu = [
 ];
 
 export const thesis_menu = [
-  {"title":"Publications","link":"/thesis"},
+  {"title":"Publications","link":"/publications"},
   {"title":"Archives","link":"/thesis/archives"},
 ];
