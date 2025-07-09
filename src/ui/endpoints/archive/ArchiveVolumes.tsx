@@ -1,9 +1,9 @@
 import { Search } from "lucide-react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { redirect, useLocation, useNavigate } from "react-router-dom";
 import PrimaryBtn from "../../components/Btns/PrimaryBtn";
 
 import ArchiveVolumnHeader from "./components/ArchiveVolumnHeader";
-import type { ArchivePaperDetailProps, SearchProp, ConferenceArticleProps } from "../../../types/Api";
+import type { ArchivePaperDetailProps, SearchProp, ConferenceArticleProps, ActiveIndexArchive } from "../../../types/Api";
 import React, { useCallback, useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../../lib/store/store";
 import { Pagination } from "../Editorial/Pagination";
@@ -18,7 +18,7 @@ import type { activeSection } from "../../../types/UI";
 import { searchArchive, type ArchivePaperListtingArg } from "../../../lib/axios/api/archive";
 import { getArticalDetails } from "../../../lib/utils/conference/articalFunctions";
 import VolumeCardArchive from "./VolumeCardArchive";
-import { setActivePaper } from "../../../lib/store/Features/ArchiveSlice";
+import { setActiveIndexVolume, setActivePaper } from "../../../lib/store/Features/ArchiveSlice";
 import VolumeCardConference from "./VolumeCardConference";
 import Title from "../../other/Title";
 import { GrClear } from "react-icons/gr";
@@ -31,7 +31,8 @@ export default function ArchiveVolumes({ active }: activeSection) {
   const dispatch = useAppDispatch();
   const loading = useAppSelector((state) => state.loadingScreen.loading)
   const activeConferencePage = useAppSelector((state) => state.conference.active); //single card detials
-  const activeArchiveIndex = useAppSelector((state) => state.archiveSection.activeIndexPage); //single card detials
+  const ArchiveIndex = useAppSelector((state) => state.archiveSection.activeIndexPage); //single card detials
+  const [activeArchiveIndex, setActiveArchiveIndex] = useState<ActiveIndexArchive | null>(ArchiveIndex); //single card detials
   // state 
 
   // store data
@@ -133,6 +134,7 @@ export default function ArchiveVolumes({ active }: activeSection) {
           console.log("fin")
           setTrackPage(pageNumber);
           dispatch(setCurrentPage(pageNumber));
+          dispatch(setActiveIndexVolume(activeArchiveIndex));
           console.log("condition", trackPage, pageNumber)
         }
       }
@@ -148,9 +150,17 @@ export default function ArchiveVolumes({ active }: activeSection) {
       case 'archive':
         console.log("archive")
         // setConferenceVolumes([]);
-        fetchArticalData().finally(() => {
+        if (activeArchiveIndex && ArchiveIndex && activeArchiveIndex?.year === ArchiveIndex?.year && activeArchiveIndex?.volume === ArchiveIndex?.volume && activeArchiveIndex?.issue === ArchiveIndex?.issue) {
+          console.log(activeArchiveIndex, ArchiveIndex, "running")
           dispatch(setLoading(false));
-        })
+        }else{
+          if(!activeArchiveIndex) redirect("/archives")
+          console.log("fetching")
+          dispatch(setLoading(true));
+          fetchArticalData().finally(() => {
+            dispatch(setLoading(false));
+          })
+        }
         break;
       case 'conference':
         // run only if the volume size is 0
@@ -170,7 +180,7 @@ export default function ArchiveVolumes({ active }: activeSection) {
         setConferenceVolumes([]);
         dispatch(setLoading(false));
     }
-  }, [active, fetchConferenceData, dispatch, perPage, trackPage, fetchArticalData, ArticalVolumes, activeArchiveIndex, navigate]);
+  }, [active, fetchConferenceData, dispatch, perPage, trackPage, fetchArticalData, ArticalVolumes, activeArchiveIndex, navigate, pageNumber, activeArchiveIndex?.year, activeArchiveIndex?.volume, activeArchiveIndex?.issue, ArchiveIndex]);
 
   // search
   const [form, setForm] = useState<SearchProp>({ search: "", page: pageNumber, per_page: 100 })
@@ -183,14 +193,14 @@ export default function ArchiveVolumes({ active }: activeSection) {
     switch (active) {
       case "archive":
         searchArchive(form).then((data) => {
-          const tempo = data?data:[]          
+          const tempo = data ? data : []
           setArticalVolumesSearch(tempo)
         }).finally(() => dispatch(setLoading(false)))
         setForm({ ...form, search: "" })
         break
-        case "conference":
-          searchConference(form).then((data) => {
-          const tempo = data?data:[]          
+      case "conference":
+        searchConference(form).then((data) => {
+          const tempo = data ? data : []
           setConferenceVolumesSearch(tempo)
         }).finally(() => dispatch(setLoading(false)))
         setForm({ ...form, search: "" })
@@ -217,7 +227,7 @@ export default function ArchiveVolumes({ active }: activeSection) {
         {active == "archive" && <h1 className="text-2xl font-semibold">Volume {activeArchiveIndex?.volume}, Issue {activeArchiveIndex?.issue} ({activeArchiveIndex?.year})</h1>}
       </div>
 
-      {!["conference", "issue"].includes(active) && <ArchiveVolumnHeader />}
+      {!["conference", "issue"].includes(active) && <ArchiveVolumnHeader setArchiveIndex={setActiveArchiveIndex} />}
 
       {/* Search */}
       <form onSubmitCapture={handleSearch} className="flex items-center gap-2 mt-2">
