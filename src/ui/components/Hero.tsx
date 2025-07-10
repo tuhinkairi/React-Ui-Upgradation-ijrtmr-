@@ -15,14 +15,14 @@ export default function Hero() {
         <p className=" text-lg ">
           e-ISSN:2583-1240, Follows UGC-CARE Guidelines
         </p>
-        <p className="text-muted text-lg max-w-xl  text-paragraph ">
+        <article className="text-muted text-lg max-w-xl  text-paragraph ">
           <p>
             An International Scholarly Open Access Journal, Peer-reviewed, Refereed Journal.  High Impact factor, Bi-Monthly, Multidisciplinary Journal.
           </p>
           <p>
             Cross Ref DOI (Digital Object Identifier) allotted to all published Articles. Indexed by Google Scholar, Elsevier-Mendeley and many other research databases.
           </p>
-        </p>
+        </article>
         <Link to="https://editorial.fdrpjournals.org/login?journal=2" target='_blank'>
           <button className="primaryBtn">
             Submit Paper <ArrowRight className="w-4 h-4" />

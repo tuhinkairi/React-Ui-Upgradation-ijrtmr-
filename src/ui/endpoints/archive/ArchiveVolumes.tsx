@@ -34,6 +34,7 @@ export default function ArchiveVolumes({ active }: activeSection) {
   const ArchiveIndex = useAppSelector((state) => state.archiveSection.activeIndexPage); //single card detials
   const [activeArchiveIndex, setActiveArchiveIndex] = useState<ActiveIndexArchive | null>(ArchiveIndex); //single card detials
   // state 
+  const { activeIndexPage, indexPage } = useAppSelector((state) => state.archiveSection)
 
   // store data
   const ConferenceData = useAppSelector((state) => state.conferenceArtical.articleList)
@@ -129,7 +130,7 @@ export default function ArchiveVolumes({ active }: activeSection) {
           page: trackPage,
           per_page: perPage
         }
-        if (ArticalVolumes.length === 0 || trackPage !== pageNumber) {
+        if (ArticalVolumes.length === 0 || trackPage !== pageNumber || activeArchiveIndex?.year === ArchiveIndex?.year || activeArchiveIndex?.volume === ArchiveIndex?.volume || activeArchiveIndex?.issue === ArchiveIndex?.issue) {
           await getArticalDetails(params, setArticalVolumes, dispatch, ArticalVolumes)
           console.log("fin")
           setTrackPage(pageNumber);
@@ -141,7 +142,7 @@ export default function ArchiveVolumes({ active }: activeSection) {
     } catch (err) {
       console.log(err);
     }
-  }, [pageNumber, dispatch, trackPage, ArticalVolumes, activeArchiveIndex, navigate, perPage]);
+  }, [pageNumber, dispatch, trackPage, ArticalVolumes, activeArchiveIndex, navigate, perPage, ArchiveIndex]);
 
   // Move setup block to useEffect
   useEffect(() => {
@@ -150,13 +151,13 @@ export default function ArchiveVolumes({ active }: activeSection) {
       case 'archive':
         console.log("archive")
         // setConferenceVolumes([]);
-        if (activeArchiveIndex && ArchiveIndex && activeArchiveIndex?.year === ArchiveIndex?.year && activeArchiveIndex?.volume === ArchiveIndex?.volume && activeArchiveIndex?.issue === ArchiveIndex?.issue) {
-          console.log(activeArchiveIndex, ArchiveIndex, "running")
+
+        if (ArticalVolumes.length && activeArchiveIndex && ArchiveIndex && activeArchiveIndex?.year === ArchiveIndex?.year && activeArchiveIndex?.volume === ArchiveIndex?.volume && activeArchiveIndex?.issue === ArchiveIndex?.issue) {
+          console.log(activeArchiveIndex, ArchiveIndex, "running");
           dispatch(setLoading(false));
-        }else{
-          if(!activeArchiveIndex) redirect("/archives")
+        } else {
+          if (!activeArchiveIndex) redirect("/archives")
           console.log("fetching")
-          dispatch(setLoading(true));
           fetchArticalData().finally(() => {
             dispatch(setLoading(false));
           })
@@ -227,7 +228,7 @@ export default function ArchiveVolumes({ active }: activeSection) {
         {active == "archive" && <h1 className="text-2xl font-semibold">Volume {activeArchiveIndex?.volume}, Issue {activeArchiveIndex?.issue} ({activeArchiveIndex?.year})</h1>}
       </div>
 
-      {!["conference", "issue"].includes(active) && <ArchiveVolumnHeader setArchiveIndex={setActiveArchiveIndex} />}
+      {!["conference", "issue"].includes(active) && <ArchiveVolumnHeader setArchiveIndex={setActiveArchiveIndex} ActiveVolumes={activeIndexPage} VolumeList={indexPage}/>}
 
       {/* Search */}
       <form onSubmitCapture={handleSearch} className="flex items-center gap-2 mt-2">
