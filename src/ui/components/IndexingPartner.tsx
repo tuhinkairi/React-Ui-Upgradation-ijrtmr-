@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect } from 'react';
 import fetchIndex from '../../lib/axios/api/fetch-index';
 import type { Indexing } from '../../types/UI';
+import { Link } from 'react-router-dom';
 
 const IndexingPartners: React.FC = () => {
   const [indexData, setIndexData] = React.useState<Indexing[]>();
@@ -22,25 +23,25 @@ const IndexingPartners: React.FC = () => {
       <h2 className="text-2xl md:text-3xl font-semibold  mb-16">Indexing And Abstracting</h2>
       <div className="overflow-hidden whitespace-nowrap">
         <div className="animate-marquee inline-block">
-          {indexData && indexData.map((partner) => (
-            <a href={partner.indexing_url} className="inline-block mx-10">
+          {indexData && indexData.map((partner, idx) => (
+            <Link key={partner.indexing_id+idx} target='_blank' to={partner.indexing_url} className="inline-block mx-10">
               <img
                 key={partner.indexing_id}
                 src={partner.indexing_image_url}
                 alt={partner.indexing_name}
                 className="h-16 w-auto object-contain hover:scale-110 transition ease-in-out"
               />
-            </a>
+            </Link>
           ))}
-          {indexData && indexData.map((partner) => (
-            <a href={partner.indexing_url} className="inline-block mx-10">
+          {indexData && indexData.map((partner,idx) => (
+            <Link key={idx+partner.indexing_id} target='_blank' to={partner.indexing_url} className="inline-block mx-10">
               <img
                 key={`${partner.indexing_id}-clone`}
                 src={partner.indexing_image_url}
                 alt={partner.indexing_name}
                 className="h-16 w-auto object-contain hover:scale-110 transition ease-in-out"
               />
-            </a>
+            </Link>
           ))}
         </div>
       </div>

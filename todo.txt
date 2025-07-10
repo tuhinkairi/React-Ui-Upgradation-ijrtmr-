@@ -6,12 +6,12 @@ update the urls -> done
 submit links update -> done
 update faq questions -> done
 update content -> done
+volumns functionality in archive -> done
 
 update quick links and map url-> done -> few links in policy page not created
 
-volumns functionality in archive -> pending
+update issues <-
 
 conference space problem
-update issues
 paper subscribe
 update thesis
