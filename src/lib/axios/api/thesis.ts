@@ -1,7 +1,7 @@
 import type { SearchProp, ThesisIndexingItem } from "../../../types/Api";
 import { axiosClient } from "../axios-client";
 
-export const fetchArchive = async (): Promise<ThesisIndexingItem[]> => {
+export const fetchThesis = async (): Promise<ThesisIndexingItem[]> => {
     try {
         const res = await axiosClient.post("/thesisYearListing");
         // parse the response data

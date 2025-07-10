@@ -41,6 +41,7 @@ export const {
     setThesisList,
     setActiveThesis,
     setThesisIndexingList,
+    setActiveThesisIndex,
     clearActiveThesis,
 } = thesisSlice.actions;
 

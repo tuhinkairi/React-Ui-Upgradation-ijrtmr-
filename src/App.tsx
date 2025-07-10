@@ -51,8 +51,9 @@ export default function App() {
         <Route path="/contact-us" element={<ContactUs />} />
 
         <Route path="/publications" element={<ThesisIndex />} />
-        <Route path="/thesis/:volumes" element={<Thesis />}>
-          <Route index element={<ArchiveVolumes active="thesis" />} />
+        <Route path="/thesis" element={<Thesis />}>
+          <Route index element={<ArchiveFirst />} />
+          <Route path=":volumes" element={<ArchiveVolumes active="thesis" />} />
           <Route path="paper-details" element={<ArticleDetails />} />
         </Route>
 

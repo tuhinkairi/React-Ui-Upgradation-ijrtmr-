@@ -51,5 +51,5 @@ export const auther_menu = [
 
 export const thesis_menu = [
   {"title":"Publications","link":"/publications"},
-  {"title":"Archives","link":"/thesis/archives"},
+  {"title":"Archives","link":"/thesis"},
 ];
