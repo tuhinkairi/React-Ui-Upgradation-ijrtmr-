@@ -1,7 +1,7 @@
 // components/ArchiveSection.tsx
 
 import { useEffect, useState } from "react";
-import { Link,  useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { fetchArchive } from "../../../../lib/axios/api/archive";
 import { useAppDispatch, useAppSelector } from "../../../../lib/store/store";
 import { setLoading } from "../../../../lib/store/Features/loadingSlice";
@@ -16,6 +16,7 @@ import { setActiveThesisIndex, setThesisIndexingList } from "../../../../lib/sto
 export default function ArchiveSection() {
   const navigate = useNavigate()
   const thesis = useLocation().pathname.includes('thesis');
+  console.log(thesis)
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const [volume, setVolumes] = useState<ArchiveIndexVolume[]>(useAppSelector(state => state.archiveSection.indexPage));
@@ -23,13 +24,11 @@ export default function ArchiveSection() {
   const dispatch = useAppDispatch()
   const loading = useAppSelector(state => state.loadingScreen.loading)
 
-
-
   // fetch the archives
   useEffect(() => {
-    if (volume.length === 0) {
-      dispatch(setLoading(true))
-      if (thesis) {
+    dispatch(setLoading(true))
+    if (thesis) {
+      if (yearVolumeThesis.length === 0) {
         fetchThesis().then((data) => {
           const reversedData = [...data].reverse()
           setYearVolumeThesis(reversedData)
@@ -38,7 +37,9 @@ export default function ArchiveSection() {
           console.log(err)
         }).finally(() => dispatch(setLoading(false)))
       }
-      else {
+    }
+    else {
+      if (volume.length === 0) {
         fetchArchive().then((data) => {
           const reversedData = [...data].reverse()
           setVolumes(reversedData)
@@ -48,7 +49,7 @@ export default function ArchiveSection() {
         }).finally(() => dispatch(setLoading(false)))
       }
     }
-  }, [dispatch, thesis, volume])
+  }, [dispatch, thesis, volume,yearVolumeThesis])
 
   const handelActiveIndex = (arg: ActiveIndexArchive) => {
     dispatch(setActiveIndexVolume(arg))
@@ -82,7 +83,7 @@ export default function ArchiveSection() {
 
           </div>
         ))}
-        {thesis && volume && volume.map((vol, index) => (
+        {!thesis && volume && volume.map((vol, index) => (
           <div key={index} className={`relative border ${openIndex === index ? "border-[#FF8C42B2] text-[#FF8C42B2] rounded-bl-none rounded-br-none " : "hover:border-[#FF8C42B2] hover:text-[#FF8C42B2] border-gray-400"} rounded-md`}>
             <button
               onClick={() => toggleDropdown(index)}

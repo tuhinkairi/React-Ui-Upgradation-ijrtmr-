@@ -139,6 +139,7 @@ export interface Blog {
 export interface ThesisIndexingItem {
   year: string;
   volume: string;
+  issue:string
 }
 // listiting
 export interface ThesisListingItem {

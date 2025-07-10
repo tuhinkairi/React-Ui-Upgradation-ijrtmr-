@@ -3,7 +3,7 @@ import ArchiveLayout from "../../components/layout/ArchiveLayout";
 
 export default function Thesis() {
   return (
-    <ArchiveLayout>
+    <ArchiveLayout title="Thesis - ARCHIVE">
       <Outlet/>
     </ArchiveLayout>
   )

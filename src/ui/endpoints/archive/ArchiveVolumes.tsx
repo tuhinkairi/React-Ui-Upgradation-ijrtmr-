@@ -3,7 +3,7 @@ import { redirect, useLocation, useNavigate } from "react-router-dom";
 import PrimaryBtn from "../../components/Btns/PrimaryBtn";
 
 import ArchiveVolumnHeader from "./components/ArchiveVolumnHeader";
-import type { ArchivePaperDetailProps, SearchProp, ConferenceArticleProps, ActiveIndexArchive } from "../../../types/Api";
+import type { ArchivePaperDetailProps, SearchProp, ConferenceArticleProps, ActiveIndexArchive, ThesisListingItem, ThesisIndexingItem } from "../../../types/Api";
 import React, { useCallback, useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../../lib/store/store";
 import { Pagination } from "../Editorial/Pagination";
@@ -22,6 +22,11 @@ import { setActiveIndexVolume, setActivePaper } from "../../../lib/store/Feature
 import VolumeCardConference from "./VolumeCardConference";
 import Title from "../../other/Title";
 import { GrClear } from "react-icons/gr";
+import { setActiveThesis, setThesisList } from "../../../lib/store/Features/ThesisSlice";
+import { searchThesis, ThesisListing, type ThesisListingParams } from "../../../lib/axios/api/thesis";
+import VolumeCardThesis from "../Thesis/VolumeCardThesis";
+// Import thesis-related functions
+
 
 
 
@@ -33,6 +38,14 @@ export default function ArchiveVolumes({ active }: activeSection) {
   const activeConferencePage = useAppSelector((state) => state.conference.active); //single card detials
   const ArchiveIndex = useAppSelector((state) => state.archiveSection.activeIndexPage); //single card detials
   const [activeArchiveIndex, setActiveArchiveIndex] = useState<ActiveIndexArchive | null>(ArchiveIndex); //single card detials
+
+  // Thesis state management
+  const ThesisIndex = useAppSelector((state) => state.thesis.ActiveThesisIndex);
+  const ThesisData = useAppSelector((state) => state.thesis.thesisList);
+  const [activeThesisIndex] = useState<ThesisIndexingItem | null>(ThesisIndex);
+  const [ThesisVolumes, setThesisVolumes] = useState<ThesisListingItem[]>(ThesisData);
+  const [ThesisVolumesSearch, setThesisVolumesSearch] = useState<ThesisListingItem[] | null>(null);
+
   // state 
   const { activeIndexPage, indexPage } = useAppSelector((state) => state.archiveSection)
 
@@ -74,19 +87,50 @@ export default function ArchiveVolumes({ active }: activeSection) {
     return Array.from({ length: endPage - startPage + 1 }, (_, i) => startPage + i);
   };
 
-
-
-
-
   // setting active papers
-  const setActiveArtical = (paper: ConferenceArticleProps | ArchivePaperDetailProps) => {
+  const setActiveArtical = (paper: ConferenceArticleProps | ArchivePaperDetailProps | ThesisListingItem) => {
     if ('article_type' in paper) {
       console.log("jhghj", paper)
       dispatch(setActiveConferenceArticle(paper as ConferenceArticleProps));
+    } else if ('thesis_id' in paper) {
+      dispatch(setActiveThesis(paper as ThesisListingItem));
     } else {
       dispatch(setActivePaper(paper as ArchivePaperDetailProps));
     }
   }
+
+  // Thesis data fetching function
+  const fetchThesisData = useCallback(async () => {
+    try {
+      if (!activeThesisIndex?.year || !activeThesisIndex?.volume) {
+        navigate("/thesis");
+      } else {
+        const params: ThesisListingParams = {
+          thesis_year: parseInt(activeThesisIndex.year),
+          thesis_volume: parseInt(activeThesisIndex.volume),
+          page: pageNumber,
+          per_page: perPage
+        };
+
+        if (ThesisVolumes.length === 0 || trackPage !== pageNumber ||
+          activeThesisIndex?.year === ThesisIndex?.year ||
+          activeThesisIndex?.volume === ThesisIndex?.volume) {
+          const response = await ThesisListing(params);
+          console.log("data ->",response.papersList)
+          if (response.papersList) {
+            setThesisVolumes(response.papersList);
+            dispatch(setThesisList(response.papersList));
+          }
+          setTrackPage(pageNumber);
+          dispatch(setCurrentPage(pageNumber));
+          console.log("Thesis data fetched");
+        }
+      }
+    } catch (err) {
+      console.error("Error fetching thesis data:", err);
+    }
+  }, [activeThesisIndex, pageNumber, dispatch, trackPage, ThesisVolumes, navigate, perPage, ThesisIndex]);
+
   // set volumes based on active state
   const fetchConferenceData = useCallback(async () => {
     try {
@@ -115,6 +159,7 @@ export default function ArchiveVolumes({ active }: activeSection) {
       console.log(err);
     }
   }, [activeConferencePage, pageNumber, dispatch, url, trackPage, ConferenceVolumes]);
+
   const fetchArticalData = useCallback(async () => {
     try {
       // going through 1 by 1 condition
@@ -174,14 +219,31 @@ export default function ArchiveVolumes({ active }: activeSection) {
         dispatch(setLoading(false));
         break;
       case 'thesis':
-        setConferenceVolumes([]);
-        dispatch(setLoading(false));
+        console.log("thesis");
+        // Clear other section data
+        // setConferenceVolumes([]);
+        // setArticalVolumes([]);
+
+        if (ThesisVolumes.length && activeThesisIndex && ThesisIndex &&
+          activeThesisIndex?.year === ThesisIndex?.year &&
+          activeThesisIndex?.volume === ThesisIndex?.volume) {
+          console.log(activeThesisIndex, ThesisIndex, "thesis running");
+          dispatch(setLoading(false));
+        } else {
+          if (!activeThesisIndex) redirect("/thesis")
+
+          console.log("fetching thesis data");
+          fetchThesisData().finally(() => {
+            dispatch(setLoading(false));
+          });
+
+        }
         break;
       default:
-        setConferenceVolumes([]);
+        // setConferenceVolumes([]);
         dispatch(setLoading(false));
     }
-  }, [active, fetchConferenceData, dispatch, perPage, trackPage, fetchArticalData, ArticalVolumes, activeArchiveIndex, navigate, pageNumber, activeArchiveIndex?.year, activeArchiveIndex?.volume, activeArchiveIndex?.issue, ArchiveIndex]);
+  }, [active, fetchConferenceData, dispatch, perPage, trackPage, fetchArticalData, ArticalVolumes, activeArchiveIndex, navigate, pageNumber, activeArchiveIndex?.year, activeArchiveIndex?.volume, activeArchiveIndex?.issue, ArchiveIndex, fetchThesisData, ThesisVolumes, activeThesisIndex, ThesisIndex]);
 
   // search
   const [form, setForm] = useState<SearchProp>({ search: "", page: pageNumber, per_page: 100 })
@@ -207,7 +269,11 @@ export default function ArchiveVolumes({ active }: activeSection) {
         setForm({ ...form, search: "" })
         break
       case "thesis":
-        searchConference(form)
+        searchThesis(form).then((data) => {
+          const tempo = data ? data : []
+          setThesisVolumesSearch(tempo)
+        }).finally(() => dispatch(setLoading(false)))
+        setForm({ ...form, search: "" })
         break
       case "issue":
         searchConference(form)
@@ -226,9 +292,10 @@ export default function ArchiveVolumes({ active }: activeSection) {
       <div className="text-center">
         {active == "conference" && <h1 className="text-2xl font-semibold">Volume {activeConferencePage?.volume}, Issue {activeConferencePage?.issue} ({activeConferencePage?.year})</h1>}
         {active == "archive" && <h1 className="text-2xl font-semibold">Volume {activeArchiveIndex?.volume}, Issue {activeArchiveIndex?.issue} ({activeArchiveIndex?.year})</h1>}
+        {active == "thesis" && <h1 className="text-2xl font-semibold">Volume {activeThesisIndex?.volume}, Year {activeThesisIndex?.year}</h1>}
       </div>
 
-      {!["conference", "issue"].includes(active) && <ArchiveVolumnHeader setArchiveIndex={setActiveArchiveIndex} ActiveVolumes={activeIndexPage} VolumeList={indexPage}/>}
+      {!["conference", "issue"].includes(active) && <ArchiveVolumnHeader isArchive={true} setArchiveIndex={setActiveArchiveIndex} ActiveVolumes={activeIndexPage} VolumeList={indexPage} />}
 
       {/* Search */}
       <form onSubmitCapture={handleSearch} className="flex items-center gap-2 mt-2">
@@ -265,14 +332,23 @@ export default function ArchiveVolumes({ active }: activeSection) {
             </PrimaryBtn>
           )
         )}
-
+        {(active === "thesis") && (
+          ThesisVolumesSearch ? (
+            <PrimaryBtn event={() => setThesisVolumesSearch(null)}>
+              <GrClear size={16} /> Clear
+            </PrimaryBtn>
+          ) : (
+            <PrimaryBtn>
+              <Search size={16} /> Search
+            </PrimaryBtn>
+          )
+        )}
       </form>
 
       {/* Paper Cards */}
       {(trackPage === pageNumber || !loading) ? <div className="space-y-6">
         <>
-          {/* conference */}
-
+          {/* archive */}
           {active === "archive" && (
             ArticalVolumesSearch !== null
               ? ArticalVolumesSearch?.length
@@ -286,6 +362,8 @@ export default function ArchiveVolumes({ active }: activeSection) {
                 ))
                 : <Title>No Paper Found</Title>
           )}
+
+          {/* conference */}
           {active === "conference" && (
             ConferenceVolumesSearch !== null
               ? ConferenceVolumesSearch?.length
@@ -299,10 +377,27 @@ export default function ArchiveVolumes({ active }: activeSection) {
                 ))
                 : <Title>No Paper Found</Title>
           )}
+
+          {/* thesis */}
+          {active === "thesis" && (
+            ThesisVolumesSearch !== null
+              ? ThesisVolumesSearch?.length
+                ? ThesisVolumesSearch.map((paper, idx) => (
+                  <VolumeCardThesis paper={paper} key={idx} setActive={setActiveArtical} navigate={navigate} />
+                ))
+                : <Title>No Paper Found</Title>
+              : ThesisVolumes?.length
+                ? ThesisVolumes.map((paper, idx) => (
+                  <VolumeCardThesis paper={paper} key={idx} setActive={setActiveArtical} navigate={navigate} />
+                ))
+                : <Title>No Paper Found</Title>
+          )}
         </>
       </div> :
         <Loading title="Volume Pages" />
       }
+
+      {/* Pagination */}
       {active == "conference" && ConferenceVolumesSearch === null && <div className="mt-16">
         <Pagination
           currentPage={pageNumber}
@@ -312,6 +407,14 @@ export default function ArchiveVolumes({ active }: activeSection) {
         />
       </div>}
       {active === "archive" && ArticalVolumesSearch === null && <div className="mt-16">
+        <Pagination
+          currentPage={pageNumber}
+          totalPages={totalPage}
+          onPageChange={setPageNumber}
+          rangeList={getVisiblePages()}
+        />
+      </div>}
+      {active === "thesis" && ThesisVolumesSearch === null && <div className="mt-16">
         <Pagination
           currentPage={pageNumber}
           totalPages={totalPage}

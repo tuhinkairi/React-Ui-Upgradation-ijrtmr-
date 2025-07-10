@@ -6,7 +6,7 @@ import { GrFormNext, GrFormPrevious } from 'react-icons/gr'
 import { Link, redirect } from 'react-router-dom'
 import type { ActiveIndexArchive, ArchiveIndexVolume } from '../../../../types/Api'
 
-function ArchiveVolumnHeader({ setArchiveIndex, ActiveVolumes, VolumeList }: { setArchiveIndex: (arg: ActiveIndexArchive) => void, ActiveVolumes: ActiveIndexArchive | null, VolumeList: ArchiveIndexVolume[] }) {
+function ArchiveVolumnHeader({isArchive, setArchiveIndex, ActiveVolumes, VolumeList }: {isArchive:boolean, setArchiveIndex: (arg: ActiveIndexArchive) => void, ActiveVolumes: ActiveIndexArchive | null, VolumeList: ArchiveIndexVolume[] }) {
     // const { activeIndexPage: ActiveVolumes, indexPage: VolumeList } = useAppSelector((state) => state.archiveSection)
     const [volumes, setVolumes] = useState<string[]>([])
     const [active, setActive] = useState<string>(`Volume ${ActiveVolumes?.volume}, (${ActiveVolumes?.year})`)
@@ -104,7 +104,7 @@ const handleIssueClick = useCallback((issue: string) => {
                 <Link to={'/archives'} className="cursor-pointer text-primary">See all volumes</Link>
             </div>
 
-            <div className="flex items-center justify-between">
+            {isArchive && <div className="flex items-center justify-between">
                 <div className="flex gap-2">
                     <button onClick={handlePreviousIssue}><GrFormPrevious className="text-primary-text text-base" /></button>
                     {issues.map((issue, index) => (
@@ -126,7 +126,7 @@ const handleIssueClick = useCallback((issue: string) => {
                 <PrimaryBtn className="rounded-full px-2">
                     <Share2 size={16} /> Share
                 </PrimaryBtn>
-            </div>
+            </div>}
         </>
     )
 }

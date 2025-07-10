@@ -6,7 +6,8 @@ export const fetchThesis = async (): Promise<ThesisIndexingItem[]> => {
         const res = await axiosClient.post("/thesisYearListing");
         // parse the response data
         console.log(res.data.thesis)
-        return res.data.thesis; //return years volumn issues
+        const modify = res.data.thesis.map((item: ThesisIndexingItem) => ({...item, issue: "0"}))
+        return modify; //return years volumn issues
     } catch (error) {
         throw new Error(`Failed to fetch Thesis: ${error}`);
     }
@@ -51,7 +52,7 @@ export const searchThesis = async (req: SearchProp) => {
         const res = await axiosClient.post("/searchThesis",
             req
         );
-        console.log(res.data)
+        console.log(res.data)//papersList
         return res.data
     }
     catch (error) {

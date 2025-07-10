@@ -10,13 +10,13 @@ import Title from '../../other/Title'
 import { useLocation } from 'react-router-dom'
 import { useAppSelector } from '../../../lib/store/store'
 
-export default function ArchiveLayout({ children }: { children: React.ReactNode }) {
+export default function ArchiveLayout({ children, title }: { children: React.ReactNode, title?: string }) {
   const isArticleDetails = useLocation().pathname.includes('/paper-details')
   const activeArticle = useAppSelector(state=> state.archiveSection.activePaper)
   
   return (
     <section className="_archiveLayout ml-16 grid grid-cols-4 2xl:grid-cols-5 justify-between gap-5 mr-4 xl:mr-16">
-      <Title>ARCHIVES</Title>
+      <Title>{title? title:"ARCHIVES"}</Title>
       <div className='lhs col-span-3 2xl:col-span-4 mr-2 bg-white'>
         {children}
       </div>
