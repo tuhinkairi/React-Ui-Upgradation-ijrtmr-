@@ -134,6 +134,37 @@ export interface Blog {
   meta_description: string | null,
   tags: string | null
 }
+// thesis 
+// volumes
+export interface ThesisIndexingItem {
+  year: string;
+  volume: string;
+}
+// listiting
+export interface ThesisListingItem {
+  id: number;
+  volume: string;
+  year: string;
+  title: string;
+  author_1: string | null;
+  author_2: string | null;
+  author_3: string | null;
+  author_4: string | null;
+  author_5: string | null;
+  author_6: string | null;
+  month: string;
+  pages: string;
+  abstract: string;
+  reference: string;
+  citation: string;
+  designation: string;
+  doi_no: string;
+  doi_link: string;
+  created_at: string;
+  updated_at: string;
+  paper_url: string;
+}
+
 //contact us
 export interface ContactUs {
   name: string,

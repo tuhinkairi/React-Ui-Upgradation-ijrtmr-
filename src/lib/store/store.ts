@@ -7,6 +7,7 @@ import paginationSlice from './Features/paginationSlice';
 import ArchiveSlice from './Features/ArchiveSlice';
 import editorialSlice from './Features/editorialSlice';
 import blogSlice from './Features/BlogSlice';
+import thesisSlice from './Features/ThesisSlice';
 
 // Create the store
 const store = configureStore({
@@ -18,6 +19,8 @@ const store = configureStore({
         archiveSection: ArchiveSlice.reducer,
         editorial: editorialSlice.reducer,
         blog: blogSlice.reducer,
+        thesis: thesisSlice.reducer,
+
     },
 });
 
