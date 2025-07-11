@@ -10,8 +10,8 @@ volumns functionality in archive -> done
 
 update quick links and map url-> done -> few links in policy page not created
 
-update issues <-
+update issues -> done
+update thesis -> pending (volumns navigation updedate)
 
 conference space problem
 paper subscribe
-update thesis

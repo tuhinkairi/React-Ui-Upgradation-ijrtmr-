@@ -1,12 +1,16 @@
 import { Link, NavLink } from "react-router-dom";
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { about_menu, auther_menu, thesis_menu } from "../../data/listingSection";
 import MenuCard from "./cards/MenuCard";
+import { BiMenuAltRight } from "react-icons/bi";
+import MenuMoblieCard from "./responsive/MenuMoblieCard";
 
 const Navbar = () => {
   const about = useRef<HTMLDivElement>(null);
   const auther = useRef<HTMLDivElement>(null);
   const thesis = useRef<HTMLDivElement>(null);
+// responsive
+const[isShowing, setShowing] = useState<boolean>(false)
 
   const hideAllMenus = () => {
     [about, auther, thesis].forEach(ref => {
@@ -47,95 +51,123 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="flex justify-between items-center py-6 gap-4 mx-auto ml-16 mr-4 xl:mr-16">
-      {/* Logo */}
-      <div className="flex items-center space-x-3">
-        <img src="/logo.png" alt="Fifth Dimension Logo" className="h-10" />
-      </div>
+    <>
+      <nav className="hidden md:flex justify-between items-center py-6 gap-4 mx-auto ml-16 mr-4 xl:mr-16">
+        {/* Logo */}
+        <div className="flex items-center space-x-3">
+          <img src="/logo.png" alt="Fifth Dimension Logo" className="h-10" />
+        </div>
 
-      {/* Nav Links */}
-      <ul className="flex items-center space-x-6 font-medium">
-        <li className="hover:text-primary">
-          <NavLink className={({ isActive }) => (isActive ? "text-primary" : "")} to="/">
-            Home
-          </NavLink>
-        </li>
+        {/* Nav Links */}
+        <ul className="flex items-center space-x-6 font-medium">
+          <li className="hover:text-primary">
+            <NavLink className={({ isActive }) => (isActive ? "text-primary" : "")} to="/">
+              Home
+            </NavLink>
+          </li>
 
-        <li className="hover:text-primary relative">
-          <button
-            onMouseEnter={(e) => handlePopup(e, about)}
-            onClick={(e) => e.preventDefault()}
+          <li className="hover:text-primary relative">
+            <button
+              onMouseEnter={(e) => handlePopup(e, about)}
+              onClick={(e) => e.preventDefault()}
+            >
+              About Us
+            </button>
+            <MenuCard hide={hideAllMenus} ref={about} links={about_menu} />
+          </li>
+
+
+          <li className="hover:text-primary relative">
+            <button
+              onMouseEnter={(e) => handlePopup(e, auther)}
+              onClick={(e) => e.preventDefault()}
+
+            >
+              For Authors
+
+            </button>
+            <MenuCard hide={hideAllMenus} ref={auther} links={auther_menu} />
+          </li>
+          <li className="hover:text-primary">
+            <NavLink className={({ isActive }) => (isActive ? "text-primary" : "")} to="/current-issue">
+              Current Issue
+            </NavLink>
+          </li>
+          <li className="hover:text-primary">
+            <NavLink className={({ isActive }) => (isActive ? "text-primary" : "")} to="/archives">
+              Archives
+            </NavLink>
+          </li>
+
+
+          <li className="hover:text-primary">
+            <NavLink className={({ isActive }) => (isActive ? "text-primary" : "")} to="/conference">
+              Conference
+            </NavLink>
+          </li>
+
+          <li className="hover:text-primary relative">
+            <button
+              onMouseEnter={(e) => handlePopup(e, thesis)}
+            >
+              Thesis
+            </button>
+            <MenuCard hide={hideAllMenus} ref={thesis} links={thesis_menu} />
+          </li>
+
+          <li className="hover:text-primary">
+            <NavLink className={({ isActive }) => (isActive ? "text-primary" : "")} to="/blog">
+              Blog
+            </NavLink>
+          </li>
+
+          <li className="hover:text-primary">
+            <NavLink className={({ isActive }) => (isActive ? "text-primary" : "")} to="/contact-us">
+              Contact Us
+            </NavLink>
+          </li>
+        </ul>
+
+        {/* CTA */}
+        <div className="flex space-x-4">
+          <Link
+            to="https://editorial.fdrpjournals.org/login?journal=2"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            About Us
-          </button>
-          <MenuCard hide={hideAllMenus} ref={about} links={about_menu} />
-        </li>
+            <button className="bg-primary hover:bg-primary-hover text-white px-4 py-3 rounded-md font-medium">
+              Author Login
+            </button>
+          </Link>
+        </div>
+      </nav>
 
+      {/* mini nav */}
+      <nav className="flex items-center justify-between py-4 px-6 md:px-12 md:hidden relative">
+        {/* Logo + Brand */}
+        <div className="flex items-center space-x-2">
+          <img src="/logo.png" alt="Fifth Dimension Logo" className="h-10 w-auto" />
+        </div>
 
-        <li className="hover:text-primary relative">
-          <button
-            onMouseEnter={(e) => handlePopup(e, auther)}
-            onClick={(e) => e.preventDefault()}
-
+        {/* CTA + Hamburger */}
+        <div className="flex items-center space-x-4">
+          <Link
+            to="https://editorial.fdrpjournals.org/login?journal=2"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            For Authors
-
+            <button className="bg-primary hover:bg-primary-hover text-white px-4 py-3 rounded-md font-medium">
+              Author Login
+            </button>
+          </Link>
+          <button onClick={()=>setShowing(!isShowing)} className="p-2 rounded-md hover:bg-gray-100 transition md:hidden">
+            <BiMenuAltRight className="w-6 h-6" />
           </button>
-          <MenuCard hide={hideAllMenus} ref={auther} links={auther_menu} />
-        </li>
-        <li className="hover:text-primary">
-          <NavLink className={({ isActive }) => (isActive ? "text-primary" : "")} to="/current-issue">
-            Current Issue
-          </NavLink>
-        </li>
-        <li className="hover:text-primary">
-          <NavLink className={({ isActive }) => (isActive ? "text-primary" : "")} to="/archives">
-            Archives
-          </NavLink>
-        </li>
+        </div>
+        {isShowing && <MenuMoblieCard onClose={()=>setShowing(false)} />}
+      </nav>
 
-
-        <li className="hover:text-primary">
-          <NavLink className={({ isActive }) => (isActive ? "text-primary" : "")} to="/conference">
-            Conference
-          </NavLink>
-        </li>
-
-        <li className="hover:text-primary relative">
-          <button
-            onMouseEnter={(e) => handlePopup(e, thesis)}
-          >
-            Thesis
-          </button>
-          <MenuCard hide={hideAllMenus} ref={thesis} links={thesis_menu} />
-        </li>
-
-        <li className="hover:text-primary">
-          <NavLink className={({ isActive }) => (isActive ? "text-primary" : "")} to="/blog">
-            Blog
-          </NavLink>
-        </li>
-
-        <li className="hover:text-primary">
-          <NavLink className={({ isActive }) => (isActive ? "text-primary" : "")} to="/contact-us">
-            Contact Us
-          </NavLink>
-        </li>
-      </ul>
-
-      {/* CTA */}
-      <div className="flex space-x-4">
-        <Link
-          to="https://editorial.fdrpjournals.org/login?journal=2"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <button className="bg-primary hover:bg-primary-hover text-white px-4 py-3 rounded-md font-medium">
-            Author Login
-          </button>
-        </Link>
-      </div>
-    </nav>
+    </>
   );
 };
 
