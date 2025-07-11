@@ -1,7 +1,7 @@
 export default function AboutSection() {
   return (
-    <section className="gap-4 mx-auto ml-16 mr-4 xl:mr-16">
-      <div className=" mx-auto flex flex-col md:flex-row items-center gap-12">
+    <section className="gap-4 mx-6 lg:mx-auto lg:ml-16 lg:mr-4 xl:mr-16 ">
+      <div className=" mx-auto flex flex-col-reverse md:flex-row items-center gap-12">
         {/* Image Placeholder */}
         <div className="md:w-1/2 flex items-center justify-start">
           <img src="./aboutHome.png" className="max-h-[400px]" alt="about image" />

@@ -52,7 +52,7 @@ const[isShowing, setShowing] = useState<boolean>(false)
 
   return (
     <>
-      <nav className="hidden md:flex justify-between items-center py-6 gap-4 mx-auto ml-16 mr-4 xl:mr-16">
+      <nav className="hidden lg:flex justify-between items-center py-6 gap-4 mx-auto ml-16 mr-4 xl:mr-16">
         {/* Logo */}
         <div className="flex items-center space-x-3">
           <img src="/logo.png" alt="Fifth Dimension Logo" className="h-10" />
@@ -143,7 +143,7 @@ const[isShowing, setShowing] = useState<boolean>(false)
       </nav>
 
       {/* mini nav */}
-      <nav className="flex items-center justify-between py-4 px-6 md:px-12 md:hidden relative">
+      <nav className="flex items-center justify-between py-4 px-6  lg:hidden relative">
         {/* Logo + Brand */}
         <div className="flex items-center space-x-2">
           <img src="/logo.png" alt="Fifth Dimension Logo" className="h-10 w-auto" />
@@ -160,7 +160,7 @@ const[isShowing, setShowing] = useState<boolean>(false)
               Author Login
             </button>
           </Link>
-          <button onClick={()=>setShowing(!isShowing)} className="p-2 rounded-md hover:bg-gray-100 transition md:hidden">
+          <button onClick={()=>setShowing(!isShowing)} className="p-2 rounded-md hover:bg-gray-100 transition lg:hidden">
             <BiMenuAltRight className="w-6 h-6" />
           </button>
         </div>

@@ -3,11 +3,11 @@ import CompodiumCard from "./cards/CompodiumCard";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const journals = [
-  { code: 'IJIRE', title: 'International Journal of Innovative Research in Engineering', eIssn: '2582-8746', publicationMonths: 'Bimonthly(Feb,Apr,Jun,Aug,Oct,Dec)', url: '/journals/ijire' },
-  { code: 'IJRTMR', title: 'International Journal of Recent Trends in Multidisciplinary Research', eIssn: '2583-0368', publicationMonths: 'Bimonthly(Feb,Apr,Jun,Aug,Oct,Dec)', url: '/journals/ijrtmr' },
-  { code: 'INDJEEE', title: 'Indian Journal of Electrical and Electronics Engineering', eIssn: 'Applied', publicationMonths: '3 Issues Per Year (Apr,Aug,Dec)', url: '/journals/indjeee' },
-  { code: 'INDJECE', title: 'Indian Journal of Electronics and Communication Engineering', eIssn: '3048-6408', publicationMonths: '3 Issues Per Year (Apr,Aug,Dec)', url: '/journals/indjece' },
-  { code: 'INDJCST', title: 'Indian Journal of Computer Science and Technology', eIssn: '2583-5300', publicationMonths: '3 Issues Per Year (Apr,Aug,Dec)', url: '/journals/indjcst' },
+  { code: 'IJIRE', title: 'International Journal of Innovative Research in Engineering', eIssn: '2582-8746', publicationMonths: 'Bimonthly (Feb, Apr, Jun, Aug, Oct, Dec)', url: '/journals/ijire' },
+  { code: 'IJRTMR', title: 'International Journal of Recent Trends in Multidisciplinary Research', eIssn: '2583-0368', publicationMonths: 'Bimonthly (Feb, Apr, Jun, Aug, Oct, Dec)', url: '/journals/ijrtmr' },
+  { code: 'INDJEEE', title: 'Indian Journal of Electrical and Electronics Engineering', eIssn: 'Applied', publicationMonths: '3 Issues Per Year (Apr, Aug, Dec)', url: '/journals/indjeee' },
+  { code: 'INDJECE', title: 'Indian Journal of Electronics and Communication Engineering', eIssn: '3048-6408', publicationMonths: '3 Issues Per Year (Apr, Aug, Dec)', url: '/journals/indjece' },
+  { code: 'INDJCST', title: 'Indian Journal of Computer Science and Technology', eIssn: '2583-5300', publicationMonths: '3 Issues Per Year (Apr, Aug, Dec)', url: '/journals/indjcst' },
 ];
 
 const JournalsCompendium = () => {
@@ -31,8 +31,10 @@ const JournalsCompendium = () => {
   };
 
   const getVisibleJournals = () => {
+    const width = window.innerWidth<768?window.innerWidth<628?1:2:3
+
     const visibleJournals = [];
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < width; i++) {
       const index = (currentIndex + i) % journals.length;
       visibleJournals.push(journals[index]);
     }
@@ -40,7 +42,7 @@ const JournalsCompendium = () => {
   };
 
   return (
-    <section className="px-6 md:px-24 py-12 bg-white text-center">
+    <section className="px-6 lg:px-24  bg-white text-center">
       <h2 className="text-2xl md:text-3xl font-semibold text-dark mb-2">
         Our Compendium of Journals
       </h2>
@@ -51,12 +53,12 @@ const JournalsCompendium = () => {
       <div className="relative max-w-5xl mx-auto">
         <button
           onClick={handlePrevClick}
-          className="absolute -left-10 top-1/2 transform -translate-y-1/2 z-10 bg-gray-800 text-white p-2 rounded-full"
+          className="absolute -left-3.5 sm:-left-5 lg:-left-10 top-1/2 transform -translate-y-1/2 z-10 bg-gray-800 text-white p-2 rounded-full"
         >
           <ChevronLeft />
         </button>
 
-        <div className="flex gap-6 justify-center items-center transition-all duration-700 ease-in-out">
+        <div className="grid sm:grid-cols-2 px-10 lg:px-0 md:grid-cols-3 gap-6 justify-center items-center transition-all duration-700 ease-in-out">
           {getVisibleJournals().map((journal, idx) => (
             <CompodiumCard key={`${journal.code}-${idx}`} {...journal} />
           ))}
@@ -64,7 +66,7 @@ const JournalsCompendium = () => {
 
         <button
           onClick={handleNextClick}
-          className="absolute -right-10 top-1/2 transform -translate-y-1/2 z-10 bg-gray-800 text-white p-2 rounded-full"
+          className="absolute -right-3.5 sm:-right-5 lg:-right-10 top-1/2 transform -translate-y-1/2 z-10 bg-gray-800 text-white p-2 rounded-full"
         >
           <ChevronRight />
         </button>

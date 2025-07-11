@@ -58,14 +58,14 @@ export default function WhyPublishWithUs() {
           We combine academic excellence with efficient processes to maximize your research impact beyond academia
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="hidden sm:grid grid-cols-1 md:grid-cols-2 gap-6">
           {features.map((item, idx) => (
             <div key={idx} className="flex gap-4 bg-white rounded-xl border border-gray-200 p-5 shadow-sm">
               <div className="w-28 h-28 min-w-28 relative">
                 <img
                   src={item.img}
                   alt={item.title}
-                  className="object-center" 
+                  className="object-center"
                 />
               </div>
               <div className="flex flex-col justify-start">
@@ -79,6 +79,33 @@ export default function WhyPublishWithUs() {
                   </ul>
                 )}
               </div>
+            </div>
+          ))}
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:hidden">
+          {features.map((item, idx) => (
+            <div key={idx} className="flex flex-col bg-white rounded-xl border border-gray-200 p-5 shadow-sm">
+              <div className="flex gap-4">
+
+                <div className="w-28 min-w-28 relative">
+                  <img
+                    src={item.img}
+                    alt={item.title}
+                    className="object-center"
+                  />
+                </div>
+                <div className="flex flex-col justify-start">
+                  <h3 className="text-lg font-semibold text-black">{item.title}</h3>
+                  <p className="text-sm text-gray-700 mb-2">{item.desc}</p>
+                </div>
+              </div>
+              {item.points && (
+                <ul className="list-disc pl-5 text-sm text-gray-600">
+                  {item.points.map((pt, i) => (
+                    <li key={i}>{pt}</li>
+                  ))}
+                </ul>
+              )}
             </div>
           ))}
         </div>

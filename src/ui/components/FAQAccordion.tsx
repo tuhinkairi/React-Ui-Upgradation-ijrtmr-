@@ -45,7 +45,7 @@ const FAQAccordion = () => {
               onClick={() => toggleIndex(idx)}
               className="flex justify-between items-center "
             >
-              <span className="text-primary-text font-medium">
+              <span className="text-primary-text font-medium w-[90%]">
                 {item.question}
               </span>
               {activeIndex === idx ? (

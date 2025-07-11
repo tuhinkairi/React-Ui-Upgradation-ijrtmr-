@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 
 export default function Hero() {
   return (
-    <section className=" flex items-start justify-between pl-16 py-6 ">
-      <div className="max-w-1/2 text-left space-y-4">
+    <section className=" flex items-start justify-between px-6 lg:px-0 lg:pl-16 py-6 flex-col lg:flex-row gap-y-6 md:gap-y-12" >
+      <div className="max-w-full lg:max-w-1/2 text-left space-y-4">
 
         <h1 className="text-4xl font-bold leading-tight">
           <span className="bg-gradient-to-b from-[#FF8C42]  to-[#C85104] text-transparent bg-clip-text md:text-5xl block">International Journal</span>{' '}
@@ -29,7 +29,7 @@ export default function Hero() {
           </button>
         </Link>
       </div>
-      <div className='w-1/2'>
+      <div className='m-auto md:max-w-4/5 lg:w-1/2'>
         <img className='block' src="/HomeBanner.png" alt="bannerimage" />
       </div>
     </section>

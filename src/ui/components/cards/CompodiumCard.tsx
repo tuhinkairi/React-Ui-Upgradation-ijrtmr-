@@ -23,13 +23,13 @@ export default function CompodiumCard({
         navigate(url)
     }
     return (
-        <div className="border text-start border-orange-300 rounded-md p-4 shadow-md flex flex-col justify-between h-full w-80">
-            <div>
+        <div className="border text-start border-orange-300 rounded-md p-4 shadow-md flex flex-col justify-between h-full min-w-full max-w-70 mx-auto sm:w-auto">
+            <div className="grid">
                 <h3 className="text-2xl font-semibold text-[#111827]">{code}</h3>
-                <p className="text-[#374151] mt-2 mb-4 border-b border-gray-300 pb-2 font-medium">
+                <p className="text-[#374151] mt-2 mb-4 border-b border-gray-300 pb-2 font-medium sm:min-h-18">
                     {title}
                 </p>
-                <div className="space-y-3 text-[#374151] text-start">
+                <div className="space-y-3 text-[#374151] text-start grid">
                     <div className="flex items-start gap-2">
                         <span className="mt-1"><CheckCircle/></span>
                         <p>
@@ -38,10 +38,8 @@ export default function CompodiumCard({
                     </div>
                     <div className="flex items-start gap-2">
                         <span className="mt-1"><CheckCircle/></span>
-                        <p>
-                            <span className="font-medium"> Publication Month:</span>
-                            <br />
-                            {publicationMonths}
+                        <p className="">
+                            <span className="font-medium">Publication Month:</span> {publicationMonths}
                         </p>
                     </div>
                 </div>

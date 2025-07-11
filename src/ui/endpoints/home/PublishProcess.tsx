@@ -42,9 +42,9 @@ export default function PublishProcess() {
         <p className="mt-2 text-sm text-secondaryText">Our efficient workflow ensures your research gets published quickly without sacrificing quality</p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-8">
         {steps.map((step, idx) => (
-          <div key={idx} className="flex flex-col items-start space-y-4 max-w-96">
+          <div key={idx} className="flex flex-col items-start space-y-4 max-w-96 mx-auto">
             <img src={step.image} alt={step.title} className="w-full max-w-xs object-contain" />
             <h4 className="text-lg font-semibold text-gray-900">{step.title}</h4>
             <p className="text-sm text-paragraph">{step.description}</p>
