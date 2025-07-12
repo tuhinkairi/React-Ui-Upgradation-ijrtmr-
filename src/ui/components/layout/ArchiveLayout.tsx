@@ -15,9 +15,9 @@ export default function ArchiveLayout({ children, title }: { children: React.Rea
   const activeArticle = useAppSelector(state=> state.archiveSection.activePaper)
   
   return (
-    <section className="_archiveLayout lg:ml-16 grid grid-cols-3 md:grid-cols-4 2xl:grid-cols-5 justify-between gap-5 px-6 lg:px-0  lg:mr-4 xl:mr-16">
+    <section className="_archiveLayout lg:ml-16 grid grid-cols-3 md:grid-cols-4 2xl:grid-cols-5 justify-between gap-y-5 md:gap-5 px-6 lg:px-0  lg:mr-4 xl:mr-16">
       <Title>{title? title:"ARCHIVES"}</Title>
-      <div className='lhs col-span-3 2xl:col-span-4 mr-2 '>
+      <div className='lhs col-span-3 2xl:col-span-4 md:mr-2 '>
         {children}
       </div>
       <div className='space-y-2 hidden md:flex flex-col items-end'>

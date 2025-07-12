@@ -1,4 +1,4 @@
-import { Download, Eye, SearchIcon } from "lucide-react";
+import { ArrowUpRight, Download, Eye, SearchIcon } from "lucide-react";
 import { Link, NavLink, type NavigateFunction } from "react-router-dom";
 import type { ArchivePaperDetailProps } from "../../../types/Api";
 import { ImQuotesRight } from "react-icons/im";
@@ -18,11 +18,11 @@ const HandleGoolge =()=>{
                 <Link
                     onClick={()=>setActive(paper)}
                     to={endpoint}
-                    className="text-xl font-serif  text-primary hover:underline max-w-5/6"
+                    className="text-xl font-serif  text-primary hover:underline sm:max-w-5/6 relative"
                 >
-                    {paper.paper_title} <span className="text-orange-400">↗</span>
+                    {paper.paper_title}<ArrowUpRight fill="none"/>
                 </Link>
-                <button onClick={HandleGoolge} className="text-base inline-flex items-center justify-center gap-2 text-primary border border-orange-400 px-3 py-1" style={{ borderRadius: 9999 }}>
+                <button onClick={HandleGoolge} className="hidden text-base sm:inline-flex items-center justify-center gap-2 text-primary border border-orange-400 px-3 py-1" style={{ borderRadius: 9999 }}>
                     <SearchIcon className="w-5" /> Google
                 </button>
             </div>
@@ -36,7 +36,7 @@ const HandleGoolge =()=>{
             </div>
 
             {/* Metrics */}
-            <div className="flex items-center gap-6  text-gray-500 mt-1">
+            <div className="flex flex-wrap items-center gap-6 gap-y-3 text-gray-500 mt-1">
                 <div className="flex items-center gap-3">
                     <Eye size={18} /> {256} Views
                 </div>
@@ -51,16 +51,16 @@ const HandleGoolge =()=>{
             </div>
 
             {/* Actions */}
-            <div className="flex justify-between items-center mt-2">
-                <div className="flex gap-3 text-sm text-primary font-medium">
+            <div className="flex flex-wrap justify-between items-center mt-2 gap-2 sm:gap-0">
+                <div className="w-full sm:w-fit flex gap-3 text-base sm:text-sm text-primary font-medium my-3 sm:my-0">
                     <button
-                        className="hover:underline"
+                        className="hover:underline border-r-2 pr-3"
                         onClick={() => navigate(`${endpoint}&section=FullArticle`)}
                     >
                         Abstract
                     </button>
                     <button
-                        className="hover:underline"
+                        className="hover:underline border-r-2 pr-3"
                         onClick={() => navigate(`${endpoint}&section=FullArticle`)}
                     >
                         Full Text
@@ -74,9 +74,12 @@ const HandleGoolge =()=>{
                 </div>
                 <NavLink to={paper.paper_url}>
                     <PrimaryBtn>
-                        View PDF <Download size={16} />
+                        Download PDF <Download size={16} />
                     </PrimaryBtn>
                 </NavLink>
+                 <button onClick={HandleGoolge} className="sm:hidden text-base inline-flex items-center justify-center gap-2 text-primary border border-orange-400 px-3 py-1" style={{ borderRadius: 9999 }}>
+                    <SearchIcon className="w-5" /> Google
+                </button>
             </div>
         </div>
     )

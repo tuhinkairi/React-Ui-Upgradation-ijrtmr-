@@ -116,7 +116,7 @@ export default function ArchiveVolumes({ active }: activeSection) {
           activeThesisIndex?.year === ThesisIndex?.year ||
           activeThesisIndex?.volume === ThesisIndex?.volume) {
           const response = await ThesisListing(params);
-          console.log("data ->",response.papersList)
+          console.log("data ->", response.papersList)
           if (response.papersList) {
             setThesisVolumes(response.papersList);
             dispatch(setThesisList(response.papersList));
@@ -287,7 +287,7 @@ export default function ArchiveVolumes({ active }: activeSection) {
   if (useAppSelector((state) => state.loadingScreen.loading)) return <Loading title="Volumes" />
 
   return (
-    <div className="mx-auto p-4 space-y-6">
+    <div className="mx-auto sm:p-4 space-y-6">
       {/* Header */}
       <div className="text-center">
         {active == "conference" && <h1 className="text-2xl font-semibold">Volume {activeConferencePage?.volume}, Issue {activeConferencePage?.issue} ({activeConferencePage?.year})</h1>}
@@ -346,7 +346,8 @@ export default function ArchiveVolumes({ active }: activeSection) {
       </form>
 
       {/* Paper Cards */}
-      {(trackPage === pageNumber || !loading) ? <div className="space-y-6">
+      {(trackPage === pageNumber || !loading) ? 
+      <div className="space-y-6">
         <>
           {/* archive */}
           {active === "archive" && (
