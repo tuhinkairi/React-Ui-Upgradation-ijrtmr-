@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect } from 'react';
 import fetchIndex from '../../../../lib/axios/api/fetch-index';
 import type { Indexing } from '../../../../types/UI';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const IndexingPartnerArchive: React.FC = () => {
   const [indexData, setIndexData] = React.useState<Indexing[]>();
@@ -22,8 +22,8 @@ const IndexingPartnerArchive: React.FC = () => {
     <section className="bg-white text-center py-6 overflow-hidden">
       {!endpoint.includes("aim&scope") && !endpoint.includes("ethics&policy") && !endpoint.includes("archives") ?
         <div className="grid grid-cols-5 items-center justify-center gap-10">
-          {indexData && indexData.map((partner) => (
-            <a href={partner.indexing_url}>
+          {indexData && indexData.map((partner, idx) => (
+            <Link key={idx} target='_blank' to={partner.indexing_url}>
 
               <img
                 key={partner.indexing_id}
@@ -31,7 +31,7 @@ const IndexingPartnerArchive: React.FC = () => {
                 alt={partner.indexing_name || "partner Image"}
                 className="h-14 w-auto object-contain hover:scale-110 transition  ease-in-out"
               />
-            </a>
+            </Link>
           ))}
         </div>
         : <div className="animate-marquee whitespace-nowrap">
