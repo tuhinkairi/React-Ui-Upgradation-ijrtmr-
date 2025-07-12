@@ -1,7 +1,7 @@
 import React from 'react'
 
-export default function Title2({children}:{children:React.ReactNode}) {
+export default function Title2({children,className}:{children:React.ReactNode,className?:string}) {
   return (
-    <h1 className="text-3xl font-semibold my-2">{children}</h1>
+    <h1 className={"text-2xl sm:text-3xl font-semibold my-2 " + className}>{children}</h1>
   )
 }

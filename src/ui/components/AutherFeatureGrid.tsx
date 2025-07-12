@@ -1,3 +1,4 @@
+import Title2 from '../other/Title2';
 import AuthorFeatureCard from './cards/AutherFeatureCard';
 
 const features = [
@@ -36,7 +37,8 @@ const features = [
 export default function AuthorFeaturesGrid() {
   return (
     <div className="mt-8">
-      <h2 className="text-3xl font-semibold text-gray-900 mb-6">For Authors</h2>
+      {/* <h2 className="text-3xl font-semibold text-gray-900 mb-6">For Authors</h2> */}
+      <Title2 className='mb-6'>For Authors</Title2>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-5 md:gap-10">
         {features.map((feature, idx) => (
           <AuthorFeatureCard key={idx} {...feature} />

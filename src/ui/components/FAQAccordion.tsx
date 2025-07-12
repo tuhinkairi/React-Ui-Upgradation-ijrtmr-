@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
+import Title2 from "../other/Title2";
 
 const faqData = [
   {
@@ -35,12 +36,15 @@ const FAQAccordion = () => {
 
   return (
     <section className="max-w-6xl mx-auto px-4 py-12 bg-white">
-      <h2 className="text-3xl font-semibold text-center text-dark mb-8">
+      {/* <h2 className="text-2xl sm:text-3xl font-semibold text-center text-dark mb-8">
         Frequently Asked Questions
-      </h2>
+      </h2> */}
+      <Title2 className="text-center">
+        Frequently Asked Questions
+      </Title2>
       <div className="divide-y divide-gray-200 space-y-5">
         {faqData.map((item, idx) => (
-          <div key={idx} className="py-4 px-5 cursor-pointer border-b border-gray-300 text-lg">
+          <div key={idx} className="py-4 px-5 cursor-pointer border-b border-gray-300 text-base sm:text-lg">
             <div
               onClick={() => toggleIndex(idx)}
               className="flex justify-between items-center "
@@ -55,7 +59,7 @@ const FAQAccordion = () => {
               )}
             </div>
             {activeIndex === idx && (
-              <div className="mt-3 text-gray-600 text-base">
+              <div className="mt-3 text-gray-600 text-sm sm:text-base">
                 {item.answer}
               </div>
             )}

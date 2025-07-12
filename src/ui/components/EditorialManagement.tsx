@@ -1,4 +1,5 @@
 import { Eye, FileText, Lock } from "lucide-react"; // Swap with your icons or use image paths
+import Title2 from "../other/Title2";
 
 const editorialData = [
   {
@@ -37,9 +38,12 @@ export default function EditorialManagement() {
   return (
     <section className="pt-8  px-6 lg:px-16 ">
       <div className="max-w-screen-xl mx-auto mb-10">
-        <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-2">
+        {/* <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-2">
           Advanced Editorial Management
-        </h2>
+        </h2> */}
+        <Title2>
+          Advanced Editorial Management
+        </Title2>
         <p className="text-gray-600 mt-2">
           Our state-of-the-art platform provides complete transparency and control throughout the publication process
         </p>

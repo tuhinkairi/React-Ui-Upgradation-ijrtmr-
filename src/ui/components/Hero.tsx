@@ -3,19 +3,19 @@ import { Link } from 'react-router-dom';
 
 export default function Hero() {
   return (
-    <section className=" flex items-start justify-between px-6 lg:px-0 lg:pl-16 py-6 flex-col lg:flex-row gap-y-6 md:gap-y-12" >
+    <section className=" flex items-start justify-between px-6 lg:px-0 lg:pl-16 py-2 sm:py-6 flex-col lg:flex-row gap-y-6 md:gap-y-12" >
       <div className="max-w-full lg:max-w-1/2 text-left space-y-4">
 
-        <h1 className="text-4xl font-bold leading-tight">
-          <span className="bg-gradient-to-b from-[#FF8C42]  to-[#C85104] text-transparent bg-clip-text md:text-5xl block">International Journal</span>{' '}
+        <h1 className="text-3xl sm:text-4xl font-bold leading-tight md:w-4/5 lg:w-full">
+          <span className="bg-gradient-to-b from-[#FF8C42]  to-[#C85104] text-transparent bg-clip-text text-[2rem] sm:text-5xl block">International Journal</span>{' '}
           <span className="text-primaryText">
             of Scientific Research in Engineering & Technology
           </span>
         </h1>
-        <p className=" text-lg ">
+        <p className=" text-base sm:text-lg ">
           e-ISSN:2583-1240, Follows UGC-CARE Guidelines
         </p>
-        <article className="text-muted text-lg max-w-xl  text-paragraph ">
+        <article className="text-muted sm:text-base  md:text-lg max-w-xl  text-paragraph leading-6 sm:leading-normal">
           <p>
             An International Scholarly Open Access Journal, Peer-reviewed, Refereed Journal.  High Impact factor, Bi-Monthly, Multidisciplinary Journal.
           </p>

@@ -1,3 +1,5 @@
+import Title from "../other/Title";
+
 export default function AboutSection() {
   return (
     <section className="gap-4 mx-6 lg:mx-auto lg:ml-16 lg:mr-4 xl:mr-16 ">
@@ -9,7 +11,8 @@ export default function AboutSection() {
 
         {/* Text Content */}
         <div className="w-full md:w-1/2">
-          <h2 className="text-3xl font-semibold text-primaryText mb-4">Welcome to IJSREAT</h2>
+          {/* <h2 className="text-3xl font-semibold text-primaryText mb-4">Welcome to IJSREAT</h2> */}
+          <Title>Welcome to IJSREAT</Title>
           <p className="text-secondaryText mb-4 text-sm leading-relaxed">
             International Journal of Scientific Research in Engineering & Technology is (e-ISSN: 2583-1240) Bi-monthly, international peer-reviewed, open-access and multidisciplinary online journal published for the enhancement of research in various disciplines of Science, Engineering &Technologies.
           </p>

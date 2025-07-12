@@ -5,6 +5,7 @@ ShieldCheck,
 } from 'lucide-react';
 import { FaGears } from 'react-icons/fa6';
 import { MdHighQuality, MdOutlineSupport, MdSecurity } from 'react-icons/md';
+import Title2 from '../other/Title2';
 
 const benefits = [
   {
@@ -52,7 +53,8 @@ const benefits = [
 export default function OpenAccessBenefitsGrid() {
   return (
     <section className='_openaccessbenefits '>
-    <h2 className="text-3xl font-semibold text-gray-900 mb-6">Benefits to Publishing with us</h2>
+    {/* <h2 className="text-3xl font-semibold text-gray-900 mb-6">Benefits to Publishing with us</h2> */}
+    <Title2 className='mb-6'>Benefits to Publishing with us</Title2>
     <div className="grid grid-cols-2 lg:grid-cols-3  gap-4 ">
       {benefits.map(({ icon, title, description }, idx) => (
         <div key={idx} className="bg-white rounded-2xl shadow-sm border border-gray-200 hover:shadow-md p-3 sm:p-6 space-y-4 hover:bg-[#fae0d0] cursor-pointer transition-all">

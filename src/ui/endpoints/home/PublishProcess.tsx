@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Title2 from "../../other/Title2";
 
 const steps = [
   {
@@ -36,16 +37,17 @@ const steps = [
 
 export default function PublishProcess() {
   return (
-    <section className="py-16">
-      <div className=" mb-16">
-        <h2 className="text-3xl font-semibold">Streamlined Publication Process</h2>
+    <section className="">
+      <div className="mb-10 md:mb-16">
+        {/* <h2 className="text-3xl font-semibold">Streamlined Publication Process</h2> */}
+        <Title2>Streamlined Publication Process</Title2>
         <p className="mt-2 text-sm text-secondaryText">Our efficient workflow ensures your research gets published quickly without sacrificing quality</p>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-8">
         {steps.map((step, idx) => (
           <div key={idx} className="flex flex-col items-start space-y-4 max-w-96 mx-auto">
-            <img src={step.image} alt={step.title} className="w-full max-w-xs object-contain" />
+            <img src={step.image} alt={step.title} className="w-full max-w-xs object-contain mx-auto" />
             <h4 className="text-lg font-semibold text-gray-900">{step.title}</h4>
             <p className="text-sm text-paragraph">{step.description}</p>
             {step.button && (

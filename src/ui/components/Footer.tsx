@@ -17,9 +17,9 @@ export default function Footer() {
     <footer className="bg-[#FF8C421A] py-12 px-6 mt-6">
       <div className="max-w-6xl mx-auto">
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mb-12">
           {/* Contact Us Section */}
-          <div>
+          <div className='col-span-2 md:col-span-1'>
             <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-4">
               CONTACT US
             </h3>
@@ -28,8 +28,8 @@ export default function Footer() {
               <p>No: 38D5F, Rajaji nagar, Ariyalur-621713.</p>
               <p>Tamilnadu, India.</p>
               <div className="mt-4">
-                <p>Email: <NavLink to="mailto:editorinchief@ijsreat.com" className="text-blue-600 hover:text-blue-800">editorinchief@ijsreat.com</NavLink></p>
-                <p><NavLink to="mailto:Support@fdrpjournals.org" className="text-blue-600 hover:text-blue-800">Support@fdrpjournals.org</NavLink></p>
+                <p>Email: <NavLink to="mailto:editorinchief@ijsreat.com" className="text-blue-600 hover:text-blue-800 underline">editorinchief@ijsreat.com</NavLink></p>
+                <p><NavLink to="mailto:Support@fdrpjournals.org" className="text-blue-600 hover:text-blue-800 underline">Support@fdrpjournals.org</NavLink></p>
               </div>
               <p>Mobile: +91 9840521421</p>
             </div>
@@ -111,7 +111,7 @@ export default function Footer() {
             </div>
 
             {/* Social Media Icons */}
-            <div className="flex space-x-4">
+            <div className="flex space-x-4 mx-auto lg:mx-0">
               <NavLink to="#" className="text-gray-400 hover:text-gray-500">
                 <Twitter size={20} />
               </NavLink>
