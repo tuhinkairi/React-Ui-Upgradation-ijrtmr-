@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
+import Page404 from "./ui/components/layout/Page404";
 const Home = React.lazy(() => import("./ui/endpoints/home/Home"));
 const Archives = React.lazy(() => import("./ui/endpoints/archive/Archives"));
 const Navbar = React.lazy(() => import("./ui/components/NavBar"));
@@ -95,6 +96,11 @@ export default function App() {
           <Route path=":volumes" element={<ArchiveVolumes active="conference" />} />
           <Route path="paper-details" element={<ConferenceDetails />} />
         </Route>
+
+
+        {/* error */}
+          <Route path="*" element={<Page404 />} />
+
       </Routes>
       <Footer />
 
