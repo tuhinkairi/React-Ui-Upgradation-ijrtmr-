@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import type { EditorialMember } from "../../../../types/Api";
+import ResearchAreaCard from "./ResearchAreaCard";
 
 // const publications = [
 //   {
@@ -29,7 +30,7 @@ import type { EditorialMember } from "../../../../types/Api";
 //   },
 // ];
 // todo: get dynamic update and shearable link
-export default function AuthorProfile({member}:{member:EditorialMember}) {
+export default function AuthorProfile({ member }: { member: EditorialMember }) {
   return (
     <div className="space-y-6">
       <h2 className="text-lg font-bold text-primary">
@@ -41,12 +42,25 @@ export default function AuthorProfile({member}:{member:EditorialMember}) {
       <div className="space-y-4">
         <address className="flex items-center not-italic gap-2"><strong>Address : </strong>{member.member_address}</address>
         <h1 className="flex items-center gap-2"><strong>E-Mail : </strong>{member.member_email}</h1>
-        <h1 className="flex items-center gap-2"><strong>Profile Link:</strong><Link to={member.member_website}>{member.member_website??"Not Avalable"}</Link></h1>
+        <h1 className="flex items-center gap-2"><strong>Profile Link:</strong><Link to={member.member_website}>{member.member_website ?? "Not Avalable"}</Link></h1>
         <address className="flex items-center not-italic gap-2"><strong>Country : </strong>{member.member_country}</address>
       </div>
 
+
+
+      <div className='sm:hidden sm:col-span-2 lg:col-span-1 space-y-6 mx-auto sm:mx-0'>
+        <img src={member?.member_image_url} className='w-full  rounded-2xl  aspect-square object-cover max-w-60 mx-auto' alt="img" />
+        <div className='socials grid grid-cols-2 items-center justify-center gap-2 gap-y-6'>
+          {member?.member_linkedin && <Link to={member?.member_linkedin}>
+            <span className='flex-col flex items-center justify-center gap-2'>
+              <img src="/editorial/board/linkedin.png" className='w-10' alt="linkedin" />
+              <span className='text-[15px] text-[#2f2f2f]'>LinkedIn</span>
+            </span>
+          </Link>}
+        </div>
+      </div>
       <div className="space-y-6 text-sm leading-relaxed">
-      <h3 className="text-lg font-bold ">Publications</h3>
+        <h3 className="text-lg font-bold ">Publications</h3>
         {/* {publications.map((pub) => (
           <div key={pub.id} className="flex items-start gap-2">
             <span className="">{pub.id}.</span>
@@ -55,13 +69,17 @@ export default function AuthorProfile({member}:{member:EditorialMember}) {
               <span className="text-primary font-medium">{pub.doi}</span>
             </p>
           </div> */}
-        {member.member_publication_list.split(".").map((pub,idx) => (
+        {member.member_publication_list.split(".").map((pub, idx) => (
           <ul key={idx} className="flex items-start gap-2 list-inside list-decimal text-shadow">
             <li>
               {pub}
             </li>
           </ul>
         ))}
+        <div className="sm:hidden w-full">
+          <ResearchAreaCard des={member?.member_researcharea.split(",") || ''} />
+        </div>
+
       </div>
     </div>
   );

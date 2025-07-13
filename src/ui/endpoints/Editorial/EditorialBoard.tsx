@@ -99,11 +99,11 @@ const EditorBoard = () => {
     };
     
     return (
-        <section className="editorial-board-section px-16 py-2 space-y-6">
+        <section className="editorial-board-section px-3 sm:px-6 md:px-10 lg:px-16 py-2 space-y-6">
             <Title>Editorial Board</Title>
             {loading ? <Loading /> : (
                 <>
-                    <div className="grid grid-cols-2 gap-6 justify-center">
+                    <div className="grid sm:grid-cols-2 gap-6 justify-center">
                         <ContactCard
                             role="Patron/Editor-in-chief :"
                             name="Dr. S. Sivaganesan"
@@ -121,7 +121,7 @@ const EditorBoard = () => {
                     </div>
                     
                     {/* Show only current page items */}
-                    <div className="p-4 grid grid-cols-2 gap-8 justify-center">
+                    <div className="sm:p-4 grid md:grid-cols-2 gap-8 justify-center">
                         {currentPageItems.map((member) => (
                             <AdvisoryBoardCard
                                 key={member.member_id}
