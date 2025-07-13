@@ -34,11 +34,11 @@ const RelatedArticles = () => {
   return (
     <div className=" mx-auto mt-12">
       <h2 className="text-2xl font-semibold mb-4">Related Articles</h2>
-      <div className="grid md:grid-cols-3 gap-6">
+      <div className="flex overflow-x-auto md:grid md:grid-cols-3 gap-6">
         {relatedArticles.map((article, index) => (
           <div
             key={index}
-            className="rounded-xl border border-gray-200 p-5 shadow-sm bg-white flex flex-col justify-between h-full"
+            className="rounded-xl border border-gray-200 p-5 shadow-sm bg-white flex flex-col justify-between min-h-full min-w-2/3 md:w-auto"
           >
             <div>
               <p className="text-sm text-gray-400 font-medium mb-1">{article.year}</p>

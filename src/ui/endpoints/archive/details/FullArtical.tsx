@@ -1,6 +1,6 @@
-import { FileDown } from "lucide-react";
 import PrimaryBtn from "../../../components/Btns/PrimaryBtn";
 import { Link } from "react-router-dom";
+import { VscFilePdf } from "react-icons/vsc";
 
 
 function FullArtical({ content, pdf_url }: { content: string, pdf_url: string }) {
@@ -10,10 +10,10 @@ function FullArtical({ content, pdf_url }: { content: string, pdf_url: string })
         <div className="flex justify-between items-center">
 
           <h3 className="font-medium text-base">Abstract</h3>
-          {pdf_url && <Link to={pdf_url} rel="noreferrer">
+          {pdf_url && <Link to={pdf_url} rel="noreferrer" className="hidden sm:inline-block">
             <PrimaryBtn className="whitespace-nowrap">
               View PDF
-              <FileDown size={18} className="ml-4" />
+              <VscFilePdf size={18} className="ml-4" />
             </PrimaryBtn>
           </Link>}
         </div>
