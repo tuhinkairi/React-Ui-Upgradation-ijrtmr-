@@ -54,7 +54,7 @@ const ConferenceIndex =() => {
   }, [fetchConference, conferenceState,dispatch]);
 
   return (
-    <div className="max-w-6xl mx-auto py-4 ">
+    <div className="max-w-6xl mx-auto py-4 space-y-4">
       {loading ? <Loading title="Conference"/> :
       conferenceData.length > 0 ? conferenceData.map((e, index) => (
         <ConferenceCard key={index} {...e} />
