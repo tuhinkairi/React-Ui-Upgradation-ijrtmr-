@@ -73,7 +73,7 @@ const ArticleDetails = () => {
       <div className="space-y-3 text-primary-text leading-7 text-sm sm:text-base">
         <div className="flex gap-3 ">
           <div className="text-base flex flex-wrap sm:flex-col gap-3 ">
-            <div className="flex gap-3 gap-x-6">
+            <div className="flex flex-wrap gap-3 gap-x-6">
               {auther.map((author, index) => (
                 index <= 3 && <span className=" text-primary flex gap-2 items-center text-base sm:text-lg" key={index}>
                   <CgProfile className="text-lg sm:text-2xl" />
@@ -82,7 +82,7 @@ const ArticleDetails = () => {
                 </span>
               ))}
             </div>
-            <div className="flex gap-3">
+            <div className="flex flex-wrap gap-3">
               {auther.map((author, index) => (
                 index > 3 && <span className="text-primary flex gap-2 items-center text-lg" key={index}>
                   <CgProfile className="text-lg sm:text-2xl" />
