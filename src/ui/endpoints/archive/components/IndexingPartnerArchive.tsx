@@ -21,7 +21,7 @@ const IndexingPartnerArchive: React.FC = () => {
   return (
     <section className="bg-white text-center py-6 overflow-hidden">
       {!endpoint.includes("aim&scope") && !endpoint.includes("ethics&policy") && !endpoint.includes("archives") ?
-        <div className="grid grid-cols-5 items-center justify-center gap-10">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 items-center justify-center gap-10">
           {indexData && indexData.map((partner, idx) => (
             <Link key={idx} target='_blank' to={partner.indexing_url}>
 

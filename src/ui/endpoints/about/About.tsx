@@ -5,7 +5,7 @@ import VerificationSection from './VerificationSection'
 
 function About() {
   return (
-    <CommonLayout>
+    <CommonLayout >
         <AimScope/>
         <VerificationSection/>
         <IndexingPartnerArchive/>

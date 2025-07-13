@@ -109,7 +109,7 @@ const EPDropdown: React.FC = () => {
             onClick={() => toggle(item.id)}
             className="flex justify-start gap-4 items-center w-full px-5 py-3 text-white font-medium rounded-md bg-gradient-to-b from-[#FF8C42] to-[#995428] hover:from-[#fae0d0] hover:to-[#fae0d0] hover:text-primary-text focus:outline-none transition-all"
           >
-            <span>{item.title}</span>
+            <h2 className="text-start">{item.title}</h2>
             {openIndex === item.id ? <ChevronUp /> : <ChevronDown />}
           </button>
           {openIndex === item.id && (
