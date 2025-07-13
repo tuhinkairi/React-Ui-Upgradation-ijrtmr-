@@ -7,7 +7,7 @@ export default function EMSPage() {
                 Editorial management system
             </Title>
             <article className="space-y-12">
-                <div className="_cardSectionEMS items-center gap-x-6 grid grid-cols-2 justify-between">
+                <div className="_cardSectionEMS items-center gap-y-6 sm:gap-x-6 grid sm:grid-cols-2 justify-between">
                     <div className="textsection space-y-6">
                         <div>
                             <h1 className="font-medium text-lg mb-2">1. How to submit article?</h1>
@@ -31,7 +31,7 @@ export default function EMSPage() {
                     </div>
                 </div>
                 <hr className="text-gray-300" />
-                <div className="_cardSectionEMS items-center gap-x-6 grid grid-cols-2 justify-between">
+                <div className="_cardSectionEMS items-center gap-y-6 sm:gap-x-6 grid sm:grid-cols-2 justify-between">
                     <div className="image grid gap-4">
                         <img src="/EMS/EMS3.png" alt=" Author can know task Process image" />
                     </div>
@@ -47,7 +47,7 @@ export default function EMSPage() {
                     </div>
                 </div>
                 <hr className="text-gray-300" />
-                <div className="_cardSectionEMS items-center gap-x-6 grid grid-cols-2 justify-between">
+                <div className="_cardSectionEMS items-center gap-y-6 sm:gap-x-6 grid sm:grid-cols-2 justify-between">
                     <div className="textsection space-y-4">
                         <div>
                             <h1 className="font-medium text-lg mb-2">3. Author can know Review Process?</h1>
@@ -65,7 +65,7 @@ export default function EMSPage() {
                     </div>
                 </div>
                 <hr className="text-gray-300" />
-                <div className="_cardSectionEMS items-center gap-x-6 grid grid-cols-2 justify-between">
+                <div className="_cardSectionEMS items-center gap-y-6 sm:gap-x-6 grid sm:grid-cols-2 justify-between">
                     <div className="image grid gap-4">
                         <img src="/EMS/EMS5.png" alt="How Author can Know submitted Article Accepted or Not image" />
                     </div>
@@ -79,7 +79,7 @@ export default function EMSPage() {
                     </div>
                 </div>
                 <hr className="text-gray-300" />
-                <div className="_cardSectionEMS items-center gap-x-6 grid grid-cols-2 justify-between">
+                <div className="_cardSectionEMS items-center gap-y-6 sm:gap-x-6 grid sm:grid-cols-2 justify-between">
                     <div className="textsection space-y-4">
                         <div>
                             <h1 className="font-medium text-lg mb-2">5. What is the Procedure for Accepted Article to be publish?</h1>
@@ -95,7 +95,7 @@ export default function EMSPage() {
                     </div>
                 </div>
                 <hr className="text-gray-300" />
-                <div className="_cardSectionEMS items-center gap-x-6 grid grid-cols-2 justify-between">
+                <div className="_cardSectionEMS items-center gap-y-6 sm:gap-x-6 grid sm:grid-cols-2 justify-between">
                     <div className="image grid gap-4">
                         <img src="/EMS/EMS7.png" alt="Copyright Form image" />
                     </div>
@@ -109,7 +109,7 @@ export default function EMSPage() {
                     </div>
                 </div>
                 <hr className="text-gray-300" />
-                <div className="_cardSectionEMS items-center gap-x-6 grid grid-cols-2 justify-between">
+                <div className="_cardSectionEMS items-center gap-y-6 sm:gap-x-6 grid sm:grid-cols-2 justify-between">
                     <div className="textsection space-y-4">
                         <div>
                             <h1 className="font-medium text-lg mb-2">c&#41; Article Processing fee receipt (with DOI, With out DOI)</h1>
@@ -126,7 +126,7 @@ export default function EMSPage() {
                         </span><br />
                         Once we received all necessary Documents. We will process your article. Article will publish with in 24hrs to 48hrs.
                     </h1>
-                    <div className="_cardSectionEMS items-center gap-x-6 grid grid-cols-2 justify-between mt-6">
+                    <div className="_cardSectionEMS items-center gap-y-6 sm:gap-x-6 grid sm:grid-cols-2 justify-between mt-6">
                         <div className="textsection space-y-4">
                             <img src="/EMS/EMS9.png" alt="Process verification image 1" />
                         </div>
@@ -139,7 +139,7 @@ export default function EMSPage() {
                     </div>
                 </div>
                 <hr className="text-gray-300" />
-                <div className="_cardSectionEMS items-center gap-x-6 grid grid-cols-2 justify-between">
+                <div className="_cardSectionEMS items-center gap-y-6 sm:gap-x-6 grid sm:grid-cols-2 justify-between">
                     <div className="textsection space-y-4">
                         <div>
                             <h1 className="font-medium text-lg mb-2">6. Author will get certificates including corresponding authors?</h1>
