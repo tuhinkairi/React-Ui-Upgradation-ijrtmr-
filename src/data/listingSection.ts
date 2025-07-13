@@ -1,51 +1,51 @@
 export const quickLinks = [
-  { title: "Aim & Scope", link: "aim&scope" },
-  { title: "Instruction for Authors", link: "guide-for-author" },
+  { title: "Aim & Scope", link: "aim-and-scope" },
+  { title: "Instruction for Authors", link: "/instruction-for-author" },
   { title: "Journal Publishing Process", link: "journal-publishing-process" },
-  { title: "Paper Submission", link: "editorial-management-system" },
-  { title: "Editorial Management System", link: "editorial-management-system" },
-  { title: "Paper Status", link: "article-status" },
+  { title: "Paper Submission", link: "/guidance-for-ems" },
+  { title: "Editorial Management System", link: "/guidance-for-ems" },
+  { title: "Paper Status", link: "paper-status" },
   { title: "Topics", link: "topics" },
-  { title: "Call for papers", link: "call-for-paper" },
+  { title: "Call for papers", link: "call-for-papers" },
   { title: "Indexing & Abstracting", link: "indexing&abstraction" },
-  { title: "Impact Factor", link: "impactfactor" },
-  { title: "Article Processing Charges", link: "article-processing-charge" }
+  { title: "Impact Factor", link: "impact-Factor" },
+  { title: "Article Processing Charges", link: "article-processing-charges" }
 ];
 
 export const policies = [
-  { title: "Ethics & Policies", link: "ethics&policy" },
+  { title: "Ethics & Policies", link: "ethics" },
   { title: "Publication Ethics & Malpractice Statement", link: "publication-ethics-policy" },
   { title: "Peer Review Policy", link: "peer-review-policy" },
-  { title: "Plagiarism Policy", link: "ethics&policy" },
-  { title: "Editorial policies", link: "ethics&policy" },
-  { title: "Article withdraw policy", link: "ethics&policy" },
-  { title: "Copyright, Grants and Ownership Declaration", link: "ethics&policy" },
-  { title: "Open Access Policy", link: "ethics&policy" },
+  { title: "Plagiarism Policy", link: "ethics" },
+  { title: "Editorial policies", link: "ethics" },
+  { title: "Article withdraw policy", link: "ethics" },
+  { title: "Copyright, Grants and Ownership Declaration", link: "ethics" },
+  { title: "Open Access Policy", link: "ethics" },
   { title: "Cross mark Policy", link: "cross-mark-policy" },
   { title: "Contact Us", link: "contact-us" }
 ];
 
 // menu
 export const about_menu = [
-  {"title":"Aim & Scope","link":"aim&scope"},
+  {"title":"Aim & Scope","link":"aim-and-scope"},
   {"title":"Editorial Board","link":"editorial-board"},
   {"title":"Indexing & Abstracting","link":"indexing&abstraction"},
   {"title":"Publication Ethics Policy","link":"publication-ethics-policy"},
   {"title":"Peer Review Policy","link":"/peer-review-policy"},
-  {"title":"Ethics & Policy","link":"ethics&policy"},
+  {"title":"Ethics & Policy","link":"ethics"},
   {"title":"Cross Mark Policy","link":"cross-mark-policy"},
-  {"title":"Impact Factor","link":"impactfactor"},
-  {"title":"FAQ'S","link":"faq"}
+  {"title":"Impact Factor","link":"impact-Factor"},
+  {"title":"FAQ'S","link":"/FAQs"}
     
 ];
 export const auther_menu = [
   {"title":"Journal Publishing Process","link":"journal-publishing-process"},
   {"title":"Topics","link":"topics"},
-  {"title":"Call for Paper","link":"call-for-paper"},
-  {"title":"Guide for Author","link":"guide-for-author"},
-  {"title":"Editorial Management System","link":"editorial-management-system"},
-  {"title":"Article Processing Charge","link":"article-processing-charge"},
-  {"title":"Article Status","link":"article-status"},
+  {"title":"Call for Paper","link":"call-for-papers"},
+  {"title":"Guide for Author","link":"/instruction-for-author"},
+  {"title":"Editorial Management System","link":"/guidance-for-ems"},
+  {"title":"Article Processing Charge","link":"article-processing-charges"},
+  {"title":"Article Status","link":"paper-status"},
   {"title":"Downloads","link":"downloads"}
 ];
 

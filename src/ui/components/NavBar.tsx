@@ -116,7 +116,7 @@ const[isShowing, setShowing] = useState<boolean>(false)
           </li>
 
           <li className="hover:text-primary">
-            <NavLink className={({ isActive }) => (isActive ? "text-primary" : "")} to="/blog">
+            <NavLink className={({ isActive }) => (isActive ? "text-primary" : "")} to="/blogs">
               Blog
             </NavLink>
           </li>

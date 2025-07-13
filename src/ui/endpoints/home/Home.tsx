@@ -21,22 +21,25 @@ import PublishProcess from "./PublishProcess";
 // todo home titles make more flexible
 export default function Home() {
   return (
-    <section className="space-y-8 sm:space-y-10 md:space-y-16">
-      <Hero />
-      <TickerBar />
+    <section className="space-y-8 sm:space-y-10 md:space-y-6">
+      <div>
+
+        <Hero />
+        <TickerBar />
+      </ div>
       {/* <FeaturesSection1 /> */}
       <AboutSection />
       <WrapperLayout>
         {/* <JournalParticulars /> */}
-        <OpenAccessBenefitsGrid/>
+        <OpenAccessBenefitsGrid />
         <PublishProcess />
         <AuthorFeaturesGrid />
       </WrapperLayout>
       <IJSREATFeaturesSection />
       {/* <WhyChooseIJSREAT /> */}
       {/* <EditorialFeatures /> */}
-      <WhyPublishWithUs/>
-      <EditorialManagement/>
+      <WhyPublishWithUs />
+      <EditorialManagement />
       <IndexingPartners />
       <SubmitPaperSection />
       <JournalsCompendium />

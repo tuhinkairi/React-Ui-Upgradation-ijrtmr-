@@ -5,7 +5,7 @@ import Paper from "./Paper";
 const CallForPapers = () => {
   return (
 
-    <CommonLayout className="px-0 sm:px-6 bg-white text-base">
+    <CommonLayout className="px-3 sm:px-6 bg-white text-base">
         <Paper/>
         <VerificationSection />
     </CommonLayout>

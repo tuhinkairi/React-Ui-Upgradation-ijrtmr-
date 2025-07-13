@@ -76,7 +76,7 @@ const MenuMoblieCard = ({ onClose }: { onClose: () => void }) => {
                     </ul>
                 </div>
 
-                <NavLink to="/blog" className="block font-semibold" onClick={onClose}>
+                <NavLink to="/blogs" className="block font-semibold" onClick={onClose}>
                     Blogs
                 </NavLink>
                 <NavLink to="/contact-us" className="block font-semibold" onClick={onClose}>

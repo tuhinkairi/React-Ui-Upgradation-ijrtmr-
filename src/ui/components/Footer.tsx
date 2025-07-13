@@ -45,8 +45,8 @@ export default function Footer() {
               <li><NavLink to="/editor-guidelines" className="pointer hover:text-primary">Editor guidelines</NavLink></li>
               <li><NavLink to="/journal-publishing-process" className="pointer hover:text-primary">Journal Publishing Process</NavLink></li>
               <li><NavLink to="/archives" className="pointer hover:text-primary">Archives</NavLink></li>
-              <li><NavLink to="/call-for-papers" className="pointer hover:text-primary">Call for Papers</NavLink></li>
-              <li><NavLink to="/editorial-management-system" className="pointer hover:text-primary">Editorial Management System</NavLink></li>
+              <li><NavLink to="/call-for-paperss" className="pointer hover:text-primary">Call for Papers</NavLink></li>
+              <li><NavLink to="//guidance-for-ems" className="pointer hover:text-primary">Editorial Management System</NavLink></li>
             </ul>
           </div>
 
@@ -58,7 +58,7 @@ export default function Footer() {
             <ul className="space-y-3 text-sm text-gray-600">
               <li><NavLink to="/peer-review-policy" className="hover:text-primary">Peer Review Policy</NavLink></li>
               <li><NavLink to="/publication-ethics-policy" className="hover:text-primary">Publication Policy</NavLink></li>
-              <li><NavLink to="/ethics&policy" className="hover:text-primary">Ethics And Policies</NavLink></li>
+              <li><NavLink to="/ethics" className="hover:text-primary">Ethics And Policies</NavLink></li>
               <li><NavLink to="/cross-mark-policy" className="hover:text-primary">Crossmark Policy</NavLink></li>
               <li><NavLink to="/open-Access-policy" className="hover:text-primary">Open Access Policy</NavLink></li>
               <li><NavLink to="/plagiarism-policy" className="hover:text-primary">Plagiarism Policy</NavLink></li>

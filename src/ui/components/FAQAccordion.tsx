@@ -42,7 +42,7 @@ const FAQAccordion = () => {
       <Title2 className="text-center">
         Frequently Asked Questions
       </Title2>
-      <div className="divide-y divide-gray-200 space-y-5">
+      <div className="divide-y divide-gray-200 space-y-5 mt-4 sm:mt-8">
         {faqData.map((item, idx) => (
           <div key={idx} className="py-4 px-5 cursor-pointer border-b border-gray-300 text-base sm:text-lg">
             <div

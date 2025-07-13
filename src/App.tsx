@@ -14,7 +14,7 @@ const CrossMarkPolicy = React.lazy(() => import("./ui/endpoints/about/crossmark/
 const PublicationPolicy = React.lazy(() => import("./ui/endpoints/about/publication-policy/PublicationPolicy"));
 const ImactFactor = React.lazy(() => import("./ui/endpoints/about/Impact/ImactFactor"));
 const FAQ = React.lazy(() => import("./ui/endpoints/about/FAQ/FAQ"));
-const EthicsAndPolicy = React.lazy(() => import("./ui/endpoints/about/ethics&policy/EthicsAndPolicy"));
+const EthicsAndPolicy = React.lazy(() => import("./ui/endpoints/about/ethics/EthicsAndPolicy"));
 const EditoralSingle = React.lazy(() => import("./ui/endpoints/Editorial/EditorialPage/EditoralSingle"));
 const Blog = React.lazy(() => import("./ui/endpoints/blog/Blog"));
 const BlogShow = React.lazy(() => import("./ui/endpoints/blog/show/BlogShow"));
@@ -47,14 +47,14 @@ export default function App() {
         <Route path="/" loader={true} element={<Home />} />
         {/* <Route path="/for-authors" element={<>comming soon</>} /> */}
         <Route path="/current-issue" element={<>comming soon</>} />
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/blog/:slug" element={<BlogShow />} />
+        <Route path="/blogs" element={<Blog />} />
+        <Route path="/blogs/:slug" element={<BlogShow />} />
         <Route path="/contact-us" element={<ContactUs />} />
 
         <Route path="/publications" element={<ThesisIndex />} />
         <Route path="/thesis" element={<Thesis />}>
           <Route index element={<ArchiveFirst />} />
-          <Route path="paperlist" element={<ArchiveVolumes active="thesis" />} />
+          <Route path=":paperlist" element={<ArchiveVolumes active="thesis" />} />
           <Route path="paper-details" element={<ArticleDetails />} />
         </Route>
 
@@ -65,7 +65,7 @@ export default function App() {
         </Route>
 
         {/* about section */}
-        <Route path="/aim&scope" element={<About />} />
+        <Route path="/aim-and-scope" element={<About />} />
         {/* editorial start */}
         <Route path="/editorial-board" element={<EditorBoard />} />
         <Route path="/editorial-board/:data" element={<EditoralSingle />} />
@@ -73,21 +73,21 @@ export default function App() {
         <Route path="/indexing&abstraction" element={<IndexAbstract />} />
         <Route path="/publication-ethics-policy" element={<PublicationPolicy />} />
         <Route path="/peer-review-policy" element={<PeerReviewPolicy />} />
-        <Route path="/ethics&policy" element={<EthicsAndPolicy />} />
+        <Route path="/ethics" element={<EthicsAndPolicy />} />
         <Route path="/cross-mark-policy" element={<CrossMarkPolicy />} />
-        <Route path="/impactfactor" element={<ImactFactor />} />
-        <Route path="/faq" element={<FAQ />} />
+        <Route path="/impact-Factor" element={<ImactFactor />} />
+        <Route path="/FAQs" element={<FAQ />} />
         {/* about end */}
 
         {/* for authors */}
         <Route path="/downloads" element={<Download />} />
         <Route path="/journal-publishing-process" element={<JournalPublishingProcess />} />
-        <Route path="/call-for-paper" element={<CallForPapers />} />
+        <Route path="/call-for-papers" element={<CallForPapers />} />
         <Route path="/topics" element={<Topics />} />
-        <Route path="/article-status" element={<ArticleStatus />} />
-        <Route path="/guide-for-author" element={<GuideForAuther />} />
-        <Route path="/article-processing-charge" element={<ArticleProcessingCharges />} />
-        <Route path="/editorial-management-system" element={<EMS />} />
+        <Route path="/paper-status" element={<ArticleStatus />} />
+        <Route path="/instruction-for-author" element={<GuideForAuther />} />
+        <Route path="/article-processing-charges" element={<ArticleProcessingCharges />} />
+        <Route path="/guidance-for-ems" element={<EMS />} />
 
 
         {/* conference */}
