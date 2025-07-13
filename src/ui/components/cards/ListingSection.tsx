@@ -7,7 +7,7 @@ const ListingSection = ({data,title}:{data: {title:string, link:string}[],title:
       <ul className="space-y-3">
         {data.map((link, idx) => (
           <li key={idx}>
-            <NavLink to={`/${link.link}`} target="_blank" rel="noopener noreferrer"
+            <NavLink to={`${import.meta.env.VITE_API_HOST_URL}${link.link}`} target="_blank" rel="noopener noreferrer"
               className="block w-full borderPrimaryHover text-gray-800 font-medium rounded-md py-2 px-4 transition-colors"
             >
               {link.title}
