@@ -40,6 +40,7 @@ export default function ArchiveSection() {
     }
     else {
       if (volume.length === 0) {
+        console.log("ruing")
         fetchArchive().then((data) => {
           const reversedData = [...data].reverse()
           setVolumes(reversedData)
@@ -49,6 +50,7 @@ export default function ArchiveSection() {
         }).finally(() => dispatch(setLoading(false)))
       }
     }
+    dispatch(setLoading(false))
   }, [dispatch, thesis, volume,yearVolumeThesis])
 
   const handelActiveIndex = (arg: ActiveIndexArchive) => {
@@ -67,6 +69,7 @@ export default function ArchiveSection() {
   return (
     <div className="mb-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 border-collapse">
+        {/* thesis */}
         {thesis && yearVolumeThesis && yearVolumeThesis.map((vol, index) => (
           <div key={index} className={`relative border ${openIndex === index ? "border-[#FF8C42B2] text-[#FF8C42B2] rounded-bl-none rounded-br-none " : "hover:border-[#FF8C42B2] hover:text-[#FF8C42B2] border-gray-400"} rounded-md`}>
             <button
@@ -83,6 +86,7 @@ export default function ArchiveSection() {
 
           </div>
         ))}
+        {/* archive */}
         {!thesis && volume && volume.map((vol, index) => (
           <div key={index} className={`relative border ${openIndex === index ? "border-[#FF8C42B2] text-[#FF8C42B2] rounded-bl-none rounded-br-none " : "hover:border-[#FF8C42B2] hover:text-[#FF8C42B2] border-gray-400"} rounded-md`}>
             <button
@@ -109,7 +113,7 @@ export default function ArchiveSection() {
                             issue: issue
                           })}
                           key={`${elem.volume}-${issue}`}
-                          to={`/archives/year-${vol.year}-volume-${elem.volume}-issue-${issue}`}
+                          to={`/archives/paperlist?year=${vol.year}&volume=${elem.volume}&issue=${issue}`}
                           className="block border border-[#FF8C421F] hover:bg-[#FF8C421F] py-4 px-6  transition-colors"
                         >
                           <div className="flex items-center ">

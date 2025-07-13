@@ -9,7 +9,7 @@ import { setActiveConference } from '../../../lib/store/Features/conferenceSlice
 
 const ConferenceCard: React.FC<ConferenceCardProps> = (conference) => {
     const {
-        name, conference_date, organised_by, title
+        id, issue,volume,year ,name, conference_date, organised_by, title
     } = conference;
     const dispatch = useAppDispatch();
     const setActiveData = () => {
@@ -22,7 +22,7 @@ const ConferenceCard: React.FC<ConferenceCardProps> = (conference) => {
                     <h2 className="text-2xl font-semibold">{name}</h2>
 
                     <NavLink onClick={setActiveData}
-                        to={"/conference/" + title.replace(/\s+/g, '-').toLowerCase()}
+                        to={"/conference/paperlist?id="+id+"&year="+year+"&volume="+volume+"&issue="+issue+"&name="+name}
                         rel="noopener noreferrer"
                         className="sm:hidden"
                     >
@@ -41,7 +41,7 @@ const ConferenceCard: React.FC<ConferenceCardProps> = (conference) => {
             </div>
 
             <NavLink onClick={setActiveData}
-                to={"/conference/" + title.replace(/\s+/g, '-').toLowerCase()}
+                to={"/conference/paperlist?id="+id+"&year="+year+"&volume="+volume+"&issue="+issue+"&name="+name}
                 rel="noopener noreferrer"
                 className="hidden sm:inline-block"
 

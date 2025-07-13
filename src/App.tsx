@@ -54,13 +54,13 @@ export default function App() {
         <Route path="/publications" element={<ThesisIndex />} />
         <Route path="/thesis" element={<Thesis />}>
           <Route index element={<ArchiveFirst />} />
-          <Route path=":volumes" element={<ArchiveVolumes active="thesis" />} />
+          <Route path="paperlist" element={<ArchiveVolumes active="thesis" />} />
           <Route path="paper-details" element={<ArticleDetails />} />
         </Route>
 
         <Route path="/archives" element={<Archives />}>
           <Route index element={<ArchiveFirst />} />
-          <Route path=":volumes" element={<ArchiveVolumes active="archive" />} />
+          <Route path="paperlist" element={<ArchiveVolumes active="archive" />} />
           <Route path="paper-details" element={<ArticleDetails />} />
         </Route>
 
@@ -93,7 +93,7 @@ export default function App() {
         {/* conference */}
         <Route path="/conference" element={<Conference />}>
           <Route index element={<ConferenceIndex />} />
-          <Route path=":volumes" element={<ArchiveVolumes active="conference" />} />
+          <Route path="paperlist" element={<ArchiveVolumes active="conference" />} />
           <Route path="paper-details" element={<ConferenceDetails />} />
         </Route>
 
