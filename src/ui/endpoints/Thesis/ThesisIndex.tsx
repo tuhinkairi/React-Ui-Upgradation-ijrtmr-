@@ -3,7 +3,7 @@ import Title from "../../other/Title";
 
 const ThesisIndex = () => {
     return (
-        <CommonLayout className="bg-white px-6 pb-6  max-w-5xl mx-auto space-y-10 text-base leading-8 text-[#333333]">
+        <CommonLayout className="bg-white px-0 sm:px-6 pb-6  max-w-5xl mx-auto space-y-10 text-base leading-8 text-[#333333]">
             <Title>Thesis Publication</Title>
             <p className="">
                 International Journal of Scientific Research in Engineering & Technology (IJSREAT) is an

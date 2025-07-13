@@ -18,7 +18,19 @@ const ConferenceCard: React.FC<ConferenceCardProps> = (conference) => {
     return (
         <div className="flex justify-between items-start border rounded-lg p-6 shadow-sm bg-white w-full">
             <div>
-                <h2 className="text-2xl font-semibold">{name}</h2>
+                <div className='flex justify-between items-center'>
+                    <h2 className="text-2xl font-semibold">{name}</h2>
+
+                    <NavLink onClick={setActiveData}
+                        to={"/conference/" + title.replace(/\s+/g, '-').toLowerCase()}
+                        rel="noopener noreferrer"
+                        className="sm:hidden"
+                    >
+                        <PrimaryBtn>
+                            View Article
+                        </PrimaryBtn>
+                    </NavLink>
+                </div>
                 <p className="text-lg font-medium mt-2">{title}</p>
                 <p className="mt-2">
                     <span className="font-medium">Organized By :</span> {organised_by}
@@ -31,6 +43,8 @@ const ConferenceCard: React.FC<ConferenceCardProps> = (conference) => {
             <NavLink onClick={setActiveData}
                 to={"/conference/" + title.replace(/\s+/g, '-').toLowerCase()}
                 rel="noopener noreferrer"
+                className="hidden sm:inline-block"
+
             >
                 <PrimaryBtn>
                     View Article

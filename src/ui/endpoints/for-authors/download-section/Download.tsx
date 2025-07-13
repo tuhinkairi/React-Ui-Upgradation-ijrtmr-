@@ -4,7 +4,7 @@ import DownloadSectionCard from './DownloadSectionCard'
 
 export default function Download() {
     return (
-        <CommonLayout className='px-6 bg-white h-fit'>
+        <CommonLayout className=' px-0 sm:px-6 bg-white h-fit'>
             <Title>Downloads</Title>
             <div className='flex py-16 pt-14 '>
                 <DownloadSectionCard title='Manuscript Template' downloadUrl='#' />

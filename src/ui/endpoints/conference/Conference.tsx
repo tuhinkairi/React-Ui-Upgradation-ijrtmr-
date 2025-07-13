@@ -7,7 +7,7 @@ export default function Conference() {
   const name = useAppSelector((state) => state.conference.active?.name);
   
   return (
-    <CommonLayout title={path.includes("conference") && name?<>CONFERENCE /<span className="font-normal"> {name}</span></>:"CONFERENCE"} className="py-0 px-6 bg-white">
+    <CommonLayout title={path.includes("conference") && name?<>CONFERENCE /<span className="font-normal"> {name}</span></>:"CONFERENCE"} className="py-0 sm:px-6 bg-white">
       <Outlet/>
     </CommonLayout>
   )

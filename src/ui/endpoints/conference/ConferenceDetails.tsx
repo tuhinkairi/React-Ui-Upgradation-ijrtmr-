@@ -17,6 +17,9 @@ import { setLoading } from "../../../lib/store/Features/loadingSlice";
 import { setActiveConference } from "../../../lib/store/Features/conferenceSlice";
 import Loading from "../../components/Loading";
 import { FetchActiveConference } from "../../../lib/axios/api/conference";
+import PrimaryBtn from "../../components/Btns/PrimaryBtn";
+import { VscFilePdf } from "react-icons/vsc";
+import { MdDone } from "react-icons/md";
 
 type TabOption = "FullArticle" | "References" | "Citations" | "Metrics" | "Licensing";
 
@@ -24,6 +27,7 @@ const ConferenceDetails = () => {
   const searchQuery = useSearchParams();
   const [currentItem, setCurrentItem] = useState<TabOption>(searchQuery[0].get("section")?.replace("-", " ") as TabOption || "FullArticle")
   const id = searchQuery[0].get("paperId")
+  const [copy, SetCopy] = useState<boolean>(false)
   const navigate = useNavigate()
   const loading = useAppSelector((state) => state.loadingScreen.loading)
   const dispatch = useAppDispatch()
@@ -41,7 +45,7 @@ const ConferenceDetails = () => {
     if (id) {
       if (activePaper?.id !== parseInt(id)) {
         // fetch conference here
-        FetchActiveConference({ id:id }).then((data) => {
+        FetchActiveConference({ id: id }).then((data) => {
           dispatch(setLoading(true))
           if (data) {
             dispatch(setActiveConference(data))
@@ -58,7 +62,7 @@ const ConferenceDetails = () => {
     return <Loading title="Paper Details" />
   }
   return (
-    <div className="mx-auto  bg-white space-y-6 p-5">
+    <div className="mx-auto  bg-white space-y-3 sm:space-y-6 p-2 sm:p-5">
       {/* Header + PDF Button */}
       <div className="flex justify-between items-start">
         <div>
@@ -74,8 +78,8 @@ const ConferenceDetails = () => {
           <div className="w-full text-base flex gap-3 gap-x-12 justify-between">
             <div className="flex gap-3 gap-x-6 flex-wrap py-2 mb-2">
               {auther.map((author, index) => (
-                <span className=" text-primary flex gap-2 items-center text-lg" key={index}>
-                  <CgProfile size={24} />
+                <span className=" text-primary flex gap-2 items-center text-base sm:text-lg" key={index}>
+                  <CgProfile className="text-lg sm:text-2xl" />
                   {author}<span className="text-xs h-full flex items-start -ml-1">{index + 1}</span>
                   {/* {index !== auther.length - 1 && ", "} */}
                 </span>
@@ -90,7 +94,7 @@ const ConferenceDetails = () => {
                 </span>
               ))}
             </div> */}
-            <button className="inline-flex items-center justify-center bg-[#fae0d0]  text-sm font-medium px-6 py-2.5 gap-3 hover:bg-[#f6d5c3]  text-paragraph transition-colors rounded-full h-fit">
+            <button className="hidden sm:inline-flex items-center justify-center bg-[#fae0d0]  text-sm font-medium px-6 py-2.5 gap-3 hover:bg-[#f6d5c3]  text-paragraph transition-colors rounded-full h-fit">
               <Share2 size={13} className="inline-block" /> Share
             </button>
           </div>
@@ -108,28 +112,53 @@ const ConferenceDetails = () => {
       </div>
 
       {/* DOI and Utilities */}
-      <div className="flex items-center gap-4 w-full justify-between text-base">
-        <h3 className="text-primary text-lg flex gap-2 items-center  mr-10">
-          <ImQuotesLeft className="text-primary" /> Cite this article
-        </h3>
-
-        {activePaper?.doi && <Link
-          to={activePaper?.doi}
-          className="text-primary flex items-center gap-1 hover:underline"
-        >
-          ↗ {activePaper?.doi}
-        </Link>}
-        <button className="bg-gradient-to-b from-gray-100  to-zinc-300 border border-gray-300 hover:scale-105 transition-all text-dark px-3 py-2 rounded-md font-semibold flex items-center justify-center space-x-3 text-sm">
-          <span>
-            Check for Updates</span> <IoReload height={20} />
-        </button>
-        <button className="inline-flex items-center justify-center bg-[#fae0d0] text-paragraph text-sm font-medium w-12 h-12 hover:bg-[#f6d5c3] transition-colors rounded-full">
-          <Share2 size={13} className="inline-block" />
-        </button>
-      </div>
+     <div className="flex items-start sm:items-center flex-wrap gap-4 w-full justify-between text-base">
+             <div className="flex gap-4 sm:gap-0 w-2/3 sm:w-fit justify-between flex-col sm:flex-row ">
+               <h3 className="text-primary text-bsae sm:text-lg flex gap-2 items-center sm:mr-10">
+                 <ImQuotesLeft className="text-primary" /> Cite this article
+               </h3>
+     
+               {activePaper?.doi && <Link
+                 target="_blank"
+                 to={activePaper?.doi_link ?? "#"}
+                 className="text-primary flex items-center gap-1 hover:underline"
+               >
+                 ↗ {activePaper?.doi}
+               </Link>}
+             </div>
+     
+             <button className="inline-flex sm:hidden items-center justify-center bg-[#fae0d0] text-primary-text text-sm font-medium w-12 h-12 hover:bg-[#f6d5c3] transition-colors rounded-full">
+               <Share2 size={13} className="inline-block" />
+             </button>
+     
+             <div className="flex gap-3 justify-between w-full sm:w-fit flex-wrap">
+               <Link to={activePaper.pdf_url} rel="noreferrer" className="sm:hidden">
+                 <PrimaryBtn className="whitespace-nowrap">
+                   View PDF
+                   <VscFilePdf size={18} className="ml-4" />
+                 </PrimaryBtn>
+               </Link>
+               <button className="bg-gradient-to-b from-gray-100  to-zinc-300 border border-gray-300 hover:scale-105 transition-all text-dark px-3 py-2 rounded-md font-semibold flex items-center justify-center space-x-3 text-sm">
+                 <span>
+                   Check for Updates</span> <IoReload height={20} />
+               </button>
+             </div>
+     
+                   <button className={`hidden sm:inline-flex items-center justify-center ${copy?"bg-green-300 hover:bg-green-400":"bg-[#fae0d0] hover:bg-[#f6d5c3]"} text-primary-text text-sm font-medium w-12 h-12  transition-colors rounded-full`} onClick={() => {
+                     navigator.clipboard.writeText(window.location.href)
+                     SetCopy(true)
+                     setTimeout(() => {
+                       SetCopy(false)
+                     }, 2000)
+                   }}>
+               {!copy ? <Share2 size={13} className="inline-block" /> :<MdDone size={13} className="inline-block" />}
+               
+             </button>
+           </div>
+     
 
       {/* Navigation Tabs */}
-      <div className="flex justify-between gap-6 text-lg border-b border-gray-200">
+      <div className="flex justify-between gap-6 text-lg border-b border-gray-200 overflow-x-auto mt-6 sm:mt-0">
         {["FullArticle", "References", "Citations", "Metrics", "Licensing"].map(
           (tab, idx) => (
             <button
