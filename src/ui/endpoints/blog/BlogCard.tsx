@@ -3,7 +3,7 @@ import type { Blog } from "../../../types/Api"
 import { useAppDispatch } from "../../../lib/store/store"
 import { setBlog } from "../../../lib/store/Features/BlogSlice"
 
-export const BlogCard = ({ blog, key }: { blog: Blog, key: number }) => {
+export const BlogCard = ({ blog, keyProp }: { blog: Blog, keyProp: number }) => {
     const navigate = useNavigate()
     const dispatch = useAppDispatch()
     
@@ -13,8 +13,8 @@ export const BlogCard = ({ blog, key }: { blog: Blog, key: number }) => {
 
     }
     return (
-        <div key={key} className=" rounded-md overflow-hidden border border-gray-200 max-w-[460px]">
-            <img src={blog.image ?? ""} alt={blog.title ?? ""} className="w-full h-64 object-cover" />
+        <div key={keyProp} className=" rounded-md overflow-hidden border border-gray-200 max-w-[400px] mx-auto">
+            <img src={blog.image ?? "https://www.webnode.com/blog/wp-content/uploads/2019/04/blog2.png"} alt={blog.title ?? "blog image"} className="w-full h-64 object-cover" />
             <div className="p-5">
                 <h2 className="bg-gradient-to-r from-[#FF8C42] to-[#995428] bg-clip-text text-transparent text-2xl  mb-3 leading-snug font-serif">
                     {blog.title}

@@ -1,7 +1,7 @@
 const JournalOverview = ({ title, category, date, description, points, other }: { title: string, category: string, date: string, description: string, points: string[] ,other?:string}) => {
   return (
     <div className="bg-white py-3 pb-6 p-6 rounded-xl shadow shadowSprade space-y-6">
-      <h2 className="text-3xl font-serif">{title}</h2>
+      <h2 className="text-2xl sm:text-3xl font-serif">{title}</h2>
       <div className="space-y-2 ">
       <p className="font-semibold text-base">Category By: {category}</p>
       <p className="font-semibold text-base mb-2">Date: {date}</p>

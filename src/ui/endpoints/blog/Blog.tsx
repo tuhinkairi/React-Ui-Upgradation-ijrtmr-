@@ -12,25 +12,25 @@ import Loading from '../../components/Loading';
 export default function Blog() {
     const [page, setPage] = useState(1);
     const [BlogList, setBlogList] = useState<Blog[]>(useAppSelector((state) => state.blog.blogList));
-
     const [totalPages, setTotalPages] = useState(1);
     const itemsPerPage = 6;
     const dispatch = useAppDispatch();
     const loading = useAppSelector((state) => state.loadingScreen.loading);
-     
+
 
     useEffect(() => {
-        if(BlogList.length==0)fetchBlog()
-        .then(data => {
-                dispatch(setLoading(true));
+        if (BlogList.length == 0) {
+            
+            dispatch(setLoading(true));
+            fetchBlog().then(data => {
                 setBlogList(data);
                 dispatch(setStoreBlogList(data));
                 dispatch(setLoading(false));
                 setTotalPages(Math.ceil(data.length / itemsPerPage));
-            }).finally(() => {
-                dispatch(setLoading(false));
             })
-    }, [dispatch,BlogList]);
+        }
+        dispatch(setLoading(false));
+    }, [dispatch, BlogList]);
 
     const paginatedBlogs = BlogList.slice(
         (page - 1) * itemsPerPage,
@@ -57,23 +57,25 @@ export default function Blog() {
 
         return Array.from({ length: endPage - startPage + 1 }, (_, i) => startPage + i);
     };
-
+    if (loading) {
+        return <Loading />
+    }
     return (
         <CommonLayout className='bg-white' title='Blog'>
-            {loading ? <Loading /> : <><section className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-8 justify-between mb-12">
+            <section className="grid sm:grid-cols-2 2xl:grid-cols-3 gap-8 justify-center sm:justify-between mb-12">
                 {paginatedBlogs.map((blog, index) => (
-                    <BlogCard blog={blog} key={index} />
+                    <BlogCard blog={blog} keyProp={index} />
                 ))}
             </section>
 
-                {totalPages > 1 && (
-                    <Pagination
-                        currentPage={page}
-                        totalPages={totalPages}
-                        onPageChange={setPage}
-                        rangeList={getVisiblePages()}
-                    />
-                )}</>}
+            {totalPages > 1 && (
+                <Pagination
+                    currentPage={page}
+                    totalPages={totalPages}
+                    onPageChange={setPage}
+                    rangeList={getVisiblePages()}
+                />
+            )}
         </CommonLayout>
     );
 }

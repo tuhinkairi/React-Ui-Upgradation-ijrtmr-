@@ -136,7 +136,7 @@ const[isShowing, setShowing] = useState<boolean>(false)
             rel="noopener noreferrer"
           >
             <button className="bg-primary hover:bg-primary-hover text-white px-4 py-3 rounded-md font-medium">
-              Author Login
+              Login
             </button>
           </Link>
         </div>
@@ -157,7 +157,7 @@ const[isShowing, setShowing] = useState<boolean>(false)
             rel="noopener noreferrer"
           >
             <button className="bg-primary hover:bg-primary-hover text-white px-4 py-3 rounded-md font-medium">
-              Author Login
+              Login
             </button>
           </Link>
           <button onClick={()=>setShowing(!isShowing)} className="p-2 rounded-md hover:bg-gray-100 transition lg:hidden">
