@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 const ListingSection = ({data,title}:{data: {title:string, link:string}[],title:string}) => {
   return (
@@ -6,11 +7,11 @@ const ListingSection = ({data,title}:{data: {title:string, link:string}[],title:
       <ul className="space-y-3">
         {data.map((link, idx) => (
           <li key={idx}>
-            <a href={`${import.meta.env.VITE_API_HOST_URL??""}${link.link}`} target="_blank" rel="noopener noreferrer"
+            <Link to={`${import.meta.env.VITE_API_HOST_URL??""}${link.link}`} target="_blank" rel="noopener noreferrer"
               className="block w-full borderPrimaryHover text-gray-800 font-medium rounded-md py-2 px-4 transition-colors"
             >
               {link.title}
-            </a>
+            </Link>
           </li>
         ))}
       </ul>
