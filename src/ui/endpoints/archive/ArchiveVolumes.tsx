@@ -337,7 +337,7 @@ export default function ArchiveVolumes({ active }: activeSection) {
             </PrimaryBtn>
           )
         )}
-        {(active === "archive") && (
+        {(active === "archive" ||active === "issue") && (
           ArticalVolumesSearch ? (
             <PrimaryBtn event={() => setArticalVolumesSearch(null)}>
               <GrClear size={16} /> Clear
