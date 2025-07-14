@@ -1,12 +1,13 @@
 import { ArrowUpRight, Download, Eye, SearchIcon } from "lucide-react";
-import { Link, NavLink, type NavigateFunction } from "react-router-dom";
+import { Link, NavLink, useLocation, type NavigateFunction } from "react-router-dom";
 import type { ArchivePaperDetailProps } from "../../../types/Api";
 import { ImQuotesRight } from "react-icons/im";
 import { PiChartPieSlice } from "react-icons/pi";
 import PrimaryBtn from "../../components/Btns/PrimaryBtn";
 
 export default function VolumeCardArchive({ paper, setActive, navigate }: { paper: ArchivePaperDetailProps, setActive: (arg: ArchivePaperDetailProps) => void, navigate: NavigateFunction }) {
-    const endpoint = `/archives/paper-details?paperId=${paper.paper_id}&papertitle=${encodeURIComponent(paper.paper_title.replace(/ /g, "-"))}`
+    const url = useLocation().pathname
+    const endpoint = `/${url.includes("archives")?"archives":"current-issue"}/paper-details?paperId=${paper.paper_id}&papertitle=${encodeURIComponent(paper.paper_title.replace(/ /g, "-"))}`
 const HandleGoolge =()=>{
         window.open(`https://www.google.com/search?q=${encodeURIComponent(paper.paper_title)}`, '_blank')
     }

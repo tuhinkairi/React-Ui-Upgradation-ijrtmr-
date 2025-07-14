@@ -16,6 +16,7 @@ import { setActiveThesisIndex, setThesisIndexingList } from "../../../../lib/sto
 export default function ArchiveSection() {
   const navigate = useNavigate()
   const thesis = useLocation().pathname.includes('thesis');
+  const issue = useLocation().pathname.includes('current-issue');
   console.log(thesis)
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
@@ -67,7 +68,7 @@ export default function ArchiveSection() {
     return <Loading title="Archive" />
   }
   return (
-    <div className="mb-6">
+    <div className="mb-10 sm:text-base">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 border-collapse">
         {/* thesis */}
         {thesis && yearVolumeThesis && yearVolumeThesis.map((vol, index) => (
@@ -87,7 +88,7 @@ export default function ArchiveSection() {
           </div>
         ))}
         {/* archive */}
-        {!thesis && volume && volume.map((vol, index) => (
+        {!thesis && !issue && volume && volume.map((vol, index) => (
           <div key={index} className={`relative border ${openIndex === index ? "border-[#FF8C42B2] text-[#FF8C42B2] rounded-bl-none rounded-br-none " : "hover:border-[#FF8C42B2] hover:text-[#FF8C42B2] border-gray-400"} rounded-md`}>
             <button
               onClick={() => toggleDropdown(index)}
@@ -128,6 +129,51 @@ export default function ArchiveSection() {
             )}
 
           </div>
+        ))}
+        {/* current issue */}
+        {!thesis && issue && volume && volume.map((vol, index) => (
+          
+          (index==0 && <div key={index} className={`relative border ${openIndex === index ? "border-[#FF8C42B2] text-[#FF8C42B2] rounded-bl-none rounded-br-none " : "hover:border-[#FF8C42B2] hover:text-[#FF8C42B2] border-gray-400"} rounded-md`}>
+            <button
+              onClick={() => toggleDropdown(index)}
+              className="w-full flex justify-between items-center px-4 py-3 text-left focus:outline-none"
+            >
+              <span className="">
+                Volume {vol.volumes[0].volume} {vol.year}
+              </span>
+              <span className="transform transition-transform duration-300" style={{ transform: openIndex === index ? 'rotate(180deg)' : 'rotate(0)' }}>
+                <ChevronDown />
+              </span>
+            </button>
+            {openIndex === index && (
+              <div className="absolute w-full z-10 border shadow-lg rounded-b-2xl  bg-white overflow-hidden">
+                <div className="">
+                  {
+                    vol.volumes.map((elem) =>
+                      elem.issue.map((issue, idx) => (
+                        (idx==0 &&<Link
+                          onClick={() => handelActiveIndex({
+                            year: vol.year,
+                            volume: elem.volume,
+                            issue: issue
+                          })}
+                          key={`${elem.volume}-${issue}`}
+                          to={`/current-issue/paperlist?year=${vol.year}&volume=${elem.volume}&issue=${issue}`}
+                          className="block border border-[#FF8C421F] hover:bg-[#FF8C421F] py-4 px-6  transition-colors"
+                        >
+                          <div className="flex items-center ">
+                            <h1 className="text-primary-text">Issue {issue}</h1>
+                          </div>
+                        </Link>)
+                      ))
+                    )
+                  }
+                </div>
+              </div>
+            )}
+
+          </div>)
+          
         ))}
       </div>
     </div>

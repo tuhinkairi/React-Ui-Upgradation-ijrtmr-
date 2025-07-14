@@ -165,7 +165,7 @@ export default function ArchiveVolumes({ active }: activeSection) {
       // going through 1 by 1 condition
       if (!activeArchiveIndex?.year) {
         // find by navigation
-        navigate("/archives")
+        if(url.includes("current-issue"))navigate("/current-issue"); else navigate("/archives")
       }
       else {
         const params: ArchivePaperListtingArg = {
@@ -187,7 +187,7 @@ export default function ArchiveVolumes({ active }: activeSection) {
     } catch (err) {
       console.log(err);
     }
-  }, [pageNumber, dispatch, trackPage, ArticalVolumes, activeArchiveIndex, navigate, perPage, ArchiveIndex]);
+  }, [pageNumber, dispatch, trackPage, ArticalVolumes, activeArchiveIndex, navigate, perPage, ArchiveIndex,url]);
 
   // Move setup block to useEffect
   useEffect(() => {
@@ -215,8 +215,19 @@ export default function ArchiveVolumes({ active }: activeSection) {
         })
         break;
       case 'issue':
-        setConferenceVolumes([]);
-        dispatch(setLoading(false));
+       console.log("current issue")
+        // setConferenceVolumes([]);
+
+        if (ArticalVolumes.length && activeArchiveIndex && ArchiveIndex && activeArchiveIndex?.year === ArchiveIndex?.year && activeArchiveIndex?.volume === ArchiveIndex?.volume && activeArchiveIndex?.issue === ArchiveIndex?.issue) {
+          console.log(activeArchiveIndex, ArchiveIndex, "issue running");
+          dispatch(setLoading(false));
+        } else {
+          if (!activeArchiveIndex) redirect("/current-issue")
+          console.log("issue fetching")
+          fetchArticalData().finally(() => {
+            dispatch(setLoading(false));
+          })
+        }
         break;
       case 'thesis':
         console.log("thesis");
@@ -276,7 +287,11 @@ export default function ArchiveVolumes({ active }: activeSection) {
         setForm({ ...form, search: "" })
         break
       case "issue":
-        searchConference(form)
+        searchArchive(form).then((data) => {
+          const tempo = data ? data : []
+          setArticalVolumesSearch(tempo)
+        }).finally(() => dispatch(setLoading(false)))
+        setForm({ ...form, search: "" })
         break
     }
   }
@@ -292,6 +307,7 @@ export default function ArchiveVolumes({ active }: activeSection) {
       <div className="text-center">
         {active == "conference" && <h1 className="text-2xl font-semibold">Volume {activeConferencePage?.volume}, Issue {activeConferencePage?.issue} ({activeConferencePage?.year})</h1>}
         {active == "archive" && <h1 className="text-2xl font-semibold">Volume {activeArchiveIndex?.volume}, Issue {activeArchiveIndex?.issue} ({activeArchiveIndex?.year})</h1>}
+        {active == "issue" && <h1 className="text-2xl font-semibold">Volume {activeArchiveIndex?.volume}, Issue {activeArchiveIndex?.issue} ({activeArchiveIndex?.year})</h1>}
         {active == "thesis" && <h1 className="text-2xl font-semibold">Volume {activeThesisIndex?.volume}, Year {activeThesisIndex?.year}</h1>}
       </div>
 
@@ -363,6 +379,19 @@ export default function ArchiveVolumes({ active }: activeSection) {
                 ))
                 : <Title>No Paper Found</Title>
           )}
+          {active === "issue" && (
+            ArticalVolumesSearch !== null
+              ? ArticalVolumesSearch?.length
+                ? ArticalVolumesSearch.map((paper, idx) => (
+                  <VolumeCardArchive paper={paper} key={idx} setActive={setActiveArtical} navigate={navigate} />
+                ))
+                : <Title>No Paper Found</Title>
+              : ArticalVolumes?.length
+                ? ArticalVolumes.map((paper, idx) => (
+                  <VolumeCardArchive paper={paper} key={idx} setActive={setActiveArtical} navigate={navigate} />
+                ))
+                : <Title>No Paper Found</Title>
+          )}
 
           {/* conference */}
           {active === "conference" && (
@@ -408,6 +437,14 @@ export default function ArchiveVolumes({ active }: activeSection) {
         />
       </div>}
       {active === "archive" && ArticalVolumesSearch === null && <div className="mt-16">
+        <Pagination
+          currentPage={pageNumber}
+          totalPages={totalPage}
+          onPageChange={setPageNumber}
+          rangeList={getVisiblePages()}
+        />
+      </div>}
+      {active === "issue" && ArticalVolumesSearch === null && <div className="mt-16">
         <Pagination
           currentPage={pageNumber}
           totalPages={totalPage}

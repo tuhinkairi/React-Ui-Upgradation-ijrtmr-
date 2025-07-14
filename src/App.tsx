@@ -46,7 +46,6 @@ export default function App() {
       <Routes>
         <Route path="/" loader={true} element={<Home />} />
         {/* <Route path="/for-authors" element={<>comming soon</>} /> */}
-        <Route path="/current-issue" element={<>comming soon</>} />
         <Route path="/blogs" element={<Blog />} />
         <Route path="/blogs/:slug" element={<BlogShow />} />
         <Route path="/contact-us" element={<ContactUs />} />
@@ -58,6 +57,13 @@ export default function App() {
           <Route path="paper-details" element={<ArticleDetails />} />
         </Route>
 
+        {/* current issue */}
+        <Route path="/current-issue" element={<Archives />}>
+          <Route index element={<ArchiveFirst />} />
+          <Route path="paperlist" element={<ArchiveVolumes active="issue" />} />
+          <Route path="paper-details" element={<ArticleDetails />} />
+        </Route>
+        {/* archives */}
         <Route path="/archives" element={<Archives />}>
           <Route index element={<ArchiveFirst />} />
           <Route path="paperlist" element={<ArchiveVolumes active="archive" />} />
@@ -99,7 +105,7 @@ export default function App() {
 
 
         {/* error */}
-          <Route path="*" element={<Page404 />} />
+        <Route path="*" element={<Page404 />} />
 
       </Routes>
       <Footer />
