@@ -1,0 +1,6 @@
+# robots.txt for IJSREAT
+
+User-agent: *
+Allow: /
+
+Sitemap: https://ijsreat-react.vercel.app/sitemap.xml

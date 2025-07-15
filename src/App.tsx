@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import Page404 from "./ui/components/layout/Page404";
+import MetaDataWrapper from "./ui/components/layout/MetaDataWrapper";
 const Home = React.lazy(() => import("./ui/endpoints/home/Home"));
 const Archives = React.lazy(() => import("./ui/endpoints/archive/Archives"));
 const Navbar = React.lazy(() => import("./ui/components/NavBar"));
@@ -38,66 +39,66 @@ const EditorBoard = React.lazy(() => import("./ui/endpoints/Editorial/EditorialB
 
 export default function App() {
   const path = useLocation();
-
+ 
   return (
     <section id="container-main" className={`main_body ${path.pathname == "/" && "bg-gradient-to-b from-0% from-[#E9EFFE] to-13%  to-white"}`}>
       <ScrollToTop />
       <Navbar />
       <Routes>
-        <Route path="/" loader={true} element={<Home />} />
+        <Route path="/" loader={true} element={<MetaDataWrapper><Home /></MetaDataWrapper>} />
         {/* <Route path="/for-authors" element={<>comming soon</>} /> */}
-        <Route path="/blogs" element={<Blog />} />
+        <Route path="/blogs" loader={true} element={<MetaDataWrapper><Blog /></MetaDataWrapper>} />
         <Route path="/blogs/:slug" element={<BlogShow />} />
-        <Route path="/contact-us" element={<ContactUs />} />
+        <Route path="/contact-us" element={<MetaDataWrapper><ContactUs /></MetaDataWrapper>} />
 
-        <Route path="/publications" element={<ThesisIndex />} />
-        <Route path="/thesis" element={<Thesis />}>
+        <Route path="/publications" element={<MetaDataWrapper><ThesisIndex /></MetaDataWrapper>} />
+        <Route path="/thesis" element={<MetaDataWrapper><Thesis /></MetaDataWrapper>}>
           <Route index element={<ArchiveFirst />} />
           <Route path=":paperlist" element={<ArchiveVolumes active="thesis" />} />
           <Route path="paper-details" element={<ArticleDetails />} />
         </Route>
 
         {/* current issue */}
-        <Route path="/current-issue" element={<Archives />}>
+        <Route path="/current-issue" element={<MetaDataWrapper><Archives /></MetaDataWrapper>}>
           <Route index element={<ArchiveFirst />} />
           <Route path="paperlist" element={<ArchiveVolumes active="issue" />} />
           <Route path="paper-details" element={<ArticleDetails />} />
         </Route>
         {/* archives */}
-        <Route path="/archives" element={<Archives />}>
+        <Route path="/archives" element={<MetaDataWrapper><Archives /></MetaDataWrapper>}>
           <Route index element={<ArchiveFirst />} />
           <Route path="paperlist" element={<ArchiveVolumes active="archive" />} />
           <Route path="paper-details" element={<ArticleDetails />} />
         </Route>
 
         {/* about section */}
-        <Route path="/aim-and-scope" element={<About />} />
+        <Route path="/aim-and-scope" element={<MetaDataWrapper><About /></MetaDataWrapper>} />
         {/* editorial start */}
-        <Route path="/editorial-board" element={<EditorBoard />} />
+        <Route path="/editorial-board" element={<MetaDataWrapper><EditorBoard /></MetaDataWrapper>} />
         <Route path="/editorial-board/:data" element={<EditoralSingle />} />
         {/* editorial end*/}
-        <Route path="/indexing&abstraction" element={<IndexAbstract />} />
-        <Route path="/publication-ethics-policy" element={<PublicationPolicy />} />
-        <Route path="/peer-review-policy" element={<PeerReviewPolicy />} />
-        <Route path="/ethics" element={<EthicsAndPolicy />} />
-        <Route path="/cross-mark-policy" element={<CrossMarkPolicy />} />
-        <Route path="/impact-Factor" element={<ImactFactor />} />
-        <Route path="/FAQs" element={<FAQ />} />
+        <Route path="/indexing&abstraction" element={<MetaDataWrapper><IndexAbstract /></MetaDataWrapper>} />
+        <Route path="/publication-ethics-policy" element={<MetaDataWrapper><PublicationPolicy /></MetaDataWrapper>} />
+        <Route path="/peer-review-policy" element={<MetaDataWrapper><PeerReviewPolicy /></MetaDataWrapper>} />
+        <Route path="/ethics" element={<MetaDataWrapper><EthicsAndPolicy /></MetaDataWrapper>} />
+        <Route path="/cross-mark-policy" element={<MetaDataWrapper><CrossMarkPolicy /></MetaDataWrapper>} />
+        <Route path="/impact-Factor" element={<MetaDataWrapper><ImactFactor /></MetaDataWrapper>} />
+        <Route path="/FAQs" element={<MetaDataWrapper><FAQ /></MetaDataWrapper>} />
         {/* about end */}
 
         {/* for authors */}
-        <Route path="/downloads" element={<Download />} />
-        <Route path="/journal-publishing-process" element={<JournalPublishingProcess />} />
-        <Route path="/call-for-papers" element={<CallForPapers />} />
-        <Route path="/topics" element={<Topics />} />
-        <Route path="/paper-status" element={<ArticleStatus />} />
-        <Route path="/instruction-for-author" element={<GuideForAuther />} />
-        <Route path="/article-processing-charges" element={<ArticleProcessingCharges />} />
-        <Route path="/guidance-for-ems" element={<EMS />} />
+        <Route path="/downloads" element={<MetaDataWrapper><Download /></MetaDataWrapper>} />
+        <Route path="/journal-publishing-process" element={<MetaDataWrapper><JournalPublishingProcess /></MetaDataWrapper>} />
+        <Route path="/call-for-papers" element={<MetaDataWrapper><CallForPapers /></MetaDataWrapper>} />
+        <Route path="/topics" element={<MetaDataWrapper><Topics /></MetaDataWrapper>} />
+        <Route path="/paper-status" element={<MetaDataWrapper><ArticleStatus /></MetaDataWrapper>} />
+        <Route path="/instruction-for-author" element={<MetaDataWrapper><GuideForAuther /></MetaDataWrapper>} />
+        <Route path="/article-processing-charges" element={<MetaDataWrapper><ArticleProcessingCharges /></MetaDataWrapper>} />
+        <Route path="/guidance-for-ems" element={<MetaDataWrapper><EMS /></MetaDataWrapper>} />
 
 
         {/* conference */}
-        <Route path="/conference" element={<Conference />}>
+        <Route path="/conference" element={<MetaDataWrapper><Conference /></MetaDataWrapper>}>
           <Route index element={<ConferenceIndex />} />
           <Route path="paperlist" element={<ArchiveVolumes active="conference" />} />
           <Route path="paper-details" element={<ConferenceDetails />} />
