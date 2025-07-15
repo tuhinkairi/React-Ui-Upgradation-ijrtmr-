@@ -35,7 +35,7 @@ export default function ArchiveSection() {
           setYearVolumeThesis(reversedData)
           dispatch(setThesisIndexingList(reversedData)) //store the list
         }).catch(err => {
-          //console.log(err)
+          console.error(err)
         }).finally(() => dispatch(setLoading(false)))
       }
     }
@@ -47,7 +47,7 @@ export default function ArchiveSection() {
           setVolumes(reversedData)
           dispatch(setArchiveIndexVolume(reversedData)) //store the list
         }).catch(err => {
-          //console.log(err)
+          console.error(err)
         }).finally(() => dispatch(setLoading(false)))
       }
     }
