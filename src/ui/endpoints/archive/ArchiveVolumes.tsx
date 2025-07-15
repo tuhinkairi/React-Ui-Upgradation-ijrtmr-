@@ -158,7 +158,7 @@ export default function ArchiveVolumes({ active }: activeSection) {
         }
       }
     } catch (err) {
-      console.log(err);
+      console.error(err);
     }
   }, [activeConferencePage, pageNumber, dispatch, url, trackPage, ConferenceVolumes]);
 
@@ -187,7 +187,7 @@ export default function ArchiveVolumes({ active }: activeSection) {
         }
       }
     } catch (err) {
-      console.log(err);
+      console.error(err);
     }
   }, [pageNumber, dispatch, trackPage, ArticalVolumes, activeArchiveIndex, navigate, perPage, ArchiveIndex, url]);
 
