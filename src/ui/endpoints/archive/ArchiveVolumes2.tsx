@@ -73,8 +73,8 @@
 //       page:trackPage,
 //       per_page:perPage
 //     }
-//     console.log("archive")
-//     ArchivePaperListting(prop).then(data=>console.log("archive",data))
+//     //console.log("archive")
+//     ArchivePaperListting(prop).then(data=>//console.log("archive",data))
 //   }, [active, fetchConferenceData, dispatch,trackPage,perPage]);
 
 //   // Loading state

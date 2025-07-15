@@ -19,6 +19,8 @@ import type { ArchivePaperDetailProps } from "../../../../types/Api";
 import PrimaryBtn from "../../../components/Btns/PrimaryBtn";
 import { VscFilePdf } from "react-icons/vsc";
 import { MdDone } from "react-icons/md";
+import MetaDataWrapper from "../../../components/layout/MetaDataWrapper";
+import { superscriptifyAllNumbers } from "../../../../lib/utils/other/superScript";
 
 type TabOption = "FullArticle" | "References" | "Citations" | "Metrics" | "Licensing";
 
@@ -26,7 +28,7 @@ const ArticleDetails = () => {
   const searchQuery = useSearchParams();
   const id = searchQuery[0].get("paperId")
   const [currentItem, setCurrentItem] = useState<TabOption>(searchQuery[0].get("section")?.replace("-", " ") as TabOption || "FullArticle")
-  const [copy, SetCopy] = useState<boolean>(false)  
+  const [copy, SetCopy] = useState<boolean>(false)
   const ActiveArticle = useAppSelector((state) => state.archiveSection.activePaper)
   const [activePaper, setPaper] = useState<ArchivePaperDetailProps | null>(ActiveArticle)
 
@@ -36,7 +38,7 @@ const ArticleDetails = () => {
   const loading = useAppSelector((state) => state.loadingScreen.loading)
   const dispatch = useAppDispatch()
   const auther = [activePaper?.author_1, activePaper?.author_2, activePaper?.author_3, activePaper?.author_4, activePaper?.author_5, activePaper?.author_6].filter(item => item !== null)
-  const designation: string[] = activePaper?.paper_designation?.split(",") ?? []
+  // const designation: string[] = activePaper?.paper_designation?.split(",") ?? []
   // functions
   useEffect(() => {
     if (id) {
@@ -59,123 +61,128 @@ const ArticleDetails = () => {
     return <Loading title="Paper Details" />
   }
   return (
-    <div className="mx-auto  bg-white space-y-3 sm:space-y-6 p-2 sm:p-5">
-      {/* Header + PDF Button */}
-      <div className="flex justify-between items-start">
-        <div>
-          <h2 className="text-2xl font-semibold leading-snug">
-            {activePaper?.paper_title}
-          </h2>
-        </div>
-      </div>
-
-      {/* Meta Information */}
-      <div className="space-y-3 text-primary-text leading-7 text-sm sm:text-base">
-        <div className="flex gap-3 ">
-          <div className="text-base flex flex-wrap sm:flex-col gap-3 ">
-            <div className="flex flex-wrap gap-3 gap-x-6">
-              {auther.map((author, index) => (
-                index <= 3 && <span className=" text-primary flex gap-2 items-center text-base sm:text-lg" key={index}>
-                  <CgProfile className="text-lg sm:text-2xl" />
-                  {author}<span className="text-xs h-full flex items-start -ml-1">{index + 1}</span>
-                  {/* {index !== auther.length - 1 && ", "} */}
-                </span>
-              ))}
-            </div>
-            <div className="flex flex-wrap gap-3">
-              {auther.map((author, index) => (
-                index > 3 && <span className="text-primary flex gap-2 items-center text-lg" key={index}>
-                  <CgProfile className="text-lg sm:text-2xl" />
-                  {author}<span className="text-xs h-full flex items-start -ml-1">{index + 1}</span>
-                  {/* {index !== auther.length - 1 && ", "} */}
-                </span>
-              ))}
-            </div>
+    <MetaDataWrapper titleDynamic={activePaper.paper_title} desciptionDynamic={activePaper.paper_designation?.split(".")[0]}>
+      <div className="mx-auto  bg-white space-y-3 sm:space-y-6 p-2 sm:p-5">
+        {/* Header + PDF Button */}
+        <div className="flex justify-between items-start">
+          <div>
+            <h2 className="text-2xl font-semibold leading-snug">
+              {activePaper?.paper_title}
+            </h2>
           </div>
         </div>
-        <ul className="text-secondary-text list-decimal list-inside">
+
+        {/* Meta Information */}
+        <div className="space-y-3 text-primary-text leading-7 text-sm sm:text-base">
+          <div className="flex gap-3 ">
+            <div className="text-base flex flex-wrap sm:flex-col gap-3 ">
+              <div className="flex flex-wrap gap-3 gap-x-6">
+                {auther.map((author, index) => (
+                  index <= 3 && <span className=" text-primary flex gap-2 items-center text-base sm:text-lg" key={index}>
+                    <CgProfile className="text-lg sm:text-2xl" />
+                    {author}<span className="text-xs h-full flex items-start -ml-1">{index + 1}</span>
+                    {/* {index !== auther.length - 1 && ", "} */}
+                  </span>
+                ))}
+              </div>
+              <div className="flex flex-wrap gap-3">
+                {auther.map((author, index) => (
+                  index > 3 && <span className="text-primary flex gap-2 items-center text-lg" key={index}>
+                    <CgProfile className="text-lg sm:text-2xl" />
+                    {author}<span className="text-xs h-full flex items-start -ml-1">{index + 1}</span>
+                    {/* {index !== auther.length - 1 && ", "} */}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+          {/* <ul className="text-secondary-text list-decimal list-inside">
           {
             designation.map((designation, index) => (
               <li key={index}>{designation}</li>
             )
             )
           }
-        </ul>
-        <h3 className="font-medium">Published Online: {activePaper.created_at.split("T")[0] ?? activePaper.created_at}</h3>
-        <h3 className="font-medium">Pages: {activePaper?.paper_pages}</h3>
-      </div>
-
-      {/* DOI and Utilities */}
-      <div className="flex items-start sm:items-center flex-wrap gap-4 w-full justify-between text-base">
-        <div className="flex gap-4 sm:gap-0 w-2/3 sm:w-fit justify-between flex-col sm:flex-row ">
-          <h3 className="text-primary text-bsae sm:text-lg flex gap-2 items-center sm:mr-10">
-            <ImQuotesLeft className="text-primary" /> Cite this article
-          </h3>
-
-          {activePaper?.paper_doi && <Link
-            target="_blank"
-            to={activePaper?.paper_doi_Link ?? "#"}
-            className="text-primary flex items-center gap-1 hover:underline"
-          >
-            ↗ {activePaper?.paper_doi}
-          </Link>}
+        </ul> */}
+          <h2 className="text-secondary-text italic">
+            {superscriptifyAllNumbers(activePaper?.paper_designation ?? "")}
+          </h2>
+          <h3 className="font-medium">Published Online: {activePaper.created_at.split("T")[0] ?? activePaper.created_at}</h3>
+          <h3 className="font-medium">Pages: {activePaper?.paper_pages}</h3>
         </div>
 
-        <button className="inline-flex sm:hidden items-center justify-center bg-[#fae0d0] text-primary-text text-sm font-medium w-12 h-12 hover:bg-[#f6d5c3] transition-colors rounded-full">
-          <Share2 size={13} className="inline-block" />
-        </button>
+        {/* DOI and Utilities */}
+        <div className="flex items-start sm:items-center flex-wrap gap-4 w-full justify-between text-base">
+          <div className="flex gap-4 sm:gap-0 w-2/3 sm:w-fit justify-between flex-col sm:flex-row ">
+            <h3 className="text-primary text-bsae sm:text-lg flex gap-2 items-center sm:mr-10">
+              <ImQuotesLeft className="text-primary" /> Cite this article
+            </h3>
 
-        <div className="flex gap-3 justify-between w-full sm:w-fit flex-wrap">
-          <Link to={activePaper.paper_url} rel="noreferrer" className="sm:hidden">
-            <PrimaryBtn className="whitespace-nowrap">
-              View PDF
-              <VscFilePdf size={18} className="ml-4" />
-            </PrimaryBtn>
-          </Link>
-          <button className="bg-gradient-to-b from-gray-100  to-zinc-300 border border-gray-300 hover:scale-105 transition-all text-dark px-3 py-2 rounded-md font-semibold flex items-center justify-center space-x-3 text-sm">
-            <span>
-              Check for Updates</span> <IoReload height={20} />
+            {activePaper?.paper_doi && <Link
+              target="_blank"
+              to={activePaper?.paper_doi_Link ?? "#"}
+              className="text-primary flex items-center gap-1 hover:underline"
+            >
+              ↗ {activePaper?.paper_doi}
+            </Link>}
+          </div>
+
+          <button className="inline-flex sm:hidden items-center justify-center bg-[#fae0d0] text-primary-text text-sm font-medium w-12 h-12 hover:bg-[#f6d5c3] transition-colors rounded-full">
+            <Share2 size={13} className="inline-block" />
+          </button>
+
+          <div className="flex gap-3 justify-between w-full sm:w-fit flex-wrap">
+            <Link to={activePaper.paper_url} rel="noreferrer" className="sm:hidden">
+              <PrimaryBtn className="whitespace-nowrap">
+                View PDF
+                <VscFilePdf size={18} className="ml-4" />
+              </PrimaryBtn>
+            </Link>
+            <button className="bg-gradient-to-b from-gray-100  to-zinc-300 border border-gray-300 hover:scale-105 transition-all text-dark px-3 py-2 rounded-md font-semibold flex items-center justify-center space-x-3 text-sm">
+              <span>
+                Check for Updates</span> <IoReload height={20} />
+            </button>
+          </div>
+
+          <button className={`hidden sm:inline-flex items-center justify-center ${copy ? "bg-green-300 hover:bg-green-400" : "bg-[#fae0d0] hover:bg-[#f6d5c3]"} text-primary-text text-sm font-medium w-12 h-12  transition-colors rounded-full`} onClick={() => {
+            navigator.clipboard.writeText(window.location.href)
+            SetCopy(true)
+            setTimeout(() => {
+              SetCopy(false)
+            }, 2000)
+          }}>
+            {!copy ? <Share2 size={13} className="inline-block" /> : <MdDone size={13} className="inline-block" />}
+
           </button>
         </div>
 
-              <button className={`hidden sm:inline-flex items-center justify-center ${copy?"bg-green-300 hover:bg-green-400":"bg-[#fae0d0] hover:bg-[#f6d5c3]"} text-primary-text text-sm font-medium w-12 h-12  transition-colors rounded-full`} onClick={() => {
-                navigator.clipboard.writeText(window.location.href)
-                SetCopy(true)
-                setTimeout(() => {
-                  SetCopy(false)
-                }, 2000)
-              }}>
-          {!copy ? <Share2 size={13} className="inline-block" /> :<MdDone size={13} className="inline-block" />}
-          
-        </button>
-      </div>
+        {/* Navigation Tabs */}
+        <div className="flex justify-between gap-6 text-lg border-b border-gray-200 overflow-x-auto mt-6 sm:mt-0">
+          {["FullArticle", "References", "Citations", "Metrics", "Licensing"].map(
+            (tab, idx) => (
+              <button
+                onClick={() => setCurrentItem(tab as TabOption)}
+                key={idx}
+                className={`pb-2 px-4 ${tab === currentItem
+                  ? "text-primary font-semibold border-b-2 border-primary rounded-none"
+                  : "text-primary-text"
+                  }`}
+                style={{ borderRadius: 0 }}
+              >
+                {tab}
+              </button>
+            )
+          )}
+        </div>
 
-      {/* Navigation Tabs */}
-      <div className="flex justify-between gap-6 text-lg border-b border-gray-200 overflow-x-auto mt-6 sm:mt-0">
-        {["FullArticle", "References", "Citations", "Metrics", "Licensing"].map(
-          (tab, idx) => (
-            <button
-              onClick={() => setCurrentItem(tab as TabOption)}
-              key={idx}
-              className={`pb-2 px-4 ${tab === currentItem
-                ? "text-primary font-semibold border-b-2 border-primary rounded-none"
-                : "text-primary-text"
-                }`}
-              style={{ borderRadius: 0 }}
-            >
-              {tab}
-            </button>
-          )
-        )}
+        {currentItem === "FullArticle" && <FullArtical content={activePaper?.paper_abstract ?? ""} pdf_url={activePaper?.paper_url ?? ""} />}
+        {currentItem === "Citations" && <Citations content={activePaper?.paper_citation ?? ""} />}
+        {currentItem === "Licensing" && <Licensing />}
+        {currentItem === "Metrics" && <ArticleMetrics />}
+        {currentItem === "References" && <References content={activePaper?.paper_references ?? ""} />}
+        <RelatedArticles />
       </div>
-
-      {currentItem === "FullArticle" && <FullArtical content={activePaper?.paper_abstract ?? ""} pdf_url={activePaper?.paper_url ?? ""} />}
-      {currentItem === "Citations" && <Citations content={activePaper?.paper_citation ?? ""} />}
-      {currentItem === "Licensing" && <Licensing />}
-      {currentItem === "Metrics" && <ArticleMetrics />}
-      {currentItem === "References" && <References content={activePaper?.paper_references ?? ""} />}
-      <RelatedArticles />
-    </div>
+    </MetaDataWrapper>
 
   );
 }; export default ArticleDetails;

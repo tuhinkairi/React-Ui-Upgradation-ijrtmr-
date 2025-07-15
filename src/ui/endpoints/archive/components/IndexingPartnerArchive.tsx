@@ -17,13 +17,13 @@ const IndexingPartnerArchive: React.FC = () => {
     };
     loadData();
   }, [fetchIndexData]);
-  console.log(indexData);
+  //console.log(indexData);
   return (
     <section className="bg-white text-center py-6 overflow-hidden">
       {!endpoint.includes("aim-and-scope") && !endpoint.includes("ethics") && !endpoint.includes("archives") ?
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 items-center justify-center gap-10">
           {indexData && indexData.map((partner, idx) => (
-            <Link key={idx} target='_blank' to={partner.indexing_url}>
+            <Link key={idx+partner.indexing_id} target='_blank' to={partner.indexing_url}>
 
               <img
                 key={partner.indexing_id}

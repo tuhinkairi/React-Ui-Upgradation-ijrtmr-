@@ -18,7 +18,7 @@ const IndexingPartners: React.FC = () => {
     };
     loadData();
   }, [fetchIndexData]);
-  console.log(indexData);
+  //console.log(indexData);
   return (
     <section className="py-12 pt-8 px-6 lg:px-16 bg-white text-center">
       {/* <h2 className="text-2xl md:text-3xl font-semibold  mb-16">Indexing And Abstracting</h2> */}

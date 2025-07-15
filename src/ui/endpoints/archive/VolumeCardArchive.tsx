@@ -7,8 +7,8 @@ import PrimaryBtn from "../../components/Btns/PrimaryBtn";
 
 export default function VolumeCardArchive({ paper, setActive, navigate }: { paper: ArchivePaperDetailProps, setActive: (arg: ArchivePaperDetailProps) => void, navigate: NavigateFunction }) {
     const url = useLocation().pathname
-    const endpoint = `/${url.includes("archives")?"archives":"current-issue"}/paper-details?paperId=${paper.paper_id}&papertitle=${encodeURIComponent(paper.paper_title.replace(/ /g, "-"))}`
-const HandleGoolge =()=>{
+    const endpoint = `/${url.includes("archives") ? "archives" : "current-issue"}/paper-details?paperId=${paper.paper_id}&papertitle=${encodeURIComponent(paper.paper_title.replace(/ /g, "-"))}`
+    const HandleGoolge = () => {
         window.open(`https://www.google.com/search?q=${encodeURIComponent(paper.paper_title)}`, '_blank')
     }
     return (
@@ -17,11 +17,11 @@ const HandleGoolge =()=>{
         >
             <div className="flex justify-between items-start">
                 <Link
-                    onClick={()=>setActive(paper)}
+                    onClick={() => setActive(paper)}
                     to={endpoint}
                     className="text-xl font-serif  text-primary hover:underline sm:max-w-5/6 relative"
                 >
-                    {paper.paper_title}<ArrowUpRight fill="none"/>
+                    {paper.paper_title}<ArrowUpRight fill="none" className="inline-block ml-1"/>
                 </Link>
                 <button onClick={HandleGoolge} className="hidden text-base sm:inline-flex items-center justify-center gap-2 text-primary border border-orange-400 px-3 py-1" style={{ borderRadius: 9999 }}>
                     <SearchIcon className="w-5" /> Google
@@ -29,11 +29,11 @@ const HandleGoolge =()=>{
             </div>
 
             <div className=" text-primary-text text-base leading-8">
-                Author: {paper.author_1}
+                <span className="font-semibold">Author: </span>{paper.author_1}
                 <br />
-                Published Online: {paper.created_at.split("T")[0]}
+                <span className="font-semibold">Published Online: </span> {paper.created_at.split("T")[0]}
                 <br />
-                Pages: {paper.paper_pages}
+                <span className="font-semibold">Pages: </span> {paper.paper_pages}
             </div>
 
             {/* Metrics */}
@@ -78,7 +78,7 @@ const HandleGoolge =()=>{
                         Download PDF <Download size={16} />
                     </PrimaryBtn>
                 </NavLink>
-                 <button onClick={HandleGoolge} className="sm:hidden text-base inline-flex items-center justify-center gap-2 text-primary border border-orange-400 px-3 py-1" style={{ borderRadius: 9999 }}>
+                <button onClick={HandleGoolge} className="sm:hidden text-base inline-flex items-center justify-center gap-2 text-primary border border-orange-400 px-3 py-1" style={{ borderRadius: 9999 }}>
                     <SearchIcon className="w-5" /> Google
                 </button>
             </div>

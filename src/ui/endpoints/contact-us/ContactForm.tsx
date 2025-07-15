@@ -41,7 +41,7 @@ const ContactForm = () => {
     e.preventDefault();
     if (validate()) {
       // Simulated submission
-      console.log('Form submitted:', form);
+      //console.log('Form submitted:', form);
       dispatch(setLoading(true))
       SendContactUs(form).then(() => alert('Message sent successfully!')).catch(() => alert("soming went wrong")).finally(() => {
         dispatch(setLoading(false))

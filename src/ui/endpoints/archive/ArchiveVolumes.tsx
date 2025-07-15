@@ -25,6 +25,7 @@ import { GrClear } from "react-icons/gr";
 import { setActiveThesis, setThesisList } from "../../../lib/store/Features/ThesisSlice";
 import { searchThesis, ThesisListing, type ThesisListingParams } from "../../../lib/axios/api/thesis";
 import VolumeCardThesis from "../Thesis/VolumeCardThesis";
+import MetaDataWrapper from "../../components/layout/MetaDataWrapper";
 // Import thesis-related functions
 
 
@@ -58,9 +59,10 @@ export default function ArchiveVolumes({ active }: activeSection) {
   const [ConferenceVolumesSearch, setConferenceVolumesSearch] = useState<ConferenceArticleProps[] | null>(null);
   const [ArticalVolumesSearch, setArticalVolumesSearch] = useState<ArchivePaperDetailProps[] | null>(null);
 
+  // meta data
+  const [metaData, SetMetaData] = useState<{ title: string, description: string }>({ title: "", description: "" })
+
   // listing pagination
-  // const trackPage = useAppSelector((state) => state.pagination.current_page)
-  // const totalItems = useAppSelector((state) => state.pagination.total_items)
   const totalPage = useAppSelector((state) => state.pagination.total_pages)
   const perPage = useAppSelector((state) => state.pagination.per_page)
 
@@ -90,7 +92,7 @@ export default function ArchiveVolumes({ active }: activeSection) {
   // setting active papers
   const setActiveArtical = (paper: ConferenceArticleProps | ArchivePaperDetailProps | ThesisListingItem) => {
     if ('article_type' in paper) {
-      console.log("jhghj", paper)
+      //console.log("jhghj", paper)
       dispatch(setActiveConferenceArticle(paper as ConferenceArticleProps));
     } else if ('thesis_id' in paper) {
       dispatch(setActiveThesis(paper as ThesisListingItem));
@@ -116,14 +118,14 @@ export default function ArchiveVolumes({ active }: activeSection) {
           activeThesisIndex?.year === ThesisIndex?.year ||
           activeThesisIndex?.volume === ThesisIndex?.volume) {
           const response = await ThesisListing(params);
-          console.log("data ->", response.papersList)
+          //console.log("data ->", response.papersList)
           if (response.papersList) {
             setThesisVolumes(response.papersList);
             dispatch(setThesisList(response.papersList));
           }
           setTrackPage(pageNumber);
           dispatch(setCurrentPage(pageNumber));
-          console.log("Thesis data fetched");
+          //console.log("Thesis data fetched");
         }
       }
     } catch (err) {
@@ -138,7 +140,7 @@ export default function ArchiveVolumes({ active }: activeSection) {
       if (!activeConferencePage?.id) {
         const response = await conference_categories();
         const conference = response.filter(item => item.title.localeCompare(url.split("/").slice(-1)[0]))[0];
-        // console.log("runnning", conference);
+        // //console.log("runnning", conference);
         if (conference) {
           dispatch(setActiveConference(conference));
         }
@@ -151,7 +153,7 @@ export default function ArchiveVolumes({ active }: activeSection) {
         };
         if (ConferenceVolumes.length === 0 || trackPage !== pageNumber) {
           await getConferenceDetails(params, setConferenceVolumes, dispatch, ConferenceVolumes)
-          console.log("fin")
+          //console.log("fin")
           dispatch(setCurrentPage(pageNumber));
         }
       }
@@ -165,7 +167,7 @@ export default function ArchiveVolumes({ active }: activeSection) {
       // going through 1 by 1 condition
       if (!activeArchiveIndex?.year) {
         // find by navigation
-        if(url.includes("current-issue"))navigate("/current-issue"); else navigate("/archives")
+        if (url.includes("current-issue")) navigate("/current-issue"); else navigate("/archives")
       }
       else {
         const params: ArchivePaperListtingArg = {
@@ -177,33 +179,39 @@ export default function ArchiveVolumes({ active }: activeSection) {
         }
         if (ArticalVolumes.length === 0 || trackPage !== pageNumber || activeArchiveIndex?.year === ArchiveIndex?.year || activeArchiveIndex?.volume === ArchiveIndex?.volume || activeArchiveIndex?.issue === ArchiveIndex?.issue) {
           await getArticalDetails(params, setArticalVolumes, dispatch, ArticalVolumes)
-          console.log("fin")
+          //console.log("fin")
           setTrackPage(pageNumber);
           dispatch(setCurrentPage(pageNumber));
           dispatch(setActiveIndexVolume(activeArchiveIndex));
-          console.log("condition", trackPage, pageNumber)
+          //console.log("condition", trackPage, pageNumber)
         }
       }
     } catch (err) {
       console.log(err);
     }
-  }, [pageNumber, dispatch, trackPage, ArticalVolumes, activeArchiveIndex, navigate, perPage, ArchiveIndex,url]);
+  }, [pageNumber, dispatch, trackPage, ArticalVolumes, activeArchiveIndex, navigate, perPage, ArchiveIndex, url]);
 
   // Move setup block to useEffect
   useEffect(() => {
     dispatch(setLoading(true));
     switch (active) {
       case 'archive':
-        console.log("archive")
+        //console.log("archive")
+        // const metaTitle = `2025 Volume 5 Issue 1 | International Journal | IJSREAT`
+
         // setConferenceVolumes([]);
 
         if (ArticalVolumes.length && activeArchiveIndex && ArchiveIndex && activeArchiveIndex?.year === ArchiveIndex?.year && activeArchiveIndex?.volume === ArchiveIndex?.volume && activeArchiveIndex?.issue === ArchiveIndex?.issue) {
-          console.log(activeArchiveIndex, ArchiveIndex, "running");
+          //console.log(activeArchiveIndex, ArchiveIndex, "running");
           dispatch(setLoading(false));
         } else {
           if (!activeArchiveIndex) redirect("/archives")
-          console.log("fetching")
+          //console.log("fetching")
           fetchArticalData().finally(() => {
+            SetMetaData({
+              title: `${activeArchiveIndex?.year} Volume ${activeArchiveIndex?.volume} Issue ${activeArchiveIndex?.issue} | International Journal | IJSREAT`,
+              description: "Explore the IJSREAT archives for top research papers in engineering and technology. Access past volumes and stay updated with the latest innovations"
+            })
             dispatch(setLoading(false));
           })
         }
@@ -211,26 +219,34 @@ export default function ArchiveVolumes({ active }: activeSection) {
       case 'conference':
         // run only if the volume size is 0
         fetchConferenceData().finally(() => {
+          SetMetaData({
+              title: `${activeConferencePage?.year} Volume ${activeConferencePage?.volume} Issue ${activeConferencePage?.issue} | International Journal | IJSREAT`,
+              description: "Stay updated on IJSREAT conferences, events, and calls for papers. Join global experts in science and technology discussions."
+            })
           dispatch(setLoading(false));
         })
         break;
       case 'issue':
-       console.log("current issue")
+        //console.log("current issue")
         // setConferenceVolumes([]);
 
         if (ArticalVolumes.length && activeArchiveIndex && ArchiveIndex && activeArchiveIndex?.year === ArchiveIndex?.year && activeArchiveIndex?.volume === ArchiveIndex?.volume && activeArchiveIndex?.issue === ArchiveIndex?.issue) {
-          console.log(activeArchiveIndex, ArchiveIndex, "issue running");
+          //console.log(activeArchiveIndex, ArchiveIndex, "issue running");
           dispatch(setLoading(false));
         } else {
           if (!activeArchiveIndex) redirect("/current-issue")
-          console.log("issue fetching")
+          //console.log("issue fetching")
           fetchArticalData().finally(() => {
+            SetMetaData({
+              title: `${activeArchiveIndex?.year} Volume ${activeArchiveIndex?.volume} Issue ${activeArchiveIndex?.issue} | International Journal | IJSREAT`,
+              description: "Explore the IJSREAT archives for top research papers in engineering and technology. Access past volumes and stay updated with the latest innovations"
+            })
             dispatch(setLoading(false));
           })
         }
         break;
       case 'thesis':
-        console.log("thesis");
+        //console.log("thesis");
         // Clear other section data
         // setConferenceVolumes([]);
         // setArticalVolumes([]);
@@ -238,13 +254,17 @@ export default function ArchiveVolumes({ active }: activeSection) {
         if (ThesisVolumes.length && activeThesisIndex && ThesisIndex &&
           activeThesisIndex?.year === ThesisIndex?.year &&
           activeThesisIndex?.volume === ThesisIndex?.volume) {
-          console.log(activeThesisIndex, ThesisIndex, "thesis running");
+          //console.log(activeThesisIndex, ThesisIndex, "thesis running");
           dispatch(setLoading(false));
         } else {
           if (!activeThesisIndex) redirect("/thesis")
 
-          console.log("fetching thesis data");
+          //console.log("fetching thesis data");
           fetchThesisData().finally(() => {
+            SetMetaData({
+              title: `${ThesisIndex?.year} Volume ${ThesisIndex?.volume} Issue ${activeArchiveIndex?.issue} | International Journal | IJSREAT`,
+              description: "Explore the IJSREAT archives for top research papers in engineering and technology. Access past volumes and stay updated with the latest innovations"
+            })
             dispatch(setLoading(false));
           });
 
@@ -254,7 +274,7 @@ export default function ArchiveVolumes({ active }: activeSection) {
         // setConferenceVolumes([]);
         dispatch(setLoading(false));
     }
-  }, [active, fetchConferenceData, dispatch, perPage, trackPage, fetchArticalData, ArticalVolumes, activeArchiveIndex, navigate, pageNumber, activeArchiveIndex?.year, activeArchiveIndex?.volume, activeArchiveIndex?.issue, ArchiveIndex, fetchThesisData, ThesisVolumes, activeThesisIndex, ThesisIndex]);
+  }, [active, fetchConferenceData, dispatch, perPage, trackPage, fetchArticalData, ArticalVolumes, activeArchiveIndex, navigate, pageNumber, activeArchiveIndex?.year, activeArchiveIndex?.volume, activeArchiveIndex?.issue, ArchiveIndex, fetchThesisData, ThesisVolumes, activeThesisIndex, ThesisIndex,activeConferencePage]);
 
   // search
   const [form, setForm] = useState<SearchProp>({ search: "", page: pageNumber, per_page: 100 })
@@ -263,7 +283,7 @@ export default function ArchiveVolumes({ active }: activeSection) {
     if (form.search === "") return
     // Implement your search logic here
     dispatch(setLoading(true))
-    console.log(form)
+    //console.log(form)
     switch (active) {
       case "archive":
         searchArchive(form).then((data) => {
@@ -301,166 +321,170 @@ export default function ArchiveVolumes({ active }: activeSection) {
   // component return
   if (useAppSelector((state) => state.loadingScreen.loading)) return <Loading title="Volumes" />
 
+
   return (
-    <div className="mx-auto sm:p-4 space-y-6">
-      {/* Header */}
-      <div className="text-center">
-        {active == "conference" && <h1 className="text-2xl font-semibold">Volume {activeConferencePage?.volume}, Issue {activeConferencePage?.issue} ({activeConferencePage?.year})</h1>}
-        {active == "archive" && <h1 className="text-2xl font-semibold">Volume {activeArchiveIndex?.volume}, Issue {activeArchiveIndex?.issue} ({activeArchiveIndex?.year})</h1>}
-        {active == "issue" && <h1 className="text-2xl font-semibold">Volume {activeArchiveIndex?.volume}, Issue {activeArchiveIndex?.issue} ({activeArchiveIndex?.year})</h1>}
-        {active == "thesis" && <h1 className="text-2xl font-semibold">Volume {activeThesisIndex?.volume}, Year {activeThesisIndex?.year}</h1>}
+    <MetaDataWrapper titleDynamic={metaData.title} desciptionDynamic={metaData.description}>
+      <div className="mx-auto sm:p-4 space-y-6">
+        {/* Header */}
+        <div className="text-center">
+          {active == "conference" && <h1 className="text-2xl font-semibold">Volume {activeConferencePage?.volume}, Issue {activeConferencePage?.issue} ({activeConferencePage?.year})</h1>}
+          {active == "archive" && <h1 className="text-2xl font-semibold">Volume {activeArchiveIndex?.volume}, Issue {activeArchiveIndex?.issue} ({activeArchiveIndex?.year})</h1>}
+          {active == "issue" && <h1 className="text-2xl font-semibold">Volume {activeArchiveIndex?.volume}, Issue {activeArchiveIndex?.issue} ({activeArchiveIndex?.year})</h1>}
+          {active == "thesis" && <h1 className="text-2xl font-semibold">Volume {activeThesisIndex?.volume}, Year {activeThesisIndex?.year}</h1>}
+        </div>
+
+        {!["conference", "issue"].includes(active) && <ArchiveVolumnHeader isArchive={true} setArchiveIndex={setActiveArchiveIndex} ActiveVolumes={activeIndexPage} VolumeList={indexPage} />}
+
+        {/* Search */}
+        <form onSubmitCapture={handleSearch} className="flex items-center gap-2 mt-2">
+          <input
+            type="text"
+            name="search"
+            onChange={handleChange}
+            value={form.search}
+            placeholder="Search by Paper ID, Paper Name"
+            className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm"
+          />
+          {(active === "conference") && (
+            ConferenceVolumesSearch ? (
+              <PrimaryBtn event={() => {
+                setConferenceVolumesSearch(null)
+                //console.log(ConferenceVolumesSearch)
+              }}>
+                <GrClear size={16} /> Clear
+              </PrimaryBtn>
+            ) : (
+              <PrimaryBtn>
+                <Search size={16} /> Search
+              </PrimaryBtn>
+            )
+          )}
+          {(active === "archive" || active === "issue") && (
+            ArticalVolumesSearch ? (
+              <PrimaryBtn event={() => setArticalVolumesSearch(null)}>
+                <GrClear size={16} /> Clear
+              </PrimaryBtn>
+            ) : (
+              <PrimaryBtn>
+                <Search size={16} /> Search
+              </PrimaryBtn>
+            )
+          )}
+          {(active === "thesis") && (
+            ThesisVolumesSearch ? (
+              <PrimaryBtn event={() => setThesisVolumesSearch(null)}>
+                <GrClear size={16} /> Clear
+              </PrimaryBtn>
+            ) : (
+              <PrimaryBtn>
+                <Search size={16} /> Search
+              </PrimaryBtn>
+            )
+          )}
+        </form>
+
+        {/* Paper Cards */}
+        {(trackPage === pageNumber || !loading) ?
+          <div className="space-y-6">
+            <>
+              {/* archive */}
+              {active === "archive" && (
+                ArticalVolumesSearch !== null
+                  ? ArticalVolumesSearch?.length
+                    ? ArticalVolumesSearch.map((paper, idx) => (
+                      <VolumeCardArchive paper={paper} key={idx} setActive={setActiveArtical} navigate={navigate} />
+                    ))
+                    : <Title>No Paper Found</Title>
+                  : ArticalVolumes?.length
+                    ? ArticalVolumes.map((paper, idx) => (
+                      <VolumeCardArchive paper={paper} key={idx} setActive={setActiveArtical} navigate={navigate} />
+                    ))
+                    : <Title>No Paper Found</Title>
+              )}
+              {active === "issue" && (
+                ArticalVolumesSearch !== null
+                  ? ArticalVolumesSearch?.length
+                    ? ArticalVolumesSearch.map((paper, idx) => (
+                      <VolumeCardArchive paper={paper} key={idx} setActive={setActiveArtical} navigate={navigate} />
+                    ))
+                    : <Title>No Paper Found</Title>
+                  : ArticalVolumes?.length
+                    ? ArticalVolumes.map((paper, idx) => (
+                      <VolumeCardArchive paper={paper} key={idx} setActive={setActiveArtical} navigate={navigate} />
+                    ))
+                    : <Title>No Paper Found</Title>
+              )}
+
+              {/* conference */}
+              {active === "conference" && (
+                ConferenceVolumesSearch !== null
+                  ? ConferenceVolumesSearch?.length
+                    ? ConferenceVolumesSearch.map((paper, idx) => (
+                      <VolumeCardConference paper={paper} key={idx} setActive={setActiveArtical} navigate={navigate} />
+                    ))
+                    : <Title>No Paper Found</Title>
+                  : ConferenceVolumes?.length
+                    ? ConferenceVolumes.map((paper, idx) => (
+                      <VolumeCardConference paper={paper} key={idx} setActive={setActiveArtical} navigate={navigate} />
+                    ))
+                    : <Title>No Paper Found</Title>
+              )}
+
+              {/* thesis */}
+              {active === "thesis" && (
+                ThesisVolumesSearch !== null
+                  ? ThesisVolumesSearch?.length
+                    ? ThesisVolumesSearch.map((paper, idx) => (
+                      <VolumeCardThesis paper={paper} key={idx} setActive={setActiveArtical} navigate={navigate} />
+                    ))
+                    : <Title>No Paper Found</Title>
+                  : ThesisVolumes?.length
+                    ? ThesisVolumes.map((paper, idx) => (
+                      <VolumeCardThesis paper={paper} key={idx} setActive={setActiveArtical} navigate={navigate} />
+                    ))
+                    : <Title>No Paper Found</Title>
+              )}
+            </>
+          </div> :
+          <Loading title="Volume Pages" />
+        }
+
+        {/* Pagination */}
+        {active == "conference" && ConferenceVolumesSearch === null && <div className="mt-16">
+          <Pagination
+            currentPage={pageNumber}
+            totalPages={totalPage}
+            onPageChange={setPageNumber}
+            rangeList={getVisiblePages()}
+          />
+        </div>}
+        {active === "archive" && ArticalVolumesSearch === null && <div className="mt-16">
+          <Pagination
+            currentPage={pageNumber}
+            totalPages={totalPage}
+            onPageChange={setPageNumber}
+            rangeList={getVisiblePages()}
+          />
+        </div>}
+        {active === "issue" && ArticalVolumesSearch === null && <div className="mt-16">
+          <Pagination
+            currentPage={pageNumber}
+            totalPages={totalPage}
+            onPageChange={setPageNumber}
+            rangeList={getVisiblePages()}
+          />
+        </div>}
+        {active === "thesis" && ThesisVolumesSearch === null && <div className="mt-16">
+          <Pagination
+            currentPage={pageNumber}
+            totalPages={totalPage}
+            onPageChange={setPageNumber}
+            rangeList={getVisiblePages()}
+          />
+        </div>}
       </div>
+    </MetaDataWrapper>
 
-      {!["conference", "issue"].includes(active) && <ArchiveVolumnHeader isArchive={true} setArchiveIndex={setActiveArchiveIndex} ActiveVolumes={activeIndexPage} VolumeList={indexPage} />}
-
-      {/* Search */}
-      <form onSubmitCapture={handleSearch} className="flex items-center gap-2 mt-2">
-        <input
-          type="text"
-          name="search"
-          onChange={handleChange}
-          value={form.search}
-          placeholder="Search by Paper ID, Paper Name"
-          className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm"
-        />
-        {(active === "conference") && (
-          ConferenceVolumesSearch ? (
-            <PrimaryBtn event={() => {
-              setConferenceVolumesSearch(null)
-              console.log(ConferenceVolumesSearch)
-            }}>
-              <GrClear size={16} /> Clear
-            </PrimaryBtn>
-          ) : (
-            <PrimaryBtn>
-              <Search size={16} /> Search
-            </PrimaryBtn>
-          )
-        )}
-        {(active === "archive" ||active === "issue") && (
-          ArticalVolumesSearch ? (
-            <PrimaryBtn event={() => setArticalVolumesSearch(null)}>
-              <GrClear size={16} /> Clear
-            </PrimaryBtn>
-          ) : (
-            <PrimaryBtn>
-              <Search size={16} /> Search
-            </PrimaryBtn>
-          )
-        )}
-        {(active === "thesis") && (
-          ThesisVolumesSearch ? (
-            <PrimaryBtn event={() => setThesisVolumesSearch(null)}>
-              <GrClear size={16} /> Clear
-            </PrimaryBtn>
-          ) : (
-            <PrimaryBtn>
-              <Search size={16} /> Search
-            </PrimaryBtn>
-          )
-        )}
-      </form>
-
-      {/* Paper Cards */}
-      {(trackPage === pageNumber || !loading) ? 
-      <div className="space-y-6">
-        <>
-          {/* archive */}
-          {active === "archive" && (
-            ArticalVolumesSearch !== null
-              ? ArticalVolumesSearch?.length
-                ? ArticalVolumesSearch.map((paper, idx) => (
-                  <VolumeCardArchive paper={paper} key={idx} setActive={setActiveArtical} navigate={navigate} />
-                ))
-                : <Title>No Paper Found</Title>
-              : ArticalVolumes?.length
-                ? ArticalVolumes.map((paper, idx) => (
-                  <VolumeCardArchive paper={paper} key={idx} setActive={setActiveArtical} navigate={navigate} />
-                ))
-                : <Title>No Paper Found</Title>
-          )}
-          {active === "issue" && (
-            ArticalVolumesSearch !== null
-              ? ArticalVolumesSearch?.length
-                ? ArticalVolumesSearch.map((paper, idx) => (
-                  <VolumeCardArchive paper={paper} key={idx} setActive={setActiveArtical} navigate={navigate} />
-                ))
-                : <Title>No Paper Found</Title>
-              : ArticalVolumes?.length
-                ? ArticalVolumes.map((paper, idx) => (
-                  <VolumeCardArchive paper={paper} key={idx} setActive={setActiveArtical} navigate={navigate} />
-                ))
-                : <Title>No Paper Found</Title>
-          )}
-
-          {/* conference */}
-          {active === "conference" && (
-            ConferenceVolumesSearch !== null
-              ? ConferenceVolumesSearch?.length
-                ? ConferenceVolumesSearch.map((paper, idx) => (
-                  <VolumeCardConference paper={paper} key={idx} setActive={setActiveArtical} navigate={navigate} />
-                ))
-                : <Title>No Paper Found</Title>
-              : ConferenceVolumes?.length
-                ? ConferenceVolumes.map((paper, idx) => (
-                  <VolumeCardConference paper={paper} key={idx} setActive={setActiveArtical} navigate={navigate} />
-                ))
-                : <Title>No Paper Found</Title>
-          )}
-
-          {/* thesis */}
-          {active === "thesis" && (
-            ThesisVolumesSearch !== null
-              ? ThesisVolumesSearch?.length
-                ? ThesisVolumesSearch.map((paper, idx) => (
-                  <VolumeCardThesis paper={paper} key={idx} setActive={setActiveArtical} navigate={navigate} />
-                ))
-                : <Title>No Paper Found</Title>
-              : ThesisVolumes?.length
-                ? ThesisVolumes.map((paper, idx) => (
-                  <VolumeCardThesis paper={paper} key={idx} setActive={setActiveArtical} navigate={navigate} />
-                ))
-                : <Title>No Paper Found</Title>
-          )}
-        </>
-      </div> :
-        <Loading title="Volume Pages" />
-      }
-
-      {/* Pagination */}
-      {active == "conference" && ConferenceVolumesSearch === null && <div className="mt-16">
-        <Pagination
-          currentPage={pageNumber}
-          totalPages={totalPage}
-          onPageChange={setPageNumber}
-          rangeList={getVisiblePages()}
-        />
-      </div>}
-      {active === "archive" && ArticalVolumesSearch === null && <div className="mt-16">
-        <Pagination
-          currentPage={pageNumber}
-          totalPages={totalPage}
-          onPageChange={setPageNumber}
-          rangeList={getVisiblePages()}
-        />
-      </div>}
-      {active === "issue" && ArticalVolumesSearch === null && <div className="mt-16">
-        <Pagination
-          currentPage={pageNumber}
-          totalPages={totalPage}
-          onPageChange={setPageNumber}
-          rangeList={getVisiblePages()}
-        />
-      </div>}
-      {active === "thesis" && ThesisVolumesSearch === null && <div className="mt-16">
-        <Pagination
-          currentPage={pageNumber}
-          totalPages={totalPage}
-          onPageChange={setPageNumber}
-          rangeList={getVisiblePages()}
-        />
-      </div>}
-    </div>
   );
 }
 //todo: make pagination working and next detials showing page

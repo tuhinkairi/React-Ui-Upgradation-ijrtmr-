@@ -20,7 +20,7 @@ export default function VolumeCardConference({ paper, setActive,navigate}: { pap
                     to={endpoint}
                     className="text-xl font-serif  text-primary hover:underline sm:max-w-5/6 relative"
                 >
-                    {paper.title} <ArrowUpRight fill="none"/>
+                    {paper.title} <ArrowUpRight fill="none" className="inline-block ml-1"/>
                 </Link>
                 <button onClick={HandleGoolge} className="hidden text-base sm:inline-flex items-center justify-center gap-2 text-primary border border-orange-400 px-3 py-1" style={{ borderRadius: 9999 }}>
                     <SearchIcon className="w-5" /> Google
@@ -28,11 +28,11 @@ export default function VolumeCardConference({ paper, setActive,navigate}: { pap
             </div>
 
             <div className=" text-primary-text text-base leading-8">
-                Author: {paper.author_1}
+                <span className="font-semibold">Author:</span> {paper.author_1}
                 <br />
-                Published Online: {paper.created_at.split("T")[0]}
+                <span className="font-semibold">Published Online:</span> {paper.created_at.split("T")[0]}
                 <br />
-                Pages: {paper.pages}
+                <span className="font-semibold">Pages:</span> {paper.pages}
             </div>
 
             {/* Metrics */}

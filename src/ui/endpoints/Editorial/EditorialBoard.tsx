@@ -67,7 +67,7 @@ const EditorBoard = () => {
             dispatch(setLoading(true));
             try {
                 const data = await editorialFetch();
-                console.log('Fetched editorial data:', data);
+                //console.log('Fetched editorial data:', data);
                 
                 setAllEditorialMembers(data);
                 dispatch(setEditorialMembers(data));

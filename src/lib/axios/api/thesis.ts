@@ -5,7 +5,7 @@ export const fetchThesis = async (): Promise<ThesisIndexingItem[]> => {
     try {
         const res = await axiosClient.post("/thesisYearListing");
         // parse the response data
-        console.log(res.data.thesis)
+        //console.log(res.data.thesis)
         const modify = res.data.thesis.map((item: ThesisIndexingItem) => ({...item, issue: "0"}))
         return modify; //return years volumn issues
     } catch (error) {
@@ -24,7 +24,7 @@ export interface ThesisListingParams {
 export const ThesisListing = async (params: ThesisListingParams) => {
     try {
         const res = await axiosClient.post("/thesisDataListing", params);  
-        console.log(res.data) //papersList
+        //console.log(res.data) //papersList
         return res.data; 
     } catch (error) {
         throw new Error(`Failed to fetch Thesis: ${error}`);
@@ -40,7 +40,7 @@ export const FetchThesisPaper = async (
         const res = await axiosClient.post("/thesisDetails", req);
         // const modify = UpdateOneFetch(res.data.paperdetails)
         
-        console.log(res.data); //thesis
+        //console.log(res.data); //thesis
         return res.data;
     } catch (error) {
         console.error(error);
@@ -52,11 +52,11 @@ export const searchThesis = async (req: SearchProp) => {
         const res = await axiosClient.post("/searchThesis",
             req
         );
-        console.log(res.data)//papersList
+        //console.log(res.data)//papersList
         return res.data
     }
     catch (error) {
-        console.log(error)
+        //console.log(error)
         throw new Error(`Failed to fetch Thesis: ${error}`);
     }
 }
