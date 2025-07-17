@@ -21,7 +21,7 @@ import PublishProcess from "./PublishProcess";
 // todo home titles make more flexible
 export default function Home() {
   return (
-    <section className="space-y-8 sm:space-y-10 md:space-y-6 ">
+    <section className="space-y-8 sm:space-y-10 md:space-y-6 2xl:space-y-10">
       <div>
 
         <Hero />
