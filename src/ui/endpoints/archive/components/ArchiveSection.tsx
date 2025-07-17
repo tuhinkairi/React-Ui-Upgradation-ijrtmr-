@@ -68,7 +68,7 @@ export default function ArchiveSection() {
     return <Loading title="Archive" />
   }
   return (
-    <div className="mb-10 sm:text-base">
+    <div className="mb-10 sm:text-base xl:text-xl 2xl:text-2xl">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 border-collapse">
         {/* thesis */}
         {thesis && yearVolumeThesis && yearVolumeThesis.map((vol, index) => (
@@ -162,7 +162,7 @@ export default function ArchiveSection() {
                           className="block border border-[#FF8C421F] hover:bg-[#FF8C421F] py-4 px-6  transition-colors"
                         >
                           <div className="flex items-center ">
-                            <h1 className="text-primary-text">Issue {issue}</h1>
+                            <h1 className="text-primary-text xl:text-xl 2xl:text-2xl">Issue {issue}</h1>
                           </div>
                         </Link>)
                       ))
