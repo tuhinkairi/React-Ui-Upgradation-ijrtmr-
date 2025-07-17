@@ -15,7 +15,7 @@ export default function Footer() {
 
   return (
     <footer className="bg-[#FF8C421A] py-12 px-6 mt-6">
-      <div className="max-w-7xl mx-auto">
+      <div className="2xl:px-16">
         {/* Main Footer Content */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mb-12">
           {/* Contact Us Section */}
@@ -90,7 +90,7 @@ export default function Footer() {
 
         {/* Bottom Section */}
         <div className="border-t border-gray-200 pt-8">
-          <div className="flex flex-col lg:flex-row justify-between items-start space-y-4 lg:space-y-0">
+          <div className="flex flex-col lg:flex-row justify-between items-start space-y-4 lg:space-y-0 relative">
             {/* Copyright and Licensing */}
             <div className="text-center w-fit mx-auto">
               <p className="text-sm xl:text-base 2xl:text-2xl text-gray-600 mb-2">
@@ -111,7 +111,7 @@ export default function Footer() {
             </div>
 
             {/* Social Media Icons */}
-            <div className="flex space-x-4 mx-auto lg:mx-0">
+            <div className="flex xl:hidden space-x-4 mx-auto lg:mx-0 lg:absolute right-0">
               <NavLink to="#" className="text-gray-400 hover:text-gray-500">
                 <Twitter size={20} />
               </NavLink>
@@ -123,6 +123,20 @@ export default function Footer() {
               </NavLink>
               <NavLink to="#" className="text-gray-400 hover:text-gray-500">
                 <Linkedin size={20} />
+              </NavLink>
+            </div>
+            <div className="hidden xl:flex space-x-4 mx-auto lg:mx-0 lg:absolute right-0 top-1">
+              <NavLink to="#" className="text-gray-400 hover:text-gray-500">
+                <Twitter size={26} />
+              </NavLink>
+              <NavLink to="#" className="text-gray-400 hover:text-gray-500">
+                <Facebook size={26} />
+              </NavLink>
+              <NavLink to="#" className="text-gray-400 hover:text-gray-500">
+                <Instagram size={26} />
+              </NavLink>
+              <NavLink to="#" className="text-gray-400 hover:text-gray-500">
+                <Linkedin size={26} />
               </NavLink>
             </div>
           </div>

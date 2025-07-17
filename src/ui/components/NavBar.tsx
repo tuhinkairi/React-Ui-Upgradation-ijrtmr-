@@ -55,11 +55,11 @@ const[isShowing, setShowing] = useState<boolean>(false)
       <nav className="hidden lg:flex justify-between items-center py-6 gap-4 mx-auto ml-16 mr-4 xl:mr-16">
         {/* Logo */}
         <div className="flex items-center space-x-3">
-          <img src="/logo.png" alt="Fifth Dimension Logo" className="h-10" />
+          <img src="/logo.png" alt="Fifth Dimension Logo" className="h-10 lg:h-12" />
         </div>
 
         {/* Nav Links */}
-        <ul className="flex items-center space-x-6 font-medium">
+        <ul className="flex items-center space-x-2 lg:space-x-4 xl:space-x-6 font-medium">
           <li className="hover:text-primary">
             <NavLink className={({ isActive }) => (isActive ? "text-primary" : "")} to="/">
               Home
@@ -136,7 +136,7 @@ const[isShowing, setShowing] = useState<boolean>(false)
             rel="noopener noreferrer"
           >
             <button className="bg-primary hover:bg-primary-hover text-white px-4 py-3 rounded-md font-medium">
-              Login
+              Author Login
             </button>
           </Link>
         </div>

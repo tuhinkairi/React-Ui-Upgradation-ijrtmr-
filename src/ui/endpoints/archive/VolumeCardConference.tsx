@@ -28,11 +28,11 @@ export default function VolumeCardConference({ paper, setActive,navigate}: { pap
             </div>
 
             <div className=" text-primary-text text-base leading-8">
-                <span className="font-semibold">Author:</span> {paper.author_1}
+                <span className="font-bold">Author : </span> {paper.author_1}
                 <br />
-                <span className="font-semibold">Published Online:</span> {paper.created_at.split("T")[0]}
+                <span className="font-bold">Published Online : </span> {paper.created_at.split("T")[0]}
                 <br />
-                <span className="font-semibold">Pages:</span> {paper.pages}
+                <span className="font-bold">Pages : </span> {paper.pages}
             </div>
 
             {/* Metrics */}

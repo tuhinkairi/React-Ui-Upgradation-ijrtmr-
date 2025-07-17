@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const SubmitPaperSection = () => {
   return (
-    <section className="grid grid-rows-2 sm:flex flex-col sm:flex-row items-center justify-between bg-[#FFF4EF] my-12 mt-8 sm:pl-6 xl:pl-16 gap-2">
+    <section className="grid grid-rows-2 sm:flex flex-col sm:flex-row items-center justify-between bg-[#FFF4EF] my-12 mt-8 sm:pl-6 lg:pl-16 gap-2">
       {/* Text Section */}
       <div className="sm:w-1/2 text-center sm:text-left px-4 sm:px-0">
         <h2 className="text-2xl md:text-4xl font-semibold text-primary-text mb-4">Ready to Publish your Research?</h2>

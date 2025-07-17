@@ -69,7 +69,7 @@ const ConferenceDetails = () => {
         {/* Header + PDF Button */}
         <div className="flex justify-between items-start">
           <div>
-            <h2 className="text-2xl font-semibold leading-snug">
+            <h2 className="text-2xl font-medium leading-snug font-serif text-primary">
               {activePaper?.title}
             </h2>
           </div>
@@ -110,7 +110,7 @@ const ConferenceDetails = () => {
               )
             }
           </ul> */}
-          <h2 className="text-secondary-text italic">
+          <h2 className="italic">
             {superscriptifyAllNumbers(activePaper?.designation??"")}
           </h2>
           <h3 className="font-medium">Published Online: {activePaper?.created_at.split("T")[0]}</h3>

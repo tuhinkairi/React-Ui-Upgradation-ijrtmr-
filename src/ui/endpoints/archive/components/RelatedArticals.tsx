@@ -42,7 +42,7 @@ const RelatedArticles = () => {
           >
             <div>
               <p className="text-sm xl:text-base 2xl:text-2xl text-gray-400 font-medium mb-1">{article.year}</p>
-              <p className="text-base font-semibold text-gray-900 leading-snug">
+              <p className="text-base 2xl:text-2xl font-semibold text-gray-900 leading-snug">
                 {article.paper_title}
               </p>
             </div>
