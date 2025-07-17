@@ -6,7 +6,7 @@ const ArticleMetrics = () => {
 
   return (
     <div className="min-h-72">
-      <h2 className="text-base font-semibold text-gray-700 mb-6">Article Metrics</h2>
+      <h2 className="text-base xl:text-xl 2xl:text-3xl font-semibold text-gray-700 mb-6">Article Metrics</h2>
       <div className="flex flex-wrap justify-start gap-16">
         {metrics.map((metric, index) => (
           <div key={index} className="grid items-center text-center">

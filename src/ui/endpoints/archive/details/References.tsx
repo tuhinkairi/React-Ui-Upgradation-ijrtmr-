@@ -30,13 +30,13 @@ const References = ({ content }: { content: string }) => {
   }, [content])
   return (
     <div className=" space-y-3 text-gray-700">
-      <h2 className="text-base font-semibold">References</h2>
+      <h2 className="text-base xl:text-xl 2xl:text-3xl font-semibold">References</h2>
       <ul className="space-y-6 text-sm xl:text-base 2xl:text-2xl text-gray-800">
         <>
           {refContent.length !== 0 ? (
             refContent.map((item, index) => (
               <li key={index}>
-                <p className="">{item}</p>
+                <p className="leading-relaxed">{item}</p>
               </li>
             ))
           ) : (

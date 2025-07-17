@@ -69,20 +69,20 @@ const ConferenceDetails = () => {
         {/* Header + PDF Button */}
         <div className="flex justify-between items-start">
           <div>
-            <h2 className="text-2xl font-medium leading-snug font-serif text-primary">
+            <h2 className="text-2xl xl:text-3xl font-medium leading-snug font-serif text-primary">
               {activePaper?.title}
             </h2>
           </div>
         </div>
 
         {/* Meta Information */}
-        <div className="space-y-3 text-primary-text leading-7 text-base">
+        <div className="space-y-3 text-primary-text leading-7 text-sm xl:text-base 2xl:text-2xl sm:text-base">
           <div className="flex gap-3 ">
-            <div className="w-full text-base flex gap-3 gap-x-12 justify-between">
-              <div className="flex gap-3 gap-x-6 flex-wrap py-2 mb-2">
+            <div className="w-full flex gap-3 gap-x-12 justify-between">
+              <div className="flex flex-wrap gap-3 gap-x-6 py-2 mb-2">
                 {auther.map((author, index) => (
-                  <span className=" text-primary flex gap-2 items-center text-base sm:text-lg" key={index}>
-                    <CgProfile className="text-lg sm:text-2xl" />
+                  <span className="text-primary flex gap-2 items-center text-base sm:text-lg xl:text-xl 2xl:text-2xl" key={index}>
+                    <CgProfile className="text-lg sm:text-2xl xl:3xl" />
                     {author}<span className="text-xs h-full flex items-start -ml-1">{index + 1}</span>
                     {/* {index !== auther.length - 1 && ", "} */}
                   </span>
@@ -105,7 +105,7 @@ const ConferenceDetails = () => {
           {/* <ul className="text-secondary-text list-decimal list-inside">
             {
               designation.map((designation, index) => (
-                <li key={index}>{superscriptifyLeadingNumbers(designation)}</li>
+                <li key={index}>{supersc\riptifyLeadingNumbers(designation)}</li>
               )
               )
             }
@@ -120,14 +120,14 @@ const ConferenceDetails = () => {
         {/* DOI and Utilities */}
         <div className="flex items-start sm:items-center flex-wrap gap-4 w-full justify-between text-base">
           <div className="flex gap-4 sm:gap-0 w-2/3 sm:w-fit justify-between flex-col sm:flex-row ">
-            <h3 className="text-primary text-bsae sm:text-lg flex gap-2 items-center sm:mr-10">
+            <h3 className="text-primary text-bsae  xl:text-xl 2xl:text-2xl flex gap-2 items-center sm:mr-10 md:mr-5 xl:mr-10 2xl:mr-12 md:whitespace-nowrap">
               <ImQuotesLeft className="text-primary" /> Cite this article
             </h3>
 
             {activePaper?.doi && <Link
               target="_blank"
               to={activePaper?.doi_link ?? "#"}
-              className="text-primary flex items-center gap-1 hover:underline"
+              className="text-primary flex items-center gap-1 hover:underline text-sm xl:text-xl 2xl:text-2xl wrap-anywhere sm:whitespace-nowrap"
             >
               ↗ {activePaper?.doi}
             </Link>}
@@ -164,7 +164,7 @@ const ConferenceDetails = () => {
 
 
         {/* Navigation Tabs */}
-        <div className="flex justify-between gap-6 text-lg border-b border-gray-200 overflow-x-auto mt-6 sm:mt-0">
+        <div className="flex justify-between gap-6 text-lg xl:text-xl 2xl:text-2xl border-b border-gray-200 overflow-x-auto mt-6 sm:mt-0">
           {["FullArticle", "References", "Citations", "Metrics", "Licensing"].map(
             (tab, idx) => (
               <button

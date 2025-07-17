@@ -1,7 +1,7 @@
 const Licensing = () => {
   return (
     <div className="text-gray-700">
-      <h2 className="text-base font-semibold mb-4">Licensing</h2>
+      <h2 className="text-base xl:text-xl 2xl:text-3xl font-semibold mb-4">Licensing</h2>
 
       <p className="mb-4">
         © 2025 The Author(s). Published by Informa UK Limited, trading as Taylor & Francis Group.

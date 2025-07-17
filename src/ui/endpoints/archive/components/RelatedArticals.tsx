@@ -33,7 +33,7 @@ const RelatedArticles = () => {
   }
   return (
     <div className=" mx-auto mt-12">
-      <h2 className="text-2xl font-semibold mb-4">Related Articles</h2>
+      <h2 className="text-2xl 2xl:text-3xl font-semibold mb-4">Related Articles</h2>
       <div className="flex overflow-x-auto md:grid md:grid-cols-3 gap-6">
         {relatedArticles.map((article, index) => (
           <div
