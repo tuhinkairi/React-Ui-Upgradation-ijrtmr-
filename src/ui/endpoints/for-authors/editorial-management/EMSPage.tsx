@@ -10,13 +10,13 @@ export default function EMSPage() {
                 <div className="_cardSectionEMS items-center gap-y-6 sm:gap-x-6 grid sm:grid-cols-2 justify-between">
                     <div className="textsection space-y-6">
                         <div>
-                            <h1 className="font-medium text-lg mb-2">1. How to submit article?</h1>
+                            <h1 className="font-medium text-lg xl:text-xl mb-2">1. How to submit article?</h1>
                             <p>Create Account by using Author <span className="text-green-500">Name, email ID, Mobile No</span>. Once Account created, author can enter directly Login Credential. After that, By Using New Submission, author can submit Article.
                                 <br />
                                 <span className="text-red-500 font-medium">Note:</span> Make sure are you entered <span className="text-green-500">correct email ID, Mobile No</span>. because we will send Notification registered Email, Mobile No.</p>
                         </div>
                         <div>
-                            <h1 className="font-medium text-lg mb-2">While Submitting Article, author can choose below Details:</h1>
+                            <h1 className="font-medium text-lg xl:text-xl mb-2">While Submitting Article, author can choose below Details:</h1>
                             <ul className="list-disc list-inside space-y-1">
                                 <li>Research Area</li>
                                 <li>Mode of Process</li>
@@ -37,7 +37,7 @@ export default function EMSPage() {
                     </div>
                     <div className="textsection space-y-4">
                         <div>
-                            <h1 className="font-medium text-lg mb-2">2. Author can know task Process?</h1>
+                            <h1 className="font-medium text-lg xl:text-xl mb-2">2. Author can know task Process?</h1>
                             <p>Yes. Absolutely.
                                 <br />
                                 <br />
@@ -50,7 +50,7 @@ export default function EMSPage() {
                 <div className="_cardSectionEMS items-center gap-y-6 sm:gap-x-6 grid sm:grid-cols-2 justify-between">
                     <div className="textsection space-y-4">
                         <div>
-                            <h1 className="font-medium text-lg mb-2">3. Author can know Review Process?</h1>
+                            <h1 className="font-medium text-lg xl:text-xl mb-2">3. Author can know Review Process?</h1>
                             <p>Yes. Absolutely.
                                 <br />
                                 <br />
@@ -71,7 +71,7 @@ export default function EMSPage() {
                     </div>
                     <div className="textsection space-y-4">
                         <div>
-                            <h1 className="font-medium text-lg mb-2">4. How Author can Know submitted Article Accepted or Not?</h1>
+                            <h1 className="font-medium text-lg xl:text-xl mb-2">4. How Author can Know submitted Article Accepted or Not?</h1>
                             <p>
                                 Once Reviewer’s Command Satisfactory, Editorinchief will release Acceptance letter along with Tentative Article Publication Scheduled Date through Editorial Office. Author can view in <span className="text-green-500">Acceptance Tap</span>.
                             </p>
@@ -82,10 +82,10 @@ export default function EMSPage() {
                 <div className="_cardSectionEMS items-center gap-y-6 sm:gap-x-6 grid sm:grid-cols-2 justify-between">
                     <div className="textsection space-y-4">
                         <div>
-                            <h1 className="font-medium text-lg mb-2">5. What is the Procedure for Accepted Article to be publish?</h1>
+                            <h1 className="font-medium text-lg xl:text-xl mb-2">5. What is the Procedure for Accepted Article to be publish?</h1>
                             <p>
                                 Once you’re Article Accepted for Publication, Author have to follow 3 steps.
-                                <h1 className="font-medium text-lg my-2">a&#41; Final Manuscript</h1>
+                                <h1 className="font-medium text-lg xl:text-xl my-2">a&#41; Final Manuscript</h1>
                                 As per <span className="text-green-500">our journal format</span>
                             </p>
                         </div>
@@ -101,7 +101,7 @@ export default function EMSPage() {
                     </div>
                     <div className="textsection space-y-4">
                         <div>
-                            <h1 className="font-medium text-lg mb-2">b&#41; Copyright Form</h1>
+                            <h1 className="font-medium text-lg xl:text-xl mb-2">b&#41; Copyright Form</h1>
                             <p>
                                 (For generating copyright form-Author have to update profile. Like, Address, etc. then only copyright form will generate. Take print out, manually corresponding author have to signature)
                             </p>
@@ -112,7 +112,7 @@ export default function EMSPage() {
                 <div className="_cardSectionEMS items-center gap-y-6 sm:gap-x-6 grid sm:grid-cols-2 justify-between">
                     <div className="textsection space-y-4">
                         <div>
-                            <h1 className="font-medium text-lg mb-2">c&#41; Article Processing fee receipt (with DOI, With out DOI)</h1>
+                            <h1 className="font-medium text-lg xl:text-xl mb-2">c&#41; Article Processing fee receipt (with DOI, With out DOI)</h1>
                         </div>
                     </div>
                     <div className="image grid gap-4">
@@ -142,7 +142,7 @@ export default function EMSPage() {
                 <div className="_cardSectionEMS items-center gap-y-6 sm:gap-x-6 grid sm:grid-cols-2 justify-between">
                     <div className="textsection space-y-4">
                         <div>
-                            <h1 className="font-medium text-lg mb-2">6. Author will get certificates including corresponding authors?</h1>
+                            <h1 className="font-medium text-lg xl:text-xl mb-2">6. Author will get certificates including corresponding authors?</h1>
                             <p>
                                 Yes. All author will get certificates. Author can download <span className="text-green-500">file Tab</span>. Also Published Article Copy and Journal Archive link also.
                                 

@@ -22,10 +22,10 @@ export const AdvisoryBoardCard = ({
       </div>
       <div className="sm:col-span-2 justify-between px-4 py-3 w-full">
         <div className="space-y-1">
-          <p className="text-primary font-medium text-[15px]">{boardTitle}</p>
-          <h3 className="text-[17px] font-bold ">{name}</h3>
-          <p className="text-paragraph text-[15px]">{designation}</p>
-          <p className="text-paragraph text-[15px]">
+          <p className="text-primary font-medium text-[15px] xl:text-2xl">{boardTitle}</p>
+          <h3 className="text-[17px] xl:text-xl font-bold ">{name}</h3>
+          <p className="text-paragraph text-[15px] xl:text-lg">{designation}</p>
+          <p className="text-paragraph text-[15px] xl:text-lg">
             <strong>Address:</strong> {address}
           </p>
         </div>

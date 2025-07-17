@@ -37,7 +37,7 @@ export default function GuidePaper() {
         unless the same is finally rejected.
       </p>
       <div>
-        <h1 className="font-medium text-lg mb-2">
+        <h1 className="font-medium text-lg xl:text-xl mb-2">
           Manuscript Submission:
         </h1>
         <p>
@@ -49,7 +49,7 @@ export default function GuidePaper() {
         </p>
       </div>
       <div>
-        <h1 className="font-medium text-lg mb-2">
+        <h1 className="font-medium text-lg xl:text-xl mb-2">
           Permissions
         </h1>
         <p>
@@ -62,37 +62,37 @@ export default function GuidePaper() {
       </div>
 
       <section className="space-y-3">
-        <h1 className="font-medium text-lg py-2 pt-4">
+        <h1 className="font-medium text-lg xl:text-xl py-2 pt-4">
           Author(s) be sure that:
         </h1>
         <p>
-          <span className="font-medium text-lg">Plagiarism Check:</span> Good quality plagiarism software/ tool Crosscheck / Turnitin
+          <span className="font-medium text-lg xl:text-xl">Plagiarism Check:</span> Good quality plagiarism software/ tool Crosscheck / Turnitin
           Plagiarism detection tools will be used to check similarity that would not be more than
           20% including reference section. In the case of exclusion of references, it should be
           less than 5%.
         </p>
         <p>
-          <span className="font-medium text-lg">Quality Check:</span>  All submitted paper should be cutting edge, result oriented, original
+          <span className="font-medium text-lg xl:text-xl">Quality Check:</span>  All submitted paper should be cutting edge, result oriented, original
           paper and under the scope of the journal that should belong to the engineering and
           technology area. In the paper title, there should not be word ‘Overview/brief/
           Introduction, Review, Case study/ Study, Survey, Approach, Comparative, Analysis,
           Comparative Investigation, Investigation’.
         </p>
         <p>
-          <span className="font-medium text-lg">Paper Submission Criteria:</span>  Any one author cannot submit more than 05 papers for the same volume/issue.
+          <span className="font-medium text-lg xl:text-xl">Paper Submission Criteria:</span>  Any one author cannot submit more than 05 papers for the same volume/issue.
         </p>
         <p>
-          <span className="font-medium text-lg">Review Criteria:</span> This journal uses double-blind review process, which means that both the reviewer (s) and author (s) identities concealed from the reviewers, and vice
+          <span className="font-medium text-lg xl:text-xl">Review Criteria:</span> This journal uses double-blind review process, which means that both the reviewer (s) and author (s) identities concealed from the reviewers, and vice
           versa, throughout the review process. All submitted manuscripts are reviewed by
           three reviewer one from India and rest two from overseas. There should be proper
           comments of the reviewers for the purpose of acceptance/ rejection. There should be
           minimum 02 to 03 week time window for it.
         </p>
         <p>
-          <span className="font-medium text-lg">eCopyright:</span>  All authors will submit e-copyright to the Journal/ FDRP, India
+          <span className="font-medium text-lg xl:text-xl">eCopyright:</span>  All authors will submit e-copyright to the Journal/ FDRP, India
         </p>
         <p>
-          <span className="font-medium text-lg">Template:</span>  All accepted papers should be formatted as per IJSREAT Journal
+          <span className="font-medium text-lg xl:text-xl">Template:</span>  All accepted papers should be formatted as per IJSREAT Journal
           Template. It is be sure that contents of the paper are fine and satisfactory. Author(s)
           can make rectification in the final paper but after the final submission to the journal,
           rectification is not possible. In the formatted paper, volume no/ issue no will be in the
@@ -100,31 +100,31 @@ export default function GuidePaper() {
           the database of journal and publishing house.
         </p>
         <p>
-          <span className="font-medium text-lg">Updation in the Paper:</span>  Final paper is prepared as per journal the template.
+          <span className="font-medium text-lg xl:text-xl">Updation in the Paper:</span>  Final paper is prepared as per journal the template.
           Contents of the paper are fine and satisfactory. Author (s) can make rectification in
           the final paper but after the final submission to the journal, rectification is not
           possible.
         </p>
         <p>
-          <span className="font-medium text-lg">Copyright Property:</span>   After the publication, conference proceeding will be property of FDRP, India and journal.
+          <span className="font-medium text-lg xl:text-xl">Copyright Property:</span>   After the publication, conference proceeding will be property of FDRP, India and journal.
         </p>
         <p>
-          <span className="font-medium text-lg">Publication Fee:</span>   Journal is free. Journal will not take any kind of fee/processing fee/handling fee/review fee.
+          <span className="font-medium text-lg xl:text-xl">Publication Fee:</span>   Journal is free. Journal will not take any kind of fee/processing fee/handling fee/review fee.
         </p>
         <p>
-          <span className="font-medium text-lg">APC:</span>   Article Processing Charge (APC) is not a publication fee of the journal. APC is to be taken by publication house that is ‘FDRP, India’. It is not taken by journal. APC
+          <span className="font-medium text-lg xl:text-xl">APC:</span>   Article Processing Charge (APC) is not a publication fee of the journal. APC is to be taken by publication house that is ‘FDRP, India’. It is not taken by journal. APC
           is applicable for per paper one time. It means, have to pay for every paper (article).
           Author is free to withdraw his/her paper at any time but before signing the copyright.
           There is no any force. After signing the copyright, paper cannot withdraw at any
           condition.
         </p>
         <p>
-          <span className="font-medium text-lg">Required Time for Endorsement:</span>  It will take minimum 02 to 03 weeks.
+          <span className="font-medium text-lg xl:text-xl">Required Time for Endorsement:</span>  It will take minimum 02 to 03 weeks.
         </p>
       </section>
 
       <section>
-        <h1 className="font-medium text-lg mb-2">
+        <h1 className="font-medium text-lg xl:text-xl mb-2">
           Online Paper Submission:
         </h1>
         <p>
@@ -137,13 +137,13 @@ export default function GuidePaper() {
           Paper Template of IJSREAT available at <Link to={"/downloads"} className="text-primary">Downloads</Link>
           <br />
           <br />
-          <span className="font-medium text-lg">Title Page:</span> The title page should include the name(s) of the author(s), a concise and informative title, the affiliation(s) and address of the author(s), the e-mail address of the corresponding author.
+          <span className="font-medium text-lg xl:text-xl">Title Page:</span> The title page should include the name(s) of the author(s), a concise and informative title, the affiliation(s) and address of the author(s), the e-mail address of the corresponding author.
           <br />
-          <span className="font-medium text-lg">Abstract:</span> Please provide an abstract of 150 to 450 words. The abstract should not contain any undefined abbreviations or unspecified references.
+          <span className="font-medium text-lg xl:text-xl">Abstract:</span> Please provide an abstract of 150 to 450 words. The abstract should not contain any undefined abbreviations or unspecified references.
           <br />
-          <span className="font-medium text-lg">Keywords:</span> Author(s) should provide 4 to 6 keywords which can be used for indexing purposes.
+          <span className="font-medium text-lg xl:text-xl">Keywords:</span> Author(s) should provide 4 to 6 keywords which can be used for indexing purposes.
           <br />
-          <span className="font-medium text-lg">Text Formatting:</span> Paper Setup must be in A4 size with Margin: Top 1.78 cm, Bottom 1.78 cm, Left 1.78 cm, Right 1.65 cm. Paper must be in one Column after Authors
+          <span className="font-medium text-lg xl:text-xl">Text Formatting:</span> Paper Setup must be in A4 size with Margin: Top 1.78 cm, Bottom 1.78 cm, Left 1.78 cm, Right 1.65 cm. Paper must be in one Column after Authors
           Name with Width 8.59 cm, Spacing 0.51 cm. Whole paper must be with: Font Name
           Cambria, Font Size 10, Line Spacing 1.05 Except Abstract, Keywords (Index Term),
           Paper Tile, References, Author Profile (in the last page of the paper, maximum 400
@@ -161,32 +161,32 @@ export default function GuidePaper() {
           Line Spacing. References must be in Font Size 8, Hanging 0.25 with single line
           spacing. Author Profile must be in Font Size 8, with single line spacing.
           <br />
-          <span className="font-medium text-lg">Introduction:</span> State the objectives of the work and provide an adequate background, with a detailed literature survey or a summary of the results.
+          <span className="font-medium text-lg xl:text-xl">Introduction:</span> State the objectives of the work and provide an adequate background, with a detailed literature survey or a summary of the results.
           <br />
-          <span className="font-medium text-lg">Theory/Calculation/Methodology:</span> A Theory Section should extend, not repeat the
+          <span className="font-medium text-lg xl:text-xl">Theory/Calculation/Methodology:</span> A Theory Section should extend, not repeat the
           information discussed in Introduction. In contrast, a Calculation Section represents a
           practical development from a theoretical basis.
           <br />
-          <span className="font-medium text-lg">Result:</span> Results should be clear and concise.
+          <span className="font-medium text-lg xl:text-xl">Result:</span> Results should be clear and concise.
           <br />
-          <span className="font-medium text-lg">Discussion:</span> This section should explore the importance of the results of the work, not repeat them. A combined Results and Discussion section is often appropriate.
+          <span className="font-medium text-lg xl:text-xl">Discussion:</span> This section should explore the importance of the results of the work, not repeat them. A combined Results and Discussion section is often appropriate.
           <br />
-          <span className="font-medium text-lg">Conclusion and Future Scope:</span> The main conclusions of the study may be
+          <span className="font-medium text-lg xl:text-xl">Conclusion and Future Scope:</span> The main conclusions of the study may be
           presented in a short Conclusion Section. In this section, the author(s) should also
           briefly discuss the limitations of the research and Future Scope for improvement.
           <br />
 
-          <span className="font-medium text-lg">Appendix:</span> If there are multiple appendices, they should be identified as A, B, etc.
+          <span className="font-medium text-lg xl:text-xl">Appendix:</span> If there are multiple appendices, they should be identified as A, B, etc.
           Formula and equations in appendices should be given separate numbering: Eq.
           (A.1), Eq. (A.2), etc.; in a subsequent appendix, Eq. (B.1) and so on. Similar
           nomenclature should be followed for tables and figures: Table A.1; Fig. A.1, etc.
           <br />
-          <span className="font-medium text-lg">Acknowledgement:</span> If desired, authors may provide acknowledgements at the end
+          <span className="font-medium text-lg xl:text-xl">Acknowledgement:</span> If desired, authors may provide acknowledgements at the end
           of the article, before the references. The organizations / individuals who provided
           help during the research (e.g. providing language help, writing assistance, proof
           reading the article, sponsoring the research, etc.) may be acknowledged here.
           <br />
-          <span className="font-medium text-lg">References:</span> Citation in text- Please ensure that every reference cited in the text is also present in the reference list (and vice versa). The references in the reference list
+          <span className="font-medium text-lg xl:text-xl">References:</span> Citation in text- Please ensure that every reference cited in the text is also present in the reference list (and vice versa). The references in the reference list
           should follow the IJSREAT reference style of the journal and citation of a reference.
           Web references- As a minimum, the full URL should be given and the date when the
           reference was last accessed. Any further information, if known (DOI, author names,
@@ -196,7 +196,7 @@ export default function GuidePaper() {
           Indicate references by number(s) in square brackets in line with the text. The actual
           authors can be referred to, but the reference number(s) must always be given.
           <br />
-          <span className="font-medium text-lg">Example:</span> ‘….. as demonstrated [3,6]. Barnaby and Jones [8] obtained a different
+          <span className="font-medium text-lg xl:text-xl">Example:</span> ‘….. as demonstrated [3,6]. Barnaby and Jones [8] obtained a different
           result ….’ List- Number the references (numbers in square brackets) in the list,
           according to the order in which they appear in the text. example: [1] G. O. Young,
           “Synthetic structure of industrial plastics (Book style with paper title and editor),” in
@@ -206,7 +206,7 @@ export default function GuidePaper() {
       </section>
       <section className="space-y-6">
         <div>
-          <h1 className="font-medium text-lg mb-2">
+          <h1 className="font-medium text-lg xl:text-xl mb-2">
             Mathematical Formula
           </h1>
           <p>
@@ -215,7 +215,7 @@ export default function GuidePaper() {
           </p>
         </div>
         <div>
-          <h1 className="font-medium text-lg mb-2">
+          <h1 className="font-medium text-lg xl:text-xl mb-2">
             Captions and Numbering for Figure and Tables
           </h1>
           <p>
@@ -226,7 +226,7 @@ export default function GuidePaper() {
           </p>
         </div>
         <div>
-          <h1 className="font-medium text-lg mb-2">
+          <h1 className="font-medium text-lg xl:text-xl mb-2">
             Color illustrations
           </h1>
           <p>
@@ -234,7 +234,7 @@ export default function GuidePaper() {
           </p>
         </div>
         <div>
-          <h1 className="font-medium text-lg mb-2">
+          <h1 className="font-medium text-lg xl:text-xl mb-2">
             Copyright
           </h1>
           <p>
@@ -247,7 +247,7 @@ export default function GuidePaper() {
           </p>
         </div>       
         <div>
-          <h1 className="font-medium text-lg mb-2">
+          <h1 className="font-medium text-lg xl:text-xl mb-2">
             Copyright Policy:
           </h1>
           <p>
@@ -283,7 +283,7 @@ export default function GuidePaper() {
           </ul>
         </div>
         <div>
-          <h1 className="font-medium text-lg mb-2">
+          <h1 className="font-medium text-lg xl:text-xl mb-2">
             Final Proof of the Paper
           </h1>
           <p>

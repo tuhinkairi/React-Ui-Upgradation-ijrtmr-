@@ -33,7 +33,7 @@ import ResearchAreaCard from "./ResearchAreaCard";
 export default function AuthorProfile({ member }: { member: EditorialMember }) {
   return (
     <div className="space-y-6">
-      <h2 className="text-lg font-bold text-primary">
+      <h2 className="text-lg xl:text-3xl font-bold text-primary">
         {member?.member_name}
       </h2>
       <p className="text-sm xl:text-base 2xl:text-2xl leading-relaxed">
@@ -60,7 +60,7 @@ export default function AuthorProfile({ member }: { member: EditorialMember }) {
         </div>
       </div>
       <div className="space-y-6 text-sm xl:text-base 2xl:text-2xl leading-relaxed">
-        <h3 className="text-lg font-bold ">Publications</h3>
+        <h3 className="text-lg xl:text-2xl font-bold ">Publications</h3>
         {/* {publications.map((pub) => (
           <div key={pub.id} className="flex items-start gap-2">
             <span className="">{pub.id}.</span>
