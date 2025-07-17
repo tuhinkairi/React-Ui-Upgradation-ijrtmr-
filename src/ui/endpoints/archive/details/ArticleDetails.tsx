@@ -73,7 +73,7 @@ const ArticleDetails = () => {
         </div>
 
         {/* Meta Information */}
-        <div className="space-y-3 text-primary-text leading-7 text-sm sm:text-base">
+        <div className="space-y-3 text-primary-text leading-7 text-sm xl:text-base 2xl:text-2xl sm:text-base">
           <div className="flex gap-3 ">
             <div className="text-base flex flex-wrap sm:flex-col gap-3 ">
               <div className="flex flex-wrap gap-3 gap-x-6">
@@ -127,7 +127,7 @@ const ArticleDetails = () => {
             </Link>}
           </div>
 
-          <button className="inline-flex sm:hidden items-center justify-center bg-[#fae0d0] text-primary-text text-sm font-medium w-12 h-12 hover:bg-[#f6d5c3] transition-colors rounded-full">
+          <button className="inline-flex sm:hidden items-center justify-center bg-[#fae0d0] text-primary-text text-sm xl:text-base 2xl:text-2xl font-medium w-12 h-12 hover:bg-[#f6d5c3] transition-colors rounded-full">
             <Share2 size={13} className="inline-block" />
           </button>
 
@@ -138,13 +138,13 @@ const ArticleDetails = () => {
                 <VscFilePdf size={18} className="ml-4" />
               </PrimaryBtn>
             </Link>
-            <button className="bg-gradient-to-b from-gray-100  to-zinc-300 border border-gray-300 hover:scale-105 transition-all text-dark px-3 py-2 rounded-md font-semibold flex items-center justify-center space-x-3 text-sm">
+            <button className="bg-gradient-to-b from-gray-100  to-zinc-300 border border-gray-300 hover:scale-105 transition-all text-dark px-3 py-2 rounded-md font-semibold flex items-center justify-center space-x-3 text-sm xl:text-base 2xl:text-2xl">
               <span>
                 Check for Updates</span> <IoReload height={20} />
             </button>
           </div>
 
-          <button className={`hidden sm:inline-flex items-center justify-center ${copy ? "bg-green-300 hover:bg-green-400" : "bg-[#fae0d0] hover:bg-[#f6d5c3]"} text-primary-text text-sm font-medium w-12 h-12  transition-colors rounded-full`} onClick={() => {
+          <button className={`hidden sm:inline-flex items-center justify-center ${copy ? "bg-green-300 hover:bg-green-400" : "bg-[#fae0d0] hover:bg-[#f6d5c3]"} text-primary-text text-sm xl:text-base 2xl:text-2xl font-medium w-12 h-12  transition-colors rounded-full`} onClick={() => {
             navigator.clipboard.writeText(window.location.href)
             SetCopy(true)
             setTimeout(() => {

@@ -39,7 +39,7 @@ const LicenseTable = () => {
         <thead className="">
           <tr>
             {licenseData.headers.map((header, index) => (
-              <th key={index} className="border border-gray-200 px-4 py-2 text-center text-gray-800 font-medium text-sm">
+              <th key={index} className="border border-gray-200 px-4 py-2 text-center text-gray-800 font-medium text-sm xl:text-base 2xl:text-2xl">
                 {header}
               </th>
             ))}
@@ -47,7 +47,7 @@ const LicenseTable = () => {
         </thead>
         <tbody>
           {licenseData.rows.map((row, idx) => (
-            <tr key={idx} className="text-sm">
+            <tr key={idx} className="text-sm xl:text-base 2xl:text-2xl">
               <td className="border border-gray-200 px-4 py-2 font-medium text-gray-800">{row.user_license}</td>
               {row.permissions.map((perm, pIdx) => (
                 <td key={pIdx} className="border border-gray-200 px-4 py-2 text-gray-700">

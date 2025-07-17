@@ -59,8 +59,8 @@ export default function OpenAccessBenefitsGrid() {
       {benefits.map(({ icon, title, description }, idx) => (
         <div key={idx} className="bg-white rounded-2xl shadow-sm border border-gray-200 hover:shadow-md p-3 sm:p-6 space-y-4 hover:bg-[#fae0d0] cursor-pointer transition-all">
           <div className="w-6 h-6 bg-gradient-to-b from-primary  to-orange-600 text-transparent bg-clip-text">{icon}</div>
-          <h3 className="font-semibold text-lg">{title}</h3>
-          <p className="text-paragraph text-sm">{description}</p>
+          <h3 className="font-semibold text-lg  xl:text-xl 2xl:text-2xl ">{title}</h3>
+          <p className="text-paragraph text-sm xl:text-base 2xl:text-2xl">{description}</p>
         </div>
       ))}
     </div>

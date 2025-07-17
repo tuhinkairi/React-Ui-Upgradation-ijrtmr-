@@ -343,7 +343,7 @@ export default function ArchiveVolumes({ active }: activeSection) {
             onChange={handleChange}
             value={form.search}
             placeholder="Search by Paper ID, Paper Name"
-            className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm"
+            className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm xl:text-base 2xl:text-2xl"
           />
           {(active === "conference") && (
             ConferenceVolumesSearch ? (

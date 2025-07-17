@@ -54,7 +54,7 @@ const JournalsCompendium = () => {
         Fifth Dimension Research Publication
       </p>
 
-      <div className="relative max-w-5xl mx-auto">
+      <div className="relative  mx-auto">
         <button
           onClick={handlePrevClick}
           className="absolute -left-3.5 sm:-left-5 lg:-left-10 top-1/2 transform -translate-y-1/2 z-10 bg-gray-800 text-white p-2 rounded-full"

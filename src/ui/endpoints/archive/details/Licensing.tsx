@@ -7,7 +7,7 @@ const Licensing = () => {
         © 2025 The Author(s). Published by Informa UK Limited, trading as Taylor & Francis Group.
       </p>
 
-      <p className="text-sm leading-relaxed">
+      <p className="text-sm xl:text-base 2xl:text-2xl leading-relaxed">
         This is an Open Access article distributed under the terms of the Creative Commons Attribution License (<a
           href="http://creativecommons.org/licenses/by/4.0/"
           target="_blank"

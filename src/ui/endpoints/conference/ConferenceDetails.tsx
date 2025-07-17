@@ -97,7 +97,7 @@ const ConferenceDetails = () => {
                 </span>
               ))}
             </div> */}
-              <button className="hidden sm:inline-flex items-center justify-center bg-[#fae0d0]  text-sm font-medium px-6 py-2.5 gap-3 hover:bg-[#f6d5c3]  text-paragraph transition-colors rounded-full h-fit">
+              <button className="hidden sm:inline-flex items-center justify-center bg-[#fae0d0]  text-sm xl:text-base 2xl:text-2xl font-medium px-6 py-2.5 gap-3 hover:bg-[#f6d5c3]  text-paragraph transition-colors rounded-full h-fit">
                 <Share2 size={13} className="inline-block" /> Share
               </button>
             </div>
@@ -133,7 +133,7 @@ const ConferenceDetails = () => {
             </Link>}
           </div>
 
-          <button className="inline-flex sm:hidden items-center justify-center bg-[#fae0d0] text-primary-text text-sm font-medium w-12 h-12 hover:bg-[#f6d5c3] transition-colors rounded-full">
+          <button className="inline-flex sm:hidden items-center justify-center bg-[#fae0d0] text-primary-text text-sm xl:text-base 2xl:text-2xl font-medium w-12 h-12 hover:bg-[#f6d5c3] transition-colors rounded-full">
             <Share2 size={13} className="inline-block" />
           </button>
 
@@ -144,13 +144,13 @@ const ConferenceDetails = () => {
                 <VscFilePdf size={18} className="ml-4" />
               </PrimaryBtn>
             </Link>
-            <button className="bg-gradient-to-b from-gray-100  to-zinc-300 border border-gray-300 hover:scale-105 transition-all text-dark px-3 py-2 rounded-md font-semibold flex items-center justify-center space-x-3 text-sm">
+            <button className="bg-gradient-to-b from-gray-100  to-zinc-300 border border-gray-300 hover:scale-105 transition-all text-dark px-3 py-2 rounded-md font-semibold flex items-center justify-center space-x-3 text-sm xl:text-base 2xl:text-2xl">
               <span>
                 Check for Updates</span> <IoReload height={20} />
             </button>
           </div>
 
-          <button className={`hidden sm:inline-flex items-center justify-center ${copy ? "bg-green-300 hover:bg-green-400" : "bg-[#fae0d0] hover:bg-[#f6d5c3]"} text-primary-text text-sm font-medium w-12 h-12  transition-colors rounded-full`} onClick={() => {
+          <button className={`hidden sm:inline-flex items-center justify-center ${copy ? "bg-green-300 hover:bg-green-400" : "bg-[#fae0d0] hover:bg-[#f6d5c3]"} text-primary-text text-sm xl:text-base 2xl:text-2xl font-medium w-12 h-12  transition-colors rounded-full`} onClick={() => {
             navigator.clipboard.writeText(window.location.href)
             SetCopy(true)
             setTimeout(() => {

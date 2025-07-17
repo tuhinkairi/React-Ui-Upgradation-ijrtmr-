@@ -52,7 +52,7 @@ const HandleGoolge =()=>{
 
             {/* Actions */}
             <div className="flex justify-between items-center mt-2">
-                <div className="flex gap-3 text-sm text-primary font-medium">
+                <div className="flex gap-3 text-sm xl:text-base 2xl:text-2xl text-primary font-medium">
                     <button
                         className="hover:underline"
                         onClick={() => navigate(`${endpoint}&section=FullArticle`)}

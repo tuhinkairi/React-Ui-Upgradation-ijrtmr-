@@ -16,7 +16,7 @@ const StepCard: React.FC<StepCardProps> = ({ step, title, description, icon }) =
         </h4>
         <div className="text-primary text-xl">{icon}</div>
       </div>
-      <p className="text-sm text-gray-600 leading-7">{description}</p>
+      <p className="text-sm xl:text-base 2xl:text-2xl text-gray-600 leading-7">{description}</p>
     </div>
   );
 };

@@ -15,7 +15,7 @@ const ArticleMetrics = () => {
             >
               {metric.value}
             </div>
-            {/* <span className="mt-2 text-sm text-gray-800"></span> */}
+            {/* <span className="mt-2 text-sm xl:text-base 2xl:text-2xl text-gray-800"></span> */}
           <span className="text-base font-medium text-primary-text mt-4">{metric.label}</span>
 
           </div>

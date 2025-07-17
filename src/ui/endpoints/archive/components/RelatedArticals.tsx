@@ -41,14 +41,14 @@ const RelatedArticles = () => {
             className="rounded-xl border border-gray-200 p-5 shadow-sm bg-white flex flex-col justify-between min-h-full min-w-2/3 md:w-auto"
           >
             <div>
-              <p className="text-sm text-gray-400 font-medium mb-1">{article.year}</p>
+              <p className="text-sm xl:text-base 2xl:text-2xl text-gray-400 font-medium mb-1">{article.year}</p>
               <p className="text-base font-semibold text-gray-900 leading-snug">
                 {article.paper_title}
               </p>
             </div>
             <div className="mt-4">
               <button className="primaryBtn " onClick={() => navigate(endpoint(article.paper_id, article.paper_title))}>
-                <span className="text-sm">View More</span><ArrowUpRight size={16} />
+                <span className="text-sm xl:text-base 2xl:text-2xl">View More</span><ArrowUpRight size={16} />
               </button>
             </div>
           </div>

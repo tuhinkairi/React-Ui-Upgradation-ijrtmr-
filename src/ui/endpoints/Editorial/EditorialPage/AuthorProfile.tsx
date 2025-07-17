@@ -36,7 +36,7 @@ export default function AuthorProfile({ member }: { member: EditorialMember }) {
       <h2 className="text-lg font-bold text-primary">
         {member?.member_name}
       </h2>
-      <p className="text-sm leading-relaxed">
+      <p className="text-sm xl:text-base 2xl:text-2xl leading-relaxed">
         {member.member_designation}
       </p>
       <div className="space-y-4">
@@ -59,7 +59,7 @@ export default function AuthorProfile({ member }: { member: EditorialMember }) {
           </Link>}
         </div>
       </div>
-      <div className="space-y-6 text-sm leading-relaxed">
+      <div className="space-y-6 text-sm xl:text-base 2xl:text-2xl leading-relaxed">
         <h3 className="text-lg font-bold ">Publications</h3>
         {/* {publications.map((pub) => (
           <div key={pub.id} className="flex items-start gap-2">

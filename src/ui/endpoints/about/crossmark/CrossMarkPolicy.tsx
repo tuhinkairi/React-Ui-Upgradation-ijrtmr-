@@ -8,7 +8,7 @@ function CrossMarkPolicy() {
         <CommonLayout>
             <div className='flex items-center justify-between text-base flex-wrap lg:flex-nowrap'>
                 <Title>Crossmark Policy</Title>
-                <p className="text-sm text-muted-foreground lg:mt-1">
+                <p className="text-sm xl:text-base 2xl:text-2xl text-muted-foreground lg:mt-1">
                     <span className='font-medium text-base'>Crossmark Policy DOI : </span><Link target='_blank' to="http://dx.doi.org/10.59256/ijsreat/CrossMark-Policy-Page" className="text-primary hover:text-primary-hover underline">http://dx.doi.org/10.59256/ijsreat/CrossMark-Policy-Page</Link>
                 </p>
             </div>

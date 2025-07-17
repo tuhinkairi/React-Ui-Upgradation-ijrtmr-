@@ -37,7 +37,7 @@ const editorialData = [
 export default function EditorialManagement() {
   return (
     <section className="pt-8  px-6 lg:px-16 ">
-      <div className="max-w-screen-xl mx-auto mb-10">
+      <div className=" mb-10">
         {/* <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-2">
           Advanced Editorial Management
         </h2> */}
@@ -56,9 +56,9 @@ export default function EditorialManagement() {
             className="bg-white rounded-xl border border-gray-200 shadow-md p-6 flex flex-col text-left"
           >
             <div className="mb-4">{item.icon}</div>
-            <h3 className="font-semibold text-lg text-gray-900 mb-2">{item.title}</h3>
-            <p className="text-gray-700 text-sm mb-3">{item.desc}</p>
-            <ul className="list-disc pl-5 text-gray-600 text-sm space-y-1">
+            <h2 className="font-semibold text-lg  xl:text-xl 2xl:text-2xl text-gray-900 mb-2">{item.title}</h2>
+            <p className="text-gray-700 text-sm xl:text-base 2xl:text-2xl mb-3">{item.desc}</p>
+            <ul className="list-disc pl-5 text-gray-600 text-sm xl:text-base 2xl:text-2xl space-y-1">
               {item.bullets.map((bullet, j) => (
                 <li key={j} className="leading-snug">
                   {bullet}

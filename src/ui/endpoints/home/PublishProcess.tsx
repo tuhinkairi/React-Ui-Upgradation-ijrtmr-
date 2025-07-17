@@ -41,15 +41,15 @@ export default function PublishProcess() {
       <div className="mb-10 md:mb-16">
         {/* <h2 className="text-3xl font-semibold">Streamlined Publication Process</h2> */}
         <Title2>Streamlined Publication Process</Title2>
-        <p className="mt-2 text-sm text-secondaryText">Our efficient workflow ensures your research gets published quickly without sacrificing quality</p>
+        <p className="mt-2 text-sm xl:text-base 2xl:text-2xl text-secondaryText">Our efficient workflow ensures your research gets published quickly without sacrificing quality</p>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-8">
         {steps.map((step, idx) => (
-          <div key={idx} className="flex flex-col items-start space-y-4 max-w-96 mx-auto">
-            <img src={step.image} alt={step.title} className="w-full max-w-xs object-contain mx-auto" />
-            <h4 className="text-lg font-semibold text-gray-900">{step.title}</h4>
-            <p className="text-sm text-paragraph">{step.description}</p>
+          <div key={idx} className="flex flex-col items-start space-y-4 max-w-96 xl:max-w-full mx-auto ">
+            <img src={step.image} alt={step.title} className="w-full max-w-xs xl:max-w-full object-contain mx-auto" />
+            <h4 className="text-lg  xl:text-xl 2xl:text-2xl font-semibold text-gray-900">{step.title}</h4>
+            <p className="text-sm xl:text-base 2xl:text-2xl text-paragraph">{step.description}</p>
             {step.button && (
               <Link to="https://editorial.fdrpjournals.org/login?journal=2" target="_blank">
               <button className="mt-2 bg-teal-400  border border-teal-400 text-white text-base font-medium px-4 py-2 rounded-lg hover:bg-peach-200 transition inline-flex items-center gap-2 animate-bounce">
