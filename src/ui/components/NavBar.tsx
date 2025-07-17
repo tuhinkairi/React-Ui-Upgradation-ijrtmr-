@@ -69,7 +69,7 @@ const[isShowing, setShowing] = useState<boolean>(false)
           <li className="hover:text-primary relative">
             <button
               onMouseEnter={(e) => handlePopup(e, about)}
-              onClick={(e) => e.preventDefault()}
+              onClick={(e) => {e.preventDefault(); handlePopup(e, about)}}
             >
               About Us
             </button>
@@ -80,7 +80,7 @@ const[isShowing, setShowing] = useState<boolean>(false)
           <li className="hover:text-primary relative">
             <button
               onMouseEnter={(e) => handlePopup(e, auther)}
-              onClick={(e) => e.preventDefault()}
+              onClick={(e) => {e.preventDefault(); handlePopup(e, auther)}}
 
             >
               For Authors
@@ -109,6 +109,7 @@ const[isShowing, setShowing] = useState<boolean>(false)
           <li className="hover:text-primary relative">
             <button
               onMouseEnter={(e) => handlePopup(e, thesis)}
+              onClick={(e) => {e.preventDefault(); handlePopup(e, thesis)}}
             >
               Thesis
             </button>
