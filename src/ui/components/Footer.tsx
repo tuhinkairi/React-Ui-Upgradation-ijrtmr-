@@ -61,7 +61,7 @@ export default function Footer() {
               <li><NavLink to="/ethics" className="hover:text-primary">Ethics And Policies</NavLink></li>
               <li><NavLink to="/cross-mark-policy" className="hover:text-primary">Crossmark Policy</NavLink></li>
               <li><NavLink to="/open-Access-policy" className="hover:text-primary">Open Access Policy</NavLink></li>
-              <li><NavLink to="/plagiarism-policy" className="hover:text-primary">Plagiarism Policy</NavLink></li>
+              <li><NavLink to={{pathname:"/ethics", hash:"plagiarism-policy"}} className="hover:text-primary">Plagiarism Policy</NavLink></li>
             </ul>
           </div>
 

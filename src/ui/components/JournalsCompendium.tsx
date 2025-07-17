@@ -62,9 +62,9 @@ const JournalsCompendium = () => {
           <ChevronLeft />
         </button>
 
-        <div className="grid sm:grid-cols-2 px-10 lg:px-0 md:grid-cols-3 gap-6 justify-center items-center transition-all duration-700 ease-in-out">
+        <div className="grid px-10 lg:px-0 md:grid-cols-3 gap-6 justify-center items-center transition-all duration-700 ease-in-out">
           {getVisibleJournals().map((journal, idx) => (
-            <CompodiumCard key={`${journal.code}-${idx}`} {...journal} />
+            idx%2==1 ? <span className="md:scale-110 transition-all"><CompodiumCard key={`${journal.code}-${idx}`} {...journal} /></span>:<span className="md:scale-75 lg:scale-95 transition-all"><CompodiumCard key={`${journal.code}-${idx}`} {...journal} /></span>
           ))}
         </div>
 
