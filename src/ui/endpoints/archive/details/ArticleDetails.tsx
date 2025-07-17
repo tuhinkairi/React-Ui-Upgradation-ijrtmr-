@@ -73,7 +73,7 @@ const ArticleDetails = () => {
         </div>
 
         {/* Meta Information */}
-        <div className="space-y-3 text-primary-text leading-7 text-sm xl:text-base 2xl:text-2xl sm:text-base">
+        <div className="space-y-3 text-primary-text leading-relaxed text-sm xl:text-base 2xl:text-2xl sm:text-base">
           <div className="flex gap-3 ">
             <div className="text-base flex flex-wrap sm:flex-col gap-3 ">
               <div className="flex flex-wrap gap-3 gap-x-6 ">

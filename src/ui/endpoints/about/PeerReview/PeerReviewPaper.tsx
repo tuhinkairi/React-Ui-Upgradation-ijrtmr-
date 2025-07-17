@@ -2,7 +2,7 @@ import Title from "../../../other/Title";
 
 export default function PeerReviewPaper() {
   return (
-    <section className=" leading-7 space-y-6 text-base text-[#333333]">
+    <section className=" leading-relaxed space-y-6 text-base xl:text-xl 2xl:text-2xl text-[#333333]">
       <Title>
         Peer Review Policy
       </Title>

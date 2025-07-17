@@ -35,8 +35,8 @@ const IndexingPartnerArchive: React.FC = () => {
           ))}
         </div>
         : <div className="animate-marquee whitespace-nowrap">
-          {indexData && indexData.map((partner) => (
-            <a href={partner.indexing_url} className="inline-block mx-10">
+          {indexData && indexData.map((partner,idx) => (
+            <a key={idx} href={partner.indexing_url} target='_blank' className="inline-block mx-10">
               <img
                 key={partner.indexing_id}
                 src={partner.indexing_image_url}

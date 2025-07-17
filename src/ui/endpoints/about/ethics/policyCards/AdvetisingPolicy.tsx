@@ -2,7 +2,7 @@ import Title from '../../../../other/Title'
 
 export default function AdvetisingPolicy() {
     return (
-        <article className='space-y-8 leading-7'>
+        <article className='space-y-8 leading-relaxed'>
             <Title>
                 Advertising Policy:
             </Title>

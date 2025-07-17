@@ -2,7 +2,7 @@ import Title from '../../../../other/Title'
 
 export default function RepositoryPolicy() {
     return (
-        <article className='space-y-8 leading-7'>
+        <article className='space-y-8 leading-relaxed'>
             <Title>Repository policy</Title>
             <p className='mt-6'>
                 Authors are encouraged to deposit their research findings and associated data in

@@ -3,7 +3,7 @@ import LicenseTable from "./component/LicenseTable";
 
 export default function OpenAccessPolicy() {
     return (
-        <article className="space-y-8 leading-7">
+        <article className="space-y-8 leading-relaxed">
             <Title>Open Access Policy</Title>
             <h3 className="mt-6">
                 The aim of Fifth Dimension Research Publications (FDRP) and its journals are to provide the

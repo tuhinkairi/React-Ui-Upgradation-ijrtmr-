@@ -76,7 +76,7 @@ const ConferenceDetails = () => {
         </div>
 
         {/* Meta Information */}
-        <div className="space-y-3 text-primary-text leading-7 text-sm xl:text-base 2xl:text-2xl sm:text-base">
+        <div className="space-y-3 text-primary-text leading-relaxed text-sm xl:text-base 2xl:text-2xl sm:text-base">
           <div className="flex gap-3 ">
             <div className="w-full flex gap-3 gap-x-12 justify-between">
               <div className="flex flex-wrap gap-3 gap-x-6 py-2 mb-2">

@@ -2,7 +2,7 @@ import Title from "../../../../other/Title";
 
 export default function PublicationEthicsAndMalpracticeStatement() {
   return (
-    <article className="leading-7 space-y-6">
+    <article className="leading-relaxed space-y-6">
       <Title>
         Publication Ethics & Malpractice Statement
       </Title>

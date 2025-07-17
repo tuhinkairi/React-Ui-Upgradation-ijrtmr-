@@ -91,9 +91,9 @@ team to add pagination, volume and issue details. The re-supplied files will be 
 
 const Publishing = () => {
   return (
-    <div className="max-w-7xl mx-auto">
+    <div className="">
       <Title>Journal Publishing Process</Title>
-      <p className="text-gray-600 my-6 mb-10 leading-7">
+      <p className="text-gray-600 my-6 mb-10 leading-relaxed text-sm xl:text-base 2xl:text-2xl">
         We know it’s important to you to have your research published as quickly as possible. Our journals offer
 Rapid Publication Process that allows an article to be published online.
       </p>

@@ -2,7 +2,7 @@ import Title from '../../../../other/Title'
 
 export default function JournalMetrix() {
     return (
-        <article className='space-y-8 leading-7'>
+        <article className='space-y-8 leading-relaxed'>
             <Title>
 
                 Journal Metrics:

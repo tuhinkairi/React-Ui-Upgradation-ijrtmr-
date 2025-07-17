@@ -2,7 +2,7 @@ import Title from "../../../../other/Title";
 
 export default function WithdrawPolicy() {
     return (
-        <article className="leading-7 space-y-6">
+        <article className="leading-relaxed space-y-6">
             <Title>Article withdraw policy</Title>
             <p className="mt-6">It is a general principle of scholarly communication that the editor/guest editor of a
                 learned journal/series is solely and independently responsible for deciding which

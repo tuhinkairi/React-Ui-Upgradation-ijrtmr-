@@ -2,7 +2,7 @@ import Title from '../../../../other/Title'
 
 export default function ArchivePolicy() {
     return (
-        <article className='space-y-8 leading-7'>
+        <article className='space-y-8 leading-relaxed'>
             <Title>Archiving policy:</Title>
             <p className='mt-6'>Digital archiving is essential in ensuring that scholarly content, such as journal
                 articles, remains safe and accessible to readers for a long time. Several

@@ -3,7 +3,7 @@ import Title from "../../../../other/Title";
 
 export default function EditorialPolicy() {
     return (
-        <article className="space-y-8 leading-7">
+        <article className="space-y-8 leading-relaxed">
             <Title>Editorial Policies</Title>
             <div>
                 <h1 className="text-primary text-lg mt-6 mb-2">

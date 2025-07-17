@@ -4,7 +4,7 @@ import Title from "../../../other/Title";
 export default function GuidePaper() {
   const location = useLocation().pathname
   return (
-    <article className="space-y-6 leading-7">
+    <article className="space-y-6 leading-relaxed">
       <Title>{location.includes("ethics")?"Instructions for Authors":"Guide for Authors"}</Title>
       <p className=" my-6">
         International Journal of Scientific Research in Engineering &amp; Technology (IJSREAT) is

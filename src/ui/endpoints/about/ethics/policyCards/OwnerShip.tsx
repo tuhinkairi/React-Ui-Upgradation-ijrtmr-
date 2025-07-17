@@ -3,7 +3,7 @@ import Title from "../../../../other/Title";
 
 export default function OwnerShip() {
     return (
-        <article className="space-y-8 leading-7">
+        <article className="space-y-8 leading-relaxed">
             <Title>Copyright, Grants and Ownership Declaration</Title>
             <div className="mt-6">
                 <p>For all articles published in this journal, copyright is retained by the authors without restrictions
