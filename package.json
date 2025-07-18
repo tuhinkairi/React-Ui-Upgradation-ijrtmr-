@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host",
+    "generate:sitemap": "node src/actions/generate-sitemap.js",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
@@ -24,6 +25,7 @@
     "react-icons": "^5.5.0",
     "react-redux": "^9.2.0",
     "react-router-dom": "^7.6.1",
+    "react-router-sitemap": "^1.2.0",
     "tailwindcss": "^4.1.6"
   },
   "devDependencies": {

@@ -16,26 +16,29 @@ const ArticleMetrics = () => {
               {metric.value}
             </div>
             {/* <span className="mt-2 text-sm xl:text-base 2xl:text-2xl text-gray-800"></span> */}
-          <span className="text-base font-medium text-primary-text mt-4">{metric.label}</span>
+            <span className="text-base font-medium text-primary-text mt-4">{metric.label}</span>
 
           </div>
         ))}
         <div className="flex flex-col items-center justify-between gap-4 py-2">
-          <img
-            src="/plummatrix/plum.png"
-            alt="PlumX Metrics"
-            className="max-h-28 object-contain"
-          />
+          <a href="https://plu.mx/plum/a/?doi=10.1371/journal.pone.0056506" className="plumx-plum-print-popup">
+
+            <img
+              src="/plummatrix/plum.png"
+              alt="PlumX Metrics"
+              className="max-h-28 object-contain"
+            />
+          </a>
           <span className="text-base font-medium text-primary-text">PlumX Metrics</span>
         </div>
         <div className="flex flex-col items-center justify-between gap-4 py-2">
-        <img
-          src="/plummatrix/dynamics.png" // Replace with actual path
-          alt="Dimension"
-          className="max-h-28 object-contain"
-        />
-        <span className="text-base font-medium text-primary-text">Dimension</span>
-      </div>
+          <img
+            src="/plummatrix/dynamics.png" // Replace with actual path
+            alt="Dimension"
+            className="max-h-28 object-contain"
+          />
+          <span className="text-base font-medium text-primary-text">Dimension</span>
+        </div>
       </div>
     </div>
   );
