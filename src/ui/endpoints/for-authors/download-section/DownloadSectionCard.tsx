@@ -9,7 +9,7 @@ interface DownloadCardProps {
 const DownloadSectionCard: React.FC<DownloadCardProps> = ({ title, downloadUrl }) => {
   return (
     <div className="bg-white rounded-2xl shadow shadowSprade p-8 text-center w-90 h-60 mx-auto content-center">
-      <h3 className="text-xl font-semibold mb-6">{title}</h3>
+      <h3 className="text-xl xl:text-2xl font-semibold mb-6">{title}</h3>
       <Link
         to={downloadUrl}
         download={downloadUrl.split("/")[-1]}

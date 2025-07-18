@@ -118,7 +118,7 @@ export default function ArchiveSection() {
                           className="block border border-[#FF8C421F] hover:bg-[#FF8C421F] py-4 px-6  transition-colors"
                         >
                           <div className="flex items-center ">
-                            <h1 className="text-primary-text">Issue {issue}</h1>
+                            <h1 className="text-primary-text">Volume {elem.volume} Issue {issue}</h1>
                           </div>
                         </Link>
                       ))
