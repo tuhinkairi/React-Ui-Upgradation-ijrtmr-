@@ -13,7 +13,7 @@ export default function PublicationEthicsAndMalpracticeStatement() {
         guidelines. We are committed to fair practice of publication. Success in this regard can
         be achieved if ethics are well practiced by following participants:</h2>
       <div>
-        <h2 className="font-medium text-lg xl:text-xl mb-2">Ethical guidelines for journal publication</h2>
+        <h2 className="font-medium text-lg xl:text-2xl 2xl:text-3xl mb-2">Ethical guidelines for journal publication</h2>
         <span className="text-primary">International Journal of Scientific Research in Engineering & Technology</span> is committed to
         ensuring ethics in publication and quality of articles. Especially, International Journal
         of Innovative Research in Advanced Engineering is following the Code of Conduct
@@ -24,7 +24,7 @@ export default function PublicationEthicsAndMalpracticeStatement() {
         Authors, Editors, Reviewers, and the Publisher. In particular,
       </div>
       <div>
-        <h2 className="font-medium text-lg xl:text-xl mb-2">Authors</h2>
+        <h2 className="font-medium text-lg xl:text-2xl 2xl:text-3xl mb-2">Authors</h2>
         <ul className="space-y-1 ml-6 list-disc">
           <li>Authors should present an objective discussion of the significance of
             research work as well as sufficient details and references.</li>
@@ -59,7 +59,7 @@ export default function PublicationEthicsAndMalpracticeStatement() {
         </ul>
       </div>
       <div>
-        <h2 className="font-medium text-lg xl:text-xl mb-2">Editors</h2>
+        <h2 className="font-medium text-lg xl:text-2xl 2xl:text-3xl mb-2">Editors</h2>
         <ul className="space-y-1 ml-6 list-disc">
           <li>Editors have complete responsibility and authority to accept/reject a
             manuscript.</li>
@@ -80,7 +80,7 @@ export default function PublicationEthicsAndMalpracticeStatement() {
         </ul>
       </div>
       <div>
-        <h2 className="font-medium text-lg xl:text-xl mb-2">Reviewers</h2>
+        <h2 className="font-medium text-lg xl:text-2xl 2xl:text-3xl mb-2">Reviewers</h2>
         <ul className="space-y-1 ml-6 list-disc">
           <li>Any manuscripts received for review must be treated as confidential
             documents. Privileged information or ideas obtained through peer review
@@ -99,7 +99,7 @@ export default function PublicationEthicsAndMalpracticeStatement() {
         </ul>
       </div>
       <div>
-        <h2 className="font-medium text-lg xl:text-xl mb-2">Publisher</h2>
+        <h2 className="font-medium text-lg xl:text-2xl 2xl:text-3xl mb-2">Publisher</h2>
 
         <ul className="space-y-1 ml-6 list-disc">
           <li>Publisher monitors and safeguards publishing ethics.</li>

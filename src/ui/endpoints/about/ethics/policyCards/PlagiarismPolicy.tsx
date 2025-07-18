@@ -40,7 +40,7 @@ export default function PlagiarismPolicy() {
                 each page of the PDF. Upon determination of the extent of plagiarism, the paper may
                 also be formally retracted.</p>
             <div className="space-y-4">
-                <h2 className="font-medium text-lg xl:text-xl mb-2">Types of Plagiarism</h2>
+                <h2 className="font-medium text-lg xl:text-xl 2xl:text-3xl mb-2">Types of Plagiarism</h2>
                 <h3>The following types of plagiarism are considered by IJSREAT:</h3>
 
                 <p><span className="font-medium">Full Plagiarism:</span> Previously published content without any changes to the text, idea
@@ -53,7 +53,7 @@ export default function PlagiarismPolicy() {
                     an author republishes their own previously published work in a new journal.</p>
             </div>
             <div className="space-y-4">
-                <h2 className="font-medium text-lg xl:text-xl mb-2">Policy and Action for Plagiarism</h2>
+                <h2 className="font-medium text-lg xl:text-xl 2xl:text-3xl mb-2">Policy and Action for Plagiarism</h2>
                 <p>
 
                     IJSREAT respects intellectual property and aims at protecting and promoting original

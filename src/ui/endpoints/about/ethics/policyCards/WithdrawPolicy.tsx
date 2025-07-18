@@ -16,7 +16,7 @@ export default function WithdrawPolicy() {
                 published that must later be retracted or even removed. Such actions must not be
                 undertaken lightly and can only occur under exceptional circumstances, such as:</p>
             <div>
-                <h2 className="font-medium text-lg xl:text-xl mb-2">
+                <h2 className="font-medium text-lg xl:text-xl 2xl:text-3xl mb-2">
                     Article Withdrawal:
                 </h2>
                 <p>
@@ -37,7 +37,7 @@ export default function WithdrawPolicy() {
                 </p>
             </div>
             <div>
-                <h2 className="font-medium text-lg xl:text-xl mb-2">
+                <h2 className="font-medium text-lg xl:text-xl 2xl:text-3xl mb-2">
                     Article Retraction:
                 </h2>
                 <p>
@@ -64,7 +64,7 @@ export default function WithdrawPolicy() {
                 </ul>
             </div>
             <div>
-                <h2 className="font-medium text-lg xl:text-xl mb-2">
+                <h2 className="font-medium text-lg xl:text-xl 2xl:text-3xl mb-2">
                     Article removal: legal limitations
                 </h2>
                 <p>
@@ -78,7 +78,7 @@ export default function WithdrawPolicy() {
                 </p>
             </div>
             <div>
-                <h2 className="font-medium text-lg xl:text-xl mb-2">
+                <h2 className="font-medium text-lg xl:text-xl 2xl:text-3xl mb-2">
                     Article replacement
                 </h2>
                 <p>

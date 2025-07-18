@@ -11,7 +11,7 @@ export default function OpenAccessPolicy() {
                 published on our platforms.
             </h3>
             <div>
-                <h1 className="text-lg font-medium mb-4">
+                <h1 className="text-lg xl:text-2xl 2xl:text-3xl font-medium mb-4">
                     FDRP Publications and its journal Policy:
                 </h1>
                 <ul className="list-disc ml-6 mt-4 space-y-1">
@@ -33,7 +33,7 @@ export default function OpenAccessPolicy() {
             </div>
 
             <div>
-                <h1 className="text-lg font-medium mb-4">
+                <h1 className="text-lg xl:text-2xl 2xl:text-3xl font-medium mb-4">
                     Choosing a License
                 </h1>
                 <p>
@@ -49,7 +49,7 @@ export default function OpenAccessPolicy() {
                 user license permitted 3rd party reuse is only applicable for non-commercial purposes. For
                 further details on the rights granted to FDRP publications and Its Journal.</p>
             <div>
-                <h1 className="text-lg font-medium mb-2">
+                <h1 className="text-lg xl:text-2xl 2xl:text-3xl font-medium mb-2">
                     Creative Commons Attribution (CC BY)
                 </h1>
                 <p>
@@ -64,7 +64,7 @@ export default function OpenAccessPolicy() {
                 </p>
             </div>
             <div>
-                <h1 className="text-lg font-medium mb-2">
+                <h1 className="text-lg xl:text-2xl 2xl:text-3xl font-medium mb-2">
                     Creative Commons Attribution-Non Commercial-NoDerivs (CC BY-NC-ND)
                 </h1>
                 <p>

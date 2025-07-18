@@ -6,7 +6,7 @@ export default function EditorialPolicy() {
         <article className="space-y-8 leading-relaxed">
             <Title>Editorial Policies</Title>
             <div>
-                <h1 className="text-primary text-lg mt-6 mb-2">
+                <h1 className="text-primary text-lg xl:text-2xl 2xl:text-3xl mt-6 mb-2">
                     1. Allegations of misconduct
                 </h1>
                 International Journal of Scientific Research in Engineering & Technology resolves all the allegations
@@ -40,7 +40,7 @@ export default function EditorialPolicy() {
             </ul>
             <h1>Our team will definitely take necessary action for any reported allegations and research misconduct.</h1>
             <div>
-                <h1 className="text-lg font-medium mb-2">Retraction Policy</h1>
+                <h1 className="text-lg xl:text-2xl 2xl:text-3xl font-medium mb-2">Retraction Policy</h1>
                 <p>
                     International Journal of Scientific Research in Engineering &amp; Technology will do retraction of articles
                     when there are significant errors, Ethical concerns and fraudulent data in the published work.
@@ -56,7 +56,7 @@ export default function EditorialPolicy() {
                     <Link to={"mailto:editorialoffice@ipinnovatiove.com"} target="_blank" className="text-blue-500">editorialoffice@ipinnovatiove.com</Link> for such cases.</p>
             </div>
             <div>
-                <h1 className="text-lg font-medium mb-2">
+                <h1 className="text-lg xl:text-2xl 2xl:text-3xl font-medium mb-2">
                     Erratum
                 </h1>
                 <p>
@@ -70,7 +70,7 @@ export default function EditorialPolicy() {
                 </p>
             </div>
             <div>
-                <h1 className="text-lg font-medium mb-2">
+                <h1 className="text-lg xl:text-2xl 2xl:text-3xl font-medium mb-2">
                     Corrigendum
                 </h1>
                 <p>
@@ -83,7 +83,7 @@ export default function EditorialPolicy() {
                 </p>
             </div>
             <div>
-                <h1 className="text-primary text-lg mt-6 mb-2">
+                <h1 className="text-primary text-lg xl:text-2xl 2xl:text-3xl mt-6 mb-2">
                     2. Authorship and contributorship
                 </h1>
                 The concept of authorship is understood in such a way that each author of the authorship of the
@@ -107,7 +107,7 @@ export default function EditorialPolicy() {
                 and guest authors as part of the author’s team.
             </div>
             <div>
-                <h1 className="text-primary text-lg mt-6 mb-2">
+                <h1 className="text-primary text-lg xl:text-2xl 2xl:text-3xl mt-6 mb-2">
                     3. Complaints and appeals
                 </h1>
                 The following procedure is applicable to appeals of editorial judgements, grievances over
@@ -129,7 +129,7 @@ export default function EditorialPolicy() {
                 at <Link to="mailto:editorinchief@ijsreat.com" target="_blank" className="text-blue-500">editorinchief@ijsreat.com</Link> along with their justifications.
             </div>
             <div>
-                <h1 className="text-primary text-lg mt-6 mb-2">
+                <h1 className="text-primary text-lg xl:text-2xl 2xl:text-3xl mt-6 mb-2">
                     4. Conflicts of interest/competing interests
                 </h1>
                 IJSREAT’s Conflict of Interest policy is based on the COPE’s definition and guidelines:
@@ -147,10 +147,10 @@ export default function EditorialPolicy() {
 
             <section className="space-y-6">
                 <div>
-                    <h1 className="text-lg font-medium mb-2">
+                    <h1 className="text-lg xl:text-2xl 2xl:text-3xl font-medium mb-2">
                         Responsibilities of Participants
                     </h1>
-                    <h2 className="text-lg font-medium mb-2">Authors</h2>
+                    <h2 className="text-lg xl:text-2xl 2xl:text-3xl font-medium mb-2">Authors</h2>
                     <p>
                         Authors are responsible for reporting any financial Conflict of Interest related to their research. In
                         additional to financial COI other types of competing interests like personal relationships, academic
@@ -158,7 +158,7 @@ export default function EditorialPolicy() {
                     </p>
                 </div>
                 <div>
-                    <h1 className="text-lg font-medium mb-2">
+                    <h1 className="text-lg xl:text-2xl 2xl:text-3xl font-medium mb-2">
                         Journals / Publisher action:
                     </h1>
                     <ul className="list-disc ml-6 space-y-4">
@@ -169,7 +169,7 @@ export default function EditorialPolicy() {
                     </ul>
                 </div>
                 <div>
-                    <h1 className="text-lg font-medium mb-2">
+                    <h1 className="text-lg xl:text-2xl 2xl:text-3xl font-medium mb-2">
                         Reviewers
                     </h1>
                     <p>
@@ -180,7 +180,7 @@ export default function EditorialPolicy() {
                     </p>
                 </div>
                 <div>
-                    <h1 className="text-lg font-medium mb-2">
+                    <h1 className="text-lg xl:text-2xl 2xl:text-3xl font-medium mb-2">
                         Journals / Publisher action
                     </h1>
                     <p>
@@ -189,7 +189,7 @@ export default function EditorialPolicy() {
                     </p>
                 </div>
                 <div>
-                    <h1 className="text-lg font-medium mb-2">
+                    <h1 className="text-lg xl:text-2xl 2xl:text-3xl font-medium mb-2">
                         Editors
                     </h1>
                     <p>
@@ -200,7 +200,7 @@ export default function EditorialPolicy() {
                     </p>
                 </div>
                 <div>
-                    <h1 className="text-lg font-medium mb-2">
+                    <h1 className="text-lg xl:text-2xl 2xl:text-3xl font-medium mb-2">
                         Journals / Publisher action:
                     </h1>
                     <p>
@@ -211,7 +211,7 @@ export default function EditorialPolicy() {
                 </div>
             </section>
             <div>
-                <h1 className="text-primary text-lg mt-6 mb-2">
+                <h1 className="text-primary text-lg xl:text-2xl 2xl:text-3xl mt-6 mb-2">
                     5. Data and reproducibility
                 </h1>
                 <p>
@@ -234,7 +234,7 @@ export default function EditorialPolicy() {
                 </p>
             </div>
             <div>
-                <h1 className="text-primary text-lg mt-6 mb-2">
+                <h1 className="text-primary text-lg xl:text-2xl 2xl:text-3xl mt-6 mb-2">
                     6. Ethical oversight
                 </h1>
                 <p>
@@ -260,7 +260,7 @@ export default function EditorialPolicy() {
             </div>
 
             <div>
-                <h1 className="text-primary text-lg mt-6 mb-2">
+                <h1 className="text-primary text-lg xl:text-2xl 2xl:text-3xl mt-6 mb-2">
                     7. Intellectual property
                 </h1>
                 <p>
@@ -323,7 +323,7 @@ export default function EditorialPolicy() {
             </div>
 
             <div>
-                <h1 className="text-lg font-medium mb-2">
+                <h1 className="text-lg xl:text-2xl 2xl:text-3xl font-medium mb-2">
                     Duplicate Submission
                 </h1>
                 <p>
@@ -336,7 +336,7 @@ export default function EditorialPolicy() {
                 </p>
             </div>
             <div>
-                <h1 className="text-lg font-medium mb-2">
+                <h1 className="text-lg xl:text-2xl 2xl:text-3xl font-medium mb-2">
                     Duplicate and Prior Publication
                 </h1>
                 <p>
@@ -362,7 +362,7 @@ export default function EditorialPolicy() {
                 </p>
             </div>
             <div>
-                <h1 className="text-primary text-lg mt-6 mb-2">
+                <h1 className="text-primary text-lg xl:text-2xl 2xl:text-3xl mt-6 mb-2">
                     8. Peer review processes
                 </h1>
                 <p>
@@ -418,7 +418,7 @@ export default function EditorialPolicy() {
                 </p>
             </div>
             <div>
-                <h1 className="text-primary text-lg mt-6 mb-2">
+                <h1 className="text-primary text-lg xl:text-2xl 2xl:text-3xl mt-6 mb-2">
                     9. Post-publication discussions and corrections</h1>
                 <p>
                     IJSREAT allows post-publication discussion on the journal’s website, through emails
@@ -428,7 +428,7 @@ export default function EditorialPolicy() {
             </div>
 
             <div>
-                <h1 className="text-lg font-medium mb-2">
+                <h1 className="text-lg xl:text-2xl 2xl:text-3xl font-medium mb-2">
                     Correction Policy
                 </h1>
                 <p>
@@ -441,7 +441,7 @@ export default function EditorialPolicy() {
                 </p>
             </div>
             <div>
-                <h1 className="text-lg font-medium mb-2">
+                <h1 className="text-lg xl:text-2xl 2xl:text-3xl font-medium mb-2">
                     Cases that raise an erratum:
                 </h1>
                 <ul className="list-disc ml-6 mb-2 space-y-1">
@@ -463,7 +463,7 @@ export default function EditorialPolicy() {
 
             </div>
             <div>
-                <h1 className="text-lg font-medium mb-2">
+                <h1 className="text-lg xl:text-2xl 2xl:text-3xl font-medium mb-2">
                     Removal of Published Content:
                 </h1>
                 <ul className="list-disc ml-6 mb-2 space-y-1">
@@ -487,7 +487,7 @@ export default function EditorialPolicy() {
 
             </div>
             <div>
-                <h1 className="text-lg font-medium mb-2">
+                <h1 className="text-lg xl:text-2xl 2xl:text-3xl font-medium mb-2">
                     Addenda
                 </h1>
                 <p>
@@ -499,7 +499,7 @@ export default function EditorialPolicy() {
                     reviewed and are normally subject to oversight by the editor of the research article</p>
             </div>
             <div>
-                <h1 className="text-primary text-lg mt-6 mb-2">
+                <h1 className="text-primary text-lg xl:text-2xl 2xl:text-3xl mt-6 mb-2">
                     10. Research ethics
                 </h1>
                 <p>
@@ -514,7 +514,7 @@ export default function EditorialPolicy() {
                 </p>
             </div>
             <div>
-                <h1 className="text-primary text-lg mt-6 mb-2">
+                <h1 className="text-primary text-lg xl:text-2xl 2xl:text-3xl mt-6 mb-2">
                     11. Diversity (DEIA)
                 </h1>
                 <p>

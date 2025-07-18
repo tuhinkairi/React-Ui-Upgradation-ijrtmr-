@@ -15,7 +15,7 @@ export default function OwnerShip() {
                     ensuring that the authors receive proper credit.</p>
             </div>
             <div>
-                <h1 className="text-lg font-medium mb-2">Copyright Policy:</h1>
+                <h1 className="text-lg xl:text-2xl 2xl:text-3xl font-medium mb-2">Copyright Policy:</h1>
                 <h2>
                     Authors note that paper cannot be withdrawn at any condition once it is accepted. The
                     Authors may not publish his/her The Author may not publish his/her contribution
@@ -51,7 +51,7 @@ export default function OwnerShip() {
             <section className="space-y-4">
 
                 <div>
-                    <h1 className="text-lg font-medium mb-4">Journal Author Rights:</h1>
+                    <h1 className="text-lg xl:text-22xl 2xl:text-3xl font-medium mb-4">Journal Author Rights:</h1>
                     <p>
 
                         In order for FDRP Publications and Its journal to publish and disseminate research
@@ -66,7 +66,7 @@ export default function OwnerShip() {
                 </div>
                 <div>
                     <h1>
-                        <span className="text-lg font-medium ">For subscription articles: </span>
+                        <span className="text-lg xl:text-xl 2xl:text-2xl font-medium ">For subscription articles: </span>
                         Authors transfer copyright to the publisher as part of a
                         journal publishing agreement, but have the right to:
                     </h1>
@@ -87,7 +87,7 @@ export default function OwnerShip() {
                 </div>
                 <div>
                     <h1>
-                        <span className="text-lg font-medium ">For open access articles:</span> Authors sign an exclusive license agreement, where authors
+                        <span className="text-lg xl:text-xl 2xl:text-2xl font-medium ">For open access articles:</span> Authors sign an exclusive license agreement, where authors
                         have copyright but license exclusive rights in their article to the publisher**. In this case
                         authors have the right to:
                     </h1>
@@ -115,7 +115,7 @@ export default function OwnerShip() {
                     please see “Rights granted to FDRP Publications and Its Journal” for more details.</h3>
             </section>
             <section>
-                <h1 className="text-lg font-medium mb-4">
+                <h1 className="text-lg xl:text-2xl 2xl:text-3xl font-medium mb-4">
                     Rights granted to FDRP Publications and Its Journals:
                 </h1>
                 <h1>
@@ -143,7 +143,7 @@ export default function OwnerShip() {
                 </ul>
             </section>
             <div>
-                <h1 className="text-lg font-medium mb-4">
+                <h1 className="text-lg xl:text-2xl 2xl:text-3xl font-medium mb-4">
                     Protecting Author Rights:
                 </h1>
                 <p>
@@ -164,7 +164,7 @@ export default function OwnerShip() {
                 </p>
             </div>
             <div>
-                <h1 className="text-lg font-medium mb-4">
+                <h1 className="text-lg xl:text-2xl 2xl:text-3xl font-medium mb-4">
                     Disclaimer
                 </h1>
                 <p>
@@ -178,7 +178,7 @@ export default function OwnerShip() {
                 </p>
             </div>
             <div >
-                <h1 className="text-lg font-medium mb-4">
+                <h1 className="text-lg xl:text-2xl 2xl:text-3xl font-medium mb-4">
                     Address for Correspondence:
                 </h1>
                 <h1>Editor-In-Chief, IJSREAT</h1>

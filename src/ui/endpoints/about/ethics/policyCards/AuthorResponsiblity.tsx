@@ -2,7 +2,7 @@ import Title from "../../../../other/Title";
 
 export default function AuthorResponsiblity() {
   return (
-     <div className="space-y-4 pb-4 text-muted-foreground text-base text-[#333333]">
+     <div className="space-y-4 pb-4 text-muted-foreground text-base xl:text-xl 2xl:text-2xl text-[#333333]">
                 <Title>Author Responsibilities</Title>
                 <p className="mt-6">
                     <span className="font-semibold">Accuracy:</span>  Authors must ensure the accuracy of their work and promptly correct errors if found.
