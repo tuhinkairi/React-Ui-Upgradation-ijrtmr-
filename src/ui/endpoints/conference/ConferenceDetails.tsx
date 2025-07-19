@@ -124,7 +124,7 @@ const ConferenceDetails = () => {
               <ImQuotesLeft className="text-primary" /> Cite this article
             </h3>
 
-            {activePaper?.doi && <Link
+            {activePaper?.doi!==undefined && <Link
               target="_blank"
               to={activePaper?.doi  ?? window.location.href}
               className="text-primary flex items-center gap-1 hover:underline text-sm xl:text-xl 2xl:text-2xl wrap-anywhere sm:whitespace-nowrap"
