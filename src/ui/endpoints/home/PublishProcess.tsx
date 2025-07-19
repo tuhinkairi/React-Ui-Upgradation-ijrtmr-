@@ -48,11 +48,11 @@ export default function PublishProcess() {
         {steps.map((step, idx) => (
           <div key={idx} className="flex flex-col items-start space-y-4 max-w-96 xl:max-w-full mx-auto ">
             <img src={step.image} alt={step.title} className="w-full max-w-xs xl:max-w-full object-contain mx-auto" />
-            <h4 className="text-lg  xl:text-xl 2xl:text-2xl font-semibold text-gray-900">{step.title}</h4>
-            <p className="text-sm xl:text-base 2xl:text-2xl text-paragraph">{step.description}</p>
+            <h4 className="text-lg  2xl:text-xl  font-semibold text-gray-900">{step.title}</h4>
+            <p className="text-sm  2xl:text-xl text-paragraph">{step.description}</p>
             {step.button && (
               <Link to="https://editorial.fdrpjournals.org/login?journal=2" target="_blank">
-              <button className="mt-2 bg-teal-400  border border-teal-400 text-white text-base xl:text-lg 2xl:text-xl  font-medium px-4 py-2 rounded-lg hover:bg-teal-500 transition-all inline-flex items-center gap-2 animate-bounce">
+              <button className="mt-2 bg-teal-400  border border-teal-400 text-white text-base 2xl:text-lg  font-medium px-4 py-2 rounded-lg hover:bg-teal-500 transition-all inline-flex items-center gap-2 animate-bounce">
                 Submit
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M12 5l7 7-7 7" />

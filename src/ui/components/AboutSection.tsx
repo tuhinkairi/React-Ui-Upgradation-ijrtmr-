@@ -6,7 +6,7 @@ export default function AboutSection() {
       <div className=" mx-auto flex flex-col-reverse md:flex-row items-center gap-12">
         {/* Image Placeholder */}
         <div className="md:w-1/2 flex items-center justify-start">
-          <img src="./aboutHome.webp" className="w-full max-w-md xl:max-w-2xl" alt="about image" />
+          <img src="./aboutHome.webp" className="w-full max-w-md 2xl:max-w-2xl" alt="about image" />
         </div>
 
         {/* Text Content */}
