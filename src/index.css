@@ -3,7 +3,7 @@
 @config "../tailwind.config.ts";
 
 body{
-    @apply  bg-white text-sm xl:text-base 2xl:text-2xl 
+    @apply  bg-white text-sm 2xl:text-xl 
 }
 button{
     @apply cursor-pointer 
@@ -23,7 +23,7 @@ button{
     @apply border border-[#f0f0f0] hover:bg-[#fae0d0];
 }
 .primaryBtn{
-    @apply inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-hover text-white px-6 py-3 rounded-md text-sm xl:text-base 2xl:text-2xl sm:text-base font-medium shadow-sm transition;
+    @apply inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-hover text-white px-6 py-3 rounded-md text-sm  2xl:text-xl sm:text-base font-medium shadow-sm transition;
 }
     /* .cardPolicy h2,
     .cardPolicy h3
