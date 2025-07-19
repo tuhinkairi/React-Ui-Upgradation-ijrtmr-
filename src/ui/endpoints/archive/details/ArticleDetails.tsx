@@ -111,10 +111,10 @@ const ArticleDetails = () => {
 
             {activePaper?.paper_doi && <Link
               target="_blank"
-              to={activePaper?.paper_doi_Link ?? "#"}
+              to={activePaper?.paper_doi ?? "#"}
               className="text-primary flex items-center gap-1 hover:underline text-sm xl:text-xl 2xl:text-2xl wrap-anywhere sm:whitespace-nowrap"
             >
-              ↗ {activePaper?.paper_doi}
+              ↗ {activePaper?.paper_doi_Link}
             </Link>}
           </div>
 

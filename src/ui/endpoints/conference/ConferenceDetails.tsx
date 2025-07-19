@@ -126,10 +126,10 @@ const ConferenceDetails = () => {
 
             {activePaper?.doi && <Link
               target="_blank"
-              to={activePaper?.doi_link ?? "#"}
+              to={activePaper?.doi  ?? "#"}
               className="text-primary flex items-center gap-1 hover:underline text-sm xl:text-xl 2xl:text-2xl wrap-anywhere sm:whitespace-nowrap"
             >
-              ↗ {activePaper?.doi}
+              ↗ {activePaper?.doi_link}
             </Link>}
           </div>
 
