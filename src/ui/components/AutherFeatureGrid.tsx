@@ -3,32 +3,32 @@ import AuthorFeatureCard from './cards/AutherFeatureCard';
 
 const features = [
   {
-    icon: "./feature/1.png",
+    icon: "./feature/1.webp",
     title: 'Instruction for Authors',
     description: 'High-level access to cluster health, features and issues.',
   },
   {
-    icon: "./feature/2.png",
+    icon: "./feature/2.webp",
     title: 'Article Processing Charges',
     description: 'Instance status and dependencies in one aggregated view.',
   },
   {
-    icon: "./feature/3.png",
+    icon: "./feature/3.webp",
     title: 'Guidance for Editorial Management System',
     description: 'Stream combined Capsule logs across instances.',
   },
   {
-    icon: "./feature/4.png",
+    icon: "./feature/4.webp",
     title: 'Article Status',
     description: 'High-level access to cluster health, features and issues.',
   },
   {
-    icon: "./feature/5.png",
+    icon: "./feature/5.webp",
     title: 'Online Article Submission',
     description: 'Instance status and dependencies in one aggregated view.',
   },
   {
-    icon: "./feature/6.png",
+    icon: "./feature/6.webp",
     title: 'Archives',
     description: 'Easily configure Liveness and Ready probes for Capsules.',
   },

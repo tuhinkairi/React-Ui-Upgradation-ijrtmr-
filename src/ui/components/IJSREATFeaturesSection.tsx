@@ -38,7 +38,7 @@ export default function IJSREATFeaturesSection() {
         {/* Illustration */}
         <div className="flex justify-center">
           <img
-            src="/feature/features2.png" // Ensure this is correctly placed under public/assets/illustrations/
+            src="/feature/features2.webp" // Ensure this is correctly placed under public/assets/illustrations/
             alt="Team Illustration"
             className="w-full max-w-md xl:max-w-2xl object-contain"
           />

@@ -3,7 +3,7 @@ import Title2 from "../other/Title2";
 const features = [
   {
     title: "Rigorous Peer Review",
-    img: "/review.png", // Replace with actual path
+    img: "/review.webp", // Replace with actual path
     points: [
       "Strict peer review standards",
       "Multi-disciplinary expert reviewers",
@@ -13,7 +13,7 @@ const features = [
   },
   {
     title: "Rapid Publication",
-    img: "/publication.png",
+    img: "/publication.webp",
     points: [
       "Initial response within 12 hours",
       "Review completed in 2–7 days",
@@ -23,7 +23,7 @@ const features = [
   },
   {
     title: "Global Impact",
-    img: "/global.png",
+    img: "/global.webp",
     points: [
       "Open Access policy",
       "Broad international readership",
@@ -33,17 +33,17 @@ const features = [
   },
   {
     title: "Efficient Process",
-    img: "/process.png",
+    img: "/process.webp",
     desc: "From submission to publication, our streamlined workflow saves you time with quick responses at every stage.",
   },
   {
     title: "Plagiarism Protection",
-    img: "/protection.png",
+    img: "/protection.webp",
     desc: "Rigorous screening maintains academic integrity while our automated systems handle administrative tasks.",
   },
   {
     title: "COPE Compliance",
-    img: "/cope.png",
+    img: "/cope.webp",
     desc: "We adhere to the highest publication ethics following COPE's Best Practice Guidelines.",
   },
 ];

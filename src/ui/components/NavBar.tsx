@@ -55,7 +55,7 @@ const[isShowing, setShowing] = useState<boolean>(false)
       <nav className="hidden lg:flex justify-between items-center py-6 gap-4 mx-auto ml-16 mr-4 xl:mr-16  text-sm xl:text-base 2xl:text-xl">
         {/* Logo */}
         <div className="flex items-center space-x-3">
-          <img src="/logo.png" alt="Fifth Dimension Logo" className="h-10 lg:h-12" />
+          <img src="/logo.webp" alt="Fifth Dimension Logo" className="h-10 lg:h-12" />
         </div>
 
         {/* Nav Links */}
@@ -147,7 +147,7 @@ const[isShowing, setShowing] = useState<boolean>(false)
       <nav className="flex items-center justify-between py-4 px-6  lg:hidden relative">
         {/* Logo + Brand */}
         <div className="flex items-center space-x-2">
-          <img src="/logo.png" alt="Fifth Dimension Logo" className="h-10 w-auto" />
+          <img src="/logo.webp" alt="Fifth Dimension Logo" className="h-10 w-auto" />
         </div>
 
         {/* CTA + Hamburger */}

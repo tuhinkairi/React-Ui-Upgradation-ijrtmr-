@@ -1,14 +1,14 @@
 import React from 'react';
 
 const features = [
-  { icon: <img src="/editorial/1.png" width={50} height={50} alt="editorial-1" />, title: 'Exclusive Author Account for Each Journal' },
-  { icon: <img src="/editorial/2.png" width={50} height={50} alt="editorial-2" />, title: 'Streamlined Article Status Updates' },
-  { icon: <img src="/editorial/3.png" width={50} height={50} alt="editorial-3" />, title: 'Efficient Review Status and Peer Review Reports' },
-  { icon: <img src="/editorial/4.png" width={50} height={50} alt="editorial-4" />, title: 'Comprehensive FAQs and Knowledgebase' },
-  { icon: <img src="/editorial/5.png" width={50} height={50} alt="editorial-5" />, title: 'Task Status Monitoring' },
-  { icon: <img src="/editorial/6.png" width={50} height={50} alt="editorial-6" />, title: 'Automated Acceptance Letters' },
-  { icon: <img src="/editorial/7.png" width={50} height={50} alt="editorial-7" />, title: 'Simplified Copyright Forms' },
-  { icon: <img src="/editorial/8.png" width={50} height={50} alt="editorial-8" />, title: 'Convenient Certificate and Published Article Downloads' },
+  { icon: <img src="/editorial/1.webp" width={50} height={50} alt="editorial-1" />, title: 'Exclusive Author Account for Each Journal' },
+  { icon: <img src="/editorial/2.webp" width={50} height={50} alt="editorial-2" />, title: 'Streamlined Article Status Updates' },
+  { icon: <img src="/editorial/3.webp" width={50} height={50} alt="editorial-3" />, title: 'Efficient Review Status and Peer Review Reports' },
+  { icon: <img src="/editorial/4.webp" width={50} height={50} alt="editorial-4" />, title: 'Comprehensive FAQs and Knowledgebase' },
+  { icon: <img src="/editorial/5.webp" width={50} height={50} alt="editorial-5" />, title: 'Task Status Monitoring' },
+  { icon: <img src="/editorial/6.webp" width={50} height={50} alt="editorial-6" />, title: 'Automated Acceptance Letters' },
+  { icon: <img src="/editorial/7.webp" width={50} height={50} alt="editorial-7" />, title: 'Simplified Copyright Forms' },
+  { icon: <img src="/editorial/8.webp" width={50} height={50} alt="editorial-8" />, title: 'Convenient Certificate and Published Article Downloads' },
 ];
 
 const EditorialFeatures: React.FC = () => {

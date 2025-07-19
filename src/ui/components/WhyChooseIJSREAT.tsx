@@ -22,7 +22,7 @@ export default function WhyChooseIJSREAT() {
         {/* Illustration */}
         <div className="flex justify-center">
           <img
-            src="/feature/features3.png"
+            src="/feature/features3.webp"
             alt="Why choose IJSREAT"
             className="w-full max-w-md object-contain"
           />

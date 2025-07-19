@@ -18,7 +18,7 @@ const SubmitPaperSection = () => {
 
       {/* Image Section */}
         <img
-          src="/submitSection.png" // place your image in public/images/
+          src="/submitSection.webp" // place your image in public/images/
           alt="Submit Paper"
           className="w-full sm:max-w-1/2"
         />

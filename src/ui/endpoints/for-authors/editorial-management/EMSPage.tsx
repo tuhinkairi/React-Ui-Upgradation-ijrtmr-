@@ -26,14 +26,14 @@ export default function EMSPage() {
                         </div>
                     </div>
                     <div className="image flex flex-col gap-8 justify-center">
-                        <img src="/EMS/EMS1.png" alt="submit article image" />
-                        <img src="/EMS/EMS1.png" alt="submit article image 2" />
+                        <img src="/EMS/EMS1.webp" alt="submit article image" />
+                        <img src="/EMS/EMS1.webp" alt="submit article image 2" />
                     </div>
                 </div>
                 <hr className="text-gray-300" />
                 <div className="_cardSectionEMS items-center gap-y-6 sm:gap-x-6 grid sm:grid-cols-2 justify-between">
                     <div className="image grid gap-4">
-                        <img src="/EMS/EMS3.png" alt=" Author can know task Process image" />
+                        <img src="/EMS/EMS3.webp" alt=" Author can know task Process image" />
                     </div>
                     <div className="textsection space-y-4">
                         <div>
@@ -61,13 +61,13 @@ export default function EMSPage() {
                         </div>
                     </div>
                     <div className="image grid gap-4">
-                        <img src="/EMS/EMS4.png" alt="Author can know Review Process image" />
+                        <img src="/EMS/EMS4.webp" alt="Author can know Review Process image" />
                     </div>
                 </div>
                 <hr className="text-gray-300" />
                 <div className="_cardSectionEMS items-center gap-y-6 sm:gap-x-6 grid sm:grid-cols-2 justify-between">
                     <div className="image grid gap-4">
-                        <img src="/EMS/EMS5.png" alt="How Author can Know submitted Article Accepted or Not image" />
+                        <img src="/EMS/EMS5.webp" alt="How Author can Know submitted Article Accepted or Not image" />
                     </div>
                     <div className="textsection space-y-4">
                         <div>
@@ -91,13 +91,13 @@ export default function EMSPage() {
                         </div>
                     </div>
                     <div className="image grid gap-4">
-                        <img src="/EMS/EMS6.png" alt="What is the Procedure for Accepted Article to be publish image" />
+                        <img src="/EMS/EMS6.webp" alt="What is the Procedure for Accepted Article to be publish image" />
                     </div>
                 </div>
                 <hr className="text-gray-300" />
                 <div className="_cardSectionEMS items-center gap-y-6 sm:gap-x-6 grid sm:grid-cols-2 justify-between">
                     <div className="image grid gap-4">
-                        <img src="/EMS/EMS7.png" alt="Copyright Form image" />
+                        <img src="/EMS/EMS7.webp" alt="Copyright Form image" />
                     </div>
                     <div className="textsection space-y-4">
                         <div>
@@ -116,7 +116,7 @@ export default function EMSPage() {
                         </div>
                     </div>
                     <div className="image grid gap-4">
-                        <img src="/EMS/EMS8.png" alt="Article Processing fee receipt (with DOI, With out DOI) image" />
+                        <img src="/EMS/EMS8.webp" alt="Article Processing fee receipt (with DOI, With out DOI) image" />
                     </div>
                 </div>
                 <div>
@@ -128,13 +128,13 @@ export default function EMSPage() {
                     </h1>
                     <div className="_cardSectionEMS items-center gap-y-6 sm:gap-x-6 grid sm:grid-cols-2 justify-between mt-6">
                         <div className="textsection space-y-4">
-                            <img src="/EMS/EMS9.png" alt="Process verification image 1" />
+                            <img src="/EMS/EMS9.webp" alt="Process verification image 1" />
                         </div>
                         <div className="image grid gap-y-8">
                             <div>
                                 <h1 className="">d&#41; Final Submission Upload your <span className="text-green-500">final article, copyright form, and APC receipt</span>. Verify your uploaded documents, and then click &gt; <span className="text-green-500">Final Submit</span> Button-for final submission.</h1>
                             </div>
-                            <img src="/EMS/EMS10.png" alt="Process verification image 2" />
+                            <img src="/EMS/EMS10.webp" alt="Process verification image 2" />
                         </div>
                     </div>
                 </div>
@@ -150,7 +150,7 @@ export default function EMSPage() {
                         </div>
                     </div>
                     <div className="image grid gap-4">
-                        <img src="/EMS/EMS11.png" alt="Author will get certificates including corresponding authors image" />
+                        <img src="/EMS/EMS11.webp" alt="Author will get certificates including corresponding authors image" />
                     </div>
                 </div>
             </article>

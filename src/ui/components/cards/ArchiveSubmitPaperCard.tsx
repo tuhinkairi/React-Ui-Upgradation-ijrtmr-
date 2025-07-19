@@ -8,7 +8,7 @@ export default function ArchiveSubmitPaperCard() {
   return (
     <div className="max-w-md w-full bg-white rounded-2xl shadowSprade overflow-hidden">
       <img
-        src="/submitPaper.png"
+        src="/submitPaper.webp"
         alt="Online Submission"
         className="object-cover h-52 mx-auto"
       />

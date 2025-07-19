@@ -5,33 +5,33 @@ const steps = [
   {
     title: 'Online Submission',
     description: 'Submit your paper through our advanced editorial management system anytime, from anywhere in the world.',
-    image: './submitPaper.png',
+    image: './submitPaper.webp',
     button: true,
   },
   {
     title: 'Initial Review',
     description: 'Our editorial team conducts a quick quality check and assigns reviewers within 12 hours of submission.',
-    image: './review.png',
+    image: './review.webp',
   },
   {
     title: 'Peer Review',
     description: 'Expert reviewers evaluate your paper\'s quality, originality, and significance within 2-7 days.',
-    image: './acceptance.png',
+    image: './acceptance.webp',
   },
   {
     title: 'Decision Notification',
     description: 'Receive acceptance, revision, or rejection notification within 3-7 days of submission.',
-    image: './processing.png',
+    image: './processing.webp',
   },
   {
     title: 'Publication & Certification',
     description: 'Accepted papers are published immediately with open access, and authors receive digital certificates.',
-    image: './copyright.png',
+    image: './copyright.webp',
   },
   // {
   //   title: 'Published',
   //   description: 'The paper will be published, and the author will be notified via their registered email address.',
-  //   image: './publication.png',
+  //   image: './publication.webp',
   // },
 ];
 

@@ -19,7 +19,7 @@ export default function EditoralSingle() {
                 <div className='socials grid grid-cols-2 items-center justify-center gap-2 gap-y-6'>
                     {editorialMember?.member_linkedin && <Link to={editorialMember?.member_linkedin}>
                         <span className='flex-col flex items-center justify-center gap-2'>
-                            <img src="/editorial/board/linkedin.png" className='w-10' alt="linkedin" />
+                            <img src="/editorial/board/linkedin.webp" className='w-10' alt="linkedin" />
                             <span className='text-[15px] text-[#2f2f2f]'>LinkedIn</span>
                         </span>
                     </Link>}

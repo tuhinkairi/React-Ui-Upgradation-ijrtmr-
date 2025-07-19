@@ -6,7 +6,7 @@ const VerificationSection = () => {
         {/* CrossRef Card */}
         <div className="bg-white border border-gray-200 rounded-2xl shadow-lg px-6 py-8 flex flex-col items-start justify-center space-y-6">
           <img
-            src="/verifySection/image2.png"
+            src="/verifySection/image2.webp"
             alt="DOI CrossRef"
             className="w-48 2xl:w-60 h-auto object-contain"
           />
@@ -19,7 +19,7 @@ const VerificationSection = () => {
         {/* Turnitin Card */}
         <div className="bg-white rounded-2xl border border-gray-200 shadow-lg px-6 py-8 flex flex-col items-start justify-start space-y-6">
           <img
-            src="/verifySection/image1.png"
+            src="/verifySection/image1.webp"
             alt="Turnitin"
             className="w-48 2xl:w-60 h-auto object-contain"
           />

@@ -24,7 +24,7 @@ const ArticleMetrics = () => {
           <a href="https://plu.mx/plum/a/?doi=10.1371/journal.pone.0056506" target="_blank" className="plumx-plum-print-popup">
 
             <img
-              src="/plummatrix/plum.png"
+              src="/plummatrix/plum.webp"
               alt="PlumX Metrics"
               className="max-h-28 object-contain"
             />
@@ -34,7 +34,7 @@ const ArticleMetrics = () => {
         <div className="flex flex-col items-center justify-between gap-4 py-2">
           <a href="https://plu.mx/plum/a/?doi=10.1371/journal.pone.0056506" target="_blank" className="plumx-plum-print-popup">
           <img
-            src="/plummatrix/dynamics.png" // Replace with actual path
+            src="/plummatrix/dynamics.webp" // Replace with actual path
             alt="Dimension"
             className="max-h-28 object-contain"
           />
