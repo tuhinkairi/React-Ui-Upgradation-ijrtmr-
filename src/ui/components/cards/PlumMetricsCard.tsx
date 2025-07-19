@@ -14,11 +14,7 @@ export default function PlumMetricsCard() {
       <hr className="my-2 border-gray-200" />
       <div className="flex flex-wrap xl:flex-nowrap items-center justify-center lg:justify-between gap-4 py-2">
         <h3 className="text-base xl:text-2xl font-medium text-primary-text">Dimension</h3>
-        <a href="https://plu.mx/plum/a/?doi=10.1371/journal.pone.0056506" target="_blank" className="plumx-plum-print-popup"><img
-          src="/plummatrix/dynamics.webp" // Replace with actual path
-          alt="Dimension"
-          className="w-22 h-22 object-contain"
-        /></a>
+        <span className="__dimensions_badge_embed__" data-doi="10.1001/jama.2016.9797" data-style="small_circle"></span>
       </div>
     </div>
   );

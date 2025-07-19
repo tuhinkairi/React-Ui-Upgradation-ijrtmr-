@@ -1,9 +1,11 @@
+import useDimensionsBadge from "../../../components/cards/plumx/useDimensionsBadge";
+
 const ArticleMetrics = () => {
   const metrics = [
     { label: "Views", value: "216", to: "to-cyan-700", from: "from-cyan-500" },
     { label: "Citations", value: "0", to: "to-red-700", from: "from-red-500" },
   ];
-
+  useDimensionsBadge()
   return (
     <div className="min-h-72">
       <h2 className="text-base xl:text-xl 2xl:text-3xl font-semibold text-gray-700 mb-6">Article Metrics</h2>
@@ -32,16 +34,11 @@ const ArticleMetrics = () => {
           <span className="text-base font-medium text-primary-text">PlumX Metrics</span>
         </div>
         <div className="flex flex-col items-center justify-between gap-4 py-2">
-          <a href="https://plu.mx/plum/a/?doi=10.1371/journal.pone.0056506" target="_blank" className="plumx-plum-print-popup">
-          <img
-            src="/plummatrix/dynamics.webp" // Replace with actual path
-            alt="Dimension"
-            className="max-h-28 object-contain"
-          />
-          </a>
+          <span className="__dimensions_badge_embed__" data-doi="10.1001/jama.2016.9797"></span>
           <span className="text-base font-medium text-primary-text">Dimension</span>
         </div>
       </div>
+      
     </div>
   );
 };

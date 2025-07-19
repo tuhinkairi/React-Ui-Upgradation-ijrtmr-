@@ -21,6 +21,7 @@ import { VscFilePdf } from "react-icons/vsc";
 import { MdDone } from "react-icons/md";
 import MetaDataWrapper from "../../../components/layout/MetaDataWrapper";
 import { superscriptifyAllNumbers } from "../../../../lib/utils/other/superScript";
+import useDimensionsBadge from "../../../components/cards/plumx/useDimensionsBadge";
 
 type TabOption = "FullArticle" | "References" | "Citations" | "Metrics" | "Licensing";
 
@@ -40,6 +41,7 @@ const ArticleDetails = () => {
   const auther = [activePaper?.author_1, activePaper?.author_2, activePaper?.author_3, activePaper?.author_4, activePaper?.author_5, activePaper?.author_6].filter(item => item !== null)
   // const designation: string[] = activePaper?.paper_designation?.split(",") ?? []
   // functions
+  useDimensionsBadge()
   useEffect(() => {
     if (id) {
       if (activePaper?.paper_id !== parseInt(id)) {
@@ -109,7 +111,7 @@ const ArticleDetails = () => {
               <ImQuotesLeft className="text-primary" /> Cite this article
             </h3>
 
-            {activePaper?.paper_doi!==undefined && <Link
+            {activePaper?.paper_doi !== undefined && <Link
               target="_blank"
               to={activePaper?.paper_doi ?? window.location.href}
               className="text-primary flex items-center gap-1 hover:underline text-sm xl:text-xl 2xl:text-2xl wrap-anywhere sm:whitespace-nowrap"
@@ -170,12 +172,13 @@ const ArticleDetails = () => {
           {currentItem === "FullArticle" && <FullArtical content={activePaper?.paper_abstract ?? ""} pdf_url={activePaper?.paper_url ?? ""} />}
           {currentItem === "Citations" && <Citations content={activePaper?.paper_citation ?? ""} />}
           {currentItem === "Licensing" && <Licensing />}
+          {/* <div className={`${currentItem === "Metrics"?"":"absolute -z-10"}`}><ArticleMetrics /></div> */}
           {currentItem === "Metrics" && <ArticleMetrics />}
           {currentItem === "References" && <References content={activePaper?.paper_references ?? ""} />}
           <RelatedArticles />
         </div>
       </div>
+      <script async src="https://badge.dimensions.ai/badge.js"></script>
     </MetaDataWrapper>
-
   );
 }; export default ArticleDetails;

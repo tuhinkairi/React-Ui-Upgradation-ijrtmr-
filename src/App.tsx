@@ -15,7 +15,6 @@ export default function App() {
       <Navbar />
       <RouteControl/>
       <Footer />
-
     </section>
   )
 }

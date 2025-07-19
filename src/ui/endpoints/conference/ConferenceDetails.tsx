@@ -22,6 +22,7 @@ import { VscFilePdf } from "react-icons/vsc";
 import { MdDone } from "react-icons/md";
 import MetaDataWrapper from "../../components/layout/MetaDataWrapper";
 import { superscriptifyAllNumbers } from "../../../lib/utils/other/superScript";
+import useDimensionsBadge from "../../components/cards/plumx/useDimensionsBadge";
 
 type TabOption = "FullArticle" | "References" | "Citations" | "Metrics" | "Licensing";
 
@@ -41,7 +42,7 @@ const ConferenceDetails = () => {
   const auther = [activePaper?.author_1, activePaper?.author_2, activePaper?.author_3, activePaper?.author_4, activePaper?.author_5, activePaper?.author_6].filter(item => item !== null)
   // const designation: string[] = activePaper?.designation?.split(",") ?? []
 
-
+  useDimensionsBadge()
   // functions
   useEffect(() => {
     if (id) {
@@ -64,7 +65,7 @@ const ConferenceDetails = () => {
     return <Loading title="Paper Details" />
   }
   return (
-    <MetaDataWrapper titleDynamic={activePaper.title} desciptionDynamic={activePaper.designation??""}>
+    <MetaDataWrapper titleDynamic={activePaper.title} desciptionDynamic={activePaper.designation ?? ""}>
       <div className="mx-auto  bg-white space-y-3 sm:space-y-6 p-2 sm:p-5">
         {/* Header + PDF Button */}
         <div className="flex justify-between items-start">
@@ -111,7 +112,7 @@ const ConferenceDetails = () => {
             }
           </ul> */}
           <h2 className="italic">
-            {superscriptifyAllNumbers(activePaper?.designation??"")}
+            {superscriptifyAllNumbers(activePaper?.designation ?? "")}
           </h2>
           <h3 className="font-medium">Published Online: {activePaper?.created_at.split("T")[0]}</h3>
           <h3 className="font-medium">Pages: {activePaper?.pages}</h3>
@@ -124,9 +125,9 @@ const ConferenceDetails = () => {
               <ImQuotesLeft className="text-primary" /> Cite this article
             </h3>
 
-            {activePaper?.doi!==undefined && <Link
+            {activePaper?.doi !== undefined && <Link
               target="_blank"
-              to={activePaper?.doi  ?? window.location.href}
+              to={activePaper?.doi ?? window.location.href}
               className="text-primary flex items-center gap-1 hover:underline text-sm xl:text-xl 2xl:text-2xl wrap-anywhere sm:whitespace-nowrap"
             >
               ↗ {activePaper?.doi_link}
@@ -186,9 +187,12 @@ const ConferenceDetails = () => {
         {currentItem === "Citations" && <Citations content={activePaper?.citation ?? ""} />}
         {currentItem === "Licensing" && <Licensing />}
         {currentItem === "Metrics" && <ArticleMetrics />}
+        {/* <div className={`${currentItem === "Metrics" ? "" : "absolute -z-10"}`}><ArticleMetrics /></div> */}
+
         {currentItem === "References" && <References content={activePaper?.references ?? ""} />}
         <RelatedArticles />
       </div>
+      <script async src="https://badge.dimensions.ai/badge.js"></script>
     </MetaDataWrapper>
 
   );
