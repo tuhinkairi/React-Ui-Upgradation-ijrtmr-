@@ -9,7 +9,7 @@ const ArticleMetrics = () => {
   return (
     <div className="min-h-72">
       <h2 className="text-base xl:text-xl 2xl:text-3xl font-semibold text-gray-700 mb-6">Article Metrics</h2>
-      <div className="flex flex-wrap justify-start gap-16">
+      <div className="flex flex-wrap justify-between gap-10">
         {metrics.map((metric, index) => (
           <div key={index} className="grid items-center text-center">
             <div
@@ -23,14 +23,8 @@ const ArticleMetrics = () => {
           </div>
         ))}
         <div className="flex flex-col items-center justify-between gap-4 py-2">
-          <a href="https://plu.mx/plum/a/?doi=10.1371/journal.pone.0056506" target="_blank" className="plumx-plum-print-popup">
-
-            <img
-              src="/plummatrix/plum.webp"
-              alt="PlumX Metrics"
-              className="max-h-28 object-contain"
-            />
-          </a>
+          <a href="https://plu.mx/plum/a/?doi=10.1371/journal.pone.0056506" data-size="" className="plumx-plum-print-popup"></a>
+          <script type="text/javascript" src="//cdn.plu.mx/widget-popup.js"></script>
           <span className="text-base font-medium text-primary-text">PlumX Metrics</span>
         </div>
         <div className="flex flex-col items-center justify-between gap-4 py-2">
@@ -38,7 +32,7 @@ const ArticleMetrics = () => {
           <span className="text-base font-medium text-primary-text">Dimension</span>
         </div>
       </div>
-      
+
     </div>
   );
 };

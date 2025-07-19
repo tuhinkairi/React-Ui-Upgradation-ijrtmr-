@@ -7,11 +7,21 @@ const useDimensionsBadge = () => {
       __dimensions_embed?: {
         addBadges: () => void;
       };
+      __plumX?: {
+        widgets: {
+          init: () => void;
+        }
+      }
     }
-    
+
     const dimensionsEmbed = (window as DimensionsWindow).__dimensions_embed;
     if (dimensionsEmbed?.addBadges && typeof dimensionsEmbed.addBadges === 'function') {
       dimensionsEmbed.addBadges();
+    }
+
+    const plum = (window as DimensionsWindow).__plumX;
+    if (plum?.widgets.init && typeof plum.widgets.init === "function") {
+      plum.widgets.init()
     }
 
     // Attach custom event listeners to all relevant elements
