@@ -1,15 +1,18 @@
 import { useAppSelector } from "../../../lib/store/store";
 import PlumDemo from "./plumx/plumDemo";
+import useDimensionsBadge from "./plumx/useDimensionsBadge";
 // import useDimensionsBadge from "./plumx/useDimensionsBadge";
 
 export default function PlumMetricsCard() {
-  // useDimensionsBadge()
   const ActiveArticle = useAppSelector((state) => state.archiveSection.activePaper)
-  const doi = ActiveArticle?.paper_doi !== undefined ? ActiveArticle?.paper_doi.split("https://www.doi.org/")[1] : ""
-  if (ActiveArticle?.paper_doi !== undefined) {
+  useDimensionsBadge()
+  const doi = ActiveArticle?.paper_doi !== "." ? ActiveArticle?.paper_doi.split("https://www.doi.org/")[1] : ""
+  
+  if (ActiveArticle?.paper_doi === ".") {
     return <PlumDemo />; // Return PlumDemo component if doi is not available
   }
   // Move script tag outside of the component to prevent multiple script loads
+  console.log(doi)
   return (
     <>
       {/* <script type="text/javascript" src="//cdn.plu.mx/widget-popup.js"></script> */}
