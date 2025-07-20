@@ -1,5 +1,5 @@
 import { useAppSelector } from "../../../lib/store/store";
-import PlumDemo from "./plumx/plumDemo";
+
 import useDimensionsBadge from "./plumx/useDimensionsBadge";
 // import useDimensionsBadge from "./plumx/useDimensionsBadge";
 
@@ -9,7 +9,25 @@ export default function PlumMetricsCard() {
   const doi = ActiveArticle?.paper_doi !== "." ? ActiveArticle?.paper_doi.split("https://www.doi.org/")[1] : ""
   
   if (ActiveArticle?.paper_doi === ".") {
-    return <PlumDemo />; // Return PlumDemo component if doi is not available
+    return <div className="w-full rounded-2xl border borderPrimary bg-white shadowSprade px-6 py-3">
+
+            <div className="flex flex-wrap xl:flex-nowrap items-center justify-center lg:justify-between gap-4 py-2">
+                <h3 className="text-base xl:text-2xl font-medium text-primary-text">PlumX Metrics</h3>
+                <img
+                    src="/plummatrix/plum.webp"
+                    alt="PlumX Metrics"
+                    className="w-22 h-22 object-contain"
+                />
+            </div>
+            <div className="flex flex-wrap xl:flex-nowrap items-center justify-center lg:justify-between gap-4 py-2">
+                <h3 className="text-base xl:text-2xl font-medium text-primary-text">Dimension</h3>
+                <img
+                    src="/plummatrix/dynamics.webp" // Replace with actual path
+                    alt="Dimension"
+                    className="w-22 h-22 object-contain"
+                />
+            </div>
+        </div>; // Return PlumDemo component if doi is not available
   }
   // Move script tag outside of the component to prevent multiple script loads
   console.log(doi)
