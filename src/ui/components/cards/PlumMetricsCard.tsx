@@ -19,7 +19,7 @@ export default function PlumMetricsCard() {
       <div className="w-full rounded-2xl border borderPrimary bg-white shadowSprade px-6 py-3">
         <div className="flex flex-wrap xl:flex-nowrap items-center justify-center lg:justify-between gap-4 py-2">
           <h3 className="text-base xl:text-2xl font-medium text-primary-text">PlumX Metrics</h3>
-          <a href={`https://plu.mx/plum/a/?doi=${doi}`} data-size="medium" className="plumx-plum-print-popup"></a>
+          <a href={`https://plu.mx/plum/a/?doi=${doi}`} data-size="large" className="plumx-plum-print-popup"></a>
         </div>
         <hr className="my-2 border-gray-200" />
         <div className="flex flex-wrap xl:flex-nowrap items-center justify-center lg:justify-between gap-4 py-2">

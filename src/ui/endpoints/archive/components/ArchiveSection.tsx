@@ -68,7 +68,7 @@ export default function ArchiveSection() {
     return <Loading title="Archive" />
   }
   return (
-    <div className="mb-10 sm:text-base xl:text-xl 2xl:text-lg">
+    <div className="mb-10 sm:text-base 2xl:text-lg">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 border-collapse">
         {/* thesis */}
         {thesis && yearVolumeThesis && yearVolumeThesis.map((vol, index) => (

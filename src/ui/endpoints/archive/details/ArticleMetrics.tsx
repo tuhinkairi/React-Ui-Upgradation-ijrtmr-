@@ -27,7 +27,7 @@ const ArticleMetrics = ({ content }: { content?: string }) => {
         {(content!==undefined && content.length > 5 )?
           <>
             <div className="flex flex-col items-center justify-between gap-4 py-2">
-              <a href={`https://plu.mx/plum/a/?doi=${doi}`} data-size="" className="plumx-plum-print-popup"></a>
+              <a href={`https://plu.mx/plum/a/?doi=${doi}`} data-size="large" className="plumx-plum-print-popup"></a>
               <script type="text/javascript" src="//cdn.plu.mx/widget-popup.js"></script>
               <span className="text-base font-medium text-primary-text">PlumX Metrics</span>
             </div>

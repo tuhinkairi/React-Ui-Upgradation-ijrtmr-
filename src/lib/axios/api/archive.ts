@@ -42,7 +42,7 @@ export const ArchivePaperListting = async (req: ArchivePaperListtingArg) => {
         return res.data
     }
     catch (error) {
-        console.error(error)
+        console.log(error)
     }
 }
 export const SuggestedArchivePost = async (req: ArticleSuggestionProp) => {
@@ -54,7 +54,7 @@ export const SuggestedArchivePost = async (req: ArticleSuggestionProp) => {
         return res.data.suggestions
     }
     catch (error) {
-        console.error(error)
+        console.log(error)
     }
 }
 
@@ -69,7 +69,7 @@ export const FetchActiveArticle = async (
     console.log(modify);
     return modify;
   } catch (error) {
-    console.error(error);
+    console.log(error);
   }
 };
 
@@ -84,6 +84,6 @@ export const searchArchive = async (req: SearchProp) => {
         return res.data.papersList
     }
     catch (error) {
-        console.error(error)
+        console.log(error)
     }
 }

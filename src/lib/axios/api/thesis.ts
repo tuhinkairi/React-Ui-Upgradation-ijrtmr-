@@ -43,7 +43,7 @@ export const FetchThesisPaper = async (
         //console.log(res.data); //thesis
         return res.data;
     } catch (error) {
-        console.error(error);
+        console.log(error);
         throw new Error(`Failed to fetch Thesis: ${error}`);
     }
 };

@@ -47,7 +47,7 @@ export const searchConference = async (req: SearchProp) => {
         return res.data.papersList
     }
     catch (error) {
-        console.error(error)
+        console.log(error)
     }
 }
 
@@ -61,6 +61,6 @@ export const FetchActiveConference = async (
     // console.log(res.data.ConferenceDetails);
     return res.data.ConferenceDetails;
   } catch (error) {
-    console.error(error);
+    console.log(error);
   }
 };
