@@ -18,7 +18,7 @@ const HandleGoolge =()=>{
                 <Link
                     onClick={()=>setActive(paper)}
                     to={endpoint}
-                    className="text-xl font-serif  text-primary hover:underline max-w-5/6"
+                    className="text-xl 2xl:text-2xl font-serif  text-primary hover:underline max-w-5/6"
                 >
                     {paper.title} <span className="text-orange-400">↗</span>
                 </Link>
@@ -54,19 +54,19 @@ const HandleGoolge =()=>{
             <div className="flex justify-between items-center mt-2">
                 <div className="flex gap-3 text-sm xl:text-base 2xl:text-lg text-primary font-medium">
                     <button
-                        className="hover:underline"
+                        className="hover:underline border-r-2 pr-3"
                         onClick={() => navigate(`${endpoint}&section=FullArticle`)}
                     >
                         Abstract
                     </button>
                     <button
-                        className="hover:underline"
+                        className="hover:underline border-r-2 pr-3"
                         onClick={() => navigate(`${endpoint}&section=FullArticle`)}
                     >
                         Full Text
                     </button>
                     <button
-                        className="hover:underline"
+                        className="hover:underline border-r-2 pr-3"
                         onClick={() => navigate(`${endpoint}&section=References`)}
                     >
                         References

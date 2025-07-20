@@ -6,7 +6,7 @@ import useDimensionsBadge from "./plumx/useDimensionsBadge";
 export default function PlumMetricsCard() {
   const ActiveArticle = useAppSelector((state) => state.archiveSection.activePaper)
   useDimensionsBadge()
-  const doi = ActiveArticle?.paper_doi !== "." ? ActiveArticle?.paper_doi.split("https://www.doi.org/")[1] : ""
+  const doi = ActiveArticle?.paper_doi !== "." && ActiveArticle?.paper_doi !==undefined ? ActiveArticle?.paper_doi.split("https://www.doi.org/")[1] : ""
   
   if (ActiveArticle?.paper_doi === ".") {
     return <div className="w-full rounded-2xl border borderPrimary bg-white shadowSprade px-6 py-3">

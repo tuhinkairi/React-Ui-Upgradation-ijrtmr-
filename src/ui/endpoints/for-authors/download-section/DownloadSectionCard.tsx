@@ -12,7 +12,7 @@ const DownloadSectionCard: React.FC<DownloadCardProps> = ({ title, downloadUrl }
       <h3 className="text-xl xl:text-2xl font-semibold mb-6">{title}</h3>
       <Link
         to={downloadUrl}
-        download={downloadUrl.split("/")[-1]}
+        download={downloadUrl.split("/")[-1]} 
         target='_blank'
       >
         <button className="primaryBtn">

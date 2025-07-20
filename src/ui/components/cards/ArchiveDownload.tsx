@@ -6,11 +6,11 @@ const DownloadCard = () => {
       <div className="flex flex-col gap-3">
         <ArchiveBtn
           label="Manuscript Template"
-          href="/downloads/manuscript-template.docx"
+          href="https://ijsreat.com/downloads/manuscript.docx"
         />
         <ArchiveBtn
           label="Copyright Form"
-          href="/downloads/copyright-form.pdf"
+          href="https://ijsreat.com/downloads/copyrights.pdf"
         />
       </div>
     </div>
