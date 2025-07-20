@@ -4,9 +4,9 @@ import { Share2 } from 'lucide-react'
 import { GrFormNext, GrFormPrevious } from 'react-icons/gr'
 // import { useAppSelector } from '../../../../lib/store/store'
 import { Link, redirect, useLocation } from 'react-router-dom'
-import type { ActiveIndexArchive, ArchiveIndexVolume } from '../../../../types/Api'
+import type { ActiveIndexArchive, ArchiveIndexVolume, ThesisIndexingItem } from '../../../../types/Api'
 
-function ArchiveVolumnHeader({ isArchive, setArchiveIndex, ActiveVolumes, VolumeList }: { isArchive: boolean, setArchiveIndex: (arg: ActiveIndexArchive) => void, ActiveVolumes: ActiveIndexArchive | null, VolumeList: ArchiveIndexVolume[] }) {
+function ArchiveVolumnHeader({ isArchive, setArchiveIndex, ActiveVolumes, VolumeList }: { isArchive: boolean, setArchiveIndex: (arg: ActiveIndexArchive) => void, ActiveVolumes: ActiveIndexArchive | null, VolumeList: ArchiveIndexVolume[], ThesisVolumeList: ThesisIndexingItem[] }) {
     // const { activeIndexPage: ActiveVolumes, indexPage: VolumeList } = useAppSelector((state) => state.archiveSection)
     const path = useLocation().pathname
     const [volumes, setVolumes] = useState<string[]>([])

@@ -43,7 +43,8 @@ export default function ArchiveVolumes({ active }: activeSection) {
   // Thesis state management
   const ThesisIndex = useAppSelector((state) => state.thesis.ActiveThesisIndex);
   const ThesisData = useAppSelector((state) => state.thesis.thesisList);
-  const [activeThesisIndex] = useState<ThesisIndexingItem | null>(ThesisIndex);
+  const thesisIndexPage = useAppSelector((state) => state.thesis.ThesisIndexingList);
+  const [activeThesisIndex, setActiveThesisIndex] = useState<ThesisIndexingItem | null>(ThesisIndex);
   const [ThesisVolumes, setThesisVolumes] = useState<ThesisListingItem[]>(ThesisData);
   const [ThesisVolumesSearch, setThesisVolumesSearch] = useState<ThesisListingItem[] | null>(null);
 
@@ -333,7 +334,7 @@ export default function ArchiveVolumes({ active }: activeSection) {
           {active == "thesis" && <h1 className="text-2xl font-semibold">Volume {activeThesisIndex?.volume}, Year {activeThesisIndex?.year}</h1>}
         </div>
 
-        {!["conference", "issue"].includes(active) && <ArchiveVolumnHeader isArchive={true} setArchiveIndex={setActiveArchiveIndex} ActiveVolumes={activeIndexPage} VolumeList={indexPage} />}
+        {!["conference", "issue"].includes(active) && <ArchiveVolumnHeader isArchive={true} setArchiveIndex={active == "thesis" ? setActiveThesisIndex : setActiveArchiveIndex} ActiveVolumes={active == "thesis" ?activeThesisIndex :activeIndexPage} VolumeList={indexPage} ThesisVolumeList={thesisIndexPage}/>}
 
         {/* Search */}
         <form onSubmitCapture={handleSearch} className="flex items-center gap-2 mt-2">

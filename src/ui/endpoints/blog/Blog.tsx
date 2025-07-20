@@ -13,7 +13,7 @@ export default function Blog() {
     const [page, setPage] = useState(1);
     const [BlogList, setBlogList] = useState<Blog[]>(useAppSelector((state) => state.blog.blogList));
     const itemsPerPage = 10;
-    const [totalPages, setTotalPages] = useState(BlogList.length/itemsPerPage);
+    const [totalPages, setTotalPages] = useState(Math.ceil(BlogList.length/itemsPerPage)); // Ensure at least 1 page if no blogs
     const dispatch = useAppDispatch();
     const loading = useAppSelector((state) => state.loadingScreen.loading);
 
