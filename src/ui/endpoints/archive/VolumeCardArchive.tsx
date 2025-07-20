@@ -7,7 +7,7 @@ import PrimaryBtn from "../../components/Btns/PrimaryBtn";
 
 export default function VolumeCardArchive({ paper, setActive, navigate }: { paper: ArchivePaperDetailProps, setActive: (arg: ArchivePaperDetailProps) => void, navigate: NavigateFunction }) {
     const url = useLocation().pathname
-    const endpoint = `/${url.includes("archives") ? "archives" : "current-issue"}/paper-details?paperId=${paper.paper_id}&papertitle=${encodeURIComponent(paper.paper_title.replace(/ /g, "-"))}`
+    const endpoint = `/${url.includes("archives") ? "archives" : "current-issue"}/paper-details?paperid=${paper.paper_id}&papertitle=${encodeURIComponent(paper.paper_title.replace(/ /g, "-"))}`
     const HandleGoolge = () => {
         window.open(`https://www.google.com/search?q=${encodeURIComponent(paper.paper_title)}`, '_blank')
     }

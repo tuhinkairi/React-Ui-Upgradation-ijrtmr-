@@ -19,7 +19,7 @@ export const fetchArchiveNormal = async () => {
         const response = await axiosClient.post("/archiveYearListing");
         // parse the response data
         const parsed =response.data["archives"]
-        console.log(parsed)
+        //console.log(parsed)
         return parsed; //return years volumn issues
     } catch (error) {
         throw new Error(`Failed to fetch archive: ${error}`);

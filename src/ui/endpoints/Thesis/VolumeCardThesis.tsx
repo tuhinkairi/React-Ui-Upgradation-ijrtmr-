@@ -6,7 +6,7 @@ import { PiChartPieSlice } from "react-icons/pi";
 import PrimaryBtn from "../../components/Btns/PrimaryBtn";
 
 export default function VolumeCardThesis({ paper, setActive, navigate }: { paper: ThesisListingItem, setActive: (arg: ThesisListingItem) => void, navigate: NavigateFunction }) {
-    const endpoint = `/thesis/paper-details?paperId=${paper.id}&papertitle=${encodeURIComponent(paper.title.replace(/ /g, "-"))}`
+    const endpoint = `/thesis/paper-details?paperid=${paper.id}&papertitle=${encodeURIComponent(paper.title.replace(/ /g, "-"))}`
 const HandleGoolge =()=>{
         window.open(`https://www.google.com/search?q=${encodeURIComponent(paper.title)}`, '_blank')
     }

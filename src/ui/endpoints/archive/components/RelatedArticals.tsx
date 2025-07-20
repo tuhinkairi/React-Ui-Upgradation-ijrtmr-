@@ -12,7 +12,7 @@ const RelatedArticles = () => {
   const activeArticle = useAppSelector((state) => state.archiveSection.activePaper);
   const [relatedArticles, setRelatedArticles] = useState<ArticleSuggestion[]>([]);
   // redirectable dynamic endpoint 
-  const endpoint = (paper_id:number, paper_title:string)=> {return `/archives/paper-details?paperId=${paper_id}&papertitle=${encodeURIComponent(paper_title.replace(/ /g, "-"))}`}
+  const endpoint = (paper_id:number, paper_title:string)=> {return `/archives/paper-details?paperid=${paper_id}&papertitle=${encodeURIComponent(paper_title.replace(/ /g, "-"))}`}
 
   
   const SuggestedArchive = useCallback(() => SuggestedArchivePost({

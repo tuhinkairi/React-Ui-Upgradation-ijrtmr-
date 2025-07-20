@@ -29,7 +29,7 @@ type TabOption = "FullArticle" | "References" | "Citations" | "Metrics" | "Licen
 const ConferenceDetails = () => {
   const searchQuery = useSearchParams();
   const [currentItem, setCurrentItem] = useState<TabOption>(searchQuery[0].get("section")?.replace("-", " ") as TabOption || "FullArticle")
-  const id = searchQuery[0].get("paperId")
+  const id = searchQuery[0].get("paperid")
   const [copy, SetCopy] = useState<boolean>(false)
   const navigate = useNavigate()
   const loading = useAppSelector((state) => state.loadingScreen.loading)

@@ -27,7 +27,7 @@ type TabOption = "FullArticle" | "References" | "Citations" | "Metrics" | "Licen
 
 const ArticleDetails = () => {
   const searchQuery = useSearchParams();
-  const id = searchQuery[0].get("paperId")
+  const id = searchQuery[0].get("paperid")
   const [currentItem, setCurrentItem] = useState<TabOption>(searchQuery[0].get("section")?.replace("-", " ") as TabOption || "FullArticle")
   const [copy, SetCopy] = useState<boolean>(false)
   const ActiveArticle = useAppSelector((state) => state.archiveSection.activePaper)

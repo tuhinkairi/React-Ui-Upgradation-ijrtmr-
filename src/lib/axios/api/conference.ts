@@ -7,7 +7,7 @@ import { axiosClient } from "../axios-client";
 const conference_categories = async (): Promise<ConferenceCardProps[]> => {
   try {
     const response = await axiosClient.post('/conferenceCategoriesFetch');
-    console.log(response.data)
+    // console.log(response.data)
     return response.data.Conference_CategoriesList;
   } catch (error) {
     console.error('Error fetching index:', error);
@@ -31,7 +31,7 @@ export const conference_detials = async (params: conferenceDetailsType): Promise
       page: params.page,
       per_page: params.per_page
     });
-    console.log(response.data)
+    // console.log(response.data)
     return response.data;
   } catch (error) {
     console.error('Error fetching index:', error);
@@ -43,7 +43,7 @@ export const searchConference = async (req: SearchProp) => {
         const res = await axiosClient.post("/searchConference",
             req
         );
-        console.log(res.data.papersList)
+        // console.log(res.data.papersList)
         return res.data.papersList
     }
     catch (error) {
@@ -58,7 +58,7 @@ export const FetchActiveConference = async (
   try {
     const res = await axiosClient.post("/conferenceDetails", req);
     
-    console.log(res.data.ConferenceDetails);
+    // console.log(res.data.ConferenceDetails);
     return res.data.ConferenceDetails;
   } catch (error) {
     console.error(error);
