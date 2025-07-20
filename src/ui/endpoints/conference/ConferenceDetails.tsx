@@ -196,6 +196,7 @@ const ConferenceDetails = () => {
         <RelatedArticles />
       </div>
       <script async src="https://badge.dimensions.ai/badge.js"></script>
+      
     </MetaDataWrapper>
 
   );

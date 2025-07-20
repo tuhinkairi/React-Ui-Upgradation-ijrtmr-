@@ -43,7 +43,7 @@ export const auther_menu = [
   {"title":"Topics","link":"/topics"},
   {"title":"Call for Paper","link":"/call-for-papers"},
   {"title":"Guide for Author","link":"/instruction-for-author"},
-  {"title":"Editorial Management System","link":"/guidance-for-ems"},
+  {"title":"Guidance of ems","link":"/guidance-for-ems"},
   {"title":"Article Processing Charge","link":"/article-processing-charges"},
   {"title":"Article Status","link":"/paper-status"},
   {"title":"Downloads","link":"/downloads"}
