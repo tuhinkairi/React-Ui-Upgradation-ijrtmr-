@@ -41,7 +41,7 @@ export default function RouteControl() {
             <Route path="/" loader={true} element={<MetaDataWrapper><Home /></MetaDataWrapper>} />
             {/* <Route path="/for-authors" element={<>comming soon</>} /> */}
             <Route path="/blogs" loader={true} element={<MetaDataWrapper><Blog /></MetaDataWrapper>} />
-            <Route path="/blogs/:slug" element={<BlogShow />} />
+            <Route path="/blog/:slug" element={<BlogShow />} />
             <Route path="/contact-us" element={<MetaDataWrapper><ContactUs /></MetaDataWrapper>} />
 
             <Route path="/publications" element={<MetaDataWrapper><ThesisIndex /></MetaDataWrapper>} />

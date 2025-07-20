@@ -12,8 +12,8 @@ import Loading from '../../components/Loading';
 export default function Blog() {
     const [page, setPage] = useState(1);
     const [BlogList, setBlogList] = useState<Blog[]>(useAppSelector((state) => state.blog.blogList));
-    const [totalPages, setTotalPages] = useState(1);
-    const itemsPerPage = 6;
+    const itemsPerPage = 10;
+    const [totalPages, setTotalPages] = useState(BlogList.length/itemsPerPage);
     const dispatch = useAppDispatch();
     const loading = useAppSelector((state) => state.loadingScreen.loading);
 
@@ -30,8 +30,9 @@ export default function Blog() {
             })
         }
         dispatch(setLoading(false));
+        // setTotalPages(BlogList.length/itemsPerPage)
     }, [dispatch, BlogList]);
-
+    console.log(totalPages)
     const paginatedBlogs = BlogList.slice(
         (page - 1) * itemsPerPage,
         page * itemsPerPage
@@ -68,7 +69,7 @@ export default function Blog() {
                 ))}
             </section>
 
-            {totalPages > 1 && (
+            {totalPages && (
                 <Pagination
                     currentPage={page}
                     totalPages={totalPages}
