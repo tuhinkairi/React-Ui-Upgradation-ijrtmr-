@@ -2,7 +2,7 @@ export const quickLinks = [
   { title: "Aim & Scope", link: "/aim-and-scope" },
   { title: "Instruction for Authors", link: "/instruction-for-author" },
   { title: "Journal Publishing Process", link: "/journal-publishing-process" },
-  { title: "Guidance of EMS", link: "/guidance-for-ems" },
+  { title: "Editorial Management System", link: "/guidance-for-ems" },
   { title: "Paper Status", link: "/paper-status" },
   { title: "Topics", link: "/topics" },
   { title: "Call for papers", link: "/call-for-papers" },
@@ -42,7 +42,7 @@ export const auther_menu = [
   {"title":"Topics","link":"/topics"},
   {"title":"Call for Paper","link":"/call-for-papers"},
   {"title":"Guide for Author","link":"/instruction-for-author"},
-  {"title":"Guidance of EMS","link":"/guidance-for-ems"},
+  {"title":"Editorial Management System","link":"/guidance-for-ems"},
   {"title":"Article Processing Charge","link":"/article-processing-charges"},
   {"title":"Article Status","link":"/paper-status"},
   {"title":"Downloads","link":"/downloads"}
