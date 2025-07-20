@@ -27,7 +27,7 @@ export default function IJSREATFeaturesSection() {
           <Title2 className='mb-4'>IJSREAT Features</Title2>
           <ul className="space-y-4">
             {features.map((item, index) => (
-              <li key={index} className="flex items-start gap-3 text-gray-700 text-base 2xl:text-xl">
+              <li key={index} className="flex items-start gap-3 text-gray-700 text-base 2xl:text-base">
                 <CheckCircle className="text-orange-500 w-5 h-5 mt-1" />
                 <span>{item}</span>
               </li>

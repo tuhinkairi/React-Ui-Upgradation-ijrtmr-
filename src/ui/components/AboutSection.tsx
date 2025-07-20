@@ -13,10 +13,10 @@ export default function AboutSection() {
         <div className="w-full md:w-1/2">
           {/* <h2 className="text-3xl font-semibold text-primaryText mb-4">Welcome to IJSREAT</h2> */}
           <Title2>Welcome to IJSREAT</Title2>
-          <p className="text-secondaryText mb-4 text-sm 2xl:text-xl leading-relaxed mt-6">
+          <p className="text-secondaryText mb-4 text-sm 2xl:text-base leading-relaxed mt-6">
             International Journal of Scientific Research in Engineering & Technology is (e-ISSN: 2583-1240) Bi-monthly, international peer-reviewed, open-access and multidisciplinary online journal published for the enhancement of research in various disciplines of Science, Engineering &Technologies.
           </p>
-          <p className="text-secondaryText text-sm 2xl:text-xl leading-relaxed">
+          <p className="text-secondaryText text-sm 2xl:text-base leading-relaxed">
             International journal for publishing new ideas founded by academicians, educationists,
             engineers, and corporate people. The research results and fundamental advancement are all
             aspects of Innovative Research in Science, Engineering &amp; Technology, various engineering

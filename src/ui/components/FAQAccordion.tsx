@@ -49,7 +49,7 @@ const FAQAccordion = () => {
               onClick={() => toggleIndex(idx)}
               className="flex justify-between items-center "
             >
-              <h1 className="text-primary-text font-medium w-[90%] text-lg  2xl:text-2xl">
+              <h1 className="text-primary-text font-medium w-[90%] text-lg 2xl:text-xl">
                 {item.question}
               </h1>
               {activeIndex === idx ? (
@@ -59,7 +59,7 @@ const FAQAccordion = () => {
               )}
             </div>
             {activeIndex === idx && (
-              <div className="mt-3 text-gray-600 text-sm xl:text-xl sm:text-base">
+              <div className="mt-3 text-gray-600 text-sm sm:text-base">
                 {item.answer}
               </div>
             )}

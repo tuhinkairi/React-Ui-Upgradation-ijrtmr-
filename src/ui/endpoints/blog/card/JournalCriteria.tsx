@@ -7,10 +7,10 @@ const JournalCriteria = ({ title, sections }: { title: string, sections: { headi
         <div key={index}>
           <h3 className="font-semibold text-base">{section.heading}</h3>
           {section.paragraph && (
-            <p className="text-paragraph text-sm xl:text-base 2xl:text-2xl mt-1">{section.paragraph}</p>
+            <p className="text-paragraph text-sm xl:text-base 2xl:text-lg mt-1">{section.paragraph}</p>
           )}
           {section.points && (
-            <ul className="list-disc list-inside text-sm xl:text-base 2xl:text-2xl text-paragraph mt-2 space-y-1">
+            <ul className="list-disc list-inside text-sm xl:text-base 2xl:text-lg text-paragraph mt-2 space-y-1">
               {section.points.map((pt, i) => (
                 <li key={i}>{pt}</li>
               ))}

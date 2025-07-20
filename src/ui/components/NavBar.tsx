@@ -52,7 +52,7 @@ const[isShowing, setShowing] = useState<boolean>(false)
 
   return (
     <>
-      <nav className="hidden lg:flex justify-between items-center py-6 gap-4 mx-auto ml-16 mr-4 xl:mr-16  text-sm xl:text-base 2xl:text-xl">
+      <nav className="hidden lg:flex justify-between items-center py-6 gap-4 mx-auto ml-16 mr-4 xl:mr-16  text-sm xl:text-base 2xl:text-base">
         {/* Logo */}
         <div className="flex items-center space-x-3">
           <img src="/logo.webp" alt="Fifth Dimension Logo" className="h-10 lg:h-12" />

@@ -66,7 +66,7 @@ export default function OwnerShip() {
                 </div>
                 <div>
                     <h1>
-                        <span className="text-lg xl:text-xl 2xl:text-2xl font-medium ">For subscription articles: </span>
+                        <span className="text-lg xl:text-xl 2xl:text-lg font-medium ">For subscription articles: </span>
                         Authors transfer copyright to the publisher as part of a
                         journal publishing agreement, but have the right to:
                     </h1>
@@ -87,7 +87,7 @@ export default function OwnerShip() {
                 </div>
                 <div>
                     <h1>
-                        <span className="text-lg xl:text-xl 2xl:text-2xl font-medium ">For open access articles:</span> Authors sign an exclusive license agreement, where authors
+                        <span className="text-lg xl:text-xl 2xl:text-lg font-medium ">For open access articles:</span> Authors sign an exclusive license agreement, where authors
                         have copyright but license exclusive rights in their article to the publisher**. In this case
                         authors have the right to:
                     </h1>

@@ -7,14 +7,14 @@ export default function IndexingCard() {
       <Link to="/indexing&abstraction">
       <div className="flex items-center gap-3 py-2">
         <Bookmark className="w-6 h-6 text-white" />
-        <span className="text-base xl:text-lg 2xl:text-2xl font-medium">Indexing</span>
+        <span className="text-base xl:text-lg 2xl:text-lg font-medium">Indexing</span>
       </div>
       </Link>
       <hr className="my-4 border-white/30" />
       <Link to="/journal-publishing-process ">
       <div className="flex items-center gap-3 py-2">
         <ShieldCheck className="w-6 h-6 text-white" />
-        <span className="text-base xl:text-lg 2xl:text-2xl font-medium text-wrap">Journal Publication Process</span>
+        <span className="text-base xl:text-lg 2xl:text-lg font-medium text-wrap">Journal Publication Process</span>
       </div>
       </Link>
     </div>

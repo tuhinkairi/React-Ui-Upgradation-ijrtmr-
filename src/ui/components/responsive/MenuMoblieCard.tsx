@@ -28,7 +28,7 @@ const MenuMoblieCard = ({ onClose }: { onClose: () => void }) => {
                 {/* About Us */}
                 <div>
                     <div className="font-semibold text-black">About Us</div>
-                    <ul className="pl-4 space-y-4 mt-3 text-gray-600 text-sm xl:text-base 2xl:text-2xl">
+                    <ul className="pl-4 space-y-4 mt-3 text-gray-600 text-sm xl:text-base 2xl:text-lg">
                         <>
                             {about_menu.map((item, idx) => {
                                 return <li key={idx}><NavLink className={({ isActive }) => (isActive ? "text-primary w-full" : "hover:text-primary w-full")} to={item.link} onClick={onClose}>{item.title}</NavLink></li>
@@ -41,7 +41,7 @@ const MenuMoblieCard = ({ onClose }: { onClose: () => void }) => {
                 {/* For Authors */}
                 <div>
                     <div className="font-semibold text-black">For Authors</div>
-                    <ul className="pl-4 space-y-4 mt-3 text-gray-600 text-sm xl:text-base 2xl:text-2xl">
+                    <ul className="pl-4 space-y-4 mt-3 text-gray-600 text-sm xl:text-base 2xl:text-lg">
                         <>
                             {auther_menu.map((item, idx) => {
 
@@ -66,7 +66,7 @@ const MenuMoblieCard = ({ onClose }: { onClose: () => void }) => {
                 {/* Thesis */}
                 <div>
                     <div className="font-semibold text-black">Thesis</div>
-                    <ul className="pl-4 space-y-4 mt-3 text-gray-600 text-sm xl:text-base 2xl:text-2xl">
+                    <ul className="pl-4 space-y-4 mt-3 text-gray-600 text-sm xl:text-base 2xl:text-lg">
                         <>
                             {thesis_menu.map((item, idx) => {
                                 return <li key={idx}><NavLink className={({ isActive }) => (isActive ? "text-primary w-full" : "hover:text-primary w-full")} to={item.link} onClick={onClose}>{item.title}</NavLink></li>

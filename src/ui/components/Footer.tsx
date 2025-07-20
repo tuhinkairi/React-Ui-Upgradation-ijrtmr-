@@ -20,10 +20,10 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mb-12">
           {/* Contact Us Section */}
           <div className='col-span-2 md:col-span-1'>
-            <h3 className="text-sm 2xl:text-xl font-semibold text-gray-900 uppercase tracking-wider mb-4">
+            <h3 className="text-sm 2xl:text-base font-semibold text-gray-900 uppercase tracking-wider mb-4">
               CONTACT US
             </h3>
-            <div className="space-y-1 text-sm 2xl:text-xl text-gray-600">
+            <div className="space-y-1 text-sm 2xl:text-base text-gray-600">
               <p>Fifth Dimension research Publication (P) Ltd.</p>
               <p>No: 38D5F, Rajaji nagar, Ariyalur-621713.</p>
               <p>Tamilnadu, India.</p>
@@ -37,10 +37,10 @@ export default function Footer() {
 
           {/* Guidelines Section */}
           <div>
-            <h3 className="text-sm 2xl:text-xl font-semibold text-gray-900 uppercase tracking-wider mb-4">
+            <h3 className="text-sm 2xl:text-base font-semibold text-gray-900 uppercase tracking-wider mb-4">
               GUIDELINES
             </h3>
-            <ul className="space-y-3 text-sm 2xl:text-xl  text-gray-600">
+            <ul className="space-y-3 text-sm 2xl:text-base  text-gray-600">
               <li><NavLink to="/instructions-for-authors" className="pointer hover:text-primary">Instructions for Authors</NavLink></li>
               <li><NavLink to="/editor-guidelines" className="pointer hover:text-primary">Editor guidelines</NavLink></li>
               <li><NavLink to="/journal-publishing-process" className="pointer hover:text-primary">Journal Publishing Process</NavLink></li>
@@ -52,10 +52,10 @@ export default function Footer() {
 
           {/* Policies Section */}
           <div>
-            <h3 className="text-sm 2xl:text-xl font-semibold text-gray-900 uppercase tracking-wider mb-4">
+            <h3 className="text-sm 2xl:text-base font-semibold text-gray-900 uppercase tracking-wider mb-4">
               POLICIES
             </h3>
-            <ul className="space-y-3 text-sm 2xl:text-xl text-gray-600">
+            <ul className="space-y-3 text-sm 2xl:text-base text-gray-600">
               <li><NavLink to="/peer-review-policy" className="hover:text-primary">Peer Review Policy</NavLink></li>
               <li><NavLink to="/publication-ethics-policy" className="hover:text-primary">Publication Policy</NavLink></li>
               <li><NavLink to="/ethics" className="hover:text-primary">Ethics And Policies</NavLink></li>
@@ -67,7 +67,7 @@ export default function Footer() {
 
           {/* Newsletter Section */}
           <div className=''>
-            <h3 className="text-sm 2xl:text-xl font-semibold text-gray-900 uppercase tracking-wider mb-4">
+            <h3 className="text-sm 2xl:text-base font-semibold text-gray-900 uppercase tracking-wider mb-4">
               SUBSCRIBE TO NEWSLETTER
             </h3>
             <div className="flex">
@@ -76,11 +76,11 @@ export default function Footer() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter email address"
-                className="flex-1 px-3 py-2 border border-gray-200 bg-white rounded-l-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent text-sm 2xl:text-xl"
+                className="flex-1 px-3 py-2 border border-gray-200 bg-white rounded-l-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent text-sm 2xl:text-base"
               />
               <button
                 onClick={handleSubmit}
-                className="px-6 py-2 bg-primary text-white rounded-r-md hover:bg-primary-hover focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 text-sm 2xl:text-xl font-medium"
+                className="px-6 py-2 bg-primary text-white rounded-r-md hover:bg-primary-hover focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 text-sm 2xl:text-base font-medium"
               >
                 Join
               </button>
@@ -93,14 +93,14 @@ export default function Footer() {
           <div className="flex flex-col lg:flex-row justify-between items-start space-y-4 lg:space-y-0 relative">
             {/* Copyright and Licensing */}
             <div className="text-center w-fit mx-auto">
-              <p className="text-sm 2xl:text-xl text-gray-600 mb-2">
+              <p className="text-sm 2xl:text-base text-gray-600 mb-2">
                 Copyright © 2025 IJSREAT Published by Fifth Dimension research Publication (P) Ltd. All Rights Reserved.
               </p>
-              <p className="text-sm 2xl:text-xl text-gray-600">
+              <p className="text-sm 2xl:text-base text-gray-600">
                 Work is licensed under a Creative Commons Attribution 4.0 International License.
               </p>
               <div className="mt-2 text-center">
-                <div className="flex flex-wrap justify-center space-x-1 text-sm 2xl:text-xl">
+                <div className="flex flex-wrap justify-center space-x-1 text-sm 2xl:text-base">
                   <NavLink to="#" className="text-primary hover:text-primary-hover">Privacy Policy</NavLink>
                   <span className="text-gray-400">|</span>
                   <NavLink to="#" className="text-primary hover:text-primary-hover">Terms And Conditions</NavLink>

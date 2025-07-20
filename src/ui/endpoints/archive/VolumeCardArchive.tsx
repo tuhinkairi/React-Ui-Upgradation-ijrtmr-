@@ -53,7 +53,7 @@ export default function VolumeCardArchive({ paper, setActive, navigate }: { pape
 
             {/* Actions */}
             <div className="flex flex-wrap justify-between items-center mt-2 gap-2 sm:gap-0">
-                <div className="w-full sm:w-fit flex gap-3 text-base sm:text-sm xl:text-base 2xl:text-2xl text-primary font-medium my-3 sm:my-0">
+                <div className="w-full sm:w-fit flex gap-3 text-base sm:text-sm xl:text-base 2xl:text-lg text-primary font-medium my-3 sm:my-0">
                     <button
                         className="hover:underline border-r-2 pr-3"
                         onClick={() => navigate(`${endpoint}&section=FullArticle`)}

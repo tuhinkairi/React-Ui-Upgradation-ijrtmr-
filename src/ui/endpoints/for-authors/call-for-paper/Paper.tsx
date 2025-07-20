@@ -2,7 +2,7 @@ import Title from "../../../other/Title";
 
 const Paper = () => {
   return (
-    <div className="xl:text-base 2xl:text-2xl">
+    <div className="xl:text-base 2xl:text-lg">
       <Title>Call for Papers</Title>
 
       <p className="my-6 text-justify leading-relaxed">

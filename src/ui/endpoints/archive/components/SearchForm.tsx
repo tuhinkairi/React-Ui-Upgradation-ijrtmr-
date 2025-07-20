@@ -11,7 +11,7 @@ export const SearchForm: React.FC<SearchFormProps> = ({ onSearch }) => (
     <input
       type="text"
       placeholder="Search by Paper ID, Paper Name"
-      className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm xl:text-base 2xl:text-2xl"
+      className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm xl:text-base 2xl:text-lg"
     />
     <PrimaryBtn>
       <Search size={16} /> Search

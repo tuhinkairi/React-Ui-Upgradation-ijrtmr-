@@ -77,12 +77,12 @@ const ConferenceDetails = () => {
         </div>
 
         {/* Meta Information */}
-        <div className="space-y-3 text-primary-text leading-relaxed text-sm xl:text-base 2xl:text-2xl sm:text-base">
+        <div className="space-y-3 text-primary-text leading-relaxed text-sm xl:text-base 2xl:text-lg sm:text-base">
           <div className="flex gap-3 ">
             <div className="w-full flex gap-3 gap-x-12 justify-between">
               <div className="flex flex-wrap gap-3 gap-x-6 py-2 mb-2">
                 {auther.map((author, index) => (
-                  <span className="text-primary flex gap-2 items-center text-base sm:text-lg xl:text-xl 2xl:text-2xl" key={index}>
+                  <span className="text-primary flex gap-2 items-center text-base sm:text-lg xl:text-xl 2xl:text-lg" key={index}>
                     <CgProfile className="text-lg sm:text-2xl xl:3xl" />
                     {author}<span className="text-xs h-full flex items-start -ml-1">{index + 1}</span>
                     {/* {index !== auther.length - 1 && ", "} */}
@@ -98,7 +98,7 @@ const ConferenceDetails = () => {
                 </span>
               ))}
             </div> */}
-              <button className="hidden sm:inline-flex items-center justify-center bg-[#fae0d0]  text-sm xl:text-base 2xl:text-2xl font-medium px-6 py-2.5 gap-3 hover:bg-[#f6d5c3]  text-paragraph transition-colors rounded-full h-fit">
+              <button className="hidden sm:inline-flex items-center justify-center bg-[#fae0d0]  text-sm xl:text-base 2xl:text-lg font-medium px-6 py-2.5 gap-3 hover:bg-[#f6d5c3]  text-paragraph transition-colors rounded-full h-fit">
                 <Share2 size={13} className="inline-block" /> Share
               </button>
             </div>
@@ -121,20 +121,20 @@ const ConferenceDetails = () => {
         {/* DOI and Utilities */}
         <div className="flex items-start sm:items-center flex-wrap gap-4 w-full justify-between text-base">
           <div className="flex gap-4 sm:gap-0 w-2/3 sm:w-fit justify-between flex-col sm:flex-row ">
-            <h3 className="text-primary text-bsae  xl:text-xl 2xl:text-2xl flex gap-2 items-center sm:mr-10 md:mr-5 xl:mr-10 2xl:mr-12 md:whitespace-nowrap">
+            <h3 className="text-primary text-bsae  xl:text-xl 2xl:text-lg flex gap-2 items-center sm:mr-10 md:mr-5 xl:mr-10 2xl:mr-12 md:whitespace-nowrap">
               <ImQuotesLeft className="text-primary" /> Cite this article
             </h3>
 
             {activePaper?.doi !== undefined && <Link
               target="_blank"
               to={activePaper?.doi ?? window.location.href}
-              className="text-primary flex items-center gap-1 hover:underline text-sm xl:text-xl 2xl:text-2xl wrap-anywhere sm:whitespace-nowrap"
+              className="text-primary flex items-center gap-1 hover:underline text-sm xl:text-xl 2xl:text-lg wrap-anywhere sm:whitespace-nowrap"
             >
               ↗ {activePaper?.doi_link}
             </Link>}
           </div>
 
-          <button className="inline-flex sm:hidden items-center justify-center bg-[#fae0d0] text-primary-text text-sm xl:text-base 2xl:text-2xl font-medium w-12 h-12 hover:bg-[#f6d5c3] transition-colors rounded-full">
+          <button className="inline-flex sm:hidden items-center justify-center bg-[#fae0d0] text-primary-text text-sm xl:text-base 2xl:text-lg font-medium w-12 h-12 hover:bg-[#f6d5c3] transition-colors rounded-full">
             <Share2 size={13} className="inline-block" />
           </button>
 
@@ -145,13 +145,13 @@ const ConferenceDetails = () => {
                 <VscFilePdf size={18} className="ml-4" />
               </PrimaryBtn>
             </Link>
-            <button className="bg-gradient-to-b from-gray-100  to-zinc-300 border border-gray-300 hover:scale-105 transition-all text-dark px-3 py-2 rounded-md font-semibold flex items-center justify-center space-x-3 text-sm xl:text-base 2xl:text-2xl">
+            <button className="bg-gradient-to-b from-gray-100  to-zinc-300 border border-gray-300 hover:scale-105 transition-all text-dark px-3 py-2 rounded-md font-semibold flex items-center justify-center space-x-3 text-sm xl:text-base 2xl:text-lg">
               <span>
                 Check for Updates</span> <IoReload height={20} />
             </button>
           </div>
 
-          <button className={`hidden sm:inline-flex items-center justify-center ${copy ? "bg-green-300 hover:bg-green-400" : "bg-[#fae0d0] hover:bg-[#f6d5c3]"} text-primary-text text-sm xl:text-base 2xl:text-2xl font-medium w-12 h-12  transition-colors rounded-full`} onClick={() => {
+          <button className={`hidden sm:inline-flex items-center justify-center ${copy ? "bg-green-300 hover:bg-green-400" : "bg-[#fae0d0] hover:bg-[#f6d5c3]"} text-primary-text text-sm xl:text-base 2xl:text-lg font-medium w-12 h-12  transition-colors rounded-full`} onClick={() => {
             navigator.clipboard.writeText(window.location.href)
             SetCopy(true)
             setTimeout(() => {
@@ -165,7 +165,7 @@ const ConferenceDetails = () => {
 
 
         {/* Navigation Tabs */}
-        <div className="flex justify-between gap-6 text-lg xl:text-xl 2xl:text-2xl border-b border-gray-200 overflow-x-auto mt-6 sm:mt-0">
+        <div className="flex justify-between gap-6 text-lg xl:text-xl 2xl:text-lg border-b border-gray-200 overflow-x-auto mt-6 sm:mt-0">
           {["FullArticle", "References", "Citations", "Metrics", "Licensing"].map(
             (tab, idx) => (
               <button

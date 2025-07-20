@@ -14,7 +14,7 @@ export default function ArchiveSubmitPaperCard() {
       />
       <div className="p-5">
         <h3 className="text-xl xl:text-2xl 2xl:text-3xl font-semibold text-primary-text mb-2">Online Submission</h3>
-        <p className="text-base xl:text-xl 2xl:text-2xl text-gray-700 mb-5 leading-relaxed">
+        <p className="text-base xl:text-xl 2xl:text-lg text-gray-700 mb-5 leading-relaxed">
           Submit your paper through our advanced editorial management system anytime, from anywhere in the world.
         </p>
         <Link target="_blank" to="https://editorial.fdrpjournals.org/login?journal=2">

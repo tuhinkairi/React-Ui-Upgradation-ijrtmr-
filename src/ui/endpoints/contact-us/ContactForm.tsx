@@ -65,7 +65,7 @@ const ContactForm = () => {
             onChange={handleChange}
             className="w-full px-4 py-3 bg-gray-100 placeholder-gray-500 rounded"
           />
-          {errors.name && <p className="text-sm xl:text-base 2xl:text-2xl text-red-500">{errors.name}</p>}
+          {errors.name && <p className="text-sm xl:text-base 2xl:text-lg text-red-500">{errors.name}</p>}
         </div>
 
         <div>
@@ -77,7 +77,7 @@ const ContactForm = () => {
             onChange={handleChange}
             className="w-full px-4 py-3 bg-gray-100 placeholder-gray-500 rounded"
           />
-          {errors.email && <p className="text-sm xl:text-base 2xl:text-2xl text-red-500">{errors.email}</p>}
+          {errors.email && <p className="text-sm xl:text-base 2xl:text-lg text-red-500">{errors.email}</p>}
         </div>
 
         <div>
@@ -89,7 +89,7 @@ const ContactForm = () => {
             onChange={handleChange}
             className="w-full px-4 py-3 bg-gray-100 placeholder-gray-500 rounded"
           />
-          {errors.phone && <p className="text-sm xl:text-base 2xl:text-2xl text-red-500">{errors.phone}</p>}
+          {errors.phone && <p className="text-sm xl:text-base 2xl:text-lg text-red-500">{errors.phone}</p>}
         </div>
       </div>
 
@@ -102,7 +102,7 @@ const ContactForm = () => {
           onChange={handleChange}
           className="w-full px-4 py-3 bg-gray-100 placeholder-gray-500 rounded"
         />
-        {errors.message && <p className="text-sm xl:text-base 2xl:text-2xl text-red-500">{errors.message}</p>}
+        {errors.message && <p className="text-sm xl:text-base 2xl:text-lg text-red-500">{errors.message}</p>}
       </div>
 
       <div className="flex justify-end">

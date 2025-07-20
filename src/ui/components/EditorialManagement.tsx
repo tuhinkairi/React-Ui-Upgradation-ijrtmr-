@@ -56,9 +56,9 @@ export default function EditorialManagement() {
             className="bg-white rounded-xl border border-gray-200 shadow-md p-6 flex flex-col text-left"
           >
             <div className="mb-4">{item.icon}</div>
-            <h2 className="font-semibold text-lg  2xl:text-2xl text-gray-900 mb-2">{item.title}</h2>
-            <p className="text-gray-700 text-sm 2xl:text-xl mb-3">{item.desc}</p>
-            <ul className="list-disc pl-5 text-gray-600 text-sm 2xl:text-xl space-y-1">
+            <h2 className="font-semibold text-lg  2xl:text-lg text-gray-900 mb-2">{item.title}</h2>
+            <p className="text-gray-700 text-sm 2xl:text-base mb-3">{item.desc}</p>
+            <ul className="list-disc pl-5 text-gray-600 text-sm 2xl:text-base space-y-1">
               {item.bullets.map((bullet, j) => (
                 <li key={j} className="leading-snug">
                   {bullet}

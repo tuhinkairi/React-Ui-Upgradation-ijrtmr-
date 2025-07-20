@@ -73,10 +73,10 @@ export default function WhyPublishWithUs() {
                 />
               </div>
               <div className="flex flex-col justify-start">
-                <h3 className="text-lg 2xl:text-2xl font-semibold text-black">{item.title}</h3>
-                <p className="text-sm 2xl:text-xl text-gray-700 mb-2">{item.desc}</p>
+                <h3 className="text-lg 2xl:text-lg font-semibold text-black">{item.title}</h3>
+                <p className="text-sm 2xl:text-base text-gray-700 mb-2">{item.desc}</p>
                 {item.points && (
-                  <ul className="list-disc pl-5 text-sm 2xl:text-xl text-gray-600">
+                  <ul className="list-disc pl-5 text-sm 2xl:text-base text-gray-600">
                     {item.points.map((pt, i) => (
                       <li key={i}>{pt}</li>
                     ))}
@@ -100,11 +100,11 @@ export default function WhyPublishWithUs() {
                 </div>
                 <div className="flex flex-col justify-start">
                   <h3 className="text-lg font-semibold text-black">{item.title}</h3>
-                  <p className="text-sm xl:text-base 2xl:text-2xl text-gray-700 mb-2">{item.desc}</p>
+                  <p className="text-sm xl:text-base 2xl:text-lg text-gray-700 mb-2">{item.desc}</p>
                 </div>
               </div>
               {item.points && (
-                <ul className="list-disc pl-5 text-sm 2xl:text-xl text-gray-600">
+                <ul className="list-disc pl-5 text-sm 2xl:text-base text-gray-600">
                   {item.points.map((pt, i) => (
                     <li key={i}>{pt}</li>
                   ))}

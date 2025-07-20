@@ -31,7 +31,7 @@ const References = ({ content }: { content: string }) => {
   return (
     <div className=" space-y-3 text-gray-700">
       <h2 className="text-base xl:text-xl 2xl:text-3xl font-semibold">References</h2>
-      <ul className="space-y-6 text-sm xl:text-base 2xl:text-2xl text-gray-800">
+      <ul className="space-y-6 text-sm xl:text-base 2xl:text-lg text-gray-800">
         <>
           {refContent.length !== 0 ? (
             refContent.map((item, index) => (
@@ -47,7 +47,7 @@ const References = ({ content }: { content: string }) => {
                   {ref.links.map((link, i) => (
                     <button
                       key={i}
-                      className={`text-sm xl:text-base 2xl:text-2xl hover:underline font-medium text-primary mt-2 ${i !== 0 && references.length > i ? "border-l border-l-primary pl-4" : ""}`} style={{ borderRadius: 0 }}
+                      className={`text-sm xl:text-base 2xl:text-lg hover:underline font-medium text-primary mt-2 ${i !== 0 && references.length > i ? "border-l border-l-primary pl-4" : ""}`} style={{ borderRadius: 0 }}
                     >
                       {link}
                     </button>

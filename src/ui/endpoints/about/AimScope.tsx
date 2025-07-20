@@ -2,7 +2,7 @@ import Title2 from "../../other/Title2";
 
 const AimScope = () => {
   return (
-    <div className="space-y-8 text-base xl:text-xl 2xl:text-2xl">
+    <div className="space-y-8 text-base xl:text-xl 2xl:text-lg">
       {/* Aim Section */}
       <section>
         <Title2>Aim</Title2>

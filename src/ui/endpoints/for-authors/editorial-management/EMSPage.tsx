@@ -2,7 +2,7 @@ import Title from "../../../other/Title";
 
 export default function EMSPage() {
     return (
-        <section className="leading-relaxed space-y-6 mb-10 xl:text-xl 2xl:text-2xl">
+        <section className="leading-relaxed space-y-6 mb-10 xl:text-xl 2xl:text-lg">
             <Title>
                 Editorial management system
             </Title>

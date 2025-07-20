@@ -2,7 +2,7 @@ import Title from '../../../other/Title'
 
 export default function ChargesPaper() {
     return (
-        <section className='space-y-4 leading-relaxed mb-10 xl:text-xl 2xl:text-2xl'>
+        <section className='space-y-4 leading-relaxed mb-10 xl:text-xl 2xl:text-lg'>
             <Title>Article Processing  Charges</Title>
             <p>Open-access publication, so it is freely available online. The cost on publishing online editions, and to ensure the continuous appearance of the journal, the core committee has decided to charge a minimal fee from the authors after the acceptance of manuscript as follows:</p>
             <div>

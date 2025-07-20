@@ -32,7 +32,7 @@ export default function FeaturesSection1() {
         {features.map((feature, idx) => (
           <div key={idx} className="rounded-2xl bg-dark p-6">
             <h3 className="text-xl font-semibold mb-4">{feature.title}</h3>
-            <ul className="space-y-2 text-divider text-sm xl:text-base 2xl:text-2xl">
+            <ul className="space-y-2 text-divider text-sm xl:text-base 2xl:text-lg">
               {feature.items.map((item, i) => (
                 <li key={i} className="list-disc ml-4">{item}</li>
               ))}
