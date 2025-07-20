@@ -7,7 +7,7 @@ export const quickLinks = [
   { title: "Paper Status", link: "/paper-status" },
   { title: "Topics", link: "/topics" },
   { title: "Call for papers", link: "/call-for-papers" },
-  { title: "Indexing & Abstracting", link: "/indexing&abstraction" },
+  { title: "Indexing & Abstracting", link: "/indexing-and-abstracting" },
   { title: "Impact Factor", link: "/impact-Factor" },
   { title: "Article Processing Charges", link: "/article-processing-charges" }
 ];
@@ -29,7 +29,7 @@ export const policies = [
 export const about_menu = [
   {"title":"Aim & Scope","link":"/aim-and-scope"},
   {"title":"Editorial Board","link":"/editorial-board"},
-  {"title":"Indexing & Abstracting","link":"/indexing&abstraction"},
+  {"title":"Indexing & Abstracting","link":"/indexing-and-abstracting"},
   {"title":"Publication Ethics Policy","link":"/publication-ethics-policy"},
   {"title":"Peer Review Policy","link":"/peer-review-policy"},
   {"title":"Ethics & Policy","link":"/ethics"},

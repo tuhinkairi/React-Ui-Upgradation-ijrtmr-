@@ -101,7 +101,7 @@ export default function getMetaData({path,baseUrl}:{path: string, baseUrl:string
                 }
             };
             break;
-        case "/indexing&abstraction":
+        case "/indexing-and-abstracting":
             meta =  {
                 title: 'IJSREAT Indexing & Abstracting - Global Research Visibility',
                 description: 'Learn about the indexing and abstracting services that feature IJSREAT, enhancing the visibility and impact of published research worldwide.',

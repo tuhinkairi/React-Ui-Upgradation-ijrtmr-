@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 export default function IndexingCard() {
   return (
     <div className="max-w-md w-full mx-auto rounded-2xl p-6 text-white bg-gradient-to-b from-[#FF8C42] to-[#995428] shadow-md">
-      <Link to="/indexing&abstraction">
+      <Link to="/indexing-and-abstracting">
       <div className="flex items-center gap-3 py-2">
         <Bookmark className="w-6 h-6 text-white" />
         <span className="text-base xl:text-lg 2xl:text-lg font-medium">Indexing</span>

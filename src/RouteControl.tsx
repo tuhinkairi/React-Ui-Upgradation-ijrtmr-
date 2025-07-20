@@ -70,7 +70,7 @@ export default function RouteControl() {
             <Route path="/editorial-board" element={<MetaDataWrapper><EditorBoard /></MetaDataWrapper>} />
             <Route path="/editorial-board/:data" element={<EditoralSingle />} />
             {/* editorial end*/}
-            <Route path="/indexing&abstraction" element={<MetaDataWrapper><IndexAbstract /></MetaDataWrapper>} />
+            <Route path="/indexing-and-abstracting" element={<MetaDataWrapper><IndexAbstract /></MetaDataWrapper>} />
             <Route path="/publication-ethics-policy" element={<MetaDataWrapper><PublicationPolicy /></MetaDataWrapper>} />
             <Route path="/peer-review-policy" element={<MetaDataWrapper><PeerReviewPolicy /></MetaDataWrapper>} />
             <Route path="/ethics" element={<MetaDataWrapper><EthicsAndPolicy /></MetaDataWrapper>} />
