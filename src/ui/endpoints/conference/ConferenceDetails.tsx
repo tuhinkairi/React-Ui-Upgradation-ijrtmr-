@@ -114,7 +114,8 @@ const ConferenceDetails = () => {
           <h2 className="italic">
             {superscriptifyAllNumbers(activePaper?.designation ?? "")}
           </h2>
-          <h3 className="font-medium">Published Online: {activePaper?.created_at.split("T")[0]}</h3>
+          {/* <h3 className="font-medium">Published Online: {activePaper?.created_at.split("T")[0]}</h3> */}
+          <h3 className="font-medium">Published Online: {new Date(activePaper.created_at).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</h3>
           <h3 className="font-medium">Pages: {activePaper?.pages}</h3>
         </div>
 
@@ -125,13 +126,15 @@ const ConferenceDetails = () => {
               <ImQuotesLeft className="text-primary" /> Cite this article
             </h3>
 
-            {activePaper?.doi !== undefined && <Link
+            {activePaper?.doi !== "." ? <Link
               target="_blank"
               to={activePaper?.doi ?? window.location.href}
               className="text-primary flex items-center gap-1 hover:underline text-sm xl:text-xl 2xl:text-lg wrap-anywhere sm:whitespace-nowrap"
             >
-              ↗ {activePaper?.doi_link}
-            </Link>}
+              ↗ {activePaper?.doi_link && activePaper?.doi_link.length > 5 ? activePaper?.doi_link : "No Doi"}
+            </Link> :
+              <span className="text-primary flex items-center gap-1 hover:underline text-sm xl:text-xl 2xl:text-lg wrap-anywhere sm:whitespace-nowrap">No Doi</span>
+            }
           </div>
 
           <button className="inline-flex sm:hidden items-center justify-center bg-[#fae0d0] text-primary-text text-sm xl:text-base 2xl:text-lg font-medium w-12 h-12 hover:bg-[#f6d5c3] transition-colors rounded-full">
@@ -186,7 +189,7 @@ const ConferenceDetails = () => {
         {currentItem === "FullArticle" && <FullArtical content={activePaper?.abstract ?? ""} pdf_url={activePaper?.pdf_url ?? ""} />}
         {currentItem === "Citations" && <Citations content={activePaper?.citation ?? ""} />}
         {currentItem === "Licensing" && <Licensing />}
-        {currentItem === "Metrics" && <ArticleMetrics />}
+        {currentItem === "Metrics" && <ArticleMetrics content={activePaper?.doi ?? ""} />}
         {/* <div className={`${currentItem === "Metrics" ? "" : "absolute -z-10"}`}><ArticleMetrics /></div> */}
 
         {currentItem === "References" && <References content={activePaper?.references ?? ""} />}

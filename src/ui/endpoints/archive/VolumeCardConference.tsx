@@ -30,7 +30,7 @@ export default function VolumeCardConference({ paper, setActive,navigate}: { pap
             <div className=" text-primary-text text-base leading-8">
                 <span className="font-bold">Author : </span> {paper.author_1}
                 <br />
-                <span className="font-bold">Published Online : </span> {paper.created_at.split("T")[0]}
+                <span className="font-bold">Published Online : </span> {new Date(paper.created_at).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
                 <br />
                 <span className="font-bold">Pages : </span> {paper.pages}
             </div>

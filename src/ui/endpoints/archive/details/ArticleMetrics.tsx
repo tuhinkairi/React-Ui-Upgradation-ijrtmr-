@@ -1,10 +1,11 @@
 import useDimensionsBadge from "../../../components/cards/plumx/useDimensionsBadge";
 
-const ArticleMetrics = () => {
+const ArticleMetrics = ({ content }: { content?: string }) => {
   const metrics = [
     { label: "Views", value: "216", to: "to-cyan-700", from: "from-cyan-500" },
     { label: "Citations", value: "0", to: "to-red-700", from: "from-red-500" },
   ];
+  const doi = content!==undefined ? content.split("https://www.doi.org/")[1]: ""
   useDimensionsBadge()
   return (
     <div className="min-h-72">
@@ -22,15 +23,39 @@ const ArticleMetrics = () => {
 
           </div>
         ))}
-        <div className="flex flex-col items-center justify-between gap-4 py-2">
-          <a href="https://plu.mx/plum/a/?doi=10.1371/journal.pone.0056506" data-size="" className="plumx-plum-print-popup"></a>
-          <script type="text/javascript" src="//cdn.plu.mx/widget-popup.js"></script>
-          <span className="text-base font-medium text-primary-text">PlumX Metrics</span>
-        </div>
-        <div className="flex flex-col items-center justify-between gap-4 py-2">
-          <span className="__dimensions_badge_embed__" data-doi="10.1001/jama.2016.9797"></span>
-          <span className="text-base font-medium text-primary-text">Dimension</span>
-        </div>
+
+        {(content!==undefined && content.length > 5 )?
+          <>
+            <div className="flex flex-col items-center justify-between gap-4 py-2">
+              <a href={`https://plu.mx/plum/a/?doi=${doi}`} data-size="" className="plumx-plum-print-popup"></a>
+              <script type="text/javascript" src="//cdn.plu.mx/widget-popup.js"></script>
+              <span className="text-base font-medium text-primary-text">PlumX Metrics</span>
+            </div>
+            <div className="flex flex-col items-center justify-between gap-4 py-2">
+              <span className="__dimensions_badge_embed__" data-doi={doi}></span>
+              <span className="text-base font-medium text-primary-text">Dimension</span>
+            </div>
+          </>
+          :
+          <>
+            <div className="flex flex-col items-center justify-between gap-4 py-2">
+              <img
+                src="/plummatrix/plum.webp"
+                alt="PlumX Metrics"
+                className="max-h-28 object-contain"
+              />
+              <span className="text-base font-medium text-primary-text">PlumX Metrics</span>
+            </div>
+            <div className="flex flex-col items-center justify-between gap-4 py-2">
+              <img
+                src="/plummatrix/dynamics.webp" // Replace with actual path
+                alt="Dimension"
+                  className="max-h-28 object-contain"
+              />
+              <span className="text-base font-medium text-primary-text">Dimension</span>
+            </div>
+          </>
+        }
       </div>
 
     </div>

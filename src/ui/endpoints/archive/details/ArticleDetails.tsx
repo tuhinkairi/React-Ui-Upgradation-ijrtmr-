@@ -100,7 +100,8 @@ const ArticleDetails = () => {
           <h2 className=" italic">
             {superscriptifyAllNumbers(activePaper?.paper_designation ?? "")}
           </h2>
-          <h3 className="font-medium">Published Online: {activePaper.created_at.split("T")[0] ?? activePaper.created_at}</h3>
+          {/* <h3 className="font-medium">Published Online: {activePaper.created_at.split("T")[0] ?? activePaper.created_at}</h3> */}
+          <h3 className="font-medium">Published Online: {activePaper.paper_month} {activePaper.year}</h3>
           <h3 className="font-medium">Pages: {activePaper?.paper_pages}</h3>
         </div>
 
@@ -111,13 +112,15 @@ const ArticleDetails = () => {
               <ImQuotesLeft className="text-primary" /> Cite this article
             </h3>
 
-            {activePaper?.paper_doi !== undefined && <Link
+            {activePaper?.paper_doi !== "." ? <Link
               target="_blank"
               to={activePaper?.paper_doi ?? window.location.href}
               className="text-primary flex items-center gap-1 hover:underline text-sm xl:text-xl 2xl:text-lg wrap-anywhere sm:whitespace-nowrap"
             >
-              ↗ {activePaper?.paper_doi_Link}
-            </Link>}
+              ↗ {activePaper?.paper_doi && activePaper?.paper_doi.length>5 ? activePaper?.paper_doi.split("https://www.doi.org/")[1]: "No Doi" }
+            </Link>:
+            <span className="text-primary flex items-center gap-1 hover:underline text-sm xl:text-xl 2xl:text-lg wrap-anywhere sm:whitespace-nowrap">No Doi</span>
+            }
           </div>
 
           <button className="inline-flex sm:hidden items-center justify-center bg-[#fae0d0] text-primary-text text-sm xl:text-base 2xl:text-lg font-medium w-12 h-12 xl:w-16 xl:h-16 hover:bg-[#f6d5c3] transition-colors rounded-full">
@@ -173,7 +176,7 @@ const ArticleDetails = () => {
           {currentItem === "Citations" && <Citations content={activePaper?.paper_citation ?? ""} />}
           {currentItem === "Licensing" && <Licensing />}
           {/* <div className={`${currentItem === "Metrics"?"":"absolute -z-10"}`}><ArticleMetrics /></div> */}
-          {currentItem === "Metrics" && <ArticleMetrics />}
+          {currentItem === "Metrics" && <ArticleMetrics content={activePaper.paper_doi} />}
           {currentItem === "References" && <References content={activePaper?.paper_references ?? ""} />}
           <RelatedArticles />
         </div>

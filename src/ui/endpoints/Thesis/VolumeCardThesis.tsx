@@ -30,7 +30,7 @@ const HandleGoolge =()=>{
             <div className=" text-primary-text text-base leading-8">
                 Author: {paper.author_1}
                 <br />
-                Published Online: {paper.created_at.split("T")[0]}
+                Published Online: {paper.month} {paper.year}
                 <br />
                 Pages: {paper.pages}
             </div>

@@ -31,7 +31,7 @@ export default function VolumeCardArchive({ paper, setActive, navigate }: { pape
             <div className=" text-primary-text text-base leading-8">
                 <span className="font-bold">Author : </span>{paper.author_1}
                 <br />
-                <span className="font-bold">Published Online : </span> {paper.created_at.split("T")[0]}
+                <span className="font-bold">Published Online : </span> {paper.paper_month} {paper.year} 
                 <br />
                 <span className="font-bold">Pages : </span> {paper.paper_pages}
             </div>
