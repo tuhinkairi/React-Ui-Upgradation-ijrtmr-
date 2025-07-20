@@ -12,10 +12,10 @@ export default function Hero() {
             of Scientific Research in Engineering & Technology
           </span>
         </h1>
-        <p className=" text-base sm:text-lg">
+        <p className=" text-base sm:text-lg 2xl:text-xl">
           e-ISSN:2583-1240, Follows UGC-CARE Guidelines
         </p>
-        <article className="text-muted sm:text-base max-w-xl 2xl:max-w-3xl  text-paragraph leading-6 sm:leading-normal">
+        <article className="text-muted sm:text-base 2xl:text-lg max-w-xl 2xl:max-w-3xl  text-paragraph leading-6 sm:leading-normal">
           <p>
             An International Scholarly Open Access Journal, Peer-reviewed, Refereed Journal.  High Impact factor, Bi-Monthly, Multidisciplinary Journal.
           </p>
