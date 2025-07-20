@@ -1,6 +1,6 @@
 // components/ArchiveSection.tsx
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { fetchArchive } from "../../../../lib/axios/api/archive";
 import { useAppDispatch, useAppSelector } from "../../../../lib/store/store";
@@ -25,10 +25,30 @@ export default function ArchiveSection() {
   const dispatch = useAppDispatch()
   const loading = useAppSelector(state => state.loadingScreen.loading)
 
+  const handelActiveIndex = useCallback((arg: ActiveIndexArchive) => {
+    dispatch(setActiveIndexVolume(arg))
+  }, [dispatch])
+  const handelActiveThesisIndex = (arg: ThesisIndexingItem) => {
+    dispatch(setActiveThesisIndex(arg))
+    navigate(`/thesis/year-${arg.year}-volume-${arg.volume}`)
+  }
+  const toggleDropdown = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
   // fetch the archives
   useEffect(() => {
+
     dispatch(setLoading(true))
-    if (thesis) {
+    if (issue && volume.length > 0) {
+      console.log(volume)
+      handelActiveIndex({
+        year: volume[0].year,
+        volume: volume[0].volumes[0].volume,
+        issue: volume[0].volumes[0].issue[0]
+      })
+      navigate(`/current-issue/paperlist?year=${volume[0].year}&volume=${volume[0].volumes[0].volume}&issue=${volume[0].volumes[0].issue[0]}`)
+    }
+    else if (thesis) {
       if (yearVolumeThesis.length === 0) {
         fetchThesis().then((data) => {
           const reversedData = [...data].reverse()
@@ -46,24 +66,22 @@ export default function ArchiveSection() {
           const reversedData = [...data].reverse()
           setVolumes(reversedData)
           dispatch(setArchiveIndexVolume(reversedData)) //store the list
+          if (issue) {
+            handelActiveIndex({
+              year: data[0].year,
+              volume: data[0].volumes[0].volume,
+              issue: data[0].volumes[0].issue[0]
+            })
+            navigate(`/current-issue/paperlist?year=${data[0].year}&volume=${data[0].volumes[0].volume}&issue=${data[0].volumes[0].issue[0]}`)
+          }
         }).catch(err => {
           console.error(err)
         }).finally(() => dispatch(setLoading(false)))
       }
     }
     dispatch(setLoading(false))
-  }, [dispatch, thesis, volume,yearVolumeThesis])
+  }, [dispatch, thesis, volume, yearVolumeThesis, issue, handelActiveIndex, navigate]);
 
-  const handelActiveIndex = (arg: ActiveIndexArchive) => {
-    dispatch(setActiveIndexVolume(arg))
-  }
-  const handelActiveThesisIndex = (arg: ThesisIndexingItem) => {
-    dispatch(setActiveThesisIndex(arg))
-    navigate(`/thesis/year-${arg.year}-volume-${arg.volume}`)
-  }
-  const toggleDropdown = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
   if (loading) {
     return <Loading title="Archive" />
   }
@@ -132,8 +150,8 @@ export default function ArchiveSection() {
         ))}
         {/* current issue */}
         {!thesis && issue && volume && volume.map((vol, index) => (
-          
-          (index==0 && <div key={index} className={`relative border ${openIndex === index ? "border-[#FF8C42B2] text-[#FF8C42B2] rounded-bl-none rounded-br-none " : "hover:border-[#FF8C42B2] hover:text-[#FF8C42B2] border-gray-400"} rounded-md`}>
+
+          (index == 0 && <div key={index} className={`relative border ${openIndex === index ? "border-[#FF8C42B2] text-[#FF8C42B2] rounded-bl-none rounded-br-none " : "hover:border-[#FF8C42B2] hover:text-[#FF8C42B2] border-gray-400"} rounded-md`}>
             <button
               onClick={() => toggleDropdown(index)}
               className="w-full flex justify-between items-center px-4 py-3 text-left focus:outline-none"
@@ -151,7 +169,7 @@ export default function ArchiveSection() {
                   {
                     vol.volumes.map((elem) =>
                       elem.issue.map((issue, idx) => (
-                        (idx==0 &&<Link
+                        (idx == 0 && <Link
                           onClick={() => handelActiveIndex({
                             year: vol.year,
                             volume: elem.volume,
@@ -173,7 +191,7 @@ export default function ArchiveSection() {
             )}
 
           </div>)
-          
+
         ))}
       </div>
     </div>
