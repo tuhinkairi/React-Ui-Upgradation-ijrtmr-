@@ -1,14 +1,14 @@
 import { useCallback, useEffect, useState } from 'react'
 import PrimaryBtn from '../../../components/Btns/PrimaryBtn'
-import { Share2} from 'lucide-react'
+import { Share2 } from 'lucide-react'
 import { GrFormNext, GrFormPrevious } from 'react-icons/gr'
 // import { useAppSelector } from '../../../../lib/store/store'
 import { Link, redirect, useLocation } from 'react-router-dom'
 import type { ActiveIndexArchive, ArchiveIndexVolume } from '../../../../types/Api'
 
-function ArchiveVolumnHeader({isArchive, setArchiveIndex, ActiveVolumes, VolumeList }: {isArchive:boolean, setArchiveIndex: (arg: ActiveIndexArchive) => void, ActiveVolumes: ActiveIndexArchive | null, VolumeList: ArchiveIndexVolume[] }) {
+function ArchiveVolumnHeader({ isArchive, setArchiveIndex, ActiveVolumes, VolumeList }: { isArchive: boolean, setArchiveIndex: (arg: ActiveIndexArchive) => void, ActiveVolumes: ActiveIndexArchive | null, VolumeList: ArchiveIndexVolume[] }) {
     // const { activeIndexPage: ActiveVolumes, indexPage: VolumeList } = useAppSelector((state) => state.archiveSection)
-    const path = useLocation().pathname 
+    const path = useLocation().pathname
     const [volumes, setVolumes] = useState<string[]>([])
     const [active, setActive] = useState<string>(`Volume ${ActiveVolumes?.volume}, (${ActiveVolumes?.year})`)
     const [activeIssue, setActiveIssue] = useState<string>(`Issue ${ActiveVolumes?.issue}`)
@@ -18,7 +18,7 @@ function ArchiveVolumnHeader({isArchive, setArchiveIndex, ActiveVolumes, VolumeL
     const [currentIssue, setCurrentIssue] = useState<string>(ActiveVolumes?.issue ?? "")
     const [currentVolume, setCurrentVolume] = useState<string>(ActiveVolumes?.volume ?? "")
     const [currentYear, setCurrentYear] = useState<string>(ActiveVolumes?.year ?? "")
-    
+
     const updateData = useCallback(() => {
         if (!ActiveVolumes) return redirect("/archives")
 
@@ -44,20 +44,20 @@ function ArchiveVolumnHeader({isArchive, setArchiveIndex, ActiveVolumes, VolumeL
 
 
     const handleVolumeClick = useCallback((volume: string) => {
-    setActive(volume);
-    const year = volume.split(" ")[2].split("(")[1].split(")")[0];
-    const vol = volume.split(" ")[1].split(",")[0];
-    setCurrentYear(year);
-    setCurrentVolume(vol);
-    setArchiveIndex({ volume: vol, issue: currentIssue, year });  // SET INDEX HERE
-}, [currentIssue, setArchiveIndex]);
+        setActive(volume);
+        const year = volume.split(" ")[2].split("(")[1].split(")")[0];
+        const vol = volume.split(" ")[1].split(",")[0];
+        setCurrentYear(year);
+        setCurrentVolume(vol);
+        setArchiveIndex({ volume: vol, issue: currentIssue, year });  // SET INDEX HERE
+    }, [currentIssue, setArchiveIndex]);
 
-const handleIssueClick = useCallback((issue: string) => {
-    setActiveIssue(issue);
-    const iss = issue.split(" ")[1];
-    setCurrentIssue(iss);
-    setArchiveIndex({ volume: currentVolume, issue: iss, year: currentYear });  // SET INDEX HERE
-}, [currentVolume, currentYear, setArchiveIndex]);
+    const handleIssueClick = useCallback((issue: string) => {
+        setActiveIssue(issue);
+        const iss = issue.split(" ")[1];
+        setCurrentIssue(iss);
+        setArchiveIndex({ volume: currentVolume, issue: iss, year: currentYear });  // SET INDEX HERE
+    }, [currentVolume, currentYear, setArchiveIndex]);
 
 
 
@@ -65,29 +65,32 @@ const handleIssueClick = useCallback((issue: string) => {
         const currentIndex = volumes.indexOf(active)
         const newVolume = volumes[currentIndex - 1]
         if (currentIndex > 0) setActive(newVolume)
-
-    }, [volumes, active,])
+        handleVolumeClick(newVolume)
+    }, [volumes, active, handleVolumeClick])
 
     const handleNext = useCallback(() => {
         const currentIndex = volumes.indexOf(active)
         const newVolume = volumes[currentIndex + 1]
         if (currentIndex < volumes.length - 1) setActive(newVolume)
+        handleVolumeClick(newVolume)
 
-    }, [volumes, active])
+    }, [volumes, active,handleVolumeClick])
 
     const handlePreviousIssue = useCallback(() => {
         const currentIndex = issues.indexOf(activeIssue)
         const newIndex = issues[currentIndex - 1]
         if (currentIndex > 0) setActiveIssue(newIndex)
-
-    }, [issues, activeIssue])
+        handleIssueClick(newIndex)
+    }, [issues, activeIssue, handleIssueClick])
 
     const handleNextIssue = useCallback(() => {
         const currentIndex = issues.indexOf(activeIssue)
         const newIndex = issues[currentIndex + 1]
         if (currentIndex < issues.length - 1) setActiveIssue(newIndex)
-    }, [issues, activeIssue])
+        handleIssueClick(newIndex)
 
+    }, [issues, activeIssue, handleIssueClick])
+    
     return (
         <>
             <div className="flex flex-wrap justify-between items-center gap-2 gap-x-5 text-base font-medium">

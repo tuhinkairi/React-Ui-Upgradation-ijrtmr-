@@ -1,4 +1,4 @@
-import { useState, type JSX } from "react";
+import { useEffect, useState, type JSX } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import PublicationContent from "../publication-policy/PublicationContent";
 import EditorialPolicy from "./policyCards/EditorialPolicy";
@@ -14,6 +14,8 @@ import ArchivePolicy from "./policyCards/ArchivePolicy";
 import RepositoryPolicy from "./policyCards/RepositoryPolicy";
 import JournalMetrix from "./policyCards/JournalMetrix";
 import AdvetisingPolicy from "./policyCards/AdvetisingPolicy";
+import { useSearchParams } from "react-router-dom";
+// import { useSearchParams } from "react-router-dom";
 
 interface AccordionItem {
   id: string;
@@ -21,82 +23,96 @@ interface AccordionItem {
   component: JSX.Element | string;
 }
 
-const policy:AccordionItem[] = [
+const policy: AccordionItem[] = [
   {
     "id": "publication-ethics",
     "title": "Publication Ethics",
-    "component": <PublicationContent/>
+    "component": <PublicationContent />
   },
   {
     "id": "editorial-policies",
     "title": "Editorial Policies",
-    "component": <EditorialPolicy/>
+    "component": <EditorialPolicy />
   },
   {
     "id": "author-responsibilities",
     "title": "Author Responsibilities",
-    "component": <AuthorResponsiblity/>
+    "component": <AuthorResponsiblity />
   },
   {
     "id": "instructions-for-authors",
     "title": "Instructions for Authors",
-    "component": <GuidePaper/>
+    "component": <GuidePaper />
   },
   {
     "id": "ethics-malpractice",
     "title": "Publication Ethics & Malpractice Statement",
-    "component": <PublicationEthicsAndMalpracticeStatement/>
+    "component": <PublicationEthicsAndMalpracticeStatement />
   },
   {
     "id": "article-withdrawal",
     "title": "Article withdraw policy",
-    "component": <WithdrawPolicy/>
+    "component": <WithdrawPolicy />
   },
   {
     "id": "plagiarism-policy",
     "title": "Plagiarism Policy",
-    "component": <PlagiarismPolicy/>
+    "component": <PlagiarismPolicy />
   },
   {
     "id": "peer-review-policy",
     "title": "Peer Review Policy",
-    "component": <PeerReviewPaper/>  
+    "component": <PeerReviewPaper />
   },
   {
     "id": "copyright-ownership",
     "title": "Copyright, Grants and Ownership Declaration",
-    "component": <OwnerShip/>
+    "component": <OwnerShip />
   },
   {
     "id": "open-access-policy",
     "title": "Open Access Policy",
-    "component": <OpenAccessPolicy/>
+    "component": <OpenAccessPolicy />
   },
   {
     "id": "archiving-policy",
     "title": "Archiving policy",
-    "component": <ArchivePolicy/>
+    "component": <ArchivePolicy />
   },
   {
     "id": "repository-policy",
     "title": "Repository policy",
-    "component": <RepositoryPolicy/>
+    "component": <RepositoryPolicy />
   },
   {
     "id": "journal-metrics",
     "title": "Journal Metrics",
-    "component": <JournalMetrix/>
+    "component": <JournalMetrix />
   },
   {
     "id": "advertising-policy",
     "title": "Advertising Policy",
-    "component": <AdvetisingPolicy/>
+    "component": <AdvetisingPolicy />
   }
 ]
 
 const EPDropdown: React.FC = () => {
   const [openIndex, setOpenIndex] = useState<string | null>(null);
-
+  const id = useSearchParams()[0].get("target")
+  
+  useEffect(() => {
+    if (id) {
+      console.log(id)
+      const element = document.getElementById(id)
+      console.log(element)
+      if (element) {
+        element.scrollIntoView({
+          behavior: "smooth"
+        })
+        setOpenIndex(id)
+      }
+    }
+  }, [id])
   const toggle = (id: string) => {
     setOpenIndex((prev) => (prev === id ? null : id));
   };
@@ -104,7 +120,7 @@ const EPDropdown: React.FC = () => {
   return (
     <div className="flex flex-col gap-2 mt-20 mb-14 -mx-4">
       {policy.map((item) => (
-        <div key={item.id} className="rounded-md overflow-hidden">
+        <div id={item.id} key={item.id} className="rounded-md overflow-hidden">
           <button
             onClick={() => toggle(item.id)}
             className="flex justify-start gap-4 items-center w-full px-5 py-3 text-white font-medium rounded-md bg-gradient-to-b from-[#FF8C42] to-[#995428] hover:from-[#fae0d0] hover:to-[#fae0d0] hover:text-primary-text focus:outline-none transition-all"
@@ -119,7 +135,7 @@ const EPDropdown: React.FC = () => {
           )}
         </div>
       ))}
-      
+
     </div>
   );
 };

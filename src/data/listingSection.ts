@@ -16,11 +16,11 @@ export const policies = [
   { title: "Ethics & Policies", link: "/ethics" },
   { title: "Publication Ethics & Malpractice Statement", link: "/publication-ethics-policy" },
   { title: "Peer Review Policy", link: "/peer-review-policy" },
-  { title: "Plagiarism Policy", link: "/ethics" },
-  { title: "Editorial policies", link: "/ethics" },
-  { title: "Article withdraw policy", link: "/ethics" },
-  { title: "Copyright, Grants and Ownership Declaration", link: "ethics" },
-  { title: "Open Access Policy", link: "/ethics" },
+  { title: "Plagiarism Policy", link: "/ethics?target=plagiarism-policy" },
+  { title: "Editorial policies", link: "/ethics?target=editorial-policies" },
+  { title: "Article withdraw policy", link: "/ethics?target=article-withdrawal" },
+  { title: "Copyright, Grants and Ownership Declaration", link: "/ethics?target=copyright-ownership" },
+  { title: "Open Access Policy", link: "/ethics?target=open-access-policy" },
   { title: "Cross mark Policy", link: "/cross-mark-policy" },
   { title: "Contact Us", link: "/contact-us" }
 ];

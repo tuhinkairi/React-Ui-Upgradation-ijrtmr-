@@ -1,8 +1,9 @@
+import React from 'react'
 import CommonLayout from '../../../components/layout/CommonLayout'
 import Title from '../../../other/Title'
 import IndexingPartnerArchive from '../../archive/components/IndexingPartnerArchive'
 import VerificationSection from '../VerificationSection'
-import EPDropdown from './EPDropdown'
+const EPDropdown = React.lazy(() => import("./EPDropdown"));
 
 export default function EthicsAndPolicy() {
   return (
@@ -62,8 +63,8 @@ export default function EthicsAndPolicy() {
             </ul>
           </div>
         </div>
-        <EPDropdown/>
-        <VerificationSection/>
+        <EPDropdown />
+        <VerificationSection />
       </section>
     </CommonLayout>
   )
