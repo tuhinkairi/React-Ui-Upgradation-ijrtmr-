@@ -9,6 +9,7 @@ import type { ActiveIndexArchive, ArchiveIndexVolume, ThesisIndexingItem } from 
 function ArchiveVolumnHeader({ isArchive, setArchiveIndex, ActiveVolumes, VolumeList }: { isArchive: boolean, setArchiveIndex: (arg: ActiveIndexArchive) => void, ActiveVolumes: ActiveIndexArchive | null, VolumeList: ArchiveIndexVolume[], ThesisVolumeList: ThesisIndexingItem[] }) {
     // const { activeIndexPage: ActiveVolumes, indexPage: VolumeList } = useAppSelector((state) => state.archiveSection)
     const path = useLocation().pathname
+    const thesisState =path.includes("/thesis")
     const [volumes, setVolumes] = useState<string[]>([])
     const [active, setActive] = useState<string>(`Volume ${ActiveVolumes?.volume}, (${ActiveVolumes?.year})`)
     const [activeIssue, setActiveIssue] = useState<string>(`Issue ${ActiveVolumes?.issue}`)
@@ -105,10 +106,10 @@ function ArchiveVolumnHeader({ isArchive, setArchiveIndex, ActiveVolumes, Volume
                     </span>
                 ))}
                 <button onClick={handleNext}><GrFormNext className="text-primary-text" /></button>
-                <Link to={'/archives'} className="cursor-pointer text-primary">See all volumes</Link>
+                <Link to={thesisState ?"/thesis": '/archives'} className="cursor-pointer text-primary">See all volumes</Link>
             </div>
 
-            {isArchive && !path.includes("/thesis") && <div className="flex items-center justify-between">
+            {isArchive && !thesisState && <div className="flex items-center justify-between">
                 <div className="flex gap-2">
                     <button onClick={handlePreviousIssue}><GrFormPrevious className="text-primary-text text-base" /></button>
                     {issues.map((issue, index) => (
