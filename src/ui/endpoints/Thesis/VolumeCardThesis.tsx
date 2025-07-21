@@ -7,7 +7,7 @@ import PrimaryBtn from "../../components/Btns/PrimaryBtn";
 
 export default function VolumeCardThesis({ paper, setActive, navigate }: { paper: ThesisListingItem, setActive: (arg: ThesisListingItem) => void, navigate: NavigateFunction }) {
     const endpoint = `/thesis/paper-details?paperid=${paper.id}&papertitle=${encodeURIComponent(paper.title.replace(/ /g, "-"))}`
-const HandleGoolge =()=>{
+    const HandleGoolge = () => {
         window.open(`https://www.google.com/search?q=${encodeURIComponent(paper.title)}`, '_blank')
     }
     return (
@@ -16,7 +16,7 @@ const HandleGoolge =()=>{
         >
             <div className="flex justify-between items-start">
                 <Link
-                    onClick={()=>setActive(paper)}
+                    onClick={() => setActive(paper)}
                     to={endpoint}
                     className="text-xl 2xl:text-2xl font-serif  text-primary hover:underline max-w-5/6"
                 >
@@ -28,11 +28,13 @@ const HandleGoolge =()=>{
             </div>
 
             <div className=" text-primary-text text-base leading-8">
-                Author: {paper.author_1}
+                <span className="font-bold">Author : </span>{[paper.author_1, paper.author_2, paper.author_3, paper.author_4, paper.author_5, paper.author_6].map((e, index) => {
+                    if (e) return index === 0 ? e.toString() : (", ").concat(e.toString())
+                })}
                 <br />
-                Published Online: {paper.month} {paper.year}
+                <span className="font-bold">Published Online : </span> {paper.month} {paper.year}
                 <br />
-                Pages: {paper.pages}
+                <span className="font-bold">Pages : </span> {paper.pages}
             </div>
 
             {/* Metrics */}

@@ -21,7 +21,7 @@ export default function VolumeCardArchive({ paper, setActive, navigate }: { pape
                     to={endpoint}
                     className="text-xl 2xl:text-2xl font-serif  text-primary hover:underline sm:max-w-5/6 relative"
                 >
-                    {paper.paper_title}<ArrowUpRight fill="none" className="inline-block ml-1"/>
+                    {paper.paper_title}<ArrowUpRight fill="none" className="inline-block ml-1" />
                 </Link>
                 <button onClick={HandleGoolge} className="hidden text-base sm:inline-flex items-center justify-center gap-2 text-primary border border-orange-400 px-3 py-1" style={{ borderRadius: 9999 }}>
                     <SearchIcon className="w-5" /> Google
@@ -29,9 +29,11 @@ export default function VolumeCardArchive({ paper, setActive, navigate }: { pape
             </div>
 
             <div className=" text-primary-text text-base leading-8">
-                <span className="font-bold">Author : </span>{paper.author_1}
+                <span className="font-bold">Author : </span>{[paper.author_1,paper.author_2,paper.author_3,paper.author_4, paper.author_5,paper.author_6].map((e, index)=>{
+                    if(e) return index===0? e.toString() :(", ").concat(e.toString())
+                    })}
                 <br />
-                <span className="font-bold">Published Online : </span> {paper.paper_month} {paper.year} 
+                <span className="font-bold">Published Online : </span> {paper.paper_month} {paper.year}
                 <br />
                 <span className="font-bold">Pages : </span> {paper.paper_pages}
             </div>
