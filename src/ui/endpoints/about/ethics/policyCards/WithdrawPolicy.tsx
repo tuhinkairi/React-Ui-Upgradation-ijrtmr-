@@ -1,9 +1,9 @@
-import Title from "../../../../other/Title";
+import Titleh2 from "../../../../other/Titleh2";
 
 export default function WithdrawPolicy() {
     return (
         <article className="leading-relaxed space-y-6">
-            <Title>Article withdraw policy</Title>
+            <Titleh2>Article withdraw policy</Titleh2>
             <p className="mt-6">It is a general principle of scholarly communication that the editor/guest editor of a
                 learned journal/series is solely and independently responsible for deciding which
                 articles submitted to the journal shall be published. In making this decision the

@@ -1,15 +1,18 @@
+import { useLocation } from "react-router-dom";
 import Title from "../../../other/Title";
+import Titleh2 from "../../../other/Titleh2";
 
 export default function PeerReviewPaper() {
+  const location = useLocation().pathname.includes("ethics")
   return (
     <section className=" leading-relaxed space-y-6 text-base 2xl:text-lg text-[#333333]">
-      <Title>
-        Peer Review Policy
-      </Title>
+
+      {location ? <Titleh2>Peer Review Policy</Titleh2> : <Title>Peer Review Policy</Title>}
+
       <p>
-      <h1 className="mb-2 font-semibold">
-        International Journal of Scientific Research in Engineering &amp; Technology (IJSREAT) is having
-      </h1>
+        <h2 className="mb-2 font-semibold">
+          International Journal of Scientific Research in Engineering &amp; Technology (IJSREAT) is having
+        </h2>
         <strong>ISSN NO:</strong> 2583–1240 (Online), Bi-monthly international journal for publication of new ideas founded by academicians,
         educationist, engineers and corporate people. The research results and fundamental advancement are all aspects of Innovative Research in
         Advanced Engineering & Technology and various engineering disciplines, etc. IJSREAT is a scholarly open access, Single Peer Review Journal

@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-import Title from "../../../../other/Title";
+import Titleh2 from "../../../../other/Titleh2";
 
 export default function OwnerShip() {
     return (
         <article className="space-y-8 leading-relaxed">
-            <Title>Copyright, Grants and Ownership Declaration</Title>
+            <Titleh2>Copyright, Grants and Ownership Declaration</Titleh2>
             <div className="mt-6">
                 <p>For all articles published in this journal, copyright is retained by the authors without restrictions
                     and the authors grants the publisher the right of first publication, and other non-exclusive
@@ -15,8 +15,8 @@ export default function OwnerShip() {
                     ensuring that the authors receive proper credit.</p>
             </div>
             <div>
-                <h1 className="text-lg xl:text-2xl 2xl:text-3xl font-medium mb-2">Copyright Policy:</h1>
-                <h2>
+                <h3 className="text-lg xl:text-2xl 2xl:text-3xl font-medium mb-2">Copyright Policy:</h3>
+                <p>
                     Authors note that paper cannot be withdrawn at any condition once it is accepted. The
                     Authors may not publish his/her The Author may not publish his/her contribution
                     anywhere else without the prior written permission of the publisher unless it has been
@@ -26,7 +26,7 @@ export default function OwnerShip() {
                     does not infringe on any copyright, trademark, patent, statutory right, or propriety right
                     of others. The Author signs for and accepts responsibility for releasing this material on
                     behalf of any and all co-authors. In return for these rights:
-                </h2>
+                </p>
                 <ul className="list-disc ml-6 mt-4 space-y-1">
                     <li>All proprietary rights other than copyrights, such as patent rights.</li>
                     <li>The right to use all or part of this article, including tables and figures in
@@ -51,7 +51,7 @@ export default function OwnerShip() {
             <section className="space-y-4">
 
                 <div>
-                    <h1 className="text-lg xl:text-22xl 2xl:text-3xl font-medium mb-4">Journal Author Rights:</h1>
+                    <h3 className="text-lg xl:text-22xl 2xl:text-3xl font-medium mb-4">Journal Author Rights:</h3>
                     <p>
 
                         In order for FDRP Publications and Its journal to publish and disseminate research
@@ -65,11 +65,11 @@ export default function OwnerShip() {
                     </p>
                 </div>
                 <div>
-                    <h1>
+                    <h3>
                         <span className="text-lg xl:text-xl 2xl:text-lg font-medium ">For subscription articles: </span>
                         Authors transfer copyright to the publisher as part of a
                         journal publishing agreement, but have the right to:
-                    </h1>
+                    </h3>
                     <ul className="list-disc ml-6 mt-4 space-y-1">
 
                         <li>
@@ -86,11 +86,11 @@ export default function OwnerShip() {
                     </ul>
                 </div>
                 <div>
-                    <h1>
+                    <h3>
                         <span className="text-lg xl:text-xl 2xl:text-lg font-medium ">For open access articles:</span> Authors sign an exclusive license agreement, where authors
                         have copyright but license exclusive rights in their article to the publisher**. In this case
                         authors have the right to:
-                    </h1>
+                    </h3>
                     <ul className="list-disc ml-6 mt-4 space-y-1">
 
                         <li>
@@ -115,13 +115,13 @@ export default function OwnerShip() {
                     please see “Rights granted to FDRP Publications and Its Journal” for more details.</h3>
             </section>
             <section>
-                <h1 className="text-lg xl:text-2xl 2xl:text-3xl font-medium mb-4">
+                <h3 className="text-lg xl:text-2xl 2xl:text-3xl font-medium mb-4">
                     Rights granted to FDRP Publications and Its Journals:
-                </h1>
-                <h1>
+                </h3>
+                <h3>
                     For both subscription and open access articles, published in proprietary titles, FDRP
                     Publications and its journal is granted the following rights:
-                </h1>
+                </h3>
                 <ul className="list-disc ml-6 mt-4 space-y-1">
                     <li>
                         The exclusive right to publish and distribute an article, and to grant rights to
@@ -143,9 +143,9 @@ export default function OwnerShip() {
                 </ul>
             </section>
             <div>
-                <h1 className="text-lg xl:text-2xl 2xl:text-3xl font-medium mb-4">
+                <h3 className="text-lg xl:text-2xl 2xl:text-3xl font-medium mb-4">
                     Protecting Author Rights:
-                </h1>
+                </h3>
                 <p>
 
                     Copyright aims to protect the specific way the article has been written to describe an
@@ -164,9 +164,9 @@ export default function OwnerShip() {
                 </p>
             </div>
             <div>
-                <h1 className="text-lg xl:text-2xl 2xl:text-3xl font-medium mb-4">
+                <h3 className="text-lg xl:text-2xl 2xl:text-3xl font-medium mb-4">
                     Disclaimer
-                </h1>
+                </h3>
                 <p>
                     The opinions expressed and figures provided in this Journal; IJSREAT, are the sole
                     responsibility of the authors. The publisher and the editors bear no responsibility in this
@@ -178,13 +178,13 @@ export default function OwnerShip() {
                 </p>
             </div>
             <div >
-                <h1 className="text-lg xl:text-2xl 2xl:text-3xl font-medium mb-4">
+                <h3 className="text-lg xl:text-2xl 2xl:text-3xl font-medium mb-4">
                     Address for Correspondence:
-                </h1>
-                <h1>Editor-In-Chief, IJSREAT</h1>
-                <h1 className="w-2/3">Fifth Dimension Research Publications, No: 38D5F, Rajajinagar, Ariyalur, Tamil Nadu
-                621713.</h1>
-                <h1>E-mail ID: <Link to="mailto:support@fdrpjournals.org" className="text-primary">support@fdrpjournals.org</Link></h1>
+                </h3>
+                <h3>Editor-In-Chief, IJSREAT</h3>
+                <h3 className="w-2/3">Fifth Dimension Research Publications, No: 38D5F, Rajajinagar, Ariyalur, Tamil Nadu
+                621713.</h3>
+                <h3>E-mail ID: <Link to="mailto:support@fdrpjournals.org" className="text-primary">support@fdrpjournals.org</Link></h3>
             </div>
         </article>
     )

@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom";
-import Title from "../../../../other/Title";
+import Titleh2 from "../../../../other/Titleh2";
 
 export default function EditorialPolicy() {
     return (
         <article className="space-y-8 leading-relaxed">
-            <Title>Editorial Policies</Title>
+            <Titleh2>Editorial Policies</Titleh2>
             <div>
-                <h1 className="text-primary text-lg xl:text-2xl 2xl:text-3xl mt-6 mb-2">
+                <h3 className="text-primary text-lg xl:text-2xl 2xl:text-3xl mt-6 mb-2">
                     1. Allegations of misconduct
-                </h1>
+                </h3>
                 International Journal of Scientific Research in Engineering & Technology resolves all the allegations
                 and research misconduct on publication ethics and publication malpractice. We follow the code of
                 conduct and best publication practices in scientific publication and adhere to the guidelines of
@@ -38,9 +38,9 @@ export default function EditorialPolicy() {
                     others is also considered to be unethical.</li>
 
             </ul>
-            <h1>Our team will definitely take necessary action for any reported allegations and research misconduct.</h1>
+            <h2>Our team will definitely take necessary action for any reported allegations and research misconduct.</h2>
             <div>
-                <h1 className="text-lg xl:text-2xl 2xl:text-3xl font-medium mb-2">Retraction Policy</h1>
+                <h3 className="text-lg xl:text-2xl 2xl:text-3xl font-medium mb-2">Retraction Policy</h3>
                 <p>
                     International Journal of Scientific Research in Engineering &amp; Technology will do retraction of articles
                     when there are significant errors, Ethical concerns and fraudulent data in the published work.
@@ -56,9 +56,9 @@ export default function EditorialPolicy() {
                     <Link to={"mailto:editorialoffice@ipinnovatiove.com"} target="_blank" className="text-blue-500">editorialoffice@ipinnovatiove.com</Link> for such cases.</p>
             </div>
             <div>
-                <h1 className="text-lg xl:text-2xl 2xl:text-3xl font-medium mb-2">
+                <h3 className="text-lg xl:text-2xl 2xl:text-3xl font-medium mb-2">
                     Erratum
-                </h1>
+                </h3>
                 <p>
                     It is a small error or mistake, typically one found in a printed work after it has been published. These
                     errors are specific errors such as typos, formatting, graphical changes, or spelling mistakes,
@@ -70,9 +70,9 @@ export default function EditorialPolicy() {
                 </p>
             </div>
             <div>
-                <h1 className="text-lg xl:text-2xl 2xl:text-3xl font-medium mb-2">
+                <h3 className="text-lg xl:text-2xl 2xl:text-3xl font-medium mb-2">
                     Corrigendum
-                </h1>
+                </h3>
                 <p>
                     These errors which is found in printed work after the publishing of the manuscript. These errors are
                     specific errors such as Spelling errors, changes in the author&#39;s affiliation, documentation or any legal
@@ -83,73 +83,79 @@ export default function EditorialPolicy() {
                 </p>
             </div>
             <div>
-                <h1 className="text-primary text-lg xl:text-2xl 2xl:text-3xl mt-6 mb-2">
+                <h3 className="text-primary text-lg xl:text-2xl 2xl:text-3xl mt-6 mb-2">
                     2. Authorship and contributorship
-                </h1>
-                The concept of authorship is understood in such a way that each author of the authorship of the
-                manuscript contributed to the research, in a certain part. In the event of doubts on the part of the
-                editors, which may be based on the inconsistency of the content of the manuscript, the
-                competences of one of the authors in the field of scientific interests, the editors can request from
-                the author team in a separate document data with the distribution of the contribution to the
-                research and preparation of the manuscript, with a separate emphasis on the author&#39;s
-                contribution , about which doubts arose.
-                <br />
-                <br />
-                An author-correspondent is selected from the composition of the author&#39;s team, who interacts
-                with the editorial office. He is responsible for turning the manuscript into an article and its
-                subsequent publication, as well as at the stage after the publication of the article, if such a need
-                arises. If there is a reasoned necessity on the part of the authors to remove or add co-authors, or
-                to change the order of authors, such changes after submission of the manuscript are possible
-                with the approval of the corresponding author.
-                <br />
-                <br />
-                The authorship identification process also involves preventing the appearance of ghost authors
-                and guest authors as part of the author’s team.
+                </h3>
+                <p>
+                    The concept of authorship is understood in such a way that each author of the authorship of the
+                    manuscript contributed to the research, in a certain part. In the event of doubts on the part of the
+                    editors, which may be based on the inconsistency of the content of the manuscript, the
+                    competences of one of the authors in the field of scientific interests, the editors can request from
+                    the author team in a separate document data with the distribution of the contribution to the
+                    research and preparation of the manuscript, with a separate emphasis on the author&#39;s
+                    contribution , about which doubts arose.
+                    <br />
+                    <br />
+                    An author-correspondent is selected from the composition of the author&#39;s team, who interacts
+                    with the editorial office. He is responsible for turning the manuscript into an article and its
+                    subsequent publication, as well as at the stage after the publication of the article, if such a need
+                    arises. If there is a reasoned necessity on the part of the authors to remove or add co-authors, or
+                    to change the order of authors, such changes after submission of the manuscript are possible
+                    with the approval of the corresponding author.
+                    <br />
+                    <br />
+                    The authorship identification process also involves preventing the appearance of ghost authors
+                    and guest authors as part of the author’s team.
+                </p>
             </div>
             <div>
-                <h1 className="text-primary text-lg xl:text-2xl 2xl:text-3xl mt-6 mb-2">
+                <h3 className="text-primary text-lg xl:text-2xl 2xl:text-3xl mt-6 mb-2">
                     3. Complaints and appeals
-                </h1>
-                The following procedure is applicable to appeals of editorial judgements, grievances over
-                procedural errors, such as protracted delays in handling papers, and grievances regarding
-                publication ethics.
-                <br />
-                <br />
-                The Editor-in-Chief(s) responsible for the journal and/or the Editor who handled the paper should
-                handle the complaint in the first instance.
-                <br />
-                <br />
+                </h3>
+                <p>
+                    The following procedure is applicable to appeals of editorial judgements, grievances over
+                    procedural errors, such as protracted delays in handling papers, and grievances regarding
+                    publication ethics.
+                    <br />
+                    <br />
+                    The Editor-in-Chief(s) responsible for the journal and/or the Editor who handled the paper should
+                    handle the complaint in the first instance.
+                    <br />
+                    <br />
 
-                Send a message to the publisher’s contact at editorinchief@ijsreat.com if they are the target of
-                the complaint.
-                <br />
-                <br />
-                Complaints within a year of the original publication date will be considered about any published
-                items. Authors are requested to send any concerns to the editorial office by email
-                at <Link to="mailto:editorinchief@ijsreat.com" target="_blank" className="text-blue-500">editorinchief@ijsreat.com</Link> along with their justifications.
+                    Send a message to the publisher’s contact at editorinchief@ijsreat.com if they are the target of
+                    the complaint.
+                    <br />
+                    <br />
+                    Complaints within a year of the original publication date will be considered about any published
+                    items. Authors are requested to send any concerns to the editorial office by email
+                    at <Link to="mailto:editorinchief@ijsreat.com" target="_blank" className="text-blue-500">editorinchief@ijsreat.com</Link> along with their justifications.
+                </p>
             </div>
             <div>
-                <h1 className="text-primary text-lg xl:text-2xl 2xl:text-3xl mt-6 mb-2">
+                <h3 className="text-primary text-lg xl:text-2xl 2xl:text-3xl mt-6 mb-2">
                     4. Conflicts of interest/competing interests
-                </h1>
-                IJSREAT’s Conflict of Interest policy is based on the COPE’s definition and guidelines:
-                ‘Conflicts of interest comprise those which may not be fully apparent and which may influence the
-                judgment of author, reviewers, and editors. They have been described as those which, when revealed
-                later, would make a reasonable reader feel misled or deceived. They may be personal, commercial,
-                political, academic or financial.
-                <br />
-                <br />
-                “Financial” interests may include employment, research funding, stock or share ownership, payment
-                for lectures or travel, consultancies and company support for staff.’
-                <Link target="_blank" className="text-blue-500" to={"https://publicationethics.org/files/u7141/1999pdf13.pdf"}>https://publicationethics.org/files/u7141/1999pdf13.pdf</Link>
+                </h3>
+                <p>
+                    IJSREAT’s Conflict of Interest policy is based on the COPE’s definition and guidelines:
+                    ‘Conflicts of interest comprise those which may not be fully apparent and which may influence the
+                    judgment of author, reviewers, and editors. They have been described as those which, when revealed
+                    later, would make a reasonable reader feel misled or deceived. They may be personal, commercial,
+                    political, academic or financial.
+                    <br />
+                    <br />
+                    “Financial” interests may include employment, research funding, stock or share ownership, payment
+                    for lectures or travel, consultancies and company support for staff.’
+                    <Link target="_blank" className="text-blue-500" to={"https://publicationethics.org/files/u7141/1999pdf13.pdf"}>https://publicationethics.org/files/u7141/1999pdf13.pdf</Link>
+                </p>
             </div>
 
 
             <section className="space-y-6">
                 <div>
-                    <h1 className="text-lg xl:text-2xl 2xl:text-3xl font-medium mb-2">
+                    <h3 className="text-lg xl:text-2xl 2xl:text-3xl font-medium mb-2">
                         Responsibilities of Participants
-                    </h1>
+                    </h3>
                     <h2 className="text-lg xl:text-2xl 2xl:text-3xl font-medium mb-2">Authors</h2>
                     <p>
                         Authors are responsible for reporting any financial Conflict of Interest related to their research. In
@@ -158,9 +164,9 @@ export default function EditorialPolicy() {
                     </p>
                 </div>
                 <div>
-                    <h1 className="text-lg xl:text-2xl 2xl:text-3xl font-medium mb-2">
+                    <h3 className="text-lg xl:text-2xl 2xl:text-3xl font-medium mb-2">
                         Journals / Publisher action:
-                    </h1>
+                    </h3>
                     <ul className="list-disc ml-6 space-y-4">
                         <li>The statement of conflict of interest should be mentioned after the acknowledgement section
                             in each article</li>
@@ -169,9 +175,9 @@ export default function EditorialPolicy() {
                     </ul>
                 </div>
                 <div>
-                    <h1 className="text-lg xl:text-2xl 2xl:text-3xl font-medium mb-2">
+                    <h3 className="text-lg xl:text-2xl 2xl:text-3xl font-medium mb-2">
                         Reviewers
-                    </h1>
+                    </h3>
                     <p>
                         Reviewers should declare all potential competing or conflicting interests. It includes personal,
                         financial, intellectual, professional, political or religious in nature. It will also include employed in the
@@ -180,18 +186,18 @@ export default function EditorialPolicy() {
                     </p>
                 </div>
                 <div>
-                    <h1 className="text-lg xl:text-2xl 2xl:text-3xl font-medium mb-2">
+                    <h3 className="text-lg xl:text-2xl 2xl:text-3xl font-medium mb-2">
                         Journals / Publisher action
-                    </h1>
+                    </h3>
                     <p>
                         Reviewers should be asked if they have a COI with the content or authors of a manuscript. If they do,
                         they should be removed from the review process.
                     </p>
                 </div>
                 <div>
-                    <h1 className="text-lg xl:text-2xl 2xl:text-3xl font-medium mb-2">
+                    <h3 className="text-lg xl:text-2xl 2xl:text-3xl font-medium mb-2">
                         Editors
-                    </h1>
+                    </h3>
                     <p>
                         Editors should not make any editorial decisions if they have or a close family member has a financial
                         COI It will also include political/religious COI or personal COI with respect to the authors or their work
@@ -200,9 +206,9 @@ export default function EditorialPolicy() {
                     </p>
                 </div>
                 <div>
-                    <h1 className="text-lg xl:text-2xl 2xl:text-3xl font-medium mb-2">
+                    <h3 className="text-lg xl:text-2xl 2xl:text-3xl font-medium mb-2">
                         Journals / Publisher action:
-                    </h1>
+                    </h3>
                     <p>
                         Editors who make final decisions about manuscripts should recuse themselves from editorial
                         decisions if they have conflicts of interest or relationships that pose potential conflicts related to
@@ -211,9 +217,9 @@ export default function EditorialPolicy() {
                 </div>
             </section>
             <div>
-                <h1 className="text-primary text-lg xl:text-2xl 2xl:text-3xl mt-6 mb-2">
+                <h3 className="text-primary text-lg xl:text-2xl 2xl:text-3xl mt-6 mb-2">
                     5. Data and reproducibility
-                </h1>
+                </h3>
                 <p>
                     It is normal to present the results of the author’s research in the conference proceedings
                     regardless of whether the paper was presented, accepted or published. Indeed, this is common
@@ -234,9 +240,9 @@ export default function EditorialPolicy() {
                 </p>
             </div>
             <div>
-                <h1 className="text-primary text-lg xl:text-2xl 2xl:text-3xl mt-6 mb-2">
+                <h3 className="text-primary text-lg xl:text-2xl 2xl:text-3xl mt-6 mb-2">
                     6. Ethical oversight
-                </h1>
+                </h3>
                 <p>
                     According to the Committee on Publication Ethics (COPE), ethical oversight should include, but is not
                     limited to, policies fee on consent to publication, publication on vulnerable populations, ethical
@@ -260,9 +266,9 @@ export default function EditorialPolicy() {
             </div>
 
             <div>
-                <h1 className="text-primary text-lg xl:text-2xl 2xl:text-3xl mt-6 mb-2">
+                <h3 className="text-primary text-lg xl:text-2xl 2xl:text-3xl mt-6 mb-2">
                     7. Intellectual property
-                </h1>
+                </h3>
                 <p>
                     The Article Processing Charge (APC) allows IJSREAT to provide open access to all the articles it
                     publishes. The fee is set at a minimal possible level to ensure the inclusivity of submissions. It covers
@@ -323,9 +329,9 @@ export default function EditorialPolicy() {
             </div>
 
             <div>
-                <h1 className="text-lg xl:text-2xl 2xl:text-3xl font-medium mb-2">
+                <h3 className="text-lg xl:text-2xl 2xl:text-3xl font-medium mb-2">
                     Duplicate Submission
-                </h1>
+                </h3>
                 <p>
                     Authors should not submit the same manuscript, in the same or different languages, simultaneously to
                     more than one journal. The rationale for this standard is the potential for disagreement when two (or
@@ -336,9 +342,9 @@ export default function EditorialPolicy() {
                 </p>
             </div>
             <div>
-                <h1 className="text-lg xl:text-2xl 2xl:text-3xl font-medium mb-2">
+                <h3 className="text-lg xl:text-2xl 2xl:text-3xl font-medium mb-2">
                     Duplicate and Prior Publication
-                </h1>
+                </h3>
                 <p>
                     Duplicate publication is publication of a paper that overlaps substantially with one already published,
                     without clear, visible reference to the previous publication. Prior publication may include release of
@@ -362,9 +368,9 @@ export default function EditorialPolicy() {
                 </p>
             </div>
             <div>
-                <h1 className="text-primary text-lg xl:text-2xl 2xl:text-3xl mt-6 mb-2">
+                <h3 className="text-primary text-lg xl:text-2xl 2xl:text-3xl mt-6 mb-2">
                     8. Peer review processes
-                </h1>
+                </h3>
                 <p>
                     International Journal of Scientific Research in Engineering &amp; Technology (IJSREAT) is having
                     ISSN NO: 2583-1240 (Online), Bi-monthly international journal for publication of new ideas founded
@@ -418,8 +424,8 @@ export default function EditorialPolicy() {
                 </p>
             </div>
             <div>
-                <h1 className="text-primary text-lg xl:text-2xl 2xl:text-3xl mt-6 mb-2">
-                    9. Post-publication discussions and corrections</h1>
+                <h3 className="text-primary text-lg xl:text-2xl 2xl:text-3xl mt-6 mb-2">
+                    9. Post-publication discussions and corrections</h3>
                 <p>
                     IJSREAT allows post-publication discussion on the journal’s website, through emails
                     to the editor-in-chief. IJSREAT has mechanisms for correcting, revising, or retracting
@@ -428,9 +434,9 @@ export default function EditorialPolicy() {
             </div>
 
             <div>
-                <h1 className="text-lg xl:text-2xl 2xl:text-3xl font-medium mb-2">
+                <h3 className="text-lg xl:text-2xl 2xl:text-3xl font-medium mb-2">
                     Correction Policy
-                </h1>
+                </h3>
                 <p>
                     Erratum is an error that affects the accuracy of the published paper, and the
                     reputation of the authors. Errata are published as distinct articles. IJSREAT publishes
@@ -441,9 +447,9 @@ export default function EditorialPolicy() {
                 </p>
             </div>
             <div>
-                <h1 className="text-lg xl:text-2xl 2xl:text-3xl font-medium mb-2">
+                <h3 className="text-lg xl:text-2xl 2xl:text-3xl font-medium mb-2">
                     Cases that raise an erratum:
-                </h1>
+                </h3>
                 <ul className="list-disc ml-6 mb-2 space-y-1">
                     <li>A figure or table was not explained and mentioned correctly;</li>
                     <li>A figure or table was missed out;</li>
@@ -463,9 +469,9 @@ export default function EditorialPolicy() {
 
             </div>
             <div>
-                <h1 className="text-lg xl:text-2xl 2xl:text-3xl font-medium mb-2">
+                <h3 className="text-lg xl:text-2xl 2xl:text-3xl font-medium mb-2">
                     Removal of Published Content:
-                </h1>
+                </h3>
                 <ul className="list-disc ml-6 mb-2 space-y-1">
                     <li>
                         In extraordinary situations, IJSREAT reserves the right to remove a paper from its
@@ -487,9 +493,9 @@ export default function EditorialPolicy() {
 
             </div>
             <div>
-                <h1 className="text-lg xl:text-2xl 2xl:text-3xl font-medium mb-2">
+                <h3 className="text-lg xl:text-2xl 2xl:text-3xl font-medium mb-2">
                     Addenda
-                </h1>
+                </h3>
                 <p>
                     An addendum is a notification to add information to a published paper. It should be
                     noted that the supplements do not contradict the original publication and are not
@@ -499,9 +505,9 @@ export default function EditorialPolicy() {
                     reviewed and are normally subject to oversight by the editor of the research article</p>
             </div>
             <div>
-                <h1 className="text-primary text-lg xl:text-2xl 2xl:text-3xl mt-6 mb-2">
+                <h3 className="text-primary text-lg xl:text-2xl 2xl:text-3xl mt-6 mb-2">
                     10. Research ethics
-                </h1>
+                </h3>
                 <p>
 
                     International Journal of Scientific Research in Engineering &amp; Technology (IJSREAT) is
@@ -514,9 +520,9 @@ export default function EditorialPolicy() {
                 </p>
             </div>
             <div>
-                <h1 className="text-primary text-lg xl:text-2xl 2xl:text-3xl mt-6 mb-2">
+                <h3 className="text-primary text-lg xl:text-2xl 2xl:text-3xl mt-6 mb-2">
                     11. Diversity (DEIA)
-                </h1>
+                </h3>
                 <p>
 
                     The IJSREAT of Fifth Dimension Research Publication invites submissions from historically
@@ -528,7 +534,7 @@ export default function EditorialPolicy() {
                     vital platform for those whose narratives may often go unheard in traditional academic circles.
                     Through this commitment, the journal aims to enrich discourse and scholarship by highlighting the
                     invaluable insights that these underrepresented scholars bring to the field.
-                    <br/>
+                    <br />
                     The IJSREAT of Fifth Dimension Research Publication (FDRP) is committed to fostering equitable
                     opportunities that embrace and honour the diversity inherent in all individuals, regardless of gender,
                     ethnicity, sexual orientation, age, religion, or socioeconomic status. The journal stands against any

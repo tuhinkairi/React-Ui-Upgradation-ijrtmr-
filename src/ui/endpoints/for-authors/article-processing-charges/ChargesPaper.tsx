@@ -6,12 +6,12 @@ export default function ChargesPaper() {
             <Title>Article Processing  Charges</Title>
             <p>Open-access publication, so it is freely available online. The cost on publishing online editions, and to ensure the continuous appearance of the journal, the core committee has decided to charge a minimal fee from the authors after the acceptance of manuscript as follows:</p>
             <div>
-                <h1 className='font-medium mb-2 text-lg xl:text-xl 2xl:text-2xl'>Case Report/Original Article/Review Article Fee:</h1>
-                <h1 className='font-medium mb-2 text-lg xl:text-xl 2xl:text-2xl'>For Indian authors:</h1>
+                <h2 className='font-medium mb-2 text-lg xl:text-xl 2xl:text-2xl'>Case Report/Original Article/Review Article Fee:</h2>
+                <h2 className='font-medium mb-2 text-lg xl:text-xl 2xl:text-2xl'>For Indian authors:</h2>
                 <ul className='list-disc list-inside space-y-1'>
                     <li className='font-medium ml-2'><span >Without DOI :</span> <span className='text-[#0E4B82]'>1200 INR</span> <span className='text-primary'>+ 18% GST</span></li>
                     <li className='font-medium ml-2'><span >With DOI :</span><span className='text-[#0E4B82]'> 1400 INR</span> <span className='text-primary'> + 18% GST</span></li>
-                    <h1 className='font-medium'>For other than Indian authors:</h1>
+                    <h2 className='font-medium'>For other than Indian authors:</h2>
                     <li className='font-medium ml-2'><span >With DOI :</span><span className='text-[#0E4B82]'> $ 60 USD</span></li>
                 </ul>
                 Authors of any country can convert USD to their respective currency using the google currency calculator.
@@ -20,9 +20,9 @@ export default function ChargesPaper() {
             <section className='space-y-6'>
 
                 <div className=''>
-                    <h1 className='font-medium mb-2 text-lg xl:text-xl 2xl:text-2xl'>
+                    <h2 className='font-medium mb-2 text-lg xl:text-xl 2xl:text-2xl'>
                         Journal Hosting System
-                    </h1>
+                    </h2>
                     <ul className='list-disc list-inside space-y-1'>
                         <li>Editorial management System</li>
                         <li>In-house copyediting and linguistic support</li>
@@ -31,9 +31,9 @@ export default function ChargesPaper() {
                     </ul>
                 </div>
                 <div className=''>
-                    <h1 className='font-medium mb-2 text-lg xl:text-xl 2xl:text-2xl'>
+                    <h2 className='font-medium mb-2 text-lg xl:text-xl 2xl:text-2xl'>
                         Note
-                    </h1>
+                    </h2>
                     <ul className='list-decimal list-inside space-y-1 '>
                         <li>
                             After making payment the proof of payment should be produced.
@@ -50,17 +50,17 @@ export default function ChargesPaper() {
                     </ul>
                 </div>
                 <div className=''>
-                    <h1 className='font-medium mb-2 text-lg xl:text-xl 2xl:text-2xl'>
+                    <h2 className='font-medium mb-2 text-lg xl:text-xl 2xl:text-2xl'>
                         Waivers Policy
-                    </h1>
+                    </h2>
                     <p>
                         Publication of an article in the journal is not contingent upon the author's ability to pay the charges. Neither is acceptance to pay the handling fee a guarantee that the paper will be accepted for publication. Authors that may not be able to pay can request the editorial office to reduce the fee to an amount as per editorial office norms. We only accept payment of handling fee/processing charges after the manuscript has been accepted for publication.
                     </p>
                 </div>
                 <div className=''>
-                    <h1 className='font-medium mb-2 text-lg xl:text-xl 2xl:text-2xl'>
+                    <h2 className='font-medium mb-2 text-lg xl:text-xl 2xl:text-2xl'>
                         Qualifying for a Waiver
-                    </h1>
+                    </h2>
                     <p>
                         To help support researchers in low-income economies according to World Bank, the Journal provides an automatic 50% waiver of any Article Processing Charges for manuscripts where all authors listed affiliation is in one of these countries.
                         <br />

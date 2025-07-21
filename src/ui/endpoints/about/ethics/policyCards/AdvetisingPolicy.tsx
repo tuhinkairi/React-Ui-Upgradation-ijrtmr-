@@ -1,11 +1,11 @@
-import Title from '../../../../other/Title'
+import Titleh2 from '../../../../other/Titleh2'
 
 export default function AdvetisingPolicy() {
     return (
         <article className='space-y-8 leading-relaxed'>
-            <Title>
+            <Titleh2>
                 Advertising Policy:
-            </Title>
+            </Titleh2>
             <p className='mt-6'>
 
                 The journal retains the authority to reject any advertisement it deems unsuitable

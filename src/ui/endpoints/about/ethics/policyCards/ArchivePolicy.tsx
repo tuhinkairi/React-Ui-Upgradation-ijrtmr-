@@ -1,9 +1,9 @@
-import Title from '../../../../other/Title'
+import Titleh2 from '../../../../other/Titleh2'
 
 export default function ArchivePolicy() {
     return (
         <article className='space-y-8 leading-relaxed'>
-            <Title>Archiving policy:</Title>
+            <Titleh2>Archiving policy:</Titleh2>
             <p className='mt-6'>Digital archiving is essential in ensuring that scholarly content, such as journal
                 articles, remains safe and accessible to readers for a long time. Several
                 archiving platforms provide secure content storage, including Internet

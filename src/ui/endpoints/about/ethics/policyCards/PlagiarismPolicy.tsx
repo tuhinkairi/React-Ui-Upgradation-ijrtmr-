@@ -1,9 +1,9 @@
-import Title from "../../../../other/Title";
+import Titleh2 from "../../../../other/Titleh2";
 
 export default function PlagiarismPolicy() {
     return (
         <article className="leading-relaxed space-y-6">
-            <Title>Plagiarism Policy</Title>
+            <Titleh2>Plagiarism Policy</Titleh2>
             <p className="mt-6">Plagiarism is the unethical act of copying someone else’s prior ideas, processes, results
                 or words without explicit acknowledgement of the original author and source. Self-
                 plagiarism occurs when an author utilizes large part of his/her own previously

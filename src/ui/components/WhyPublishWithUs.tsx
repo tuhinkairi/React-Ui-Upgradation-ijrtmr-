@@ -50,7 +50,7 @@ const features = [
 
 export default function WhyPublishWithUs() {
   return (
-    <section className="pt-8  px-6 lg:px-16 ">
+    <section className="">
       <div className="">
         {/* <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-2">
           Why Publish With IJSREAT?
@@ -64,8 +64,8 @@ export default function WhyPublishWithUs() {
 
         <div className="hidden sm:grid grid-cols-1 md:grid-cols-2 gap-6">
           {features.map((item, idx) => (
-            <div key={idx} className="flex gap-4 bg-white rounded-xl border border-gray-200 p-5 shadow-sm">
-              <div className="w-28 h-28 min-w-28 relative">
+            <div key={idx} className="flex  md:flex-col  lg:flex-row  gap-4 bg-white rounded-xl border border-gray-200 p-5 shadow-sm">
+              <div className="w-28 md:w-auto lg:w-28  min-w-28 relative">
                 <img
                   src={item.img}
                   alt={item.title}

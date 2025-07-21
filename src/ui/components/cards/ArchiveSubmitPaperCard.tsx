@@ -1,7 +1,6 @@
 // components/SubmitPaperCard.tsx
 
 import { ArrowUpRight } from "lucide-react";
-import PrimaryBtn from "../Btns/PrimaryBtn";
 import { Link } from "react-router-dom";
 
 export default function ArchiveSubmitPaperCard() {
@@ -18,9 +17,9 @@ export default function ArchiveSubmitPaperCard() {
           Submit your paper through our advanced editorial management system anytime, from anywhere in the world.
         </p>
         <Link target="_blank" to="https://editorial.fdrpjournals.org/login?journal=2">
-        <PrimaryBtn>
+        <button className="inline-flex items-center gap-3 bg-green-300 text-primary-text text-sm 2xl:text-base font-medium px-6 py-2 hover:bg-green-400 transition-colors rounded-md">
           Submit <ArrowUpRight size={16} />
-        </PrimaryBtn>
+        </button>
         </Link>
       </div>
     </div>

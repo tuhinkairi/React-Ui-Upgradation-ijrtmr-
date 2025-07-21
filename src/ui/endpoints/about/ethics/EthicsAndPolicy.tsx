@@ -3,6 +3,7 @@ import CommonLayout from '../../../components/layout/CommonLayout'
 import Title from '../../../other/Title'
 import IndexingPartnerArchive from '../../archive/components/IndexingPartnerArchive'
 import VerificationSection from '../VerificationSection'
+import Titleh2 from '../../../other/Titleh2'
 const EPDropdown = React.lazy(() => import("./EPDropdown"));
 
 export default function EthicsAndPolicy() {
@@ -25,9 +26,9 @@ export default function EthicsAndPolicy() {
         {/* section 2 */}
         <div className="w-full flex justify-center items-center ">
           <div>
-            <Title>
+            <Titleh2>
               Ethics topics to consider when publishing:
-            </Title>
+            </Titleh2>
 
             <ul className="space-y-4 text-[#333333] text-base 2xl:text-lg leading-[1.9]">
               <li>

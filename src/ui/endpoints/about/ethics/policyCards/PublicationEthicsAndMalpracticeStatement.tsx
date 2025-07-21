@@ -1,14 +1,14 @@
-import Title from "../../../../other/Title";
+import Titleh2 from "../../../../other/Titleh2";
 
 export default function PublicationEthicsAndMalpracticeStatement() {
   return (
     <article className="leading-relaxed space-y-6">
-      <Title>
+      <Titleh2>
         Publication Ethics & Malpractice Statement
-      </Title>
-      <h1 className="text-center mt-6">(The following statements are based on Elsevier recommendations <br />
+      </Titleh2>
+      <h2 className="text-center mt-6">(The following statements are based on Elsevier recommendations <br />
         and COPE’s Best Practice Guidelines for Journal Editors)
-      </h1>
+      </h2>
       <h2>To maintain fair practice we at FDRP Publications strongly believe in following these
         guidelines. We are committed to fair practice of publication. Success in this regard can
         be achieved if ethics are well practiced by following participants:</h2>

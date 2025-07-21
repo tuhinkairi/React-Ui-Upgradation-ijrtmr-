@@ -45,7 +45,7 @@ const JournalsCompendium = () => {
   return (
     <section className="px-6 lg:px-24  bg-white text-center">
       <Title2 className="-mb-2 sm:mb-0">
-        Our Compendium of Journals
+        Our Compendium of Other Journals
       </Title2>
       {/* <h2 className="text-2xl md:text-3xl font-semibold text-dark mb-2">
         Our Compendium of Journals

@@ -328,10 +328,10 @@ export default function ArchiveVolumes({ active }: activeSection) {
       <div className="mx-auto sm:p-4 space-y-6">
         {/* Header */}
         <div className="text-center">
-          {active == "conference" && <h1 className="text-2xl font-semibold">Volume {activeConferencePage?.volume}, Issue {activeConferencePage?.issue} ({activeConferencePage?.year})</h1>}
-          {active == "archive" && <h1 className="text-2xl font-semibold">Volume {activeArchiveIndex?.volume}, Issue {activeArchiveIndex?.issue} ({activeArchiveIndex?.year})</h1>}
-          {active == "issue" && <h1 className="text-2xl font-semibold">Volume {activeArchiveIndex?.volume}, Issue {activeArchiveIndex?.issue} ({activeArchiveIndex?.year})</h1>}
-          {active == "thesis" && <h1 className="text-2xl font-semibold">Volume {activeThesisIndex?.volume}, Year {activeThesisIndex?.year}</h1>}
+          {active == "conference" && <h2 className="text-2xl font-semibold">Volume {activeConferencePage?.volume}, Issue {activeConferencePage?.issue} ({activeConferencePage?.year})</h2>}
+          {active == "archive" && <h2 className="text-2xl font-semibold">Volume {activeArchiveIndex?.volume}, Issue {activeArchiveIndex?.issue} ({activeArchiveIndex?.year})</h2>}
+          {active == "issue" && <h2 className="text-2xl font-semibold">Volume {activeArchiveIndex?.volume}, Issue {activeArchiveIndex?.issue} ({activeArchiveIndex?.year})</h2>}
+          {active == "thesis" && <h2 className="text-2xl font-semibold">Volume {activeThesisIndex?.volume}, Year {activeThesisIndex?.year}</h2>}
         </div>
 
         {!["conference", "issue"].includes(active) && <ArchiveVolumnHeader isArchive={true} setArchiveIndex={active == "thesis" ? setActiveThesisIndex : setActiveArchiveIndex} ActiveVolumes={active == "thesis" ?activeThesisIndex :activeIndexPage} VolumeList={indexPage} ThesisVolumeList={thesisIndexPage}/>}

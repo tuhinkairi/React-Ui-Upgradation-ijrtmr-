@@ -1,9 +1,9 @@
-import Title from '../../../../other/Title'
+import Titleh2 from '../../../../other/Titleh2'
 
 export default function RepositoryPolicy() {
     return (
         <article className='space-y-8 leading-relaxed'>
-            <Title>Repository policy</Title>
+            <Titleh2>Repository policy</Titleh2>
             <p className='mt-6'>
                 Authors are encouraged to deposit their research findings and associated data in
                 publicly accessible repositories that adhere to established archiving, curation,

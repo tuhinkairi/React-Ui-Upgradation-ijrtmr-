@@ -9,7 +9,7 @@ export const BlogCard = ({ blog, keyProp }: { blog: Blog, keyProp: number }) => 
 
     const handelNavigate = () => {
         dispatch(setBlog(blog))
-        navigate(`/blog/${blog.url_title}`)
+        navigate(`/blogs/${blog.url_title}`)
 
     }
     return (

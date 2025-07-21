@@ -1,12 +1,11 @@
-import Title from '../../../../other/Title'
+import Titleh2 from '../../../../other/Titleh2'
 
 export default function JournalMetrix() {
     return (
         <article className='space-y-8 leading-relaxed'>
-            <Title>
-
+            <Titleh2>
                 Journal Metrics:
-            </Title>
+            </Titleh2>
             <p className='mt-6'>
                 Scholars and researchers count journal metrics to compare, gauge, and research
                 impact and rank the quality and scholarly publications. These metrics, also

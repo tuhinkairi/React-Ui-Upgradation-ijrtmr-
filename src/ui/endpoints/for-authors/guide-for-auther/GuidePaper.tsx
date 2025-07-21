@@ -1,11 +1,12 @@
 import { Link, useLocation } from "react-router-dom";
 import Title from "../../../other/Title";
+import Titleh2 from "../../../other/Titleh2";
 
 export default function GuidePaper() {
-  const location = useLocation().pathname
+  const location = useLocation().pathname.includes("ethics")
   return (
     <article className="space-y-6 leading-relaxed xl:text-base 2xl:text-lg">
-      <Title>{location.includes("ethics")?"Instructions for Authors":"Guide for Authors"}</Title>
+      {location?<Titleh2>Instructions for Authors</Titleh2>:<Title>Guide for Authors</Title>}
       <p className=" my-6">
         International Journal of Scientific Research in Engineering &amp; Technology (IJSREAT) is
         (Online), Bi-monthly international journal for publication of new ideas founded by

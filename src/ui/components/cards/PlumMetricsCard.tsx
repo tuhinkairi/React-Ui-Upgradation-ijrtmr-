@@ -12,7 +12,7 @@ export default function PlumMetricsCard() {
     return <div className="w-full rounded-2xl border borderPrimary bg-white shadowSprade px-6 py-3">
 
             <div className="flex flex-wrap xl:flex-nowrap items-center justify-center lg:justify-between gap-4 py-2">
-                <h3 className="text-base xl:text-2xl font-medium text-primary-text">PlumX Metrics</h3>
+                <h3 className="text-base 2xl:text-xl font-medium text-primary-text">PlumX Metrics</h3>
                 <img
                     src="/plummatrix/plum.webp"
                     alt="PlumX Metrics"
@@ -20,7 +20,7 @@ export default function PlumMetricsCard() {
                 />
             </div>
             <div className="flex flex-wrap xl:flex-nowrap items-center justify-center lg:justify-between gap-4 py-2">
-                <h3 className="text-base xl:text-2xl font-medium text-primary-text">Dimension</h3>
+                <h3 className="text-base 2xl:text-xl font-medium text-primary-text">Dimension</h3>
                 <img
                     src="/plummatrix/dynamics.webp" // Replace with actual path
                     alt="Dimension"

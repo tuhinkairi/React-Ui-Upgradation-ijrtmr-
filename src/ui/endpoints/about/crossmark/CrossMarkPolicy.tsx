@@ -1,14 +1,14 @@
 import { Link } from 'react-router-dom'
 import CommonLayout from '../../../components/layout/CommonLayout'
-import Title from '../../../other/Title'
 import VerificationSection from '../VerificationSection'
+import Titleh2 from '../../../other/Titleh2'
 
 function CrossMarkPolicy() {
     return (
         <CommonLayout>
             <article className='text-base 2xl:text-lg'>
                 <div className='flex items-center justify-between flex-wrap '>
-                    <Title>Crossmark Policy</Title>
+                    <Titleh2>Crossmark Policy</Titleh2>
                     <p className="text-sm xl:text-base 2xl:text-lg text-muted-foreground lg:mt-1">
                         <span className='font-medium text-base 2xl:text-lg'>Crossmark Policy DOI : </span><Link target='_blank' to="http://dx.doi.org/10.59256/ijsreat/CrossMark-Policy-Page" className="text-primary hover:text-primary-hover underline">http://dx.doi.org/10.59256/ijsreat/CrossMark-Policy-Page</Link>
                     </p>
@@ -58,7 +58,7 @@ function CrossMarkPolicy() {
                 <VerificationSection />
                 <div className="text-[#333333] space-y-10  my-6">
                     <div>
-                        <h1 className='font-semibold text-xl xl:text-2xl 2xl:text-3xl mb-2'>What does it look like?</h1>
+                        <h2 className='font-semibold text-xl xl:text-2xl 2xl:text-3xl mb-2'>What does it look like?</h2>
                         <p>
                             The CrossMark logo will appear on the title page of every published document:
                         </p>

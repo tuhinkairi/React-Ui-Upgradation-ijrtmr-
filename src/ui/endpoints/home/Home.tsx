@@ -15,7 +15,7 @@ import SubmitPaperSection from "../../components/SubmitPaperSection";
 import TickerBar from "../../components/TickerBar";
 // import WhyChooseIJSREAT from "../../components/WhyChooseIJSREAT";
 import WhyPublishWithUs from "../../components/WhyPublishWithUs";
-import PublishProcess from "./PublishProcess";
+// import PublishProcess from "./PublishProcess";
 
 
 // todo home titles make more flexible
@@ -32,13 +32,13 @@ export default function Home() {
       <WrapperLayout>
         {/* <JournalParticulars /> */}
         <OpenAccessBenefitsGrid />
-        <PublishProcess />
+        <WhyPublishWithUs />
+        {/* <PublishProcess /> */}
         <AuthorFeaturesGrid />
       </WrapperLayout>
       <IJSREATFeaturesSection />
       {/* <WhyChooseIJSREAT /> */}
       {/* <EditorialFeatures /> */}
-      <WhyPublishWithUs />
       <EditorialManagement />
       <IndexingPartners />
       <SubmitPaperSection />

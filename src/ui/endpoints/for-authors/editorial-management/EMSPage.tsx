@@ -10,13 +10,13 @@ export default function EMSPage() {
                 <div className="_cardSectionEMS items-center gap-y-6 sm:gap-x-6 grid sm:grid-cols-2 justify-between">
                     <div className="textsection space-y-6">
                         <div>
-                            <h1 className="font-medium text-lg xl:text-xl 2xl:text-2xl mb-2">1. How to submit article?</h1>
+                            <h2 className="font-medium text-lg xl:text-xl 2xl:text-2xl mb-2">1. How to submit article?</h2>
                             <p>Create Account by using Author <span className="text-green-500">Name, email ID, Mobile No</span>. Once Account created, author can enter directly Login Credential. After that, By Using New Submission, author can submit Article.
                                 <br />
                                 <span className="text-red-500 font-medium">Note:</span> Make sure are you entered <span className="text-green-500">correct email ID, Mobile No</span>. because we will send Notification registered Email, Mobile No.</p>
                         </div>
                         <div>
-                            <h1 className="font-medium text-lg xl:text-xl 2xl:text-2xl mb-2">While Submitting Article, author can choose below Details:</h1>
+                            <h2 className="font-medium text-lg xl:text-xl 2xl:text-2xl mb-2">While Submitting Article, author can choose below Details:</h2>
                             <ul className="list-disc list-inside space-y-1">
                                 <li>Research Area</li>
                                 <li>Mode of Process</li>
@@ -40,7 +40,7 @@ src="/EMS/EMS3.webp" alt=" Author can know task Process image" />
                     </div>
                     <div className="textsection space-y-4">
                         <div>
-                            <h1 className="font-medium text-lg xl:text-xl 2xl:text-2xl mb-2">2. Author can know task Process?</h1>
+                            <h2 className="font-medium text-lg xl:text-xl 2xl:text-2xl mb-2">2. Author can know task Process?</h2>
                             <p>Yes. Absolutely.
                                 <br />
                                 <br />
@@ -53,7 +53,7 @@ src="/EMS/EMS3.webp" alt=" Author can know task Process image" />
                 <div className="_cardSectionEMS items-center gap-y-6 sm:gap-x-6 grid sm:grid-cols-2 justify-between">
                     <div className="textsection space-y-4">
                         <div>
-                            <h1 className="font-medium text-lg xl:text-xl 2xl:text-2xl mb-2">3. Author can know Review Process?</h1>
+                            <h2 className="font-medium text-lg xl:text-xl 2xl:text-2xl mb-2">3. Author can know Review Process?</h2>
                             <p>Yes. Absolutely.
                                 <br />
                                 <br />
@@ -76,7 +76,7 @@ src="/EMS/EMS5.webp" alt="How Author can Know submitted Article Accepted or Not 
                     </div>
                     <div className="textsection space-y-4">
                         <div>
-                            <h1 className="font-medium text-lg xl:text-xl 2xl:text-2xl mb-2">4. How Author can Know submitted Article Accepted or Not?</h1>
+                            <h2 className="font-medium text-lg xl:text-xl 2xl:text-2xl mb-2">4. How Author can Know submitted Article Accepted or Not?</h2>
                             <p>
                                 Once Reviewer’s Command Satisfactory, Editorinchief will release Acceptance letter along with Tentative Article Publication Scheduled Date through Editorial Office. Author can view in <span className="text-green-500">Acceptance Tap</span>.
                             </p>
@@ -87,10 +87,10 @@ src="/EMS/EMS5.webp" alt="How Author can Know submitted Article Accepted or Not 
                 <div className="_cardSectionEMS items-center gap-y-6 sm:gap-x-6 grid sm:grid-cols-2 justify-between">
                     <div className="textsection space-y-4">
                         <div>
-                            <h1 className="font-medium text-lg xl:text-xl 2xl:text-2xl mb-2">5. What is the Procedure for Accepted Article to be publish?</h1>
+                            <h2 className="font-medium text-lg xl:text-xl 2xl:text-2xl mb-2">5. What is the Procedure for Accepted Article to be publish?</h2>
                             <p>
                                 Once you’re Article Accepted for Publication, Author have to follow 3 steps.
-                                <h1 className="font-medium text-lg xl:text-xl 2xl:text-2xl my-2">a&#41; Final Manuscript</h1>
+                                <h2 className="font-medium text-lg xl:text-xl 2xl:text-2xl my-2">a&#41; Final Manuscript</h2>
                                 As per <span className="text-green-500">our journal format</span>
                             </p>
                         </div>
@@ -108,7 +108,7 @@ src="/EMS/EMS7.webp" alt="Copyright Form image" />
                     </div>
                     <div className="textsection space-y-4">
                         <div>
-                            <h1 className="font-medium text-lg xl:text-xl 2xl:text-2xl mb-2">b&#41; Copyright Form</h1>
+                            <h2 className="font-medium text-lg xl:text-xl 2xl:text-2xl mb-2">b&#41; Copyright Form</h2>
                             <p>
                                 (For generating copyright form-Author have to update profile. Like, Address, etc. then only copyright form will generate. Take print out, manually corresponding author have to signature)
                             </p>
@@ -119,7 +119,7 @@ src="/EMS/EMS7.webp" alt="Copyright Form image" />
                 <div className="_cardSectionEMS items-center gap-y-6 sm:gap-x-6 grid sm:grid-cols-2 justify-between">
                     <div className="textsection space-y-4">
                         <div>
-                            <h1 className="font-medium text-lg xl:text-xl 2xl:text-2xl mb-2">c&#41; Article Processing fee receipt (with DOI, With out DOI)</h1>
+                            <h2 className="font-medium text-lg xl:text-xl 2xl:text-2xl mb-2">c&#41; Article Processing fee receipt (with DOI, With out DOI)</h2>
                         </div>
                     </div>
                     <div className="image grid gap-4">
@@ -128,12 +128,12 @@ src="/EMS/EMS8.webp" alt="Article Processing fee receipt (with DOI, With out DOI
                     </div>
                 </div>
                 <div>
-                    <h1>
+                    <h2>
                         <span className="text-red-500 text-lg xl:text-xl 2xl:text-2xl">
                             Note:
                         </span><br />
                         Once we received all necessary Documents. We will process your article. Article will publish with in 24hrs to 48hrs.
-                    </h1>
+                    </h2>
                     <div className="_cardSectionEMS items-center gap-y-6 sm:gap-x-6 grid sm:grid-cols-2 justify-between mt-6">
                         <div className="textsection space-y-4">
                             <img loading='lazy' 
@@ -141,7 +141,7 @@ src="/EMS/EMS9.webp" alt="Process verification image 1" />
                         </div>
                         <div className="image grid gap-y-8">
                             <div>
-                                <h1 className="">d&#41; Final Submission Upload your <span className="text-green-500">final article, copyright form, and APC receipt</span>. Verify your uploaded documents, and then click &gt; <span className="text-green-500">Final Submit</span> Button-for final submission.</h1>
+                                <h2 className="">d&#41; Final Submission Upload your <span className="text-green-500">final article, copyright form, and APC receipt</span>. Verify your uploaded documents, and then click &gt; <span className="text-green-500">Final Submit</span> Button-for final submission.</h2>
                             </div>
                             <img loading='lazy' 
 src="/EMS/EMS10.webp" alt="Process verification image 2" />
@@ -152,7 +152,7 @@ src="/EMS/EMS10.webp" alt="Process verification image 2" />
                 <div className="_cardSectionEMS items-center gap-y-6 sm:gap-x-6 grid sm:grid-cols-2 justify-between">
                     <div className="textsection space-y-4">
                         <div>
-                            <h1 className="font-medium text-lg xl:text-xl 2xl:text-2xl mb-2">6. Author will get certificates including corresponding authors?</h1>
+                            <h2 className="font-medium text-lg xl:text-xl 2xl:text-2xl mb-2">6. Author will get certificates including corresponding authors?</h2>
                             <p>
                                 Yes. All author will get certificates. Author can download <span className="text-green-500">file Tab</span>. Also Published Article Copy and Journal Archive link also.
                                 

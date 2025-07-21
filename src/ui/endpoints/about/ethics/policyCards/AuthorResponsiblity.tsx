@@ -1,9 +1,9 @@
-import Title from "../../../../other/Title";
+import Titleh2 from "../../../../other/Titleh2";
 
 export default function AuthorResponsiblity() {
   return (
      <div className="space-y-4 pb-4 text-muted-foreground text-base 2xl:text-lg text-[#333333]">
-                <Title>Author Responsibilities</Title>
+                <Titleh2>Author Responsibilities</Titleh2>
                 <p className="mt-6">
                     <span className="font-semibold">Accuracy:</span>  Authors must ensure the accuracy of their work and promptly correct errors if found.
                 </p>
