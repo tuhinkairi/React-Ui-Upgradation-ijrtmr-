@@ -9,7 +9,7 @@ import type { ActiveIndexArchive, ArchiveIndexVolume, ThesisIndexingItem } from 
 function ArchiveVolumnHeader({ isArchive, setArchiveIndex, ActiveVolumes, VolumeList }: { isArchive: boolean, setArchiveIndex: (arg: ActiveIndexArchive) => void, ActiveVolumes: ActiveIndexArchive | null, VolumeList: ArchiveIndexVolume[], ThesisVolumeList: ThesisIndexingItem[] }) {
     // const { activeIndexPage: ActiveVolumes, indexPage: VolumeList } = useAppSelector((state) => state.archiveSection)
     const path = useLocation().pathname
-    const thesisState =path.includes("/thesis")
+    const thesisState = path.includes("/thesis")
     const [volumes, setVolumes] = useState<string[]>([])
     const [active, setActive] = useState<string>(`Volume ${ActiveVolumes?.volume}, (${ActiveVolumes?.year})`)
     const [activeIssue, setActiveIssue] = useState<string>(`Issue ${ActiveVolumes?.issue}`)
@@ -75,7 +75,7 @@ function ArchiveVolumnHeader({ isArchive, setArchiveIndex, ActiveVolumes, Volume
         if (currentIndex < volumes.length - 1) setActive(newVolume)
         handleVolumeClick(newVolume)
 
-    }, [volumes, active,handleVolumeClick])
+    }, [volumes, active, handleVolumeClick])
 
     const handlePreviousIssue = useCallback(() => {
         const currentIndex = issues.indexOf(activeIssue)
@@ -91,44 +91,52 @@ function ArchiveVolumnHeader({ isArchive, setArchiveIndex, ActiveVolumes, Volume
         handleIssueClick(newIndex)
 
     }, [issues, activeIssue, handleIssueClick])
-    
+
     return (
         <>
-            <div className="flex flex-wrap justify-between items-center gap-2 gap-x-5 text-base font-medium">
-                <button onClick={handlePrevious}><GrFormPrevious className="text-primary-text" /></button>
-                {volumes.map((volume, idx) => (
-                    <span
-                        key={idx}
-                        onClick={() => handleVolumeClick(volume)}
-                        className={`cursor-pointer ${active === volume && "text-primary font-semibold text-2xl"}`}
-                    >
-                        {volume}
-                    </span>
-                ))}
-                <button onClick={handleNext}><GrFormNext className="text-primary-text" /></button>
-                <Link to={thesisState ?"/thesis": '/archives'} className="cursor-pointer text-primary">See all volumes</Link>
+            <div className="flex flex-wrap sm:flex-nowrap justify-start items-center gap-2 text-base font-medium">
+                <div className='w-full sm:max-w-3/4 lg:max-w-5/6 flex items-center gap-2'>
+                    <button onClick={handlePrevious}><GrFormPrevious className="text-primary-text text-2xl " /></button>
+                    <div className="flex justify-start w-full gap-2 overflow-auto" style={{ scrollbarWidth: 'thin' }}>
+                        {volumes.map((volume, idx) => (
+                            <button
+                                key={idx}
+                                onClick={() => handleVolumeClick(volume)}
+                                className={`cursor-pointer  whitespace-nowrap w-fit ${active === volume && "text-primary font-semibold text-2xl"}`}
+                            >
+                                {volume}
+                            </button>
+                        ))}
+                    </div>
+                    <button onClick={handleNext}><GrFormNext className="text-primary-text text-2xl" /></button>
+                </div>
+                <Link to={thesisState ? "/thesis" : '/archives'} className="cursor-pointer text-primary font-medium max-w-1/4 whitespace-nowrap">See all volumes</Link>
             </div>
 
-            {isArchive && !thesisState && <div className="flex items-center justify-between">
-                <div className="flex gap-2">
-                    <button onClick={handlePreviousIssue}><GrFormPrevious className="text-primary-text text-base" /></button>
-                    {issues.map((issue, index) => (
-                        <button
-                            key={index}
-                            onClick={() => handleIssueClick(issue)}
-                            className={`flex whitespace-nowrap justify-between items-center w-full px-8 py-3 font-medium rounded-md transition 
-                                ${issue === activeIssue
-                                    ? "text-white bg-gradient-to-b from-[#FF8C42] to-[#995428] "
-                                    : "hover:text-white bg-gradient-to-b hover:from-[#FF8C42] hover:to-[#995428] from-[#fae0d0] to-[#fae0d0] text-primary-text"
-                                }`}
-                        >
-                            {issue}
-                        </button>
-                    ))}
-                    <button onClick={handleNextIssue}><GrFormNext className="text-primary-text text-base" /></button>
+            {isArchive && !thesisState && <div className="flex flex-wrap sm:flex-nowrap gap-2 items-center justify-start">
+                <div className='w-full sm:max-w-3/4 lg:max-w-5/6 xl:w-fit flex items-center gap-2'>
+                    <button onClick={handlePreviousIssue}><GrFormPrevious className="text-primary-text text-2xl" /></button>
+                    <div className="flex justify-start w-full gap-2  overflow-auto" style={{ scrollbarWidth: 'thin' }}>
+                        {issues.map((issue, index) => (
+                            <button
+                                key={index}
+                                onClick={() => handleIssueClick(issue)}
+                                className={`flex whitespace-nowrap justify-between items-center w-fit px-8 py-3 font-medium rounded-md transition 
+                            ${issue === activeIssue
+                                        ? "text-white bg-gradient-to-b from-[#FF8C42] to-[#995428] "
+                                        : "hover:text-white bg-gradient-to-b hover:from-[#FF8C42] hover:to-[#995428] from-[#fae0d0] to-[#fae0d0] text-primary-text"
+                                    }`}
+                            >
+                                {issue}
+                            </button>
+                        ))}
+                    </div>
+                    <button onClick={handleNextIssue}><GrFormNext className="text-primary-text text-2xl" /></button>
                 </div>
 
-                <PrimaryBtn className="rounded-full px-2">
+                <PrimaryBtn className="rounded-full px-2" event={() => {
+                    navigator.clipboard.writeText(`${window.location.origin}${path}`)
+                }}>
                     <Share2 size={16} /> Share
                 </PrimaryBtn>
             </div>}
