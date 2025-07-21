@@ -65,7 +65,7 @@ export default function Blog() {
         <CommonLayout className='bg-white' title='Blog'>
             <section className="grid sm:grid-cols-2 2xl:grid-cols-3 gap-8 justify-center sm:justify-between mb-12">
                 {paginatedBlogs.map((blog, index) => (
-                    <BlogCard blog={blog} keyProp={index} />
+                    <BlogCard key={index} blog={blog} keyProp={index} />
                 ))}
             </section>
 
