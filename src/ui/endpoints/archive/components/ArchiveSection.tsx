@@ -30,7 +30,7 @@ export default function ArchiveSection() {
   }, [dispatch])
   const handelActiveThesisIndex = (arg: ThesisIndexingItem) => {
     dispatch(setActiveThesisIndex(arg))
-    navigate(`/thesis/year-${arg.year}-volume-${arg.volume}`)
+    navigate(`/thesis/paperlist?year-${arg.year}-volume-${arg.volume}`)
   }
   const toggleDropdown = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
