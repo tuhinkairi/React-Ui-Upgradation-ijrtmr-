@@ -41,8 +41,8 @@ export default function AuthorProfile({ member }: { member: EditorialMember }) {
       </p>
       <div className="space-y-4">
         <address className="flex items-center not-italic gap-2"><strong>Address : </strong>{member.member_address}</address>
-        <h1 className="flex items-center gap-2"><strong>E-Mail : </strong>{member.member_email}</h1>
-        <h1 className="flex items-center gap-2"><strong>Profile Link:</strong><Link to={member.member_website}>{member.member_website ?? "Not Avalable"}</Link></h1>
+        <h3 className="flex items-center gap-2"><strong>E-Mail : </strong>{member.member_email}</h3>
+        <h3 className="flex items-center gap-2"><strong>Profile Link:</strong><Link to={member.member_website}>{member.member_website ?? "Not Avalable"}</Link></h3>
         <address className="flex items-center not-italic gap-2"><strong>Country : </strong>{member.member_country}</address>
       </div>
 
