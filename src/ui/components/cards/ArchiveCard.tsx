@@ -2,11 +2,11 @@ import { ArrowRight } from 'lucide-react'; // Optional: if using lucide icons
 import { NavLink } from 'react-router-dom';
 
 const archives = [
-  'Volume 5, Issue 3 Dec, 2024',
-  'Volume 4, Issue 6 Dec, 2023',
-  'Volume 3, Issue 5 Dec, 2022',
-  'Volume 2, Issue 4 Dec, 2021',
-  'Volume 1, Issue 6 Dec, 2020',
+  'Volume 5, Issue 3 Dec, 2025',
+  'Volume 4, Issue 6 Dec, 2024',
+  'Volume 3, Issue 6 Dec, 2023',
+  'Volume 2, Issue 4 Dec, 2022',
+  'Volume 1, Issue 6 Dec, 2021',
 ];
 
 export default function ArchiveCard() {

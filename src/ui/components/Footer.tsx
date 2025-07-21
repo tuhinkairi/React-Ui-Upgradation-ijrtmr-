@@ -42,7 +42,7 @@ export default function Footer() {
             </h3>
             <ul className="space-y-3 text-sm 2xl:text-base  text-gray-600">
               <li><NavLink to="/instruction-for-author" className="pointer hover:text-primary">Instructions for Authors</NavLink></li>
-              <li><NavLink to="/instruction-for-author" className="pointer hover:text-primary">Editor guidelines</NavLink></li>
+              <li><NavLink to="/ethics?target=instructions-for-authors" className="pointer hover:text-primary">Editor guidelines</NavLink></li>
               <li><NavLink to="/journal-publishing-process" className="pointer hover:text-primary">Journal Publishing Process</NavLink></li>
               <li><NavLink to="/archives" className="pointer hover:text-primary">Archives</NavLink></li>
               <li><NavLink to="/call-for-paperss" className="pointer hover:text-primary">Call for Papers</NavLink></li>
@@ -60,8 +60,8 @@ export default function Footer() {
               <li><NavLink to="/publication-ethics-policy" className="hover:text-primary">Publication Policy</NavLink></li>
               <li><NavLink to="/ethics" className="hover:text-primary">Ethics And Policies</NavLink></li>
               <li><NavLink to="/cross-mark-policy" className="hover:text-primary">Crossmark Policy</NavLink></li>
-              <li><NavLink to="/ethics" className="hover:text-primary">Open Access Policy</NavLink></li>
-              <li><NavLink to={{ pathname: "/ethics", hash: "plagiarism-policy" }} className="hover:text-primary">Plagiarism Policy</NavLink></li>
+              <li><NavLink to="/ethics?target=open-access-policy" className="hover:text-primary">Open Access Policy</NavLink></li>
+              <li><NavLink to="/ethics?target=plagiarism-policy" className="hover:text-primary">Plagiarism Policy</NavLink></li>
             </ul>
           </div>
 
