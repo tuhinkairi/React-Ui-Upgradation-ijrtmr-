@@ -18,7 +18,8 @@ export const AdvisoryBoardCard = ({
   return (
     <div className="grid grid-cols-2 sm:grid-cols-3 items-center justify-center bg-white shadow shadowSprade rounded-2xl overflow-hidden w-full">
       <div className=" col-span-1 h-full flex items-center justify-center">
-        <img src={image} alt={name} className="w-full h-full object-cover sm:aspect-square"  />
+        <img loading='lazy' 
+src={image} alt={name} className="w-full h-full object-cover sm:aspect-square"  />
       </div>
       <div className="sm:col-span-2 justify-between px-4 py-3 w-full">
         <div className="space-y-1">

@@ -30,7 +30,8 @@ export default function Hero() {
         </Link>
       </div>
       <div className='m-auto md:max-w-4/5 lg:w-1/2 xl:w-3/7'>
-        <img className='block' src="/HomeBanner.webp" alt="bannerimage" />
+        <img loading='lazy' 
+className='block' src="/HomeBanner.webp" alt="bannerimage" />
       </div>
     </section>
   );

@@ -47,7 +47,8 @@ export default function PublishProcess() {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-8">
         {steps.map((step, idx) => (
           <div key={idx} className="flex flex-col items-start space-y-4 max-w-96 xl:max-w-full mx-auto ">
-            <img src={step.image} alt={step.title} className="w-full max-w-xs xl:max-w-full object-contain mx-auto" />
+            <img loading='lazy' 
+src={step.image} alt={step.title} className="w-full max-w-xs xl:max-w-full object-contain mx-auto" />
             <h4 className="text-lg  2xl:text-lg  font-semibold text-gray-900">{step.title}</h4>
             <p className="text-sm  2xl:text-base text-paragraph">{step.description}</p>
             {step.button && (

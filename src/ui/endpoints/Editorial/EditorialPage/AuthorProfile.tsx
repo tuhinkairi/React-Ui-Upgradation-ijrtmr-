@@ -49,11 +49,13 @@ export default function AuthorProfile({ member }: { member: EditorialMember }) {
 
 
       <div className='sm:hidden sm:col-span-2 lg:col-span-1 space-y-6 mx-auto sm:mx-0'>
-        <img src={member?.member_image_url} className='w-full  rounded-2xl  aspect-square object-cover max-w-60 mx-auto' alt="img" />
+        <img loading='lazy' 
+src={member?.member_image_url} className='w-full  rounded-2xl  aspect-square object-cover max-w-60 mx-auto' alt="img" />
         <div className='socials grid grid-cols-2 items-center justify-center gap-2 gap-y-6'>
           {member?.member_linkedin && <Link to={member?.member_linkedin}>
             <span className='flex-col flex items-center justify-center gap-2'>
-              <img src="/editorial/board/linkedin.webp" className='w-10' alt="linkedin" />
+              <img loading='lazy' 
+src="/editorial/board/linkedin.webp" className='w-10' alt="linkedin" />
               <span className='text-[15px] text-[#2f2f2f]'>LinkedIn</span>
             </span>
           </Link>}
