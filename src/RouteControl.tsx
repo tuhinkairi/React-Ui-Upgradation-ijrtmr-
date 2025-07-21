@@ -47,7 +47,7 @@ export default function RouteControl() {
             <Route path="/publications" element={<MetaDataWrapper><ThesisIndex /></MetaDataWrapper>} />
             <Route path="/thesis" element={<MetaDataWrapper><Thesis /></MetaDataWrapper>}>
                 <Route index element={<ArchiveFirst />} />
-                <Route path=":paperlist" element={<ArchiveVolumes active="thesis" />} />
+                <Route path="paperlist" element={<ArchiveVolumes active="thesis" />} />
                 <Route path="paper-details" element={<ArticleDetails />} />
             </Route>
 
@@ -68,7 +68,7 @@ export default function RouteControl() {
             <Route path="/aim-and-scope" element={<MetaDataWrapper><About /></MetaDataWrapper>} />
             {/* editorial start */}
             <Route path="/editorial-board" element={<MetaDataWrapper><EditorBoard /></MetaDataWrapper>} />
-            <Route path="/editorial-board/:data" element={<EditoralSingle />} />
+            <Route path="/editorial-board/:slug" element={<EditoralSingle />} />
             {/* editorial end*/}
             <Route path="/indexing-and-abstracting" element={<MetaDataWrapper><IndexAbstract /></MetaDataWrapper>} />
             <Route path="/publication-ethics-policy" element={<MetaDataWrapper><PublicationPolicy /></MetaDataWrapper>} />

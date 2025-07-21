@@ -30,7 +30,15 @@ import ResearchAreaCard from "./ResearchAreaCard";
 //   },
 // ];
 // todo: get dynamic update and shearable link
-export default function AuthorProfile({ member }: { member: EditorialMember }) {
+export default function AuthorProfile({ member }: { member: EditorialMember | null }) {
+  if (!member) {
+    return (
+      <div className="flex items-center justify-center h-full">
+        <p className="text-lg text-gray-500">Member not found</p>
+        <Link to={"/editorial-board"}></Link>
+      </div>
+    );
+  }
   return (
     <div className="space-y-6">
       <h2 className="text-lg xl:text-3xl font-bold text-primary">
