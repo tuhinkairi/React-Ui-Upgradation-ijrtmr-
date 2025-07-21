@@ -2,12 +2,12 @@ import Title from '../../../other/Title'
 
 export default function ChargesPaper() {
     return (
-        <section className='space-y-4 leading-relaxed mb-10 xl:text-xl 2xl:text-lg'>
+        <section className='space-y-4 leading-relaxed mb-10 2xl:text-lg'>
             <Title>Article Processing  Charges</Title>
             <p>Open-access publication, so it is freely available online. The cost on publishing online editions, and to ensure the continuous appearance of the journal, the core committee has decided to charge a minimal fee from the authors after the acceptance of manuscript as follows:</p>
             <div>
-                <h1 className='font-medium mb-2 text-lg xl:text-2xl 2xl:text-3xl'>Case Report/Original Article/Review Article Fee:</h1>
-                <h1 className='font-medium mb-2 text-lg xl:text-2xl 2xl:text-3xl'>For Indian authors:</h1>
+                <h1 className='font-medium mb-2 text-lg xl:text-xl 2xl:text-2xl'>Case Report/Original Article/Review Article Fee:</h1>
+                <h1 className='font-medium mb-2 text-lg xl:text-xl 2xl:text-2xl'>For Indian authors:</h1>
                 <ul className='list-disc list-inside space-y-1'>
                     <li className='font-medium ml-2'><span >Without DOI :</span> <span className='text-[#0E4B82]'>1200 INR</span> <span className='text-primary'>+ 18% GST</span></li>
                     <li className='font-medium ml-2'><span >With DOI :</span><span className='text-[#0E4B82]'> 1400 INR</span> <span className='text-primary'> + 18% GST</span></li>
@@ -20,7 +20,7 @@ export default function ChargesPaper() {
             <section className='space-y-6'>
 
                 <div className=''>
-                    <h1 className='font-medium mb-2 text-lg xl:text-2xl 2xl:text-3xl'>
+                    <h1 className='font-medium mb-2 text-lg xl:text-xl 2xl:text-2xl'>
                         Journal Hosting System
                     </h1>
                     <ul className='list-disc list-inside space-y-1'>
@@ -31,7 +31,7 @@ export default function ChargesPaper() {
                     </ul>
                 </div>
                 <div className=''>
-                    <h1 className='font-medium mb-2 text-lg xl:text-2xl 2xl:text-3xl'>
+                    <h1 className='font-medium mb-2 text-lg xl:text-xl 2xl:text-2xl'>
                         Note
                     </h1>
                     <ul className='list-decimal list-inside space-y-1 '>
@@ -50,7 +50,7 @@ export default function ChargesPaper() {
                     </ul>
                 </div>
                 <div className=''>
-                    <h1 className='font-medium mb-2 text-lg xl:text-2xl 2xl:text-3xl'>
+                    <h1 className='font-medium mb-2 text-lg xl:text-xl 2xl:text-2xl'>
                         Waivers Policy
                     </h1>
                     <p>
@@ -58,7 +58,7 @@ export default function ChargesPaper() {
                     </p>
                 </div>
                 <div className=''>
-                    <h1 className='font-medium mb-2 text-lg xl:text-2xl 2xl:text-3xl'>
+                    <h1 className='font-medium mb-2 text-lg xl:text-xl 2xl:text-2xl'>
                         Qualifying for a Waiver
                     </h1>
                     <p>

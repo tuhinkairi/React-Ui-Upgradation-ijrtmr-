@@ -64,7 +64,7 @@ const JournalsCompendium = () => {
 
         <div className="grid px-10 lg:px-0 md:grid-cols-3 gap-6 justify-center items-center transition-all duration-700 ease-in-out">
           {getVisibleJournals().map((journal, idx) => (
-            idx%2==1 ? <span className="md:scale-110 transition-all"><CompodiumCard key={`${journal.code}-${idx}`} {...journal} /></span>:<span className="md:scale-75 lg:scale-95 transition-all"><CompodiumCard key={`${journal.code}-${idx}`} {...journal} /></span>
+            idx%2==1 ? <span key={`${journal.code}-${idx}`} className="md:scale-110 transition-all"><CompodiumCard  {...journal} /></span>:<span key={`${journal.code}-${idx}`} className="md:scale-75 lg:scale-95 transition-all"><CompodiumCard  {...journal} /></span>
           ))}
         </div>
 

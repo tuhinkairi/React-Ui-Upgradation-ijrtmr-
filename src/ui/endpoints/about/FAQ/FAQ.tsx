@@ -5,7 +5,7 @@ import VerificationSection from "../VerificationSection";
 export default function FAQ() {
     return (
         <CommonLayout>
-            <div className="space-y-6 text-muted-foreground text-base xl:text-xl 2xl:text-lg mb-6">
+            <div className="space-y-6 text-muted-foreground text-base 2xl:text-lg mb-6">
                 <Title>Frequently Asked Questions :</Title>
 
                 <div className="mt-6">

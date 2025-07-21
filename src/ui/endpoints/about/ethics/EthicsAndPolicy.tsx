@@ -9,7 +9,7 @@ export default function EthicsAndPolicy() {
   return (
     <CommonLayout>
       {/* section1 */}
-      <section className='space-y-7 text-muted-foreground text-base xl:text-xl 2xl:text-lg mb-6'>
+      <section className='space-y-7 text-muted-foreground text-base 2xl:text-lg mb-6'>
         <div className="w-full flex justify-center items-center text-[#333333]">
           <div className="">
             <Title>Ethics &amp; Policies</Title>
@@ -29,7 +29,7 @@ export default function EthicsAndPolicy() {
               Ethics topics to consider when publishing:
             </Title>
 
-            <ul className="space-y-4 text-[#333333] text-base xl:text-xl 2xl:text-lg leading-[1.9]">
+            <ul className="space-y-4 text-[#333333] text-base 2xl:text-lg leading-[1.9]">
               <li>
                 <span className='font-medium text-lg xl:text-xl 2xl:text-lg'>Authorship of the paper:</span> Authorship should be limited to those who have made a significant contribution to the conception, design, execution, or interpretation of the reported study.
               </li>

@@ -8,7 +8,7 @@ export default function IndexAbstract() {
     <CommonLayout>
       <div className="mb-3 text-[#333333]">
       <Title>Indexing & Abstraction</Title>
-      <p className=" md:w-1/2 text-base xl:text-xl 2xl:text-lg">Indexed in leading academic databases, Boosting visibility, reach, and research impact.</p>
+      <p className=" md:w-1/2 text-base 2xl:text-lg">Indexed in leading academic databases, Boosting visibility, reach, and research impact.</p>
       </div>
       <IndexingPartnerArchive/>
       <VerificationSection/>
