@@ -50,7 +50,7 @@ const JournalsCompendium = () => {
       {/* <h2 className="text-2xl md:text-3xl font-semibold text-dark mb-2">
         Our Compendium of Journals
       </h2> */}
-      <p className="text-secondary-text mb-10 mt-6">
+      <p className="text-secondary-text mb-10 mt-6 text-lg 2xl:text-xl">
         Fifth Dimension Research Publication
       </p>
 
