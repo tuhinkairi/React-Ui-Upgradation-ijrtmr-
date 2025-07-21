@@ -51,7 +51,7 @@ export default function OwnerShip() {
             <section className="space-y-4">
 
                 <div>
-                    <h3 className="text-lg xl:text-22xl 2xl:text-3xl font-medium mb-4">Journal Author Rights:</h3>
+                    <h3 className="text-lg xl:text-2xl 2xl:text-3xl font-medium mb-4">Journal Author Rights:</h3>
                     <p>
 
                         In order for FDRP Publications and Its journal to publish and disseminate research

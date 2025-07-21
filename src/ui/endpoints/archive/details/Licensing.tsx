@@ -4,7 +4,7 @@ const Licensing = () => {
       <h2 className="text-base xl:text-xl 2xl:text-3xl font-semibold mb-4">Licensing</h2>
 
       <p className="mb-4">
-        © 2025 The Author(s). Published by Informa UK Limited, trading as Taylor & Francis Group.
+        © 2025 The Author(s). Published by Fifth Dimension Research Publication.
       </p>
 
       <p className="text-sm xl:text-base 2xl:text-lg leading-relaxed">

@@ -101,11 +101,11 @@ export default function Footer() {
               </p>
               <div className="mt-2 text-center">
                 <div className="flex flex-wrap justify-center space-x-1 text-sm 2xl:text-base">
-                  <NavLink to="#" className="text-primary hover:text-primary-hover">Privacy Policy</NavLink>
+                  <NavLink to="/ethics?target=editorial-policies" className="text-primary hover:text-primary-hover">Privacy Policy</NavLink>
                   <span className="text-gray-400">|</span>
-                  <NavLink to="#" className="text-primary hover:text-primary-hover">Terms And Conditions</NavLink>
+                  <NavLink to="/ethics?target=copyright-ownership" className="text-primary hover:text-primary-hover">Terms And Conditions</NavLink>
                   <span className="text-gray-400">|</span>
-                  <NavLink to="#" className="text-primary hover:text-primary-hover">Refund Policy</NavLink>
+                  <NavLink to="/ethics?target=article-withdrawal" className="text-primary hover:text-primary-hover">Refund Policy</NavLink>
                 </div>
               </div>
             </div>

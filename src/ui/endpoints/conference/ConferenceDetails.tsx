@@ -82,7 +82,7 @@ const ConferenceDetails = () => {
             <div className="w-full flex gap-3 gap-x-12 justify-between">
               <div className="flex flex-wrap gap-3 gap-x-6 py-2 mb-2">
                 {auther.map((author, index) => (
-                  <span className="text-primary flex gap-2 items-center text-base sm:text-lg xl:text-xl 2xl:text-lg" key={index}>
+                  <span className="text-primary flex gap-2 items-center text-base sm:text-lg  2xl:text-lg" key={index}>
                     <CgProfile className="text-lg sm:text-2xl xl:3xl" />
                     {author}<span className="text-xs h-full flex items-start -ml-1">{index + 1}</span>
                     {/* {index !== auther.length - 1 && ", "} */}
@@ -122,18 +122,18 @@ const ConferenceDetails = () => {
         {/* DOI and Utilities */}
         <div className="flex items-start sm:items-center flex-wrap gap-4 w-full justify-between text-base">
           <div className="flex gap-4 sm:gap-0 w-2/3 sm:w-fit justify-between flex-col sm:flex-row ">
-            <h3 className="text-primary text-bsae  xl:text-xl 2xl:text-lg flex gap-2 items-center sm:mr-10 md:mr-5 xl:mr-10 2xl:mr-12 md:whitespace-nowrap">
+            <h3 className="text-primary text-bsae   2xl:text-lg flex gap-2 items-center sm:mr-10 md:mr-5 xl:mr-10 2xl:mr-12 md:whitespace-nowrap">
               <ImQuotesLeft className="text-primary" /> Cite this article
             </h3>
 
             {activePaper?.doi !== "." ? <Link
               target="_blank"
               to={activePaper?.doi ?? window.location.href}
-              className="text-primary flex items-center gap-1 hover:underline text-sm xl:text-xl 2xl:text-lg wrap-anywhere sm:whitespace-nowrap"
+              className="text-primary flex items-center gap-1 hover:underline text-sm xl:text-base 2xl:text-lg wrap-anywhere sm:whitespace-nowrap"
             >
-              ↗ {activePaper?.doi_link && activePaper?.doi_link.length > 5 ? activePaper?.doi_link : "No Doi"}
+              ↗ {activePaper?.doi && activePaper?.doi.length > 5 ? activePaper?.doi : "No Doi"}
             </Link> :
-              <span className="text-primary flex items-center gap-1 hover:underline text-sm xl:text-xl 2xl:text-lg wrap-anywhere sm:whitespace-nowrap">No Doi</span>
+              <span className="text-primary flex items-center gap-1 hover:underline text-sm xl:text-base 2xl:text-lg wrap-anywhere sm:whitespace-nowrap">No Doi</span>
             }
           </div>
 
@@ -168,7 +168,7 @@ const ConferenceDetails = () => {
 
 
         {/* Navigation Tabs */}
-        <div className="flex justify-between gap-6 text-lg xl:text-xl 2xl:text-lg border-b border-gray-200 overflow-x-auto mt-6 sm:mt-0">
+        <div className="flex justify-between gap-6 text-lg  2xl:text-lg border-b border-gray-200 overflow-x-auto mt-6 sm:mt-0">
           {["FullArticle", "References", "Citations", "Metrics", "Licensing"].map(
             (tab, idx) => (
               <button

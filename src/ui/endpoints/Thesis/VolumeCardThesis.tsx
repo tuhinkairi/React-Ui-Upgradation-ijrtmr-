@@ -2,7 +2,7 @@ import { Download, Eye, SearchIcon } from "lucide-react";
 import { Link, NavLink, type NavigateFunction } from "react-router-dom";
 import type { ThesisListingItem } from "../../../types/Api";
 import { ImQuotesRight } from "react-icons/im";
-import { PiChartPieSlice } from "react-icons/pi";
+
 import PrimaryBtn from "../../components/Btns/PrimaryBtn";
 
 export default function VolumeCardThesis({ paper, setActive, navigate }: { paper: ThesisListingItem, setActive: (arg: ThesisListingItem) => void, navigate: NavigateFunction }) {
@@ -40,7 +40,7 @@ export default function VolumeCardThesis({ paper, setActive, navigate }: { paper
             {/* Metrics */}
             <div className="flex items-center gap-6  text-gray-500 mt-1">
                 <div className="flex items-center gap-3">
-                    <Eye size={18} /> {256} Views
+                    <Eye size={18} /> {50} Views
                 </div>
                 <div className="h-4" />
                 <div className="flex items-center gap-3">
@@ -48,7 +48,11 @@ export default function VolumeCardThesis({ paper, setActive, navigate }: { paper
                 </div>
                 <div className="h-4" />
                 <div className="flex items-center gap-3">
-                    <PiChartPieSlice size={18} /> 0 Altmetric
+                    <img
+                        src="/plummatrix/plum.webp"
+                        alt="plumx"
+                        className="w-6 h-6 object-contain"
+                    /> Plumex
                 </div>
             </div>
 
@@ -74,7 +78,7 @@ export default function VolumeCardThesis({ paper, setActive, navigate }: { paper
                         References
                     </button>
                 </div>
-                <NavLink to={paper.paper_url}>
+                <NavLink to={paper.paper_url} target="_blank">
                     <PrimaryBtn>
                         View PDF <Download size={16} />
                     </PrimaryBtn>
