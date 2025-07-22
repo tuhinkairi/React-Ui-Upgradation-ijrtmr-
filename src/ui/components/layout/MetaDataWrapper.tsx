@@ -18,7 +18,7 @@ const MetaDataWrapper = ({ children, titleDynamic, desciptionDynamic }: { childr
     if (location.pathname)
       // Set <title>
       if (title) {
-        const detialsSectionTitle = desciptionDynamic ?? document.getElementById("dtitle")?.innerText
+        const detialsSectionTitle = titleDynamic ?? document.getElementById("dtitle")?.innerText
         document.title = detialsSectionTitle ?? title;
       }
 
@@ -38,7 +38,7 @@ const MetaDataWrapper = ({ children, titleDynamic, desciptionDynamic }: { childr
       const descTag = document.createElement("meta");
       descTag.name = "description";
       // fetch content for the details section
-      const detialsSectionDis = desciptionDynamic ?? document.getElementById("ddis")?.innerText
+      const detialsSectionDis = desciptionDynamic ?? document.getElementById("ddis")?.innerText.split(".")[0]
       descTag.content = detialsSectionDis ?? description;
       document.head.appendChild(descTag);
     }

@@ -80,7 +80,7 @@ export default function AuthorProfile({ member }: { member: EditorialMember | nu
             </p>
           </div> */}
         {member.member_publication_list.split(".").map((pub, idx) => (
-          pub.trim().length > 300 && (
+          pub.trim().length > 50 && (
             <ul key={idx} className="flex items-start gap-2 list-inside list-decimal text-shadow">
               <li>
                 {pub}.

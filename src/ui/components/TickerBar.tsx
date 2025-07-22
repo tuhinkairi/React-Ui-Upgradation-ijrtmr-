@@ -17,7 +17,7 @@ export default function TickerBar() {
         {/* Marquee Text */}
         <div className="overflow-hidden whitespace-nowrap py-2 w-full">
           <div className="animate-marquee inline-block min-w-full">
-            <span className="px-4">
+            {/* <span className="px-4">
               We do not provide a DOI (Digital Object Identifier).
             </span>
             <span className="px-4">
@@ -25,7 +25,7 @@ export default function TickerBar() {
             </span>
             <span className="px-4">
               Calling all experts: With high demand for submissions, IPN invites you to join as a reviewer and contribute to advancing research.
-            </span>
+            </span> */}
             <span className="px-4">
               Call for paper volume 5 issue 4 2025 , UGC-CARE Discontinue form Feb'25
             </span>
