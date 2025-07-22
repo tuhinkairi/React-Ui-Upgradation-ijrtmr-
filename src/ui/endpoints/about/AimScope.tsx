@@ -1,4 +1,5 @@
 import Title2 from "../../other/Title2";
+import Title2h2 from "../../other/Title2h2";
 
 const AimScope = () => {
   return (
@@ -13,7 +14,7 @@ const AimScope = () => {
 
       {/* Scope Section */}
       <section>
-        <Title2>Scope</Title2>
+        <Title2h2>Scope</Title2h2>
         <p className="leading-relaxed mb-4 text-gray-600">
           The journal's scope is to provide an academic medium and an essential reference for advancing and disseminating research results that support high-level learning, teaching, and research in engineering & technology. We bring together scientists, academicians, engineers, scholars, and students of related fields.
         </p>

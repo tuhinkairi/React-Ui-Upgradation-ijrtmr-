@@ -3,7 +3,7 @@ import Title from '../../../other/Title'
 import Titleh2 from '../../../other/Titleh2'
 
 export default function PublicationContent() {
-    const path = useLocation().pathname.includes("ethics")
+    const path = useLocation().pathname.includes("/ethics")
     return (
         <div className="space-y-4 pb-4 text-muted-foreground text-base 2xl:text-lg text-[#333333]">
             {path?<Titleh2>Publication Ethics</Titleh2>: <Title>Publication Ethics</Title>}
