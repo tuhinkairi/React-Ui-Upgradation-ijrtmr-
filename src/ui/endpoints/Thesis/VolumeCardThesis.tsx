@@ -72,7 +72,7 @@ export default function VolumeCardThesis({ paper, setActive, navigate }: { paper
                         Full Text
                     </button>
                     <button
-                        className="hover:underline border-r-2 pr-3"
+                        className="hover:underline "
                         onClick={() => navigate(`${endpoint}&section=References`)}
                     >
                         References

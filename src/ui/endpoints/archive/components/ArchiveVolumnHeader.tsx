@@ -6,8 +6,19 @@ import { GrFormNext, GrFormPrevious } from 'react-icons/gr'
 import { Link, redirect, useLocation } from 'react-router-dom'
 import type { ActiveIndexArchive, ArchiveIndexVolume, ThesisIndexingItem } from '../../../../types/Api'
 
-function ArchiveVolumnHeader({ isArchive, setArchiveIndex, ActiveVolumes, VolumeList }: { isArchive: boolean, setArchiveIndex: (arg: ActiveIndexArchive) => void, ActiveVolumes: ActiveIndexArchive | null, VolumeList?: ArchiveIndexVolume[], ThesisVolumeList?: ThesisIndexingItem[] }) {
-    // const { activeIndexPage: ActiveVolumes, indexPage: VolumeList } = useAppSelector((state) => state.archiveSection)
+function ArchiveVolumnHeader({ 
+    isArchive, 
+    setArchiveIndex, 
+    ActiveVolumes, 
+    VolumeList, 
+    ThesisVolumeList 
+}: { 
+    isArchive: boolean, 
+    setArchiveIndex: (arg: ActiveIndexArchive) => void, 
+    ActiveVolumes: ActiveIndexArchive | null, 
+    VolumeList?: ArchiveIndexVolume[], 
+    ThesisVolumeList?: ThesisIndexingItem[] 
+}) {
     const path = useLocation().pathname
     const thesisState = path.includes("/thesis")
     const [volumes, setVolumes] = useState<string[]>([])
@@ -21,28 +32,36 @@ function ArchiveVolumnHeader({ isArchive, setArchiveIndex, ActiveVolumes, Volume
     const [currentYear, setCurrentYear] = useState<string>(ActiveVolumes?.year ?? "")
 
     const updateData = useCallback(() => {
-        if (!ActiveVolumes) return redirect("/archives")
+        if (!ActiveVolumes) return redirect(thesisState ? "/thesis" : "/archives")
 
-        const dataVolume = VolumeList && VolumeList.find(volume => volume.year === ActiveVolumes.year)
-
-        if (dataVolume) {
-            const issueList = dataVolume.volumes.map(({ issue }) => issue)
-            const data = issueList[0].map(issue => `Issue ${issue}`)
-            setIssue(data)
-
-            const modifiedVolumes = VolumeList.map(({ volumes: [{ volume }], year }) =>
+        if (thesisState && ThesisVolumeList) {
+            // Handle thesis data
+            const modifiedVolumes = ThesisVolumeList.map(({ volume, year }) =>
                 `Volume ${volume}, (${year})`
             )
             setVolumes(modifiedVolumes)
-        }
-    }, [ActiveVolumes, VolumeList])
+            // For thesis, we don't have issues, so clear the issues array
+            setIssue([])
+        } else if (!thesisState && VolumeList) {
+            // Handle archive data
+            const dataVolume = VolumeList.find(volume => volume.year === ActiveVolumes.year)
 
+            if (dataVolume) {
+                const issueList = dataVolume.volumes.map(({ issue }) => issue)
+                const data = issueList[0].map(issue => `Issue ${issue}`)
+                setIssue(data)
+
+                const modifiedVolumes = VolumeList.map(({ volumes: [{ volume }], year }) =>
+                    `Volume ${volume}, (${year})`
+                )
+                setVolumes(modifiedVolumes)
+            }
+        }
+    }, [ActiveVolumes, VolumeList, ThesisVolumeList, thesisState])
 
     useEffect(() => {
         updateData()
-
     }, [updateData]);
-
 
     const handleVolumeClick = useCallback((volume: string) => {
         setActive(volume);
@@ -50,46 +69,56 @@ function ArchiveVolumnHeader({ isArchive, setArchiveIndex, ActiveVolumes, Volume
         const vol = volume.split(" ")[1].split(",")[0];
         setCurrentYear(year);
         setCurrentVolume(vol);
-        setArchiveIndex({ volume: vol, issue: currentIssue, year });  // SET INDEX HERE
-    }, [currentIssue, setArchiveIndex]);
+        
+        if (thesisState) {
+            // For thesis, we don't have issues, so set a default or empty issue
+            setArchiveIndex({ volume: vol, issue: "1", year }); // or use empty string ""
+        } else {
+            setArchiveIndex({ volume: vol, issue: currentIssue, year });
+        }
+    }, [currentIssue, setArchiveIndex, thesisState]);
 
     const handleIssueClick = useCallback((issue: string) => {
         setActiveIssue(issue);
         const iss = issue.split(" ")[1];
         setCurrentIssue(iss);
-        setArchiveIndex({ volume: currentVolume, issue: iss, year: currentYear });  // SET INDEX HERE
+        setArchiveIndex({ volume: currentVolume, issue: iss, year: currentYear });
     }, [currentVolume, currentYear, setArchiveIndex]);
-
-
 
     const handlePrevious = useCallback(() => {
         const currentIndex = volumes.indexOf(active)
         const newVolume = volumes[currentIndex - 1]
-        if (currentIndex > 0) setActive(newVolume)
-        handleVolumeClick(newVolume)
+        if (currentIndex > 0) {
+            setActive(newVolume)
+            handleVolumeClick(newVolume)
+        }
     }, [volumes, active, handleVolumeClick])
 
     const handleNext = useCallback(() => {
         const currentIndex = volumes.indexOf(active)
         const newVolume = volumes[currentIndex + 1]
-        if (currentIndex < volumes.length - 1) setActive(newVolume)
-        handleVolumeClick(newVolume)
-
+        if (currentIndex < volumes.length - 1) {
+            setActive(newVolume)
+            handleVolumeClick(newVolume)
+        }
     }, [volumes, active, handleVolumeClick])
 
     const handlePreviousIssue = useCallback(() => {
         const currentIndex = issues.indexOf(activeIssue)
         const newIndex = issues[currentIndex - 1]
-        if (currentIndex > 0) setActiveIssue(newIndex)
-        handleIssueClick(newIndex)
+        if (currentIndex > 0) {
+            setActiveIssue(newIndex)
+            handleIssueClick(newIndex)
+        }
     }, [issues, activeIssue, handleIssueClick])
 
     const handleNextIssue = useCallback(() => {
         const currentIndex = issues.indexOf(activeIssue)
         const newIndex = issues[currentIndex + 1]
-        if (currentIndex < issues.length - 1) setActiveIssue(newIndex)
-        handleIssueClick(newIndex)
-
+        if (currentIndex < issues.length - 1) {
+            setActiveIssue(newIndex)
+            handleIssueClick(newIndex)
+        }
     }, [issues, activeIssue, handleIssueClick])
 
     return (
@@ -113,6 +142,7 @@ function ArchiveVolumnHeader({ isArchive, setArchiveIndex, ActiveVolumes, Volume
                 <Link to={thesisState ? "/thesis" : '/archives'} className="cursor-pointer text-primary font-medium max-w-1/4 whitespace-nowrap">See all volumes</Link>
             </div>
 
+            {/* Only show issue navigation for archive, not for thesis */}
             {isArchive && !thesisState && <div className="flex flex-wrap sm:flex-nowrap gap-2 items-center justify-start">
                 <div className='w-full sm:max-w-3/4 lg:max-w-5/6 xl:w-fit flex items-center gap-2'>
                     <button onClick={handlePreviousIssue}><GrFormPrevious className="text-primary-text text-2xl" /></button>

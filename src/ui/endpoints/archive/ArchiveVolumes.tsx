@@ -19,12 +19,12 @@ import { getArticalDetails } from "../../../lib/utils/conference/articalFunction
 import VolumeCardArchive from "./VolumeCardArchive";
 import { setActiveIndexVolume, setActivePaper } from "../../../lib/store/Features/ArchiveSlice";
 import VolumeCardConference from "./VolumeCardConference";
-import Title from "../../other/Title";
 import { GrClear } from "react-icons/gr";
 import { setActiveThesis, setThesisList } from "../../../lib/store/Features/ThesisSlice";
 import { searchThesis, ThesisListing, type ThesisListingParams } from "../../../lib/axios/api/thesis";
 import VolumeCardThesis from "../Thesis/VolumeCardThesis";
 import MetaDataWrapper from "../../components/layout/MetaDataWrapper";
+import Titleh2 from "../../other/Titleh2";
 // Import thesis-related functions
 
 
@@ -440,12 +440,12 @@ export default function ArchiveVolumes({ active }: activeSection) {
                     ? ArticalVolumesSearch.map((paper, idx) => (
                       <VolumeCardArchive paper={paper} key={idx} setActive={setActiveArtical} navigate={navigate} />
                     ))
-                    : <Title>No Paper Found</Title>
+                    : <Titleh2>No Paper Found</Titleh2>
                   : ArticalVolumes?.length
                     ? ArticalVolumes.map((paper, idx) => (
                       <VolumeCardArchive paper={paper} key={idx} setActive={setActiveArtical} navigate={navigate} />
                     ))
-                    : <Title>No Paper Found</Title>
+                    : <Titleh2>No Paper Found</Titleh2>
               )}
               {active === "issue" && (
                 ArticalVolumesSearch !== null
@@ -453,12 +453,12 @@ export default function ArchiveVolumes({ active }: activeSection) {
                     ? ArticalVolumesSearch.map((paper, idx) => (
                       <VolumeCardArchive paper={paper} key={idx} setActive={setActiveArtical} navigate={navigate} />
                     ))
-                    : <Title>No Paper Found</Title>
+                    : <Titleh2>No Paper Found</Titleh2>
                   : ArticalVolumes?.length
                     ? ArticalVolumes.map((paper, idx) => (
                       <VolumeCardArchive paper={paper} key={idx} setActive={setActiveArtical} navigate={navigate} />
                     ))
-                    : <Title>No Paper Found</Title>
+                    : <Titleh2>No Paper Found</Titleh2>
               )}
 
               {/* conference */}
@@ -468,12 +468,12 @@ export default function ArchiveVolumes({ active }: activeSection) {
                     ? ConferenceVolumesSearch.map((paper, idx) => (
                       <VolumeCardConference paper={paper} key={idx} setActive={setActiveArtical} navigate={navigate} />
                     ))
-                    : <Title>No Paper Found</Title>
+                    : <Titleh2>No Paper Found</Titleh2>
                   : ConferenceVolumes?.length
                     ? ConferenceVolumes.map((paper, idx) => (
                       <VolumeCardConference paper={paper} key={idx} setActive={setActiveArtical} navigate={navigate} />
                     ))
-                    : <Title>No Paper Found</Title>
+                    : <Titleh2>No Paper Found</Titleh2>
               )}
 
               {/* thesis */}
@@ -483,12 +483,12 @@ export default function ArchiveVolumes({ active }: activeSection) {
                     ? ThesisVolumesSearch.map((paper, idx) => (
                       <VolumeCardThesis paper={paper} key={idx} setActive={setActiveArtical} navigate={navigate} />
                     ))
-                    : <Title>No Paper Found</Title>
+                    : <Titleh2>No Paper Found</Titleh2>
                   : ThesisVolumes?.length
                     ? ThesisVolumes.map((paper, idx) => (
                       <VolumeCardThesis paper={paper} key={idx} setActive={setActiveArtical} navigate={navigate} />
                     ))
-                    : <Title>No Paper Found</Title>
+                    : <Titleh2>No Paper Found</Titleh2>
               )}
             </>
           </div> :
