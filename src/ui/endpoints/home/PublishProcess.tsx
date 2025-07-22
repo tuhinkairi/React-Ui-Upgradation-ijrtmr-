@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Title2 from "../../other/Title2";
+import Title2h2 from "../../other/Title2h2";
 
 const steps = [
   {
@@ -40,7 +40,7 @@ export default function PublishProcess() {
     <section className="">
       <div className="mb-10 md:mb-16">
         {/* <h2 className="text-3xl font-semibold">Streamlined Publication Process</h2> */}
-        <Title2>Streamlined Publication Process</Title2>
+        <Title2h2>Streamlined Publication Process</Title2h2>
         <p className="mt-2 text-sm 2xl:text-base text-secondaryText">Our efficient workflow ensures your research gets published quickly without sacrificing quality</p>
       </div>
 
