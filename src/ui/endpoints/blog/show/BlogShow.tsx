@@ -1,101 +1,99 @@
-import { useNavigate } from 'react-router-dom';
-import { useAppSelector } from '../../../../lib/store/store';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useAppDispatch, useAppSelector } from '../../../../lib/store/store';
 import CommonLayout from '../../../components/layout/CommonLayout';
-// import JournalCriteria from '../card/JournalCriteria';
 import JournalOverview from '../card/JournalOverview';
-// import JournalSelection from '../card/JournalSection';
-// data.js
-// const journalOverviewData = {
-//   title: "Best Journal for Publishing Research Paper in Mechanical Engineering",
-//   category: "Journals",
-//   date: "2025-03-06",
-//   description:
-//     "Publishing research papers is a cornerstone of academic and professional growth for mechanical engineers. Choosing the right journal ensures that research reaches the appropriate audience, gains credibility, and contributes meaningfully to the field. Below are key factors to consider when selecting a journal and some top journals in mechanical engineering.",
-//   points: [
-//     "Boost Visibility: High-quality journals are indexed in major databases, making research more accessible globally.",
-//     "Enhance Credibility: Journals with rigorous peer review processes add authenticity to research.",
-//     "Impact Career Growth: Publishing in top-tier journals can open doors to promotions, funding, and collaborations.",
-//     "Drive Innovation: Research reaches the right audience, inspiring further studies and practical applications."
-//   ]
-// };
-
-// const journalCriteriaData = {
-//   title: "Criteria for Selecting the Best Journal",
-//   sections: [
-//     {
-//       heading: "Impact Factor: A Measure of Influence",
-//       paragraph: "The impact factor measures the average number of citations received by articles in a journal. A higher impact factor indicates strong recognition in the field."
-//     },
-//     {
-//       heading: "Peer Review Process: Ensuring Quality",
-//       paragraph: "A robust peer review system ensures that published research is high-quality, original, and significant."
-//     },
-//     {
-//       heading: "Open Access vs. Subscription-Based Journals",
-//       points: [
-//         "Open Access Journals: Freely available research but may charge publication fees.",
-//         "Subscription-Based Journals: Restricted access but often have higher impact factors and credibility."
-//       ]
-//     },
-//     {
-//       heading: "Relevance to Mechanical Engineering",
-//       paragraph: "Choosing a journal that aligns with a researcher’s niche ensures that their work reaches the most relevant audience."
-//     },
-//     {
-//       heading: "Top Journals in Mechanical Engineering",
-//       points: [
-//         "International Journal of Mechanical Sciences: Covers mechanics of materials, structural analysis, fluid dynamics, and thermodynamics.",
-//         "Journal of Mechanical Design: Focuses on design theory, innovative applications, and optimization techniques.",
-//         "IJSREAT: Open-access journal covering engineering advancements."
-//       ]
-//     }
-//   ]
-// };
-// const journalsection = {
-//   mainTitle: 'Additional Considerations for Journal Selection',
-//   sections: [
-//     {
-//       title: 'Publication Speed: Timing Matters',
-//       content: 'Journals with shorter review and publication times ensure timely dissemination of research.',
-//     },
-//     {
-//       title: "Journal’s Audience: Reaching the Right People",
-//       content: [
-//         'Who reads the journal?',
-//         'Is the audience academic, industrial, or a mix of both?',
-//         'Does it reach the relevant research community?'
-//       ],
-//     },
-//     {
-//       title: 'Ethical Considerations: Avoiding Predatory Journals',
-//       content: [
-//         'Verify indexing in databases like Scopus or Web of Science.',
-//         "Check the journal's impact factor and peer review process.",
-//         'Ensure transparency in publication fees and editorial policies.'
-//       ],
-//     }
-//   ],
-//   conclusion:
-//     'Selecting the best journal involves evaluating factors like impact factor, peer review process, open access vs. subscription-based models, and relevance to specific fields. Journals like the International Journal of Mechanical Sciences, Journal of Mechanical Design, and IJSREAT offer excellent platforms for high-quality research.',
-//   finalThoughts:
-//     'Publishing research is an opportunity to contribute to mechanical engineering knowledge. Aligning journal choice with research goals and target audiences ensures maximum impact and credibility.',
-// };
+import { useEffect, useState } from 'react';
+import { setLoading } from '../../../../lib/store/Features/loadingSlice';
+import { fetchBlog } from '../../../../lib/axios/api/blog';
+import { setBlog, setStoreBlogList } from '../../../../lib/store/Features/BlogSlice';
+import { setTotalPages } from '../../../../lib/store/Features/paginationSlice';
+import type { Blog } from '../../../../types/Api';
+import Loading from '../../../components/Loading';
+import MetaDataWrapper from '../../../components/layout/MetaDataWrapper';
 
 const BlogShow = () => {
   const data = useAppSelector((state) => state.blog.activeBlog);
-  const navigate = useNavigate();  
-  if (!data?.id) {
-    navigate('/blog');
-  }
-  return (
+  const blogList = useAppSelector((state) => state.blog.blogList);
+  const { slug } = useParams<{ slug: string }>();
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+  const [error, setError] = useState<string | null>(null);
 
-    <CommonLayout className='space-y-6' title='Blog'>
-      {/* <h2 className="text-3xl font-serif">{data?.title}</h2>
-      <div dangerouslySetInnerHTML={{__html:data?.description??""}}></div> */}
-      <JournalOverview category={data?.category??""} title={data?.title??""} date={data?.created_at?.split("T")[0]??""} description={data?.meta_description??""} points={[]} other={data?.description??""}/>
-      {/* <JournalCriteria {...journalCriteriaData} />
-      <JournalSelection {...journalsection} /> */}
-    </CommonLayout>
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        dispatch(setLoading(true));
+        setError(null);
+
+        // If we already have blog data and the current blog matches the slug, don't refetch
+        if (blogList?.length > 0 && slug) {
+          const existingBlog = blogList.find(blog => blog.url_title === slug);
+          if (existingBlog && data?.url_title === slug) {
+            return; // Data already loaded and matches
+          }
+          if (existingBlog) {
+            dispatch(setBlog(existingBlog));
+            return;
+          }
+        }
+
+        // Fetch blog data if we don't have it or need to find a specific blog
+        const blogData: Blog[] = await fetchBlog();
+
+        if (!blogData || blogData.length === 0) {
+          setError('No blogs found');
+          return;
+        }
+
+        dispatch(setStoreBlogList(blogData));
+        dispatch(setTotalPages(Math.ceil(blogData.length / 10)));
+
+        if (slug) {
+          const matchingBlog = blogData.find(blog => blog.url_title === slug);
+          if (matchingBlog) {
+            dispatch(setBlog(matchingBlog));
+          } else {
+            setError('Blog not found');
+            // Optionally navigate to blog list or 404 page
+            // navigate('/blogs');
+          }
+        }
+      } catch (error) {
+        console.error('Error fetching blog data:', error);
+        setError('Failed to load blog data');
+      } finally {
+        dispatch(setLoading(false));
+      }
+    };
+
+    fetchData();
+  }, [dispatch, slug, navigate, blogList, data?.url_title]);
+
+  // Show error state
+  if (error) {
+    navigate('/blogs');
+  }
+
+  // Show loading or empty state when no data
+  if (!data?.id && slug) {
+    return (
+      <Loading title='Blog Details...' />
+    );
+  }
+
+  return (
+    <MetaDataWrapper desciptionDynamic={data?.meta_description?.split(".")[0] ?? 'Blog Details'} titleDynamic={data?.title ?? slug}>
+      <CommonLayout className='space-y-6' title='Blog'>
+        <JournalOverview
+          category={data?.category ?? ""}
+          title={data?.title ?? ""}
+          date={data?.created_at?.split("T")[0] ?? ""}
+          description={data?.meta_description ?? ""}
+          points={[]}
+          other={data?.description ?? ""}
+        />
+      </CommonLayout>
+    </MetaDataWrapper>
   );
 };
 
