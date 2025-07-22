@@ -22,7 +22,7 @@ export default function VolumeCardThesis({ paper, setActive, navigate }: { paper
                 >
                     {paper.title} <span className="text-orange-400">↗</span>
                 </Link>
-                <button onClick={HandleGoolge} className="text-base inline-flex items-center justify-center gap-2 text-primary border border-orange-400 px-3 py-1" style={{ borderRadius: 9999 }}>
+                <button onClick={HandleGoolge} className="hidden text-base sm:inline-flex items-center justify-center gap-2 text-primary border border-orange-400 px-3 py-1" style={{ borderRadius: 9999 }}>
                     <SearchIcon className="w-5" /> Google
                 </button>
             </div>
@@ -38,7 +38,7 @@ export default function VolumeCardThesis({ paper, setActive, navigate }: { paper
             </div>
 
             {/* Metrics */}
-            <div className="flex items-center gap-6  text-gray-500 mt-1">
+                        <div className="flex flex-wrap items-center gap-6 gap-y-3 text-gray-500 mt-1">
                 <div className="flex items-center gap-3">
                     <Eye size={18} /> {50} Views
                 </div>
@@ -57,8 +57,8 @@ export default function VolumeCardThesis({ paper, setActive, navigate }: { paper
             </div>
 
             {/* Actions */}
-            <div className="flex justify-between items-center mt-2">
-                <div className="flex gap-3 text-sm xl:text-base 2xl:text-lg text-primary font-medium">
+            <div className="flex flex-wrap justify-between items-center mt-2 gap-2 sm:gap-0">
+                <div className="w-full sm:w-fit flex gap-3 text-base sm:text-sm xl:text-base 2xl:text-lg text-primary font-medium my-3 sm:my-0">
                     <button
                         className="hover:underline border-r-2 pr-3"
                         onClick={() => navigate(`${endpoint}&section=FullArticle`)}
@@ -72,7 +72,7 @@ export default function VolumeCardThesis({ paper, setActive, navigate }: { paper
                         Full Text
                     </button>
                     <button
-                        className="hover:underline "
+                        className="hover:underline"
                         onClick={() => navigate(`${endpoint}&section=References`)}
                     >
                         References
@@ -80,9 +80,12 @@ export default function VolumeCardThesis({ paper, setActive, navigate }: { paper
                 </div>
                 <NavLink to={paper.paper_url} target="_blank">
                     <PrimaryBtn>
-                        View PDF <Download size={16} />
+                        Download PDF <Download size={16} />
                     </PrimaryBtn>
                 </NavLink>
+                <button onClick={HandleGoolge} className="sm:hidden text-base inline-flex items-center justify-center gap-2 text-primary border border-orange-400 px-3 py-1" style={{ borderRadius: 9999 }}>
+                    <SearchIcon className="w-5" /> Google
+                </button>
             </div>
         </div>
     )
