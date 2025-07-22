@@ -28,7 +28,6 @@ type TabOption = "FullArticle" | "References" | "Citations" | "Metrics" | "Licen
 
 const ConferenceDetails = () => {
   const dtitle = useRef<HTMLHeadingElement>(null)
-  const ddes = useRef<HTMLHeadingElement>(null)
   const searchQuery = useSearchParams();
   const [currentItem, setCurrentItem] = useState<TabOption>(searchQuery[0].get("section")?.replace("-", " ") as TabOption || "FullArticle")
   const id = searchQuery[0].get("paperid")
@@ -69,7 +68,7 @@ const ConferenceDetails = () => {
     return <Loading title="Paper Details" />
   }
   return (
-    <MetaDataWrapper titleDynamic={activePaper.title ?? dtitle.current?.innerText} desciptionDynamic={activePaper.designation ?? ddes.current?.innerText}>
+    <MetaDataWrapper titleDynamic={activePaper.title ?? dtitle.current?.innerText} desciptionDynamic={activePaper.abstract?.split(".")[0]}>
       <div className="mx-auto  bg-white space-y-3 sm:space-y-6 p-2 sm:p-5">
         {/* Header + PDF Button */}
         <div className="flex justify-between items-start">
@@ -115,7 +114,7 @@ const ConferenceDetails = () => {
               )
             }
           </ul> */}
-          <h2 id="ddis" ref={ddes} className="italic">
+          <h2 className="italic">
             {superscriptifyAllNumbers(activePaper?.designation ?? "")}
           </h2>
           {/* <h3 className="font-medium">Published Online: {activePaper?.created_at.split("T")[0]}</h3> */}

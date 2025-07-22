@@ -6,7 +6,7 @@ import { VscFilePdf } from "react-icons/vsc";
 function FullArtical({ content, pdf_url }: { content: string, pdf_url: string }) {
   return (
     <section>
-      <div className="space-y-3 text-sm xl:text-base 2xl:text-lg text-gray-700 leading-relaxed">
+      <div id="ddis" className="space-y-3 text-sm xl:text-base 2xl:text-lg text-gray-700 leading-relaxed">
         <div className="flex justify-between items-center">
 
           <h3 className="font-medium text-base xl:text-xl 2xl:text-3xl">Abstract</h3>
