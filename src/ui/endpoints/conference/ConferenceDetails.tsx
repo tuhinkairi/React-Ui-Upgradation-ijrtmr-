@@ -1,6 +1,6 @@
 import { Share2 } from "lucide-react";
 import { IoReload } from "react-icons/io5";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../../lib/store/store";
@@ -27,6 +27,8 @@ import useDimensionsBadge from "../../components/cards/plumx/useDimensionsBadge"
 type TabOption = "FullArticle" | "References" | "Citations" | "Metrics" | "Licensing";
 
 const ConferenceDetails = () => {
+  const dtitle = useRef<HTMLHeadingElement>(null)
+  const ddes = useRef<HTMLHeadingElement>(null)
   const searchQuery = useSearchParams();
   const [currentItem, setCurrentItem] = useState<TabOption>(searchQuery[0].get("section")?.replace("-", " ") as TabOption || "FullArticle")
   const id = searchQuery[0].get("paperid")
@@ -56,7 +58,7 @@ const ConferenceDetails = () => {
           }
         })
       }
-      if(activePaper?.title) dispatch(setLoading(false))
+      dispatch(setLoading(false))
     } else {
       dispatch(setLoading(false))
       navigate("/conference")
@@ -67,12 +69,12 @@ const ConferenceDetails = () => {
     return <Loading title="Paper Details" />
   }
   return (
-    <MetaDataWrapper titleDynamic={activePaper.title} desciptionDynamic={activePaper.designation ?? ""}>
+    <MetaDataWrapper titleDynamic={activePaper.title ?? dtitle.current?.innerText} desciptionDynamic={activePaper.designation ?? ddes.current?.innerText}>
       <div className="mx-auto  bg-white space-y-3 sm:space-y-6 p-2 sm:p-5">
         {/* Header + PDF Button */}
         <div className="flex justify-between items-start">
           <div>
-            <h2 className="text-2xl xl:text-3xl font-medium leading-snug font-serif text-primary">
+            <h2 ref={dtitle} className="text-2xl xl:text-3xl font-medium leading-snug font-serif text-primary">
               {activePaper?.title}
             </h2>
           </div>
@@ -113,7 +115,7 @@ const ConferenceDetails = () => {
               )
             }
           </ul> */}
-          <h2 className="italic">
+          <h2 ref={ddes} className="italic">
             {superscriptifyAllNumbers(activePaper?.designation ?? "")}
           </h2>
           {/* <h3 className="font-medium">Published Online: {activePaper?.created_at.split("T")[0]}</h3> */}

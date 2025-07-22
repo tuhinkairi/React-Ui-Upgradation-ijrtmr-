@@ -1,6 +1,6 @@
 import { Share2 } from "lucide-react";
 import { IoReload } from "react-icons/io5";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import FullArtical from "./FullArtical";
 import RelatedArticles from "../components/RelatedArticals";
 import References from "./References";
@@ -26,6 +26,8 @@ import useDimensionsBadge from "../../../components/cards/plumx/useDimensionsBad
 type TabOption = "FullArticle" | "References" | "Citations" | "Metrics" | "Licensing";
 
 const ArticleDetails = () => {
+  const dtitle = useRef<HTMLHeadingElement>(null)
+  const ddes = useRef<HTMLHeadingElement>(null)
   const searchQuery = useSearchParams();
   const id = searchQuery[0].get("paperid")
   const [currentItem, setCurrentItem] = useState<TabOption>(searchQuery[0].get("section")?.replace("-", " ") as TabOption || "FullArticle")
@@ -54,24 +56,24 @@ const ArticleDetails = () => {
           }
         })
       }
-      if(activePaper?.paper_title) dispatch(setLoading(false))
+      dispatch(setLoading(false))
     } else {
       dispatch(setLoading(false))
       navigate("/archives")
     }
-    
+
   }, [navigate, activePaper, id, dispatch, ActiveArticle])
 
   if (loading || !activePaper) {
     return <Loading title="Paper Details" />
   }
   return (
-    <MetaDataWrapper titleDynamic={activePaper.paper_title} desciptionDynamic={activePaper.paper_designation?.split(".")[0]}>
+    <MetaDataWrapper titleDynamic={dtitle.current?.innerText ?? activePaper.paper_title} desciptionDynamic={ddes.current?.innerText?? activePaper.paper_designation?.split(".")[0]}>
       <div className="mx-auto  bg-white space-y-3 sm:space-y-6 p-2 sm:p-5">
         {/* Header + PDF Button */}
         <div className="flex justify-between items-start">
           <div>
-            <h2 className="text-2xl xl:text-3xl font-medium leading-snug font-serif text-primary">
+            <h2 ref={dtitle} className="text-2xl xl:text-3xl font-medium leading-snug font-serif text-primary">
               {activePaper?.paper_title}
             </h2>
           </div>
@@ -100,7 +102,7 @@ const ArticleDetails = () => {
             )
           }
         </ul> */}
-          <h2 className=" italic">
+          <h2 ref={ddes} className=" italic">
             {superscriptifyAllNumbers(activePaper?.paper_designation ?? "")}
           </h2>
           {/* <h3 className="font-medium">Published Online: {activePaper.created_at.split("T")[0] ?? activePaper.created_at}</h3> */}
@@ -120,9 +122,9 @@ const ArticleDetails = () => {
               to={activePaper?.paper_doi ?? window.location.href}
               className="text-primary flex items-center gap-1 hover:underline text-sm xl:text-base 2xl:text-lg wrap-anywhere sm:whitespace-nowrap"
             >
-              ↗ {activePaper?.paper_doi && activePaper?.paper_doi.length>5 ? activePaper?.paper_doi: "No Doi daf" }
-            </Link>:
-            <span className="text-primary flex items-center gap-1 hover:underline text-sm xl:text-base 2xl:text-lg wrap-anywhere sm:whitespace-nowrap">No Doi</span>
+              ↗ {activePaper?.paper_doi && activePaper?.paper_doi.length > 5 ? activePaper?.paper_doi : "No Doi daf"}
+            </Link> :
+              <span className="text-primary flex items-center gap-1 hover:underline text-sm xl:text-base 2xl:text-lg wrap-anywhere sm:whitespace-nowrap">No Doi</span>
             }
           </div>
 
