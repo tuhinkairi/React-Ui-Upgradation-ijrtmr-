@@ -4,7 +4,7 @@ const ArchiveBtn = ({ label, href, className, icon}: { label:string | React.Reac
   return (
     <Link
       to={href}
-      
+      target='_blank'
       download
       className={`flex justify-between items-center w-full px-5 py-3 text-white font-medium rounded-md bg-gradient-to-b from-[#FF8C42] to-[#995428] hover:from-[#fae0d0] hover:to-[#fae0d0] hover:text-primary-text transition ${className} `}
     >

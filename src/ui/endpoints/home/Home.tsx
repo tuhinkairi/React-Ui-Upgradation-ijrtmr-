@@ -35,10 +35,10 @@ export default function Home() {
         <WhyPublishWithUs />
         {/* <PublishProcess /> */}
         <AuthorFeaturesGrid />
+      {/* <EditorialFeatures /> */}
       </WrapperLayout>
       <IJSREATFeaturesSection />
       {/* <WhyChooseIJSREAT /> */}
-      {/* <EditorialFeatures /> */}
       <EditorialManagement />
       <IndexingPartners />
       <SubmitPaperSection />

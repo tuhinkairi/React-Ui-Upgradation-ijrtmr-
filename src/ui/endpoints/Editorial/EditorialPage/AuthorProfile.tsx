@@ -57,13 +57,13 @@ export default function AuthorProfile({ member }: { member: EditorialMember | nu
 
 
       <div className='sm:hidden sm:col-span-2 lg:col-span-1 space-y-6 mx-auto sm:mx-0'>
-        <img loading='lazy' 
-src={member?.member_image_url} className='w-full  rounded-2xl  aspect-square object-cover max-w-60 mx-auto' alt="img" />
+        <img loading='lazy'
+          src={member?.member_image_url} className='w-full  rounded-2xl  aspect-square object-cover max-w-60 mx-auto' alt="img" />
         <div className='socials grid grid-cols-2 items-center justify-center gap-2 gap-y-6'>
           {member?.member_linkedin && <Link to={member?.member_linkedin}>
             <span className='flex-col flex items-center justify-center gap-2'>
-              <img loading='lazy' 
-src="/editorial/board/linkedin.webp" className='w-10' alt="linkedin" />
+              <img loading='lazy'
+                src="/editorial/board/linkedin.webp" className='w-10' alt="linkedin" />
               <span className='text-[15px] text-[#2f2f2f]'>LinkedIn</span>
             </span>
           </Link>}
@@ -80,12 +80,15 @@ src="/editorial/board/linkedin.webp" className='w-10' alt="linkedin" />
             </p>
           </div> */}
         {member.member_publication_list.split(".").map((pub, idx) => (
-          <ul key={idx} className="flex items-start gap-2 list-inside list-decimal text-shadow">
-            <li>
-              {pub}
-            </li>
-          </ul>
+          pub.trim().length > 300 && (
+            <ul key={idx} className="flex items-start gap-2 list-inside list-decimal text-shadow">
+              <li>
+                {pub}.
+              </li>
+            </ul>
+          )
         ))}
+        {/* <p>{member.member_publication_list}</p> */}
         <div className="sm:hidden w-full">
           <ResearchAreaCard des={member?.member_researcharea.split(",") || ''} />
         </div>
