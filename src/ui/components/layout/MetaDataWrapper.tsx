@@ -18,7 +18,7 @@ const MetaDataWrapper = ({ children, titleDynamic, desciptionDynamic }: { childr
     if (location.pathname)
       // Set <title>
       if (title) {
-        const detialsSectionTitle = desciptionDynamic ?? document.getElementById("ddis")?.innerText
+        const detialsSectionTitle = desciptionDynamic ?? document.getElementById("dtitle")?.innerText
         document.title = detialsSectionTitle ?? title;
       }
 
