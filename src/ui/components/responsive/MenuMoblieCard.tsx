@@ -4,7 +4,7 @@ import { about_menu, auther_menu, thesis_menu } from "../../../data/listingSecti
 
 const MenuMoblieCard = ({ onClose }: { onClose: () => void }) => {
     return (
-        <div className="fixed inset-0 bg-white z-50 p-6 overflow-y-auto">
+        <div className="fixed inset-0 bg-white z-[9999] p-6 overflow-y-auto">
             {/* Close Button */}
             <div className="flex justify-end">
                 <button onClick={onClose} className="p-2">
