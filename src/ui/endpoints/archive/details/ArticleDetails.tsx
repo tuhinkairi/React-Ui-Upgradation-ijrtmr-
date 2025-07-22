@@ -43,20 +43,23 @@ const ArticleDetails = () => {
   // functions
   useDimensionsBadge()
   useEffect(() => {
+    dispatch(setLoading(true))
     if (id) {
       if (activePaper?.paper_id !== parseInt(id)) {
 
         FetchActiveArticle({ paperid: id }).then((data) => {
-          dispatch(setLoading(true))
           if (data) {
             dispatch(setActivePaper(data))
             setPaper(data)
           }
-        }).finally(() => {
-          dispatch(setLoading(false))
         })
       }
-    } else navigate("/archives")
+      dispatch(setLoading(false))
+    } else {
+      dispatch(setLoading(false))
+      navigate("/archives")
+    }
+    
   }, [navigate, activePaper, id, dispatch, ActiveArticle])
 
   if (loading || !activePaper) {

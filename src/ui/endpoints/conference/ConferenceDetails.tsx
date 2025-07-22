@@ -45,20 +45,22 @@ const ConferenceDetails = () => {
   useDimensionsBadge()
   // functions
   useEffect(() => {
+    dispatch(setLoading(true))
     if (id) {
       if (activePaper?.id !== parseInt(id)) {
         // fetch conference here
         FetchActiveConference({ id: id }).then((data) => {
-          dispatch(setLoading(true))
           if (data) {
             dispatch(setActiveConference(data))
             setPaper(data)
           }
-        }).finally(() => {
-          dispatch(setLoading(false))
         })
       }
-    } else navigate("/conference")
+      dispatch(setLoading(false))
+    } else {
+      dispatch(setLoading(false))
+      navigate("/conference")
+    }
   }, [navigate, activePaper, dispatch, id])
 
   if (loading || !activePaper) {

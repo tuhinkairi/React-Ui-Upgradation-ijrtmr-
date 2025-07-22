@@ -26,6 +26,9 @@ export default function TickerBar() {
             <span className="px-4">
               Calling all experts: With high demand for submissions, IPN invites you to join as a reviewer and contribute to advancing research.
             </span>
+            <span className="px-4">
+              Call for paper volume 5 issue 4 2025 , UGC-CARE Discontinue form Feb'25
+            </span>
           </div>
         </div>
       </div>
