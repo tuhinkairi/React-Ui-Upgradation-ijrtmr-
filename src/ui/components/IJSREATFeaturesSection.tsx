@@ -1,7 +1,7 @@
 // components/IJSREATFeaturesSection.tsx
 
 import { CheckCircle } from 'lucide-react'; // or use your own SVGs
-import Title2 from '../other/Title2';
+import Title2h2 from '../other/Title2h2';
 
 const features = [
   "Peer-reviewed Referred Journal",
@@ -24,7 +24,7 @@ export default function IJSREATFeaturesSection() {
         {/* Features List */}
         <div>
           {/* <h2 className="text-2xl md:text-3xl font-semibold text-dark mb-4">IJSREAT Features</h2> */}
-          <Title2 className='mb-4'>IJSREAT Features</Title2>
+          <Title2h2 className='mb-4'>IJSREAT Features</Title2h2>
           <ul className="space-y-4">
             {features.map((item, index) => (
               <li key={index} className="flex items-start gap-3 text-gray-700 text-base 2xl:text-base">

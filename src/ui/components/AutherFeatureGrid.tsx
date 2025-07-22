@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
-import Title2 from '../other/Title2';
 import AuthorFeatureCard from './cards/AutherFeatureCard';
 import { Archive, Book} from 'lucide-react';
 import { GrStatusGood } from 'react-icons/gr';
 import { MdOutlinePublish, MdPayments } from 'react-icons/md';
 import { FaUserTie } from 'react-icons/fa6';
+import Title2h2 from '../other/Title2h2';
 
 const features = [
   {
@@ -55,7 +55,7 @@ export default function AuthorFeaturesGrid() {
   return (
     <div className="mt-8">
       {/* <h2 className="text-3xl font-semibold text-gray-900 mb-6">For Authors</h2> */}
-      <Title2 className='mb-6'>For Authors</Title2>
+      <Title2h2 className='mb-6'>For Authors</Title2h2>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-5 md:gap-10">
         {features.map((feature, idx) => (
           <Link to={feature?.endpoint??""}>

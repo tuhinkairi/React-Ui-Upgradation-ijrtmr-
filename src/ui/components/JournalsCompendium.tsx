@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import CompodiumCard from "./cards/CompodiumCard";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import Title2 from "../other/Title2";
+import Title2h2 from "../other/Title2h2";
 
 const journals = [
   { code: 'IJIRE', title: 'International Journal of Innovative Research in Engineering', eIssn: '2582-8746', publicationMonths: 'Bimonthly (Feb, Apr, Jun, Aug, Oct, Dec)', url: 'https://www.theijire.com/', className:"bg-cyan-50" },
@@ -44,9 +44,9 @@ const JournalsCompendium = () => {
 
   return (
     <section className="px-6 lg:px-24  bg-white text-center">
-      <Title2 className="-mb-2 sm:mb-0">
+      <Title2h2 className="-mb-2 sm:mb-0">
         Our Compendium of Other Journals
-      </Title2>
+      </Title2h2>
       {/* <h2 className="text-2xl md:text-3xl font-semibold text-dark mb-2">
         Our Compendium of Journals
       </h2> */}

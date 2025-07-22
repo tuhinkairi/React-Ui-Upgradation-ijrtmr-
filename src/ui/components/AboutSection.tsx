@@ -1,4 +1,4 @@
-import Title2 from "../other/Title2";
+import Title2h2 from "../other/Title2h2";
 
 export default function AboutSection() {
   return (
@@ -13,7 +13,7 @@ src="./aboutHome.webp" className="w-full max-w-md 2xl:max-w-xl" alt="about image
         {/* Text Content */}
         <div className="w-full md:w-1/2">
           {/* <h2 className="text-3xl font-semibold text-primaryText mb-4">Welcome to IJSREAT</h2> */}
-          <Title2>Welcome to IJSREAT</Title2>
+          <Title2h2>Welcome to IJSREAT</Title2h2>
           <p className="text-secondaryText mb-4 text-sm xl:text-base 2xl:text-lg leading-relaxed mt-6">
             International Journal of Scientific Research in Engineering & Technology is (e-ISSN: 2583-1240) Bi-monthly, international peer-reviewed, open-access and multidisciplinary online journal published for the enhancement of research in various disciplines of Science, Engineering &Technologies.
           </p>

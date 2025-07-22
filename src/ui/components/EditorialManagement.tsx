@@ -1,5 +1,5 @@
 import { Eye, FileText, Lock } from "lucide-react"; // Swap with your icons or use image paths
-import Title2 from "../other/Title2";
+import Title2h2 from "../other/Title2h2";
 
 const editorialData = [
   {
@@ -41,9 +41,9 @@ export default function EditorialManagement() {
         {/* <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-2">
           Advanced Editorial Management
         </h2> */}
-        <Title2>
+        <Title2h2>
           Advanced Editorial Management
-        </Title2>
+        </Title2h2>
         <p className="text-gray-600 mt-2">
           Our state-of-the-art platform provides complete transparency and control throughout the publication process
         </p>
@@ -56,7 +56,7 @@ export default function EditorialManagement() {
             className="bg-white rounded-xl border border-gray-200 shadow-md p-6 flex flex-col text-left"
           >
             <div className="mb-4">{item.icon}</div>
-            <h2 className="font-semibold text-lg  2xl:text-lg text-gray-900 mb-2">{item.title}</h2>
+            <h3 className="font-semibold text-lg  2xl:text-lg text-gray-900 mb-2">{item.title}</h3>
             <p className="text-gray-700 text-sm 2xl:text-base mb-3">{item.desc}</p>
             <ul className="list-disc pl-5 text-gray-600 text-sm 2xl:text-base space-y-1">
               {item.bullets.map((bullet, j) => (

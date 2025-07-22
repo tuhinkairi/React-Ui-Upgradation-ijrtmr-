@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
-import Title2 from "../other/Title2";
+import Title2h2 from "../other/Title2h2";
 
 const faqData = [
   {
@@ -39,9 +39,9 @@ const FAQAccordion = () => {
       {/* <h2 className="text-2xl sm:text-3xl font-semibold text-center text-dark mb-8">
         Frequently Asked Questions
       </h2> */}
-      <Title2 className="text-center">
+      <Title2h2 className="text-center">
         Frequently Asked Questions
-      </Title2>
+      </Title2h2>
       <div className="divide-y divide-gray-200 space-y-5 mt-4 sm:mt-8">
         {faqData.map((item, idx) => (
           <div key={idx} className="py-4 px-5 cursor-pointer border-b border-gray-300 text-base sm:text-lg">
@@ -49,9 +49,9 @@ const FAQAccordion = () => {
               onClick={() => toggleIndex(idx)}
               className="flex justify-between items-center "
             >
-              <h1 className="text-primary-text font-medium w-[90%] text-lg 2xl:text-xl">
+              <h2 className="text-primary-text font-medium w-[90%] text-lg 2xl:text-xl">
                 {item.question}
-              </h1>
+              </h2>
               {activeIndex === idx ? (
                 <ChevronUp className="w-5 h-5 text-gray-600" />
               ) : (

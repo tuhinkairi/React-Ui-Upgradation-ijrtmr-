@@ -2,7 +2,7 @@ import React, { useCallback, useEffect } from 'react';
 import fetchIndex from '../../lib/axios/api/fetch-index';
 import type { Indexing } from '../../types/UI';
 import { Link } from 'react-router-dom';
-import Title2 from '../other/Title2';
+import Title2h2 from '../other/Title2h2';
 
 const IndexingPartners: React.FC = () => {
   const [indexData, setIndexData] = React.useState<Indexing[]>();
@@ -22,7 +22,7 @@ const IndexingPartners: React.FC = () => {
   return (
     <section className="py-12 pt-8 px-6 lg:px-16 bg-white text-center">
       {/* <h2 className="text-2xl md:text-3xl font-semibold  mb-16">Indexing And Abstracting</h2> */}
-      <Title2 className='mb-16'>Indexing And Abstracting</Title2>
+      <Title2h2 className='mb-16'>Indexing And Abstracting</Title2h2>
       <div className="overflow-hidden whitespace-nowrap">
         <div className="animate-marquee inline-block">
           {indexData && indexData.map((partner, idx) => (

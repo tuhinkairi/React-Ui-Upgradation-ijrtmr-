@@ -1,4 +1,4 @@
-import Title2 from "../other/Title2";
+import Title2h2 from "../other/Title2h2";
 
 const features = [
   {
@@ -55,9 +55,9 @@ export default function WhyPublishWithUs() {
         {/* <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-2">
           Why Publish With IJSREAT?
         </h2> */}
-        <Title2>
+        <Title2h2>
           Why Publish With IJSREAT?
-        </Title2>
+        </Title2h2>
         <p className="text-gray-600 mb-10">
           We combine academic excellence with efficient processes to maximize your research impact beyond academia
         </p>
