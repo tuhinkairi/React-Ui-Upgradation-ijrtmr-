@@ -58,7 +58,7 @@ export default function Blog() {
 
         return Array.from({ length: endPage - startPage + 1 }, (_, i) => startPage + i);
     };
-    if (loading) {
+    if (loading || BlogList.length === 0) {
         return <Loading />
     }
     return (

@@ -11,7 +11,6 @@ import conference_categories, { searchConference } from "../../../lib/axios/api/
 import { setActiveConference } from "../../../lib/store/Features/conferenceSlice";
 import { getConferenceDetails } from "../../../lib/utils/conference/conferenceFunctions";
 import Loading from "../../components/Loading";
-import { setLoading } from "../../../lib/store/Features/loadingSlice";
 import { setCurrentPage } from "../../../lib/store/Features/paginationSlice";
 import { setActiveConferenceArticle } from "../../../lib/store/Features/conferenceDetailseSlice";
 import type { activeSection } from "../../../types/UI";
@@ -33,9 +32,10 @@ import MetaDataWrapper from "../../components/layout/MetaDataWrapper";
 
 export default function ArchiveVolumes({ active }: activeSection) {
   const navigate = useNavigate()
+  const [loadingState, setLoadingState] = useState<boolean>(false); 
   const url = useLocation().pathname;
   const dispatch = useAppDispatch();
-  const loading = useAppSelector((state) => state.loadingScreen.loading)
+  // const loading = useAppSelector((state) => state.loadingScreen.loading)
   const activeConferencePage = useAppSelector((state) => state.conference.active); //single card detials
   const ArchiveIndex = useAppSelector((state) => state.archiveSection.activeIndexPage); //single card detials
   const [activeArchiveIndex, setActiveArchiveIndex] = useState<ActiveIndexArchive | null>(ArchiveIndex); //single card detials
@@ -69,6 +69,13 @@ export default function ArchiveVolumes({ active }: activeSection) {
 
   const [pageNumber, setPageNumber] = useState<number>(1);
   const [trackPage, setTrackPage] = useState<number>(1);
+  
+  // Reset trackPage and pageNumber when switching sections
+  useEffect(() => {
+    setTrackPage(1);
+    setPageNumber(1);
+  }, [active]);
+
   const getVisiblePages = () => {
     const maxVisible = 5;
     if (totalPage <= maxVisible) {
@@ -88,6 +95,21 @@ export default function ArchiveVolumes({ active }: activeSection) {
     }
 
     return Array.from({ length: endPage - startPage + 1 }, (_, i) => startPage + i);
+  };
+
+  // Simplified pagination condition check
+  const shouldShowPagination = (sectionType: string) => {
+    switch (sectionType) {
+      case 'conference':
+        return ConferenceVolumesSearch === null && totalPage > 1;
+      case 'archive':
+      case 'issue':
+        return ArticalVolumesSearch === null && totalPage > 1;
+      case 'thesis':
+        return ThesisVolumesSearch === null && totalPage > 1;
+      default:
+        return false;
+    }
   };
 
   // setting active papers
@@ -123,18 +145,21 @@ export default function ArchiveVolumes({ active }: activeSection) {
           if (response.papersList) {
             setThesisVolumes(response.papersList);
             dispatch(setThesisList(response.papersList));
+            
+            // Update trackPage AFTER successful fetch
+            setTrackPage(pageNumber);
+            dispatch(setCurrentPage(pageNumber));
           }
-          setTrackPage(pageNumber);
-          dispatch(setCurrentPage(pageNumber));
           //console.log("Thesis data fetched");
         }
       }
     } catch (err) {
       console.error("Error fetching thesis data:", err);
+      // Don't update trackPage on error to allow retry
     }
   }, [activeThesisIndex, pageNumber, dispatch, trackPage, ThesisVolumes, navigate, perPage, ThesisIndex]);
 
-  // set volumes based on active state
+  // set volumes based on active state - FIXED VERSION
   const fetchConferenceData = useCallback(async () => {
     try {
       // going through 1 by 1 condition
@@ -154,12 +179,16 @@ export default function ArchiveVolumes({ active }: activeSection) {
         };
         if (ConferenceVolumes.length === 0 || trackPage !== pageNumber) {
           await getConferenceDetails(params, setConferenceVolumes, dispatch, ConferenceVolumes)
-          //console.log("fin")
+          
+          // Update trackPage AFTER successful fetch
+          setTrackPage(pageNumber);
           dispatch(setCurrentPage(pageNumber));
+          //console.log("fin")
         }
       }
     } catch (err) {
-      console.error(err);
+      console.error("Error fetching conference data:", err);
+      // Don't update trackPage on error to allow retry
     }
   }, [activeConferencePage, pageNumber, dispatch, url, trackPage, ConferenceVolumes]);
 
@@ -176,35 +205,49 @@ export default function ArchiveVolumes({ active }: activeSection) {
           volume: parseInt(activeArchiveIndex.volume),
           issue: parseInt(activeArchiveIndex.issue),
           page: trackPage,
-          per_page: perPage
+          per_page: 5
         }
         if (ArticalVolumes.length === 0 || trackPage !== pageNumber || activeArchiveIndex?.year === ArchiveIndex?.year || activeArchiveIndex?.volume === ArchiveIndex?.volume || activeArchiveIndex?.issue === ArchiveIndex?.issue) {
-          await getArticalDetails(params, setArticalVolumes, dispatch, ArticalVolumes)
           //console.log("fin")
           setTrackPage(pageNumber);
           dispatch(setCurrentPage(pageNumber));
           dispatch(setActiveIndexVolume(activeArchiveIndex));
           //console.log("condition", trackPage, pageNumber)
+          await getArticalDetails(params, setArticalVolumes, dispatch, ArticalVolumes)
         }
       }
     } catch (err) {
-      console.error(err);
+      console.error("Error fetching artical data:", err);
+      // trackPage is already updated above, but consider moving it after successful fetch
     }
-  }, [pageNumber, dispatch, trackPage, ArticalVolumes, activeArchiveIndex, navigate, perPage, ArchiveIndex, url]);
+  }, [pageNumber, dispatch, trackPage, ArticalVolumes, activeArchiveIndex, navigate, ArchiveIndex, url]);
 
-  // Move setup block to useEffect
+  // Move setup block to useEffect - UPDATED VERSION
   useEffect(() => {
-    dispatch(setLoading(true));
+    // Debug logging
+    // console.log('Pagination Debug:', {
+    //   active,
+    //   pageNumber,
+    //   trackPage,
+    //   totalPage,
+    //   volumesLength: {
+    //     conference: ConferenceVolumes.length,
+    //     archive: ArticalVolumes.length,
+    //     thesis: ThesisVolumes.length
+    //   }
+    // });
+
+    setLoadingState(true);
     switch (active) {
       case 'archive':
         //console.log("archive")
-        // const metaTitle = `2025 Volume 5 Issue 1 | International Journal | IJSREAT`
-
-        // setConferenceVolumes([]);
-
-        if (ArticalVolumes.length && activeArchiveIndex && ArchiveIndex && activeArchiveIndex?.year === ArchiveIndex?.year && activeArchiveIndex?.volume === ArchiveIndex?.volume && activeArchiveIndex?.issue === ArchiveIndex?.issue) {
+        if (ArticalVolumes.length && activeArchiveIndex && ArchiveIndex && 
+            activeArchiveIndex?.year === ArchiveIndex?.year && 
+            activeArchiveIndex?.volume === ArchiveIndex?.volume && 
+            activeArchiveIndex?.issue === ArchiveIndex?.issue &&
+            trackPage === pageNumber) { // Added trackPage check
           //console.log(activeArchiveIndex, ArchiveIndex, "running");
-          dispatch(setLoading(false));
+          setLoadingState(false);
         } else {
           if (!activeArchiveIndex) redirect("/archives")
           //console.log("fetching")
@@ -213,27 +256,33 @@ export default function ArchiveVolumes({ active }: activeSection) {
               title: `${activeArchiveIndex?.year} Volume ${activeArchiveIndex?.volume} Issue ${activeArchiveIndex?.issue} | International Journal | IJSREAT`,
               description: "Explore the IJSREAT archives for top research papers in engineering and technology. Access past volumes and stay updated with the latest innovations"
             })
-            dispatch(setLoading(false));
+            setLoadingState(false);
           })
         }
         break;
       case 'conference':
-        // run only if the volume size is 0
-        fetchConferenceData().finally(() => {
-          SetMetaData({
+        // Added trackPage check for conference
+        if (ConferenceVolumes.length && activeConferencePage?.id && trackPage === pageNumber) {
+          setLoadingState(false);
+        } else {
+          fetchConferenceData().finally(() => {
+            SetMetaData({
               title: `${activeConferencePage?.year} Volume ${activeConferencePage?.volume} Issue ${activeConferencePage?.issue} | International Journal | IJSREAT`,
               description: "Stay updated on IJSREAT conferences, events, and calls for papers. Join global experts in science and technology discussions."
             })
-          dispatch(setLoading(false));
-        })
+            setLoadingState(false);
+          })
+        }
         break;
       case 'issue':
         //console.log("current issue")
-        // setConferenceVolumes([]);
-
-        if (ArticalVolumes.length && activeArchiveIndex && ArchiveIndex && activeArchiveIndex?.year === ArchiveIndex?.year && activeArchiveIndex?.volume === ArchiveIndex?.volume && activeArchiveIndex?.issue === ArchiveIndex?.issue) {
+        if (ArticalVolumes.length && activeArchiveIndex && ArchiveIndex && 
+            activeArchiveIndex?.year === ArchiveIndex?.year && 
+            activeArchiveIndex?.volume === ArchiveIndex?.volume && 
+            activeArchiveIndex?.issue === ArchiveIndex?.issue &&
+            trackPage === pageNumber) { // Added trackPage check
           //console.log(activeArchiveIndex, ArchiveIndex, "issue running");
-          dispatch(setLoading(false));
+          setLoadingState(false);
         } else {
           if (!activeArchiveIndex) redirect("/current-issue")
           //console.log("issue fetching")
@@ -242,21 +291,18 @@ export default function ArchiveVolumes({ active }: activeSection) {
               title: `${activeArchiveIndex?.year} Volume ${activeArchiveIndex?.volume} Issue ${activeArchiveIndex?.issue} | International Journal | IJSREAT`,
               description: "Explore the IJSREAT archives for top research papers in engineering and technology. Access past volumes and stay updated with the latest innovations"
             })
-            dispatch(setLoading(false));
+            setLoadingState(false);
           })
         }
         break;
       case 'thesis':
         //console.log("thesis");
-        // Clear other section data
-        // setConferenceVolumes([]);
-        // setArticalVolumes([]);
-
         if (ThesisVolumes.length && activeThesisIndex && ThesisIndex &&
-          activeThesisIndex?.year === ThesisIndex?.year &&
-          activeThesisIndex?.volume === ThesisIndex?.volume) {
+            activeThesisIndex?.year === ThesisIndex?.year &&
+            activeThesisIndex?.volume === ThesisIndex?.volume &&
+            trackPage === pageNumber) { // Added trackPage check
           //console.log(activeThesisIndex, ThesisIndex, "thesis running");
-          dispatch(setLoading(false));
+          setLoadingState(false);
         } else {
           if (!activeThesisIndex) redirect("/thesis")
 
@@ -266,16 +312,15 @@ export default function ArchiveVolumes({ active }: activeSection) {
               title: `${ThesisIndex?.year} Volume ${ThesisIndex?.volume} Issue ${activeArchiveIndex?.issue} | International Journal | IJSREAT`,
               description: "Explore the IJSREAT archives for top research papers in engineering and technology. Access past volumes and stay updated with the latest innovations"
             })
-            dispatch(setLoading(false));
+            setLoadingState(false);
           });
 
         }
         break;
       default:
-        // setConferenceVolumes([]);
-        dispatch(setLoading(false));
+        setLoadingState(false);
     }
-  }, [active, fetchConferenceData, dispatch, perPage, trackPage, fetchArticalData, ArticalVolumes, activeArchiveIndex, navigate, pageNumber, activeArchiveIndex?.year, activeArchiveIndex?.volume, activeArchiveIndex?.issue, ArchiveIndex, fetchThesisData, ThesisVolumes, activeThesisIndex, ThesisIndex,activeConferencePage]);
+  }, [active, pageNumber, trackPage, fetchConferenceData, dispatch, perPage, fetchArticalData, ArticalVolumes, activeArchiveIndex, navigate, activeConferencePage, fetchThesisData, ThesisVolumes, activeThesisIndex, ThesisIndex, ArchiveIndex, totalPage, ConferenceVolumes.length]);
 
   // search
   const [form, setForm] = useState<SearchProp>({ search: "", page: pageNumber, per_page: 100 })
@@ -283,35 +328,35 @@ export default function ArchiveVolumes({ active }: activeSection) {
     e.preventDefault();
     if (form.search === "") return
     // Implement your search logic here
-    dispatch(setLoading(true))
+    setLoadingState(true)
     //console.log(form)
     switch (active) {
       case "archive":
         searchArchive(form).then((data) => {
           const tempo = data ? data : []
           setArticalVolumesSearch(tempo)
-        }).finally(() => dispatch(setLoading(false)))
+        }).finally(() => setLoadingState(false))
         setForm({ ...form, search: "" })
         break
       case "conference":
         searchConference(form).then((data) => {
           const tempo = data ? data : []
           setConferenceVolumesSearch(tempo)
-        }).finally(() => dispatch(setLoading(false)))
+        }).finally(() => setLoadingState(false))
         setForm({ ...form, search: "" })
         break
       case "thesis":
         searchThesis(form).then((data) => {
           const tempo = data ? data : []
           setThesisVolumesSearch(tempo)
-        }).finally(() => dispatch(setLoading(false)))
+        }).finally(() => setLoadingState(false))
         setForm({ ...form, search: "" })
         break
       case "issue":
         searchArchive(form).then((data) => {
           const tempo = data ? data : []
           setArticalVolumesSearch(tempo)
-        }).finally(() => dispatch(setLoading(false)))
+        }).finally(() => setLoadingState(false))
         setForm({ ...form, search: "" })
         break
     }
@@ -320,7 +365,7 @@ export default function ArchiveVolumes({ active }: activeSection) {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
   // component return
-  if (useAppSelector((state) => state.loadingScreen.loading)) return <Loading title="Volumes" />
+  if (loadingState) return <Loading title="Volumes" />
 
 
   return (
@@ -385,7 +430,7 @@ export default function ArchiveVolumes({ active }: activeSection) {
         </form>
 
         {/* Paper Cards */}
-        {(trackPage === pageNumber || !loading) ?
+        {(trackPage === pageNumber || !loadingState) ?
           <div className="space-y-6">
             <>
               {/* archive */}
@@ -450,39 +495,17 @@ export default function ArchiveVolumes({ active }: activeSection) {
           <Loading title="Volume Pages" />
         }
 
-        {/* Pagination */}
-        {active == "conference" && ConferenceVolumesSearch === null && <div className="mt-16">
-          <Pagination
-            currentPage={pageNumber}
-            totalPages={totalPage}
-            onPageChange={setPageNumber}
-            rangeList={getVisiblePages()}
-          />
-        </div>}
-        {active === "archive" && ArticalVolumesSearch === null && <div className="mt-16">
-          <Pagination
-            currentPage={pageNumber}
-            totalPages={totalPage}
-            onPageChange={setPageNumber}
-            rangeList={getVisiblePages()}
-          />
-        </div>}
-        {active === "issue" && ArticalVolumesSearch === null && <div className="mt-16">
-          <Pagination
-            currentPage={pageNumber}
-            totalPages={totalPage}
-            onPageChange={setPageNumber}
-            rangeList={getVisiblePages()}
-          />
-        </div>}
-        {active === "thesis" && ThesisVolumesSearch === null && <div className="mt-16">
-          <Pagination
-            currentPage={pageNumber}
-            totalPages={totalPage}
-            onPageChange={setPageNumber}
-            rangeList={getVisiblePages()}
-          />
-        </div>}
+        {/* Unified Pagination - SIMPLIFIED VERSION */}
+        {shouldShowPagination(active) && (
+          <div className="mt-16">
+            <Pagination
+              currentPage={pageNumber}
+              totalPages={totalPage}
+              onPageChange={setPageNumber}
+              rangeList={getVisiblePages()}
+            />
+          </div>
+        )}
       </div>
     </MetaDataWrapper>
 

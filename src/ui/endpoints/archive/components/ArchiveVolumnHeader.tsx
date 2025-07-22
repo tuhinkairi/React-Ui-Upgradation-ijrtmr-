@@ -6,7 +6,7 @@ import { GrFormNext, GrFormPrevious } from 'react-icons/gr'
 import { Link, redirect, useLocation } from 'react-router-dom'
 import type { ActiveIndexArchive, ArchiveIndexVolume, ThesisIndexingItem } from '../../../../types/Api'
 
-function ArchiveVolumnHeader({ isArchive, setArchiveIndex, ActiveVolumes, VolumeList }: { isArchive: boolean, setArchiveIndex: (arg: ActiveIndexArchive) => void, ActiveVolumes: ActiveIndexArchive | null, VolumeList: ArchiveIndexVolume[], ThesisVolumeList: ThesisIndexingItem[] }) {
+function ArchiveVolumnHeader({ isArchive, setArchiveIndex, ActiveVolumes, VolumeList }: { isArchive: boolean, setArchiveIndex: (arg: ActiveIndexArchive) => void, ActiveVolumes: ActiveIndexArchive | null, VolumeList?: ArchiveIndexVolume[], ThesisVolumeList?: ThesisIndexingItem[] }) {
     // const { activeIndexPage: ActiveVolumes, indexPage: VolumeList } = useAppSelector((state) => state.archiveSection)
     const path = useLocation().pathname
     const thesisState = path.includes("/thesis")
@@ -23,7 +23,7 @@ function ArchiveVolumnHeader({ isArchive, setArchiveIndex, ActiveVolumes, Volume
     const updateData = useCallback(() => {
         if (!ActiveVolumes) return redirect("/archives")
 
-        const dataVolume = VolumeList.find(volume => volume.year === ActiveVolumes.year)
+        const dataVolume = VolumeList && VolumeList.find(volume => volume.year === ActiveVolumes.year)
 
         if (dataVolume) {
             const issueList = dataVolume.volumes.map(({ issue }) => issue)
