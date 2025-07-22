@@ -126,7 +126,7 @@ function ArchiveVolumnHeader({
             <div className="flex flex-wrap sm:flex-nowrap justify-start items-center gap-2 text-base font-medium">
                 <div className='w-full sm:max-w-3/4 lg:max-w-5/6 flex items-center gap-2'>
                     <button onClick={handlePrevious}><GrFormPrevious className="text-primary-text text-2xl " /></button>
-                    <div className="flex justify-start w-full gap-2 overflow-auto" style={{ scrollbarWidth: 'thin' }}>
+                    <div className="flex justify-start w-full gap-x-5 gap-y-2 overflow-auto" style={{ scrollbarWidth: 'thin' }}>
                         {volumes.map((volume, idx) => (
                             <button
                                 key={idx}
