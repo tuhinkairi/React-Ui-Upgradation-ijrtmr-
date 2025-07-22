@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import getMetaData, { type metaData } from "../../../lib/utils/other/getMetaData";
 
-const MetaDataWrapper = ({ children,titleDynamic, desciptionDynamic }: { children: React.ReactNode, titleDynamic?:string, desciptionDynamic?:string }) => {
+const MetaDataWrapper = ({ children, titleDynamic, desciptionDynamic }: { children: React.ReactNode, titleDynamic?: string, desciptionDynamic?: string }) => {
   const location = useLocation();
 
   const metadata: metaData = getMetaData({
@@ -15,9 +15,12 @@ const MetaDataWrapper = ({ children,titleDynamic, desciptionDynamic }: { childre
   const charset = meta.charset || "utf-8";
 
   useEffect(() => {
-    if(location.pathname)
-    // Set <title>
-    if (title) document.title = titleDynamic ?? title;
+    if (location.pathname)
+      // Set <title>
+      if (title) {
+        const detialsSectionTitle = desciptionDynamic ?? document.getElementById("ddis")?.innerText
+        document.title = detialsSectionTitle ?? title;
+      }
 
     // Remove old meta tags
     const oldDescription = document.querySelector("meta[name='description']");
@@ -34,7 +37,9 @@ const MetaDataWrapper = ({ children,titleDynamic, desciptionDynamic }: { childre
     if (description) {
       const descTag = document.createElement("meta");
       descTag.name = "description";
-      descTag.content =desciptionDynamic ?? description;
+      // fetch content for the details section
+      const detialsSectionDis = desciptionDynamic ?? document.getElementById("ddis")?.innerText
+      descTag.content = detialsSectionDis ?? description;
       document.head.appendChild(descTag);
     }
 
@@ -57,8 +62,8 @@ const MetaDataWrapper = ({ children,titleDynamic, desciptionDynamic }: { childre
       canonicalLink.href = canonical;
       document.head.appendChild(canonicalLink);
     }
-    
-  }, [location.pathname, canonical,charset,description, keywords, title, titleDynamic, desciptionDynamic]); // Re-run on route change
+
+  }, [location.pathname, canonical, charset, description, keywords, title, titleDynamic, desciptionDynamic]); // Re-run on route change
 
   return <>{children}</>;
 };

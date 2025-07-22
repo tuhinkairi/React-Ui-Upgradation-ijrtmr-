@@ -73,7 +73,7 @@ const ArticleDetails = () => {
         {/* Header + PDF Button */}
         <div className="flex justify-between items-start">
           <div>
-            <h2 ref={dtitle} className="text-2xl xl:text-3xl font-medium leading-snug font-serif text-primary">
+            <h2 id="dtitle" ref={dtitle} className="text-2xl xl:text-3xl font-medium leading-snug font-serif text-primary">
               {activePaper?.paper_title}
             </h2>
           </div>
@@ -102,7 +102,7 @@ const ArticleDetails = () => {
             )
           }
         </ul> */}
-          <h2 ref={ddes} className=" italic">
+          <h2 id="ddis" ref={ddes} className=" italic">
             {superscriptifyAllNumbers(activePaper?.paper_designation ?? "")}
           </h2>
           {/* <h3 className="font-medium">Published Online: {activePaper.created_at.split("T")[0] ?? activePaper.created_at}</h3> */}
