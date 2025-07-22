@@ -56,7 +56,7 @@ const ConferenceDetails = () => {
           }
         })
       }
-      dispatch(setLoading(false))
+      if(activePaper?.title) dispatch(setLoading(false))
     } else {
       dispatch(setLoading(false))
       navigate("/conference")

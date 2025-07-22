@@ -54,7 +54,7 @@ const ArticleDetails = () => {
           }
         })
       }
-      dispatch(setLoading(false))
+      if(activePaper?.paper_title) dispatch(setLoading(false))
     } else {
       dispatch(setLoading(false))
       navigate("/archives")

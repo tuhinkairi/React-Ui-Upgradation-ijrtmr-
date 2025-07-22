@@ -13,23 +13,7 @@ const MetaDataWrapper = ({ children,titleDynamic, desciptionDynamic }: { childre
   const { canonical, title, description, meta } = metadata;
   const keywords = meta.name.keywords;
   const charset = meta.charset || "utf-8";
-  
-    useEffect(() => {
-    if (titleDynamic) {
-      document.title = titleDynamic;
-    }
-  }, [titleDynamic]); // Make sure this dependency is correct
 
-  useEffect(() => {
-    if (desciptionDynamic) {
-      // Update meta description
-      const metaDescription = document.querySelector('meta[name="description"]');
-      if (metaDescription) {
-        metaDescription.setAttribute('content', desciptionDynamic);
-      }
-    }
-  }, [desciptionDynamic]);
-  
   useEffect(() => {
     if(location.pathname)
     // Set <title>
