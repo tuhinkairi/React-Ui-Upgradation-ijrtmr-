@@ -6,7 +6,7 @@ export default function RecentConferenceCard() {
       <h3 className="text-center text-lg 2xl:text-xl capitalize font-semibold text-black mb-4">Recent Conferences</h3>
 
       <div className="text-sm 2xl:text-base  text-gray-800 space-y-1">
-        <p className="font-semibold">NCSEM 2025</p>
+        <p className="font-semibold">REACT-2025</p>
         <p className='text-paragraph'>Recent Advances in Civil Engineering and Technology-2025</p>
         <p className='text-paragraph'>Last Date: 25&26 June 2025</p>
       </div>
