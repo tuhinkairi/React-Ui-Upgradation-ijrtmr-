@@ -1,16 +1,16 @@
 
 const publications = [
   {
-    title: 'NLP Approaches for Bidirectional Translation Between Genderless and Gender-Defined Languages.',
-    id: 'FIF1234567',
+    title: 'Effect of Blood Cancer in Human',
+    id: '197',
   },
   {
-    title: 'Aquatic Habitat Flooded With Pathogenic Microbes Showing Diverse Antibiotic Resistance',
-    id: 'FIF1234567',
+    title: 'Smart Delivery Bot: An Autonomous Indoor Delivery System Using Embedded Technology',
+    id: '198',
   },
   {
-    title: 'Aquatic Habitat Flooded With Pathogenic Microbes Showing Diverse Antibiotic Resistance',
-    id: 'FIF1234567',
+    title: 'A Comparative Study of Machine Learning and Deep Learning Approaches For Hotel Booking Cancellation Prediction',
+    id: '199',
   },
 ];
 
