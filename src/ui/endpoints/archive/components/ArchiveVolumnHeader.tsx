@@ -63,6 +63,7 @@ function ArchiveVolumnHeader({
         updateData()
     }, [updateData]);
 
+    // volume handel
     const handleVolumeClick = useCallback((volume: string) => {
         setActive(volume);
         const year = volume.split(" ")[2].split("(")[1].split(")")[0];
@@ -77,13 +78,6 @@ function ArchiveVolumnHeader({
             setArchiveIndex({ volume: vol, issue: currentIssue, year });
         }
     }, [currentIssue, setArchiveIndex, thesisState]);
-
-    const handleIssueClick = useCallback((issue: string) => {
-        setActiveIssue(issue);
-        const iss = issue.split(" ")[1];
-        setCurrentIssue(iss);
-        setArchiveIndex({ volume: currentVolume, issue: iss, year: currentYear });
-    }, [currentVolume, currentYear, setArchiveIndex]);
 
     const handlePrevious = useCallback(() => {
         const currentIndex = volumes.indexOf(active)
@@ -102,7 +96,15 @@ function ArchiveVolumnHeader({
             handleVolumeClick(newVolume)
         }
     }, [volumes, active, handleVolumeClick])
-
+    
+    // volume handel
+    const handleIssueClick = useCallback((issue: string) => {
+        setActiveIssue(issue);
+        const iss = issue.split(" ")[1];
+        setCurrentIssue(iss);
+        setArchiveIndex({ volume: currentVolume, issue: iss, year: currentYear });
+    }, [currentVolume, currentYear, setArchiveIndex]);
+    
     const handlePreviousIssue = useCallback(() => {
         const currentIndex = issues.indexOf(activeIssue)
         const newIndex = issues[currentIndex - 1]

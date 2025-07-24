@@ -32,7 +32,7 @@ import Titleh2 from "../../other/Titleh2";
 
 export default function ArchiveVolumes({ active }: activeSection) {
   const navigate = useNavigate()
-  const [loadingState, setLoadingState] = useState<boolean>(false); 
+  const [loadingState, setLoadingState] = useState<boolean>(false);
   const url = useLocation().pathname;
   const dispatch = useAppDispatch();
   // const loading = useAppSelector((state) => state.loadingScreen.loading)
@@ -69,7 +69,7 @@ export default function ArchiveVolumes({ active }: activeSection) {
 
   const [pageNumber, setPageNumber] = useState<number>(1);
   const [trackPage, setTrackPage] = useState<number>(1);
-  
+
   // Reset trackPage and pageNumber when switching sections
   useEffect(() => {
     setTrackPage(1);
@@ -130,22 +130,22 @@ export default function ArchiveVolumes({ active }: activeSection) {
       if (!activeThesisIndex?.year || !activeThesisIndex?.volume) {
         navigate("/thesis");
       } else {
-        const params: ThesisListingParams = {
-          thesis_year: parseInt(activeThesisIndex.year),
-          thesis_volume: parseInt(activeThesisIndex.volume),
-          page: pageNumber,
-          per_page: perPage
-        };
 
         if (ThesisVolumes.length === 0 || trackPage !== pageNumber ||
           activeThesisIndex?.year === ThesisIndex?.year ||
           activeThesisIndex?.volume === ThesisIndex?.volume) {
+          const params: ThesisListingParams = {
+            thesis_year: parseInt(activeThesisIndex.year),
+            thesis_volume: parseInt(activeThesisIndex.volume),
+            page: pageNumber,
+            per_page: perPage
+          };
           const response = await ThesisListing(params);
           //console.log("data ->", response.papersList)
           if (response.papersList) {
             setThesisVolumes(response.papersList);
             dispatch(setThesisList(response.papersList));
-            
+
             // Update trackPage AFTER successful fetch
             setTrackPage(pageNumber);
             dispatch(setCurrentPage(pageNumber));
@@ -172,14 +172,14 @@ export default function ArchiveVolumes({ active }: activeSection) {
         }
       }
       else {
-        const params = {
-          id: activeConferencePage.id,
-          page: pageNumber,
-          per_page: 5,
-        };
         if (ConferenceVolumes.length === 0 || trackPage !== pageNumber) {
+          const params = {
+            id: activeConferencePage.id,
+            page: pageNumber,
+            per_page: 5,
+          };
           await getConferenceDetails(params, setConferenceVolumes, dispatch, ConferenceVolumes)
-          
+
           // Update trackPage AFTER successful fetch
           setTrackPage(pageNumber);
           dispatch(setCurrentPage(pageNumber));
@@ -200,14 +200,19 @@ export default function ArchiveVolumes({ active }: activeSection) {
         if (url.includes("current-issue")) navigate("/current-issue"); else navigate("/archives")
       }
       else {
-        const params: ArchivePaperListtingArg = {
-          year: parseInt(activeArchiveIndex.year),
-          volume: parseInt(activeArchiveIndex.volume),
-          issue: parseInt(activeArchiveIndex.issue),
-          page: trackPage,
-          per_page: 5
-        }
         if (ArticalVolumes.length === 0 || trackPage !== pageNumber || activeArchiveIndex?.year === ArchiveIndex?.year || activeArchiveIndex?.volume === ArchiveIndex?.volume || activeArchiveIndex?.issue === ArchiveIndex?.issue) {
+          // update the issue and page for 2025
+          if (activeArchiveIndex.year === "2025" && parseInt(activeArchiveIndex.issue) > 3) {
+            setActiveArchiveIndex({...activeArchiveIndex,issue: "1"});
+            setPageNumber(1)
+          }
+          const params: ArchivePaperListtingArg = {
+            year: parseInt(activeArchiveIndex.year),
+            volume: parseInt(activeArchiveIndex.volume),
+            issue: parseInt(activeArchiveIndex.issue),
+            page: pageNumber,
+            per_page: 5
+          }
           //console.log("fin")
           setTrackPage(pageNumber);
           dispatch(setCurrentPage(pageNumber));
@@ -238,14 +243,16 @@ export default function ArchiveVolumes({ active }: activeSection) {
     // });
 
     setLoadingState(true);
+    // console.log(trackPage, pageNumber, "trackPage and pageNumber");
+    // console.log(activeIndexPage,"<- indexing parent");
     switch (active) {
       case 'archive':
         //console.log("archive")
-        if (ArticalVolumes.length && activeArchiveIndex && ArchiveIndex && 
-            activeArchiveIndex?.year === ArchiveIndex?.year && 
-            activeArchiveIndex?.volume === ArchiveIndex?.volume && 
-            activeArchiveIndex?.issue === ArchiveIndex?.issue &&
-            trackPage === pageNumber) { // Added trackPage check
+        if (ArticalVolumes.length && activeArchiveIndex && ArchiveIndex &&
+          activeArchiveIndex?.year === ArchiveIndex?.year &&
+          activeArchiveIndex?.volume === ArchiveIndex?.volume &&
+          activeArchiveIndex?.issue === ArchiveIndex?.issue &&
+          trackPage === pageNumber) { // Added trackPage check
           //console.log(activeArchiveIndex, ArchiveIndex, "running");
           setLoadingState(false);
         } else {
@@ -276,11 +283,11 @@ export default function ArchiveVolumes({ active }: activeSection) {
         break;
       case 'issue':
         //console.log("current issue")
-        if (ArticalVolumes.length && activeArchiveIndex && ArchiveIndex && 
-            activeArchiveIndex?.year === ArchiveIndex?.year && 
-            activeArchiveIndex?.volume === ArchiveIndex?.volume && 
-            activeArchiveIndex?.issue === ArchiveIndex?.issue &&
-            trackPage === pageNumber) { // Added trackPage check
+        if (ArticalVolumes.length && activeArchiveIndex && ArchiveIndex &&
+          activeArchiveIndex?.year === ArchiveIndex?.year &&
+          activeArchiveIndex?.volume === ArchiveIndex?.volume &&
+          activeArchiveIndex?.issue === ArchiveIndex?.issue &&
+          trackPage === pageNumber) { // Added trackPage check
           //console.log(activeArchiveIndex, ArchiveIndex, "issue running");
           setLoadingState(false);
         } else {
@@ -298,9 +305,9 @@ export default function ArchiveVolumes({ active }: activeSection) {
       case 'thesis':
         //console.log("thesis");
         if (ThesisVolumes.length && activeThesisIndex && ThesisIndex &&
-            activeThesisIndex?.year === ThesisIndex?.year &&
-            activeThesisIndex?.volume === ThesisIndex?.volume &&
-            trackPage === pageNumber) { // Added trackPage check
+          activeThesisIndex?.year === ThesisIndex?.year &&
+          activeThesisIndex?.volume === ThesisIndex?.volume &&
+          trackPage === pageNumber) { // Added trackPage check
           //console.log(activeThesisIndex, ThesisIndex, "thesis running");
           setLoadingState(false);
         } else {
@@ -320,7 +327,7 @@ export default function ArchiveVolumes({ active }: activeSection) {
       default:
         setLoadingState(false);
     }
-  }, [active, pageNumber, trackPage, fetchConferenceData, dispatch, perPage, fetchArticalData, ArticalVolumes, activeArchiveIndex, navigate, activeConferencePage, fetchThesisData, ThesisVolumes, activeThesisIndex, ThesisIndex, ArchiveIndex, totalPage, ConferenceVolumes.length]);
+  }, [active, pageNumber, trackPage, fetchConferenceData, dispatch, perPage, fetchArticalData, ArticalVolumes, activeArchiveIndex, navigate, activeConferencePage, fetchThesisData, ThesisVolumes, activeThesisIndex, ThesisIndex, ArchiveIndex, totalPage, ConferenceVolumes.length,activeIndexPage]);
 
   // search
   const [form, setForm] = useState<SearchProp>({ search: "", page: pageNumber, per_page: 100 })
@@ -379,7 +386,7 @@ export default function ArchiveVolumes({ active }: activeSection) {
           {active == "thesis" && <h2 className="text-2xl font-semibold">Volume {activeThesisIndex?.volume}, Year {activeThesisIndex?.year}</h2>}
         </div>
 
-        {!["conference", "issue"].includes(active) && <ArchiveVolumnHeader isArchive={true} setArchiveIndex={active == "thesis" ? setActiveThesisIndex : setActiveArchiveIndex} ActiveVolumes={active == "thesis" ?activeThesisIndex :activeIndexPage} VolumeList={indexPage} ThesisVolumeList={thesisIndexPage}/>}
+        {!["conference", "issue"].includes(active) && <ArchiveVolumnHeader isArchive={true} setArchiveIndex={active == "thesis" ? setActiveThesisIndex : setActiveArchiveIndex} ActiveVolumes={active == "thesis" ? activeThesisIndex : activeIndexPage} VolumeList={indexPage} ThesisVolumeList={thesisIndexPage} />}
 
         {/* Search */}
         <form onSubmitCapture={handleSearch} className="flex items-center gap-2 mt-2">
