@@ -1,8 +1,8 @@
 import { Search } from "lucide-react";
-import { redirect, useNavigate } from "react-router-dom";
+import { redirect, useNavigate, useSearchParams } from "react-router-dom";
 import PrimaryBtn from "../../components/Btns/PrimaryBtn";
 import type { ArchivePaperDetailProps, SearchProp, ActiveIndexArchive } from "../../../types/Api";
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState, useMemo } from "react";
 import { useAppDispatch, useAppSelector } from "../../../lib/store/store";
 import { Pagination } from "../Editorial/Pagination";
 import Loading from "../../components/Loading";
@@ -15,139 +15,206 @@ import MetaDataWrapper from "../../components/layout/MetaDataWrapper";
 import Titleh2 from "../../other/Titleh2";
 import VolumeCardArchive from "../archive/VolumeCardArchive";
 
+// Constants
+const ITEMS_PER_PAGE = 5;
+const SEARCH_PER_PAGE = 100;
+const MAX_ISSUE_2025 = 3;
+const MAX_VISIBLE_PAGES = 5;
+
 export default function CurrentIssueVolumes() {
   const navigate = useNavigate();
-  const [loadingState, setLoadingState] = useState<boolean>(false);
   const dispatch = useAppDispatch();
+  const [params] = useSearchParams();
+  
+  // URL parameters
+  const urlParams = useMemo(() => ({
+    issue: params.get("issue"),
+    year: params.get("year"),
+    volume: params.get("volume")
+  }), [params]);
 
-  const ArchiveIndex = useAppSelector((state) => state.archiveSection.activeIndexPage);
+  // Redux selectors
+  const {
+    activeIndexPage: ArchiveIndex,
+    papers: ArchiveData
+  } = useAppSelector((state) => state.archiveSection);
+  
+  const { total_pages: totalPage, per_page: perPage} = useAppSelector((state) => state.pagination);
+
+  // Local state
+  const [loadingState, setLoadingState] = useState(false);
   const [activeArchiveIndex, setActiveArchiveIndex] = useState<ActiveIndexArchive | null>(ArchiveIndex);
-
-  // Store data
-  const { activeIndexPage } = useAppSelector((state) => state.archiveSection);
-  const ArchiveData = useAppSelector((state) => state.archiveSection.papers);
   const [ArticalVolumes, setArticalVolumes] = useState<ArchivePaperDetailProps[]>(ArchiveData);
   const [ArticalVolumesSearch, setArticalVolumesSearch] = useState<ArchivePaperDetailProps[] | null>(null);
-
-  // Meta data
-  const [metaData, SetMetaData] = useState<{ title: string, description: string }>({
-    title: "",
-    description: ""
+  const [pageNumber, setPageNumber] = useState(1);
+  const [trackPage, setTrackPage] = useState(1);
+  const [form, setForm] = useState<SearchProp>({ 
+    search: "", 
+    page: 1, 
+    per_page: SEARCH_PER_PAGE ?? perPage
   });
 
-  // Listing pagination
-  const totalPage = useAppSelector((state) => state.pagination.total_pages);
-  const perPage = useAppSelector((state) => state.pagination.per_page);
-  const [pageNumber, setPageNumber] = useState<number>(1);
-  const [trackPage, setTrackPage] = useState<number>(1);
+  // Memoized metadata
+  const metaData = useMemo(() => ({
+    title: activeArchiveIndex 
+      ? `${activeArchiveIndex.year} Volume ${activeArchiveIndex.volume} Issue ${activeArchiveIndex.issue} | International Journal | IJSREAT`
+      : "Current Issue | International Journal | IJSREAT",
+    description: "Explore the IJSREAT archives for top research papers in engineering and technology. Access past volumes and stay updated with the latest innovations"
+  }), [activeArchiveIndex]);
 
-  const getVisiblePages = () => {
-    const maxVisible = 5;
-    if (totalPage <= maxVisible) {
+  // Memoized pagination helpers
+  const getVisiblePages = useMemo(() => {
+    if (totalPage <= MAX_VISIBLE_PAGES) {
       return Array.from({ length: totalPage }, (_, i) => i + 1);
     }
 
-    const halfVisible = Math.floor(maxVisible / 2);
+    const halfVisible = Math.floor(MAX_VISIBLE_PAGES / 2);
     let startPage = Math.max(1, pageNumber - halfVisible);
     let endPage = Math.min(totalPage, pageNumber + halfVisible);
 
-    if (endPage - startPage + 1 < maxVisible) {
+    if (endPage - startPage + 1 < MAX_VISIBLE_PAGES) {
       if (startPage === 1) {
-        endPage = Math.min(totalPage, startPage + maxVisible - 1);
+        endPage = Math.min(totalPage, startPage + MAX_VISIBLE_PAGES - 1);
       } else if (endPage === totalPage) {
-        startPage = Math.max(1, endPage - maxVisible + 1);
+        startPage = Math.max(1, endPage - MAX_VISIBLE_PAGES + 1);
       }
     }
 
     return Array.from({ length: endPage - startPage + 1 }, (_, i) => startPage + i);
-  };
+  }, [pageNumber, totalPage]);
 
-  const shouldShowPagination = () => {
-    return ArticalVolumesSearch === null && totalPage > 1;
-  };
+  const shouldShowPagination = useMemo(() => 
+    ArticalVolumesSearch === null && totalPage > 1, 
+    [ArticalVolumesSearch, totalPage]
+  );
 
-  // Setting active papers
-  const setActiveArtical = (paper: ArchivePaperDetailProps) => {
+  // Memoized data check to prevent unnecessary re-renders
+  const isDataCurrent = useMemo(() => 
+    ArticalVolumes.length > 0 && 
+    activeArchiveIndex && 
+    ArchiveIndex &&
+    activeArchiveIndex.year === ArchiveIndex.year &&
+    activeArchiveIndex.volume === ArchiveIndex.volume &&
+    activeArchiveIndex.issue === ArchiveIndex.issue &&
+    trackPage === pageNumber,
+    [ArticalVolumes.length, activeArchiveIndex, ArchiveIndex, trackPage, pageNumber]
+  );
+
+  // Optimized active paper setter
+  const setActiveArtical = useCallback((paper: ArchivePaperDetailProps) => {
     dispatch(setActivePaper(paper));
-  };
+  }, [dispatch]);
 
+  // Optimized data fetching
   const fetchArticalData = useCallback(async () => {
-    try {
-      if (!activeArchiveIndex?.year) {
-        navigate("/current-issue");
-      } else {
-        if (ArticalVolumes.length === 0 || trackPage !== pageNumber ||
-          activeArchiveIndex?.year === ArchiveIndex?.year ||
-          activeArchiveIndex?.volume === ArchiveIndex?.volume ||
-          activeArchiveIndex?.issue === ArchiveIndex?.issue) {
-
-          // Update the issue and page for 2025
-          if (activeArchiveIndex.year === "2025" && parseInt(activeArchiveIndex.issue) > 3) {
-            setActiveArchiveIndex({ ...activeArchiveIndex, issue: "1" });
-            setPageNumber(1);
-          }
-
-          const params: ArchivePaperListtingArg = {
-            year: parseInt(activeArchiveIndex.year),
-            volume: parseInt(activeArchiveIndex.volume),
-            issue: parseInt(activeArchiveIndex.issue),
-            page: pageNumber,
-            per_page: 5
-          };
-
-          setTrackPage(pageNumber);
-          dispatch(setCurrentPage(pageNumber));
-          dispatch(setActiveIndexVolume(activeArchiveIndex));
-          await getArticalDetails(params, setArticalVolumes, dispatch);
-        }
-      }
-    } catch (err) {
-      console.error("Error fetching artical data:", err);
+    if (!activeArchiveIndex?.year) {
+      navigate("/current-issue");
+      return;
     }
-  }, [pageNumber, dispatch, trackPage, ArticalVolumes, activeArchiveIndex, navigate, ArchiveIndex]);
 
+    try {
+      // Handle 2025 issue limit
+      let currentIndex = activeArchiveIndex;
+      if (activeArchiveIndex.year === "2025" && parseInt(activeArchiveIndex.issue) > MAX_ISSUE_2025) {
+        currentIndex = { ...activeArchiveIndex, issue: "1" };
+        setActiveArchiveIndex(currentIndex);
+        setPageNumber(1);
+        return; // Return early to trigger re-render with corrected data
+      }
+
+      const params: ArchivePaperListtingArg = {
+        year: parseInt(currentIndex.year),
+        volume: parseInt(currentIndex.volume),
+        issue: parseInt(currentIndex.issue),
+        page: pageNumber,
+        per_page: ITEMS_PER_PAGE
+      };
+
+      // Update tracking before API call
+      setTrackPage(pageNumber);
+      dispatch(setCurrentPage(pageNumber));
+      dispatch(setActiveIndexVolume(currentIndex));
+      
+      await getArticalDetails(params, setArticalVolumes, dispatch);
+    } catch (err) {
+      console.error("Error fetching article data:", err);
+      setLoadingState(false);
+    }
+  }, [activeArchiveIndex, pageNumber, dispatch, navigate]);
+
+  // URL parameters effect
   useEffect(() => {
+    const { issue, year, volume } = urlParams;
+    
+    if (issue && year && volume) {
+      const newIndex = {
+        year: year.toString(),
+        volume: volume.toString(),
+        issue: issue.toString()
+      };
+      
+      // Only update if different from current
+      if (!activeArchiveIndex || 
+          activeArchiveIndex.year !== newIndex.year ||
+          activeArchiveIndex.volume !== newIndex.volume ||
+          activeArchiveIndex.issue !== newIndex.issue) {
+        setActiveArchiveIndex(newIndex);
+        setPageNumber(1);
+        setTrackPage(0); // Reset to force refetch
+      }
+    } else if (!activeArchiveIndex && ArchiveIndex) {
+      setActiveArchiveIndex(ArchiveIndex);
+    }
+  }, [urlParams, ArchiveIndex, activeArchiveIndex]);
+
+  // Main data fetching effect
+  useEffect(() => {
+    if (!activeArchiveIndex) {
+      redirect("/current-issue");
+      return;
+    }
+
     setLoadingState(true);
 
-    if (ArticalVolumes.length && activeArchiveIndex && ArchiveIndex &&
-      activeArchiveIndex?.year === ArchiveIndex?.year &&
-      activeArchiveIndex?.volume === ArchiveIndex?.volume &&
-      activeArchiveIndex?.issue === ArchiveIndex?.issue &&
-      trackPage === pageNumber) {
+    if (isDataCurrent) {
       setLoadingState(false);
     } else {
-      if (!activeArchiveIndex) redirect("/current-issue");
-
-      fetchArticalData().finally(() => {
-        SetMetaData({
-          title: `${activeArchiveIndex?.year} Volume ${activeArchiveIndex?.volume} Issue ${activeArchiveIndex?.issue} | International Journal | IJSREAT`,
-          description: "Explore the IJSREAT archives for top research papers in engineering and technology. Access past volumes and stay updated with the latest innovations"
-        });
-        setLoadingState(false);
-      });
+      fetchArticalData().finally(() => setLoadingState(false));
     }
-  }, [pageNumber, trackPage, fetchArticalData, dispatch, perPage, ArticalVolumes, activeArchiveIndex, navigate, ArchiveIndex, totalPage, activeIndexPage]);
+  }, [activeArchiveIndex, pageNumber, trackPage, isDataCurrent, fetchArticalData]);
 
-  // Search functionality
-  const [form, setForm] = useState<SearchProp>({ search: "", page: pageNumber, per_page: 100 });
-
-  const handleSearch = (e: React.FormEvent) => {
+  // Optimized search handlers
+  const handleSearch = useCallback((e: React.FormEvent) => {
     e.preventDefault();
-    if (form.search === "") return;
+    if (!form.search.trim()) return;
 
     setLoadingState(true);
-    searchArchive(form).then((data) => {
-      const tempo = data ? data : [];
-      setArticalVolumesSearch(tempo);
-    }).finally(() => setLoadingState(false));
-    setForm({ ...form, search: "" });
-  };
+    
+    searchArchive(form)
+      .then((data) => setArticalVolumesSearch(data || []))
+      .finally(() => {
+        setLoadingState(false);
+        setForm(prev => ({ ...prev, search: "" }));
+      });
+  }, [form]);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
+  const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setForm(prev => ({ ...prev, [name]: value }));
+  }, []);
 
-  if (loadingState) return <Loading title="Volumes" />;
+  const clearSearch = useCallback(() => {
+    setArticalVolumesSearch(null);
+  }, []);
+
+  // Render loading state
+  if (loadingState) {
+    return <Loading title="Volumes" />;
+  }
+
+  // Determine which data to display
+  const displayData = ArticalVolumesSearch !== null ? ArticalVolumesSearch : ArticalVolumes;
+  const hasData = displayData?.length > 0;
 
   return (
     <MetaDataWrapper titleDynamic={metaData.title} desciptionDynamic={metaData.description}>
@@ -160,7 +227,7 @@ export default function CurrentIssueVolumes() {
         </div>
 
         {/* Search */}
-        <form onSubmitCapture={handleSearch} className="flex items-center gap-2 mt-2">
+        <form onSubmit={handleSearch} className="flex items-center gap-2 mt-2">
           <input
             type="text"
             name="search"
@@ -168,9 +235,10 @@ export default function CurrentIssueVolumes() {
             value={form.search}
             placeholder="Search by Paper ID, Paper Name"
             className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm xl:text-base 2xl:text-lg"
+            disabled={loadingState}
           />
-          {ArticalVolumesSearch ? (
-            <PrimaryBtn event={() => setArticalVolumesSearch(null)}>
+          {ArticalVolumesSearch !== null && !form.search ? (
+            <PrimaryBtn event={clearSearch}>
               <GrClear size={16} /> Clear
             </PrimaryBtn>
           ) : (
@@ -181,43 +249,29 @@ export default function CurrentIssueVolumes() {
         </form>
 
         {/* Paper Cards */}
-        {(trackPage === pageNumber || !loadingState) ? (
-          <div className="space-y-6">
-            {ArticalVolumesSearch !== null
-              ? ArticalVolumesSearch?.length
-                ? ArticalVolumesSearch.map((paper, idx) => (
-                  <VolumeCardArchive
-                    paper={paper}
-                    key={idx}
-                    setActive={setActiveArtical}
-                    navigate={navigate}
-                  />
-                ))
-                : <Titleh2>No Paper Found</Titleh2>
-              : ArticalVolumes?.length
-                ? ArticalVolumes.map((paper, idx) => (
-                  <VolumeCardArchive
-                    paper={paper}
-                    key={idx}
-                    setActive={setActiveArtical}
-                    navigate={navigate}
-                  />
-                ))
-                : <Titleh2>No Paper Found</Titleh2>
-            }
-          </div>
-        ) : (
-          <Loading title="Volume Pages" />
-        )}
+        <div className="space-y-6">
+          {hasData ? (
+            displayData.map((paper, idx) => (
+              <VolumeCardArchive
+                paper={paper}
+                key={`${paper.paper_id || idx}`} // Better key using paper ID if available
+                setActive={setActiveArtical}
+                navigate={navigate}
+              />
+            ))
+          ) : (
+            <Titleh2>No Paper Found</Titleh2>
+          )}
+        </div>
 
         {/* Pagination */}
-        {shouldShowPagination() && (
+        {shouldShowPagination && (
           <div className="mt-16">
             <Pagination
               currentPage={pageNumber}
               totalPages={totalPage}
               onPageChange={setPageNumber}
-              rangeList={getVisiblePages()}
+              rangeList={getVisiblePages}
             />
           </div>
         )}

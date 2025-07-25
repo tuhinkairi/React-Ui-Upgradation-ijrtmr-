@@ -22,7 +22,7 @@ export default function ArchiveVolumes2() {
     const loading = useAppSelector((state) => state.loadingScreen.loading);
     const [subLoading, setSubLoading] = useState<boolean>(false)
     const dispatch = useAppDispatch();
-    const [params] = useSearchParams();
+    const [params, setParams] = useSearchParams();
     const URL_Issue = params.get("issue");
     const URL_Year = params.get("year");
     const URL_Volume = params.get("volume");
@@ -154,10 +154,15 @@ export default function ArchiveVolumes2() {
                     title: `${activeArchiveIndex?.year} Volume ${activeArchiveIndex?.volume} Issue ${activeArchiveIndex?.issue} | International Journal | IJSREAT`,
                     description: "Explore the IJSREAT archives for top research papers in engineering and technology. Access past volumes and stay updated with the latest innovations"
                 });
+                setParams({
+                    year: activeArchiveIndex?.year ?? URL_Year??"",
+                    volume: activeArchiveIndex?.volume ?? URL_Volume??"",
+                    issue: activeArchiveIndex?.issue ?? URL_Issue ??""
+                })
                 setSubLoading(false)
             });
         }
-    }, [pageNumber, trackPage, fetchArticalData, dispatch, perPage, ArticalVolumes, activeArchiveIndex, navigate, ArchiveIndex, totalPage, activeIndexPage, ArchiveData.length]);
+    }, [pageNumber, trackPage, fetchArticalData, dispatch, perPage, ArticalVolumes, activeArchiveIndex, navigate, ArchiveIndex, totalPage, activeIndexPage, ArchiveData.length, URL_Issue, URL_Year, URL_Volume, setParams]);
 
     // Search functionality
     const [form, setForm] = useState<SearchProp>({ search: "", page: pageNumber, per_page: 100 });

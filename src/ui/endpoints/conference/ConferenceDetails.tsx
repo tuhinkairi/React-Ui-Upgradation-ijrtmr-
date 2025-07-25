@@ -14,7 +14,6 @@ import References from "../archive/details/References";
 import RelatedArticles from "../archive/components/RelatedArticals";
 import type { ConferenceArticleProps } from "../../../types/Api";
 import { setLoading } from "../../../lib/store/Features/loadingSlice";
-import { setActiveConference } from "../../../lib/store/Features/conferenceSlice";
 import Loading from "../../components/Loading";
 import { FetchActiveConference } from "../../../lib/axios/api/conference";
 import PrimaryBtn from "../../components/Btns/PrimaryBtn";
@@ -23,6 +22,7 @@ import { MdDone } from "react-icons/md";
 import MetaDataWrapper from "../../components/layout/MetaDataWrapper";
 import { superscriptifyAllNumbers } from "../../../lib/utils/other/superScript";
 import useDimensionsBadge from "../../components/cards/plumx/useDimensionsBadge";
+import { setActiveConferenceArticle } from "../../../lib/store/Features/conferenceDetailseSlice";
 
 type TabOption = "FullArticle" | "References" | "Citations" | "Metrics" | "Licensing";
 
@@ -52,7 +52,7 @@ const ConferenceDetails = () => {
         // fetch conference here
         FetchActiveConference({ id: id }).then((data) => {
           if (data) {
-            dispatch(setActiveConference(data))
+            dispatch(setActiveConferenceArticle(data))
             setPaper(data)
           }
         })
@@ -63,7 +63,6 @@ const ConferenceDetails = () => {
       navigate("/conference")
     }
   }, [navigate, activePaper, dispatch, id]);
-
   if (loading || !activePaper) {
     return <Loading title="Paper Details" />
   }
