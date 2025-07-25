@@ -2,6 +2,11 @@ import React from "react";
 import { Route, Routes} from "react-router-dom";
 import Page404 from "./ui/components/layout/Page404";
 import MetaDataWrapper from "./ui/components/layout/MetaDataWrapper";
+import ArchiveVolumes2 from "./ui/endpoints/archive/ArchiveVolumes2";
+import ConferenceVolumes from "./ui/endpoints/conference/ConferenceVolumes";
+import CurrentIssueVolumes from "./ui/endpoints/current-issue/CurrentIssueVolumes";
+import ThesisVolumes from "./ui/endpoints/Thesis/ThesisVolumes";
+const ThesisDetails= React.lazy(()=>import("./ui/endpoints/Thesis/ThesisDetails"));
 const Home = React.lazy(() => import("./ui/endpoints/home/Home"));
 const Archives = React.lazy(() => import("./ui/endpoints/archive/Archives"));
 const ArchiveFirst = React.lazy(() => import("./ui/endpoints/archive/sections/ArchiveFirst"));
@@ -26,7 +31,7 @@ const ConferenceIndex = React.lazy(() => import("./ui/endpoints/conference/Confe
 const Topics = React.lazy(() => import("./ui/endpoints/for-authors/topics/Topics"));
 const ThesisIndex = React.lazy(() => import("./ui/endpoints/Thesis/ThesisIndex"));
 const Thesis = React.lazy(() => import("./ui/endpoints/Thesis/Thesis"));
-const ArchiveVolumes = React.lazy(() => import("./ui/endpoints/archive/ArchiveVolumes"));
+// const ArchiveVolumes = React.lazy(() => import("./ui/endpoints/archive/ArchiveVolumes"));
 const ConferenceDetails = React.lazy(() => import("./ui/endpoints/conference/ConferenceDetails"));
 const GuideForAuther = React.lazy(() => import("./ui/endpoints/for-authors/guide-for-auther/GuideForAuther"));
 const ArticleStatus = React.lazy(() => import("./ui/endpoints/for-authors/artical-status/ArticleStatus"));
@@ -47,20 +52,20 @@ export default function RouteControl() {
             <Route path="/publications" element={<MetaDataWrapper><ThesisIndex /></MetaDataWrapper>} />
             <Route path="/thesis" element={<MetaDataWrapper><Thesis /></MetaDataWrapper>}>
                 <Route index element={<ArchiveFirst />} />
-                <Route path="paperlist" element={<ArchiveVolumes active="thesis" />} />
-                <Route path="paper-details" element={<ArticleDetails />} />
+                <Route path="paperlist" element={<ThesisVolumes/>} />
+                <Route path="paper-details" element={<ThesisDetails />} />
             </Route>
 
             {/* current issue */}
             <Route path="/current-issue" element={<MetaDataWrapper><Archives /></MetaDataWrapper>}>
                 <Route index element={<ArchiveFirst />} />
-                <Route path="paperlist" element={<ArchiveVolumes active="issue" />} />
+                <Route path="paperlist" element={<CurrentIssueVolumes/>} />
                 <Route path="paper-details" element={<ArticleDetails />} />
             </Route>
             {/* archives */}
             <Route path="/archives" element={<MetaDataWrapper><Archives /></MetaDataWrapper>}>
                 <Route index element={<ArchiveFirst />} />
-                <Route path="paperlist" element={<ArchiveVolumes active="archive" />} />
+                <Route path="paperlist" element={<ArchiveVolumes2 />} />
                 <Route path="paper-details" element={<ArticleDetails />} />
             </Route>
 
@@ -93,10 +98,9 @@ export default function RouteControl() {
             {/* conference */}
             <Route path="/conference" element={<MetaDataWrapper><Conference /></MetaDataWrapper>}>
                 <Route index element={<ConferenceIndex />} />
-                <Route path="paperlist" element={<ArchiveVolumes active="conference" />} />
+                <Route path="paperlist" element={<ConferenceVolumes/>} />
                 <Route path="paper-details" element={<ConferenceDetails />} />
             </Route>
-
             {/* error */}
             <Route path="*" element={<Page404 />} />
         </Routes>

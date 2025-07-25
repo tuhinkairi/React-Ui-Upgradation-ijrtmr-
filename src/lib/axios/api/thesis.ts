@@ -1,4 +1,4 @@
-import type { SearchProp, ThesisIndexingItem } from "../../../types/Api";
+import type { SearchProp, ThesisIndexingItem, ThesisListingItem } from "../../../types/Api";
 import { axiosClient } from "../axios-client";
 
 export const fetchThesis = async (): Promise<ThesisIndexingItem[]> => {
@@ -21,7 +21,11 @@ export interface ThesisListingParams {
     per_page: number;
 }
 
-export const ThesisListing = async (params: ThesisListingParams) => {
+export const ThesisListing = async (params: ThesisListingParams):Promise<{
+  papersList: ThesisListingItem[], current_page: number, per_page: number,
+  total_items: number,
+  total_pages: number
+}> => {
     try {
         const res = await axiosClient.post("/thesisDataListing", params);  
         //console.log(res.data) //papersList
@@ -31,9 +35,9 @@ export const ThesisListing = async (params: ThesisListingParams) => {
     }
 }
 
-export const FetchThesisPaper = async (
+export const FetchThesisPaperDetails = async (
     req: {
-        thesis_id: number
+        thesis_id: number |string
     }
 ) => {
     try {
@@ -41,7 +45,7 @@ export const FetchThesisPaper = async (
         // const modify = UpdateOneFetch(res.data.paperdetails)
         
         //console.log(res.data); //thesis
-        return res.data;
+        return res.data.thesis;
     } catch (error) {
         console.log(error);
         throw new Error(`Failed to fetch Thesis: ${error}`);

@@ -30,9 +30,10 @@ const paginationSlice = createSlice({
     },
     setTotalPages: (state, action) => {
       state.total_pages = action.payload;
-    }
+    },
+    resetPagination: () => initialState,
   },
 });
 
-export const { setCurrentPage, setPerPage, setTotalItems,setTotalPages } = paginationSlice.actions;
+export const { setCurrentPage, setPerPage, setTotalItems,setTotalPages,resetPagination } = paginationSlice.actions;
 export default paginationSlice;

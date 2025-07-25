@@ -90,7 +90,7 @@ src="/logo.webp" alt="Fifth Dimension Logo" className="h-10 lg:h-12" />
             <MenuCard hide={hideAllMenus} ref={auther} links={auther_menu} />
           </li>
           <li className="hover:text-primary">
-            <NavLink className={({ isActive }) => (isActive ? "text-primary" : "")} to="/current-issue">
+            <NavLink className={({ isActive }) => (isActive ? "text-primary" : "")} to="/current-issue/paperlist?year=2025&volume=5&issue=3">
               Current Issue
             </NavLink>
           </li>

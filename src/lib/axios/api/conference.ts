@@ -20,6 +20,7 @@ export default conference_categories;
 // #page 2 volume
 // details
 export type conferenceDetailsType = { id: number, page: number, per_page: number }
+
 export const conference_detials = async (params: conferenceDetailsType): Promise<{
   ConferenceList: ConferenceArticleProps[], current_page: number, per_page: number,
   total_items: number,

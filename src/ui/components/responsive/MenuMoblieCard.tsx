@@ -53,7 +53,7 @@ const MenuMoblieCard = ({ onClose }: { onClose: () => void }) => {
                 </div>
 
                 {/* Single Links */}
-                <NavLink to="/current-issue" className="block font-semibold" onClick={onClose}>
+                <NavLink to="/current-issue/paperlist?year=2025&volume=5&issue=3" className="block font-semibold" onClick={onClose}>
                     Current Issue
                 </NavLink>
                 <NavLink to="/archives" className="block font-semibold" onClick={onClose}>

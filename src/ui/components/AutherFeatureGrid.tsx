@@ -20,34 +20,34 @@ const features = [
     title: 'Article Processing Charges',
     endpoint: "/article-processing-charges",
     description: 'Instance status and dependencies in one aggregated view.',
-    logo:<MdPayments className='text-emerald-500 h-13 w-13 pl-3 pt-3'/>
+    logo:<MdPayments className='text-primary h-13 w-13 pl-3 pt-3'/>
   },
   {
     icon: "./feature/3.webp",
     title: 'Guidance for Editorial Management System',
     description: 'Stream combined Capsule logs across instances.',
-    logo:<Book className='text-purple-500 h-13 w-13 pl-3 pt-3'/>
+    logo:<Book className='text-primary h-13 w-13 pl-3 pt-3'/>
   },
   {
     icon: "./feature/4.webp",
     title: 'Article Status',
     endpoint: "/paper-status",
     description: 'High-level access to cluster health, features and issues.',
-    logo:<GrStatusGood className='text-teal-500 h-13 w-13 pl-3 pt-3'/>
+    logo:<GrStatusGood className='text-primary h-13 w-13 pl-3 pt-3'/>
   },
   {
     icon: "./feature/5.webp",
     title: 'Online Article Submission',
     endpoint: "/journal-publishing-process",
     description: 'Instance status and dependencies in one aggregated view.',
-    logo:<MdOutlinePublish className='text-indigo-500 h-13 w-13 pl-3 pt-3'/>
+    logo:<MdOutlinePublish className='text-primary h-13 w-13 pl-3 pt-3'/>
   },
   {
     icon: "./feature/6.webp",
     title: 'Archives',
     endpoint: "/archives",
     description: 'Easily configure Liveness and Ready probes for Capsules.',
-    logo:<Archive className='text-yellow-500 h-13 w-13 pl-3 pt-3'/>
+    logo:<Archive className='text-primary h-13 w-13 pl-3 pt-3'/>
   },
 ];
 

@@ -12,21 +12,21 @@ import Licensing from "../archive/details/Licensing";
 import ArticleMetrics from "../archive/details/ArticleMetrics";
 import References from "../archive/details/References";
 import RelatedArticles from "../archive/components/RelatedArticals";
-import type { ConferenceArticleProps } from "../../../types/Api";
+import type { ThesisListingItem } from "../../../types/Api";
 import { setLoading } from "../../../lib/store/Features/loadingSlice";
-import { setActiveConference } from "../../../lib/store/Features/conferenceSlice";
 import Loading from "../../components/Loading";
-import { FetchActiveConference } from "../../../lib/axios/api/conference";
 import PrimaryBtn from "../../components/Btns/PrimaryBtn";
 import { VscFilePdf } from "react-icons/vsc";
 import { MdDone } from "react-icons/md";
 import MetaDataWrapper from "../../components/layout/MetaDataWrapper";
 import { superscriptifyAllNumbers } from "../../../lib/utils/other/superScript";
 import useDimensionsBadge from "../../components/cards/plumx/useDimensionsBadge";
+import { FetchThesisPaperDetails } from "../../../lib/axios/api/thesis";
+import { setActiveThesis } from "../../../lib/store/Features/ThesisSlice";
 
 type TabOption = "FullArticle" | "References" | "Citations" | "Metrics" | "Licensing";
 
-const ConferenceDetails = () => {
+const ThesisDetails = () => {
   const dtitle = useRef<HTMLHeadingElement>(null)
   const searchQuery = useSearchParams();
   const [currentItem, setCurrentItem] = useState<TabOption>(searchQuery[0].get("section")?.replace("-", " ") as TabOption || "FullArticle")
@@ -35,8 +35,8 @@ const ConferenceDetails = () => {
   const navigate = useNavigate()
   const loading = useAppSelector((state) => state.loadingScreen.loading)
   const dispatch = useAppDispatch()
-  const ActiveArticle = useAppSelector((state) => state.conferenceArtical.selectedArticle)
-  const [activePaper, setPaper] = useState<ConferenceArticleProps | null>(ActiveArticle)
+  const ActiveArticle = useAppSelector((state) => state.thesis.ActiveThesis)
+  const [activePaper, setPaper] = useState<ThesisListingItem | null>(ActiveArticle)
 
 
   // store data
@@ -50,9 +50,10 @@ const ConferenceDetails = () => {
     if (id) {
       if (activePaper?.id !== parseInt(id)) {
         // fetch conference here
-        FetchActiveConference({ id: id }).then((data) => {
+        FetchThesisPaperDetails({ thesis_id: id }).then((data) => {
           if (data) {
-            dispatch(setActiveConference(data))
+            console.log(data)
+            dispatch(setActiveThesis(data))
             setPaper(data)
           }
         })
@@ -129,12 +130,12 @@ const ConferenceDetails = () => {
               <ImQuotesLeft className="text-primary" /> Cite this article
             </h3>
 
-            {activePaper?.doi !== "." ? <Link
+            {activePaper?.doi_no !== "." ? <Link
               target="_blank"
-              to={activePaper?.doi ?? window.location.href}
+              to={activePaper?.doi_no ?? window.location.href}
               className="text-primary flex items-center gap-1 hover:underline text-sm xl:text-base 2xl:text-lg wrap-anywhere sm:whitespace-nowrap"
             >
-              ↗ {activePaper?.doi && activePaper?.doi.length > 5 ? activePaper?.doi : "No Doi"}
+              ↗ {activePaper?.doi_no && activePaper?.doi_no.length > 5 ? activePaper?.doi_no : "No Doi"}
             </Link> :
               <span className="text-primary flex items-center gap-1 hover:underline text-sm xl:text-base 2xl:text-lg wrap-anywhere sm:whitespace-nowrap">No Doi</span>
             }
@@ -145,7 +146,7 @@ const ConferenceDetails = () => {
           </button>
 
           <div className="flex gap-3 justify-between w-full sm:w-fit flex-wrap">
-            <Link to={activePaper.pdf_url} rel="noreferrer" className="sm:hidden">
+            <Link to={activePaper.paper_url} rel="noreferrer" className="sm:hidden">
               <PrimaryBtn className="whitespace-nowrap">
                 View PDF
                 <VscFilePdf size={18} className="ml-4" />
@@ -189,13 +190,13 @@ const ConferenceDetails = () => {
           )}
         </div>
 
-        {currentItem === "FullArticle" && <FullArtical content={activePaper?.abstract ?? ""} pdf_url={activePaper?.pdf_url ?? ""} />}
+        {currentItem === "FullArticle" && <FullArtical content={activePaper?.abstract ?? ""} pdf_url={activePaper?.paper_url ?? ""} />}
         {currentItem === "Citations" && <Citations content={activePaper?.citation ?? ""} />}
         {currentItem === "Licensing" && <Licensing />}
-        {currentItem === "Metrics" && <ArticleMetrics content={activePaper?.doi ?? ""} />}
+        {currentItem === "Metrics" && <ArticleMetrics content={activePaper?.doi_no ?? ""} />}
         {/* <div className={`${currentItem === "Metrics" ? "" : "absolute -z-10"}`}><ArticleMetrics /></div> */}
 
-        {currentItem === "References" && <References content={activePaper?.references ?? ""} />}
+        {currentItem === "References" && <References content={activePaper?.reference ?? ""} />}
         <RelatedArticles />
       </div>
       <script async src="https://badge.dimensions.ai/badge.js"></script>
@@ -203,4 +204,4 @@ const ConferenceDetails = () => {
     </MetaDataWrapper>
 
   );
-}; export default ConferenceDetails;
+}; export default ThesisDetails;
