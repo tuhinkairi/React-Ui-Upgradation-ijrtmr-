@@ -4,7 +4,7 @@ import Title2h2 from "../other/Title2h2";
 const editorialData = [
   {
     title: "Real-time Tracking",
-    icon: <Eye className="text-[#995428]" size={26} />,
+    icon: <Eye className="text-primary" size={26} />,
     desc: "Monitor your submission's progress through every stage of the review process.",
     bullets: [
       "Article status updates",
@@ -14,7 +14,7 @@ const editorialData = [
   },
   {
     title: "Automated Documents",
-    icon: <FileText className="text-[#995428]" size={26} />,
+    icon: <FileText className="text-primary" size={26} />,
     desc: "Instant generation of all necessary publication documents.",
     bullets: [
       "Automated acceptance letters",
@@ -24,7 +24,7 @@ const editorialData = [
   },
   {
     title: "Easy Access",
-    icon: <Lock className="text-[#995428]" size={26} />,
+    icon: <Lock className="text-primary" size={26} />,
     desc: "All your publication materials available in one place.",
     bullets: [
       "Published PDF downloads",

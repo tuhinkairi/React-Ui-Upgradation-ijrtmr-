@@ -97,7 +97,7 @@ const EditorBoard = () => {
             dispatch(setCurrentPage(newPage));
         }
     };
-    
+    console.log(currentPageItems)
     return (
         <section className="editorial-board-section px-3 sm:px-6 md:px-10 lg:px-16 py-2 space-y-6">
             <Title>Editorial Board</Title>
@@ -112,7 +112,7 @@ const EditorBoard = () => {
                             email="editorinchief@ijsreat.com, sivaganesan@hmgi.ac.in"
                         />
                         <ContactCard
-                            role="Managing Editor:"
+                            role="Managing Editor :"
                             name="Dr. S. Thanga Revathi"
                             designation="Assistant Professor Department of Computer Science and Engineering"
                             organization="SRM Institute of Science and Technology, Chennai–603203. India."

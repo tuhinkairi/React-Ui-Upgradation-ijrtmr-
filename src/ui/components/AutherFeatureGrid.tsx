@@ -58,7 +58,7 @@ export default function AuthorFeaturesGrid() {
       <Title2h2 className='mb-6'>For Authors</Title2h2>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-5 md:gap-10">
         {features.map((feature, idx) => (
-          <Link to={feature?.endpoint??""}>
+          <Link key={idx} to={feature?.endpoint??""}>
           <AuthorFeatureCard key={idx} {...feature} />
           </Link>
         ))}

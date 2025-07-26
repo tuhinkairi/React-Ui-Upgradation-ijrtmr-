@@ -18,7 +18,7 @@ export default function VolumeCardConference({ paper, setActive, navigate }: { p
                 <Link
                     onClick={() => setActive(paper)}
                     to={endpoint}
-                    className="text-xl 2xl:text-2xl font-serif  text-primary hover:underline sm:max-w-5/6 relative"
+                    className="text-xl 2xl:text-2xl font-serif  text-orange-500 hover:underline sm:max-w-5/6 relative"
                 >
                     {paper.title} <ArrowUpRight fill="none" className="inline-block ml-1" />
                 </Link>
@@ -52,7 +52,7 @@ export default function VolumeCardConference({ paper, setActive, navigate }: { p
                         src="/plummatrix/plum.webp"
                         alt="plumx"
                         className="w-6 h-6 object-contain"
-                    /> Plumex
+                    /> PlumX
                 </div>
             </div>
 
