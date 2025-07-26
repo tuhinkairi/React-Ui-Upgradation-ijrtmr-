@@ -56,7 +56,6 @@ export const searchThesis = async (req: SearchProp) => {
         const res = await axiosClient.post("/searchThesis",
             req
         );
-        //console.log(res.data)//papersList
         return res.data
     }
     catch (error) {

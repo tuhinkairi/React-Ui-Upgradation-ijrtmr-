@@ -1,5 +1,5 @@
 import { Search } from "lucide-react";
-import { redirect, useNavigate } from "react-router-dom";
+import { redirect, useNavigate, useSearchParams } from "react-router-dom";
 import PrimaryBtn from "../../components/Btns/PrimaryBtn";
 import type { SearchProp, ThesisListingItem, ThesisIndexingItem } from "../../../types/Api";
 import React, { useCallback, useEffect, useState } from "react";
@@ -7,13 +7,15 @@ import { useAppDispatch, useAppSelector } from "../../../lib/store/store";
 import { Pagination } from "../Editorial/Pagination";
 import Loading from "../../components/Loading";
 import { GrClear } from "react-icons/gr";
-import { setActiveThesis } from "../../../lib/store/Features/ThesisSlice";
-import { searchThesis, type ThesisListingParams } from "../../../lib/axios/api/thesis";
+import { setActiveThesis, setActiveThesisIndex, setThesisIndexingList } from "../../../lib/store/Features/ThesisSlice";
+import { fetchThesis, searchThesis, type ThesisListingParams } from "../../../lib/axios/api/thesis";
 import VolumeCardThesis from "../Thesis/VolumeCardThesis";
 import MetaDataWrapper from "../../components/layout/MetaDataWrapper";
 import Titleh2 from "../../other/Titleh2";
 import ArchiveVolumnHeader from "../archive/components/ArchiveVolumnHeader";
 import { getThesisDetails } from "../../../lib/utils/conference/thesisFunctions";
+import { setLoading } from "../../../lib/store/Features/loadingSlice";
+import { setCurrentPage } from "../../../lib/store/Features/paginationSlice";
 
 export default function ThesisVolumes() {
     const navigate = useNavigate();
@@ -24,10 +26,12 @@ export default function ThesisVolumes() {
     const ThesisIndex = useAppSelector((state) => state.thesis.ActiveThesisIndex);
     const ThesisData = useAppSelector((state) => state.thesis.thesisList);
     const thesisIndexPage = useAppSelector((state) => state.thesis.ThesisIndexingList);
-    const [activeThesisIndex, setActiveThesisIndex] = useState<ThesisIndexingItem | null>(ThesisIndex);
+    const [activeThesisIndex, setActiveThesisIndexState] = useState<ThesisIndexingItem | null>(ThesisIndex);
     const [ThesisVolumes, setThesisVolumes] = useState<ThesisListingItem[]>(ThesisData);
     const [ThesisVolumesSearch, setThesisVolumesSearch] = useState<ThesisListingItem[] | null>(null);
-
+    const [params, setParams] = useSearchParams();
+    const URL_Year = params.get("year");
+    const URL_Volume = params.get("volume");
     // Meta data
     const [metaData, SetMetaData] = useState<{ title: string, description: string }>({
         title: "",
@@ -39,6 +43,24 @@ export default function ThesisVolumes() {
     const perPage = useAppSelector((state) => state.pagination.per_page);
     const [pageNumber, setPageNumber] = useState<number>(1);
     const [trackPage, setTrackPage] = useState<number>(1);
+
+    useEffect(() => {
+        if (!activeThesisIndex && URL_Year && URL_Volume) {
+            dispatch(setLoading(true));
+            fetchThesis().then((data) => {
+                const reversedData = [...data].reverse()
+                dispatch(setThesisIndexingList(reversedData))
+            })
+            setActiveThesisIndexState({
+                year: URL_Year,
+                volume: URL_Volume,
+                issue: "1"
+            });
+        }
+        if(activeThesisIndex?.year !== ThesisIndex?.year || activeThesisIndex?.volume !== ThesisIndex?.volume){
+            setThesisVolumesSearch(null);
+        }
+    }, [URL_Year, URL_Volume, activeThesisIndex, dispatch, thesisIndexPage, ThesisIndex]);
 
     const getVisiblePages = () => {
         const maxVisible = 5;
@@ -77,8 +99,8 @@ export default function ThesisVolumes() {
                 navigate("/thesis");
             } else {
                 if (ThesisVolumes.length === 0 || trackPage !== pageNumber ||
-                    activeThesisIndex?.year === ThesisIndex?.year ||
-                    activeThesisIndex?.volume === ThesisIndex?.volume) {
+                    activeThesisIndex?.year !== ThesisIndex?.year ||
+                    activeThesisIndex?.volume !== ThesisIndex?.volume) {
                     const params: ThesisListingParams = {
                         thesis_year: parseInt(activeThesisIndex.year),
                         thesis_volume: parseInt(activeThesisIndex.volume),
@@ -86,6 +108,8 @@ export default function ThesisVolumes() {
                         per_page: perPage
                     };
                     setTrackPage(pageNumber)
+                    dispatch(setCurrentPage(pageNumber));
+                    dispatch(setActiveThesisIndex(activeThesisIndex));
                     await getThesisDetails(params, setThesisVolumes, dispatch);
                     //   if (response) {
                     //     setThesisVolumes(response.papersList);
@@ -118,10 +142,14 @@ export default function ThesisVolumes() {
                     title: `${ThesisIndex?.year} Volume ${ThesisIndex?.volume} | International Journal | IJSREAT`,
                     description: "Explore the IJSREAT archives for top research papers in engineering and technology. Access past volumes and stay updated with the latest innovations"
                 });
+                setParams({
+                    year: activeThesisIndex?.year  ?? "",
+                    volume: activeThesisIndex?.volume ?? "",
+                })
                 setLoadingState(false);
             });
         }
-    }, [pageNumber, trackPage, fetchThesisData, dispatch, perPage, ThesisVolumes, activeThesisIndex, ThesisIndex, totalPage]);
+    }, [pageNumber, trackPage, fetchThesisData, dispatch, perPage, ThesisVolumes, activeThesisIndex, ThesisIndex, totalPage, navigate, ThesisData.length, URL_Year, URL_Volume, setParams]);
 
     // Search functionality
     const [form, setForm] = useState<SearchProp>({ search: "", page: pageNumber, per_page: 100 });
@@ -132,7 +160,7 @@ export default function ThesisVolumes() {
 
         setLoadingState(true);
         searchThesis(form).then((data) => {
-            const tempo = data ? data : [];
+            const tempo = data.papersList ? data.papersList : [];
             setThesisVolumesSearch(tempo);
         }).finally(() => setLoadingState(false));
         setForm({ ...form, search: "" });
@@ -156,7 +184,7 @@ export default function ThesisVolumes() {
 
                 <ArchiveVolumnHeader
                     isArchive={true}
-                    setArchiveIndex={setActiveThesisIndex}
+                    setArchiveIndex={setActiveThesisIndexState}
                     ActiveVolumes={activeThesisIndex}
                     VolumeList={undefined}
                     ThesisVolumeList={thesisIndexPage}
@@ -172,7 +200,7 @@ export default function ThesisVolumes() {
                         placeholder="Search by Paper ID, Paper Name"
                         className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm xl:text-base 2xl:text-lg"
                     />
-                    {ThesisVolumesSearch ? (
+                    {!form.search && ThesisVolumesSearch ? (
                         <PrimaryBtn event={() => setThesisVolumesSearch(null)}>
                             <GrClear size={16} /> Clear
                         </PrimaryBtn>
