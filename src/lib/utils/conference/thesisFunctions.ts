@@ -7,7 +7,7 @@ import type { AppDispatch } from "../../store/store";
 export async function getThesisDetails(params: ThesisListingParams, setVolumes: (arg: ThesisListingItem[]) => void, reducer: AppDispatch) {
     //console.log("1")
     const res = await ThesisListing(params)
-    console.log("get details", res)
+    // console.log("get details", res)
     reducer(setThesisList([...res.papersList]));
     reducer(setCurrentPage(res.current_page))
     reducer(setPerPage(res.per_page))
