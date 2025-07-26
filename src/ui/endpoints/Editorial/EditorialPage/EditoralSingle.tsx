@@ -73,7 +73,7 @@ export default function EditoralSingle() {
             </div>
             <div className='hidden sm:block sm:col-span-2 lg:col-span-1 2xl:col-span-1 space-y-6 mx-auto sm:mx-0'>
                 <img loading='lazy'
-                    src={editorialMember?.member_image_url} className='w-full max-w-60 rounded-2xl  aspect-square object-cover object-center' alt="img" />
+                    src={editorialMember?.member_image_url} className='w-full max-w-60 mx-auto lg:mx-0 rounded-2xl  aspect-square object-cover object-center' alt="img" />
                 <div className='socials grid grid-cols-2 items-center justify-center gap-2 gap-y-6 text-center'>
                     {editorialMember?.member_linkedin ? <Link to={editorialMember?.member_linkedin}>
                         <span className='flex-col flex items-center justify-center gap-2'>

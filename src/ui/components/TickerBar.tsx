@@ -1,4 +1,7 @@
+import { useState } from "react";
+
 export default function TickerBar() {
+  const [hold, setHold]=useState<boolean>(false)
   return (
     <div className="relative w-full overflow-hidden bg-[#0E4B82] text-white">
       <div className="flex items-center overflow-hidden">
@@ -16,7 +19,7 @@ export default function TickerBar() {
 
         {/* Marquee Text */}
         <div className="overflow-hidden whitespace-nowrap py-2 w-full">
-          <div className="animate-marquee inline-block min-w-full">
+          <div onMouseEnter={()=>setHold(true)} onMouseLeave={()=>setHold(false)  } className={`${!hold ? "animate-marquee":"text-center" } inline-block min-w-full cursor-pointer`}>
             {/* <span className="px-4">
               We do not provide a DOI (Digital Object Identifier).
             </span>
@@ -26,9 +29,9 @@ export default function TickerBar() {
             <span className="px-4">
               Calling all experts: With high demand for submissions, IPN invites you to join as a reviewer and contribute to advancing research.
             </span> */}
-            <span className="px-4">
+            <h2 className="px-4">
               Call for paper volume 5 issue 4 2025 , UGC-CARE Discontinue form Feb'25
-            </span>
+            </h2>
           </div>
         </div>
       </div>
