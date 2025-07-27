@@ -10,7 +10,7 @@ function FullArtical({ content, pdf_url }: { content: string, pdf_url: string })
         <div className="flex justify-between items-center">
 
           <h3 className="font-medium text-base xl:text-xl 2xl:text-3xl">Abstract</h3>
-          {pdf_url && <Link to={pdf_url} rel="noreferrer" className="hidden sm:inline-block">
+          {pdf_url && <Link to={pdf_url} target="_blank" rel="noreferrer" className="hidden sm:inline-block">
             <PrimaryBtn className="whitespace-nowrap">
               View PDF
               <VscFilePdf size={18} className="ml-4" />
