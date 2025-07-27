@@ -53,6 +53,6 @@ export const thesis_menu = [
   {"title":"Archives","link":"/thesis"},
 ];
 export const conference_menu = [
-  {"title":"Apply for Collaboration","link":""},
-  {"title":"Published Conferences","link":""},
+  {"title":"Apply for Collaboration","link":"/conference-procedings"},
+  {"title":"Published Conferences","link":"/conference"},
 ];

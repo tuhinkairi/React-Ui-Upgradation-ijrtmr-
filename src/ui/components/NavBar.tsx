@@ -105,11 +105,8 @@ const Navbar = () => {
 
           <li className="hover:text-primary relative">
             <button onMouseEnter={(e) => handlePopup(e, conference)}
-                onClick={(e) => { e.preventDefault(); handlePopup(e, conference) }}>
-              <NavLink
-                className={({ isActive }) => (isActive ? "text-primary" : "")} to="/conference">
-                Conference
-              </NavLink>
+              onClick={(e) => { e.preventDefault(); handlePopup(e, conference) }}>
+              Conference
             </button>
             <MenuCard hide={hideAllMenus} ref={conference} links={conference_menu} />
           </li>

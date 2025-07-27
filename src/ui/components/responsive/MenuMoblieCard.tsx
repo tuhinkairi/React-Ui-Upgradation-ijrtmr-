@@ -1,6 +1,6 @@
 import { X } from "lucide-react";
 import { NavLink } from "react-router-dom";
-import { about_menu, auther_menu, thesis_menu } from "../../../data/listingSection";
+import { about_menu, auther_menu, conference_menu, thesis_menu } from "../../../data/listingSection";
 
 const MenuMoblieCard = ({ onClose }: { onClose: () => void }) => {
     return (
@@ -59,9 +59,18 @@ const MenuMoblieCard = ({ onClose }: { onClose: () => void }) => {
                 <NavLink to="/archives" className="block font-semibold" onClick={onClose}>
                     Archives
                 </NavLink>
-                <NavLink to="/conference" className="block font-semibold" onClick={onClose}>
-                    Conference
-                </NavLink>
+                {/* conference */}
+                <div>
+                    <div className="font-semibold text-black">Conference</div>
+                    <ul className="pl-4 space-y-4 mt-3 text-gray-600 text-sm xl:text-base 2xl:text-lg">
+                        <>
+                            {conference_menu.map((item, idx) => {
+                                return <li key={idx}><NavLink className={({ isActive }) => (isActive ? "text-primary w-full" : "hover:text-primary w-full")} to={item.link} onClick={onClose}>{item.title}</NavLink></li>
+                            })}
+                        </>
+
+                    </ul>
+                </div>
 
                 {/* Thesis */}
                 <div>

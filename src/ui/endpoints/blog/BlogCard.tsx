@@ -10,14 +10,13 @@ export const BlogCard = ({ blog, keyProp }: { blog: Blog, keyProp: number }) => 
     const handelNavigate = () => {
         dispatch(setBlog(blog))
         navigate(`/blogs/${blog.url_title}`)
-
     }
     return (
         <div key={keyProp} className=" rounded-md overflow-hidden border border-gray-200 max-w-[400px] mx-auto">
             <img loading='lazy'
                 src={blog.image !== "https://ijsreat.com/blogImage/" ? blog.image ?? "" : "/blog.webp"} alt={blog.title ?? "blog image"} className="w-full h-64 object-cover" />
             <div className="p-5">
-                <h2 className="bg-gradient-to-r from-[#FF8C42] to-[#995428] bg-clip-text text-transparent text-2xl  mb-3 leading-snug font-serif relative">
+                <h2 onClick={handelNavigate} className="bg-gradient-to-r from-[#FF8C42] to-[#995428] bg-clip-text text-transparent text-2xl  mb-3 leading-snug font-serif relative cursor-pointer">
                     {blog.title}
                     <button onClick={handelNavigate} className="absolute right-0 sm:hidden text-white font-medium rounded-full bg-gradient-to-b from-[#FF8C42] to-[#995428] hover:from-[#fae0d0] hover:to-[#fae0d0] hover:text-primary-text transition p-2">
                         <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 -rotate-45" fill="none"

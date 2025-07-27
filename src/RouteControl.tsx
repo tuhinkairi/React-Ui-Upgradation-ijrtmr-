@@ -9,6 +9,7 @@ import ThesisVolumes from "./ui/endpoints/Thesis/ThesisVolumes";
 import Policy from "./ui/endpoints/footer/Policy";
 import TermsAndConditions from "./ui/endpoints/footer/RefundPolicy";
 import RefundPolicy from "./ui/endpoints/footer/RefundPolicy";
+import ConferenceProcedings from "./ui/endpoints/conference/conference-procedings/ConferenceProcedings";
 const ThesisDetails= React.lazy(()=>import("./ui/endpoints/Thesis/ThesisDetails"));
 const Home = React.lazy(() => import("./ui/endpoints/home/Home"));
 const Archives = React.lazy(() => import("./ui/endpoints/archive/Archives"));
@@ -99,6 +100,8 @@ export default function RouteControl() {
 
 
             {/* conference */}
+            <Route path="/conference-procedings" element={<MetaDataWrapper><ConferenceProcedings /></MetaDataWrapper>}/>
+            
             <Route path="/conference" element={<MetaDataWrapper><Conference /></MetaDataWrapper>}>
                 <Route index element={<ConferenceIndex />} />
                 <Route path="paperlist" element={<ConferenceVolumes/>} />
