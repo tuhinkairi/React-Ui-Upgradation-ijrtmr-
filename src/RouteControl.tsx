@@ -6,6 +6,7 @@ import ArchiveVolumes2 from "./ui/endpoints/archive/ArchiveVolumes2";
 import ConferenceVolumes from "./ui/endpoints/conference/ConferenceVolumes";
 import CurrentIssueVolumes from "./ui/endpoints/current-issue/CurrentIssueVolumes";
 import ThesisVolumes from "./ui/endpoints/Thesis/ThesisVolumes";
+import Policy from "./ui/endpoints/footer/Policy";
 const ThesisDetails= React.lazy(()=>import("./ui/endpoints/Thesis/ThesisDetails"));
 const Home = React.lazy(() => import("./ui/endpoints/home/Home"));
 const Archives = React.lazy(() => import("./ui/endpoints/archive/Archives"));
@@ -101,6 +102,8 @@ export default function RouteControl() {
                 <Route path="paperlist" element={<ConferenceVolumes/>} />
                 <Route path="paper-details" element={<ConferenceDetails />} />
             </Route>
+
+            <Route path="/privacy-policy" element={<MetaDataWrapper><Policy /></MetaDataWrapper>} />
             {/* error */}
             <Route path="*" element={<Page404 />} />
         </Routes>
