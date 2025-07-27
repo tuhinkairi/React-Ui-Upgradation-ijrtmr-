@@ -18,7 +18,6 @@ const ListingSection = ({
     const checkHeight = () => {
       if (listRef.current && containerRef.current) {
         const leftPanel = document.getElementsByClassName("lhs")[0].firstElementChild
-        console.log(leftPanel)
         
         if (leftPanel) {
           const panelHeight = leftPanel.clientHeight;

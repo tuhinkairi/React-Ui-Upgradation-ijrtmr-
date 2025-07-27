@@ -43,7 +43,7 @@ export const useConferenceData = ({
         };
         
         if (conferenceVolumes.length === 0 || trackPage !== pageNumber) {
-          await getConferenceDetails(params, setConferenceVolumes, dispatch, conferenceVolumes);
+          await getConferenceDetails(params, setConferenceVolumes, dispatch);
           dispatch(setCurrentPage(pageNumber));
         }
       }
