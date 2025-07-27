@@ -93,7 +93,7 @@ export default function ConferenceVolumes() {
             page: pageNumber,
             per_page: 5,
           };
-          await getConferenceDetails(params, setConferenceVolumes, dispatch, ConferenceVolumes);
+          await getConferenceDetails(params, setConferenceVolumes, dispatch);
 
           // Update trackPage AFTER successful fetch
           setTrackPage(pageNumber);

@@ -4,12 +4,12 @@ import { setConferenceArticleList } from "../../store/Features/conferenceDetails
 import { setCurrentPage, setPerPage, setTotalItems, setTotalPages } from "../../store/Features/paginationSlice";
 import type { AppDispatch } from "../../store/store";
 
-export async function getConferenceDetails(params: conferenceDetailsType, setVolumes: (arg: ConferenceArticleProps[]) => void, reducer: AppDispatch, volume: ConferenceArticleProps[]) {
+export async function getConferenceDetails(params: conferenceDetailsType, setVolumes: (arg: ConferenceArticleProps[]) => void, reducer: AppDispatch) {
     //console.log("1")
     
     const res = await conference_detials(params)
     //console.log("get details", res)
-    reducer(setConferenceArticleList([...volume, ...res.ConferenceList]));
+    reducer(setConferenceArticleList([ ...res.ConferenceList]));
     reducer(setCurrentPage(res.current_page))
     reducer(setPerPage(res.per_page))
     reducer(setTotalItems(res.total_items)) //update total pages also
