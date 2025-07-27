@@ -1,6 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import React, { useRef, useEffect, useState } from "react";
-import { about_menu, auther_menu, thesis_menu } from "../../data/listingSection";
+import { about_menu, auther_menu, conference_menu, thesis_menu } from "../../data/listingSection";
 import MenuCard from "./cards/MenuCard";
 import { BiMenuAltRight } from "react-icons/bi";
 import MenuMoblieCard from "./responsive/MenuMoblieCard";
@@ -9,11 +9,12 @@ const Navbar = () => {
   const about = useRef<HTMLDivElement>(null);
   const auther = useRef<HTMLDivElement>(null);
   const thesis = useRef<HTMLDivElement>(null);
-// responsive
-const[isShowing, setShowing] = useState<boolean>(false)
+  const conference = useRef<HTMLDivElement>(null);
+  // responsive
+  const [isShowing, setShowing] = useState<boolean>(false)
 
   const hideAllMenus = () => {
-    [about, auther, thesis].forEach(ref => {
+    [about, auther, thesis, conference].forEach(ref => {
       if (ref.current) {
         ref.current.classList.add("hidden");
         ref.current.classList.remove("flex");
@@ -38,7 +39,8 @@ const[isShowing, setShowing] = useState<boolean>(false)
       if (
         !about.current?.contains(event.target as Node) &&
         !auther.current?.contains(event.target as Node) &&
-        !thesis.current?.contains(event.target as Node)
+        !thesis.current?.contains(event.target as Node) &&
+        !conference.current?.contains(event.target as Node)
       ) {
         hideAllMenus();
       }
@@ -55,8 +57,8 @@ const[isShowing, setShowing] = useState<boolean>(false)
       <nav className="hidden lg:flex justify-between items-center py-6 gap-4 mx-auto ml-16 mr-4 xl:mr-16  text-sm xl:text-base 2xl:text-base">
         {/* Logo */}
         <div className="flex items-center space-x-3">
-          <img loading='lazy' 
-src="/logo.webp" alt="Fifth Dimension Logo" className="h-10 lg:h-12" />
+          <img loading='lazy'
+            src="/logo.webp" alt="Fifth Dimension Logo" className="h-10 lg:h-12" />
         </div>
 
         {/* Nav Links */}
@@ -70,7 +72,7 @@ src="/logo.webp" alt="Fifth Dimension Logo" className="h-10 lg:h-12" />
           <li className="hover:text-primary relative">
             <button
               onMouseEnter={(e) => handlePopup(e, about)}
-              onClick={(e) => {e.preventDefault(); handlePopup(e, about)}}
+              onClick={(e) => { e.preventDefault(); handlePopup(e, about) }}
             >
               About Us
             </button>
@@ -81,7 +83,7 @@ src="/logo.webp" alt="Fifth Dimension Logo" className="h-10 lg:h-12" />
           <li className="hover:text-primary relative">
             <button
               onMouseEnter={(e) => handlePopup(e, auther)}
-              onClick={(e) => {e.preventDefault(); handlePopup(e, auther)}}
+              onClick={(e) => { e.preventDefault(); handlePopup(e, auther) }}
 
             >
               For Authors
@@ -101,16 +103,21 @@ src="/logo.webp" alt="Fifth Dimension Logo" className="h-10 lg:h-12" />
           </li>
 
 
-          <li className="hover:text-primary">
-            <NavLink className={({ isActive }) => (isActive ? "text-primary" : "")} to="/conference">
-              Conference
-            </NavLink>
+          <li className="hover:text-primary relative">
+            <button onMouseEnter={(e) => handlePopup(e, conference)}
+                onClick={(e) => { e.preventDefault(); handlePopup(e, conference) }}>
+              <NavLink
+                className={({ isActive }) => (isActive ? "text-primary" : "")} to="/conference">
+                Conference
+              </NavLink>
+            </button>
+            <MenuCard hide={hideAllMenus} ref={conference} links={conference_menu} />
           </li>
 
           <li className="hover:text-primary relative">
             <button
               onMouseEnter={(e) => handlePopup(e, thesis)}
-              onClick={(e) => {e.preventDefault(); handlePopup(e, thesis)}}
+              onClick={(e) => { e.preventDefault(); handlePopup(e, thesis) }}
             >
               Thesis
             </button>
@@ -148,8 +155,8 @@ src="/logo.webp" alt="Fifth Dimension Logo" className="h-10 lg:h-12" />
       <nav className="flex items-center justify-between py-4 px-6  lg:hidden relative">
         {/* Logo + Brand */}
         <div className="flex items-center space-x-2">
-          <img loading='lazy' 
-src="/logo.webp" alt="Fifth Dimension Logo" className="h-10 w-auto" />
+          <img loading='lazy'
+            src="/logo.webp" alt="Fifth Dimension Logo" className="h-10 w-auto" />
         </div>
 
         {/* CTA + Hamburger */}
@@ -163,11 +170,11 @@ src="/logo.webp" alt="Fifth Dimension Logo" className="h-10 w-auto" />
               Login
             </button>
           </Link>
-          <button onClick={()=>setShowing(!isShowing)} className="p-2 rounded-md hover:bg-gray-100 transition lg:hidden">
+          <button onClick={() => setShowing(!isShowing)} className="p-2 rounded-md hover:bg-gray-100 transition lg:hidden">
             <BiMenuAltRight className="w-6 h-6" />
           </button>
         </div>
-        {isShowing && <MenuMoblieCard onClose={()=>setShowing(false)} />}
+        {isShowing && <MenuMoblieCard onClose={() => setShowing(false)} />}
       </nav>
 
     </>
