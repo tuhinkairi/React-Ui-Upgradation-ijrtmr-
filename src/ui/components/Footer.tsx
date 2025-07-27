@@ -103,9 +103,9 @@ export default function Footer() {
                 <div className="flex flex-wrap justify-center space-x-1 text-sm 2xl:text-base">
                   <NavLink to="/privacy-policy" target='_blank' className="text-primary hover:text-primary-hover">Privacy Policy</NavLink>
                   <span className="text-gray-400">|</span>
-                  <NavLink to="/ethics?target=copyright-ownership" target='_blank' className="text-primary hover:text-primary-hover">Terms And Conditions</NavLink>
+                  <NavLink to="/terms-and-conditions" target='_blank' className="text-primary hover:text-primary-hover">Terms And Conditions</NavLink>
                   <span className="text-gray-400">|</span>
-                  <NavLink to="/ethics?target=article-withdrawal" target='_blank' className="text-primary hover:text-primary-hover">Refund Policy</NavLink>
+                  <NavLink to="/refund-policy" target='_blank' className="text-primary hover:text-primary-hover">Refund Policy</NavLink>
                 </div>
               </div>
             </div>
