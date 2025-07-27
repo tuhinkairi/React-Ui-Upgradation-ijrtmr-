@@ -11,8 +11,11 @@ import { useLocation } from 'react-router-dom'
 import { useAppSelector } from '../../../lib/store/store'
 
 export default function ArchiveLayout({children, className,title}:{children:React.ReactNode, className?:string, title?:string|React.ReactNode}) {
+  const path = useLocation().pathname
   const isArticleDetails = useLocation().pathname.includes('/paper-details')
   const activeArticle = useAppSelector(state=> state.archiveSection.activePaper)
+  const activeConference = useAppSelector(state=> state.conferenceArtical.selectedArticle)
+  const activeThesis = useAppSelector(state=> state.thesis.ActiveThesis)
   
   return (
     <section className="_archiveLayout lg:ml-16 grid grid-cols-3 md:grid-cols-4 2xl:grid-cols-5 justify-between gap-y-5 md:gap-5 px-6 lg:px-0  lg:mr-4 xl:mr-16">
@@ -25,8 +28,8 @@ export default function ArchiveLayout({children, className,title}:{children:Reac
         <>
         <ArchiveBtn 
           icon={true}
-          label={<>Download Pdf <GrDocumentPdf size={18}/> </>}
-          href={activeArticle?.paper_url??""}
+          label={<>Download PDF <GrDocumentPdf size={18}/> </>}
+          href={path.includes("/thesis")? activeThesis?.paper_url??"": path.includes("/conference")?activeConference?.pdf_url??"" : activeArticle?.paper_url??""}
         />
         <PlumMetricsCard/>
         </>
