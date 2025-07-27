@@ -8,16 +8,21 @@ import { useAppDispatch, useAppSelector } from '../../../lib/store/store';
 import { setStoreBlogList } from '../../../lib/store/Features/BlogSlice';
 import { setLoading } from '../../../lib/store/Features/loadingSlice';
 import Loading from '../../components/Loading';
+import { setCurrentPage } from '../../../lib/store/Features/paginationSlice';
 
 export default function Blog() {
-    const [page, setPage] = useState(1);
+    const currentPage = useAppSelector(state=>state.pagination.current_page)
+    const [page, setPage] = useState(currentPage);
     const [BlogList, setBlogList] = useState<Blog[]>(useAppSelector((state) => state.blog.blogList));
     const itemsPerPage = 10;
     const [totalPages, setTotalPages] = useState(Math.ceil(BlogList.length/itemsPerPage)); // Ensure at least 1 page if no blogs
     const dispatch = useAppDispatch();
     const loading = useAppSelector((state) => state.loadingScreen.loading);
 
-
+    const setActivePage=(p:number)=>{
+        setPage(p)
+        dispatch(setCurrentPage(p))
+    }
     useEffect(() => {
         if (BlogList.length == 0) {
             
@@ -73,7 +78,7 @@ export default function Blog() {
                 <Pagination
                     currentPage={page}
                     totalPages={totalPages}
-                    onPageChange={setPage}
+                    onPageChange={setActivePage}
                     rangeList={getVisiblePages()}
                 />
             )}

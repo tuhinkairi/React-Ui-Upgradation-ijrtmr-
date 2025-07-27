@@ -4,12 +4,15 @@ import { about_menu, auther_menu, conference_menu, thesis_menu } from "../../dat
 import MenuCard from "./cards/MenuCard";
 import { BiMenuAltRight } from "react-icons/bi";
 import MenuMoblieCard from "./responsive/MenuMoblieCard";
+import { useAppDispatch } from "../../lib/store/store";
+import { setCurrentPage } from "../../lib/store/Features/paginationSlice";
 
 const Navbar = () => {
   const about = useRef<HTMLDivElement>(null);
   const auther = useRef<HTMLDivElement>(null);
   const thesis = useRef<HTMLDivElement>(null);
   const conference = useRef<HTMLDivElement>(null);
+  const dispatch = useAppDispatch()
   // responsive
   const [isShowing, setShowing] = useState<boolean>(false)
 
@@ -64,7 +67,7 @@ const Navbar = () => {
         {/* Nav Links */}
         <ul className="flex items-center space-x-2 lg:space-x-4 xl:space-x-6 font-medium">
           <li className="hover:text-primary">
-            <NavLink className={({ isActive }) => (isActive ? "text-primary" : "")} to="/">
+            <NavLink onClick={()=>dispatch(setCurrentPage(1))} className={({ isActive }) => (isActive ? "text-primary" : "")} to="/">
               Home
             </NavLink>
           </li>
@@ -92,12 +95,12 @@ const Navbar = () => {
             <MenuCard hide={hideAllMenus} ref={auther} links={auther_menu} />
           </li>
           <li className="hover:text-primary">
-            <NavLink className={({ isActive }) => (isActive ? "text-primary" : "")} to="/current-issue/paperlist?year=2025&volume=5&issue=3">
+            <NavLink onClick={()=>dispatch(setCurrentPage(1))} className={({ isActive }) => (isActive ? "text-primary" : "")} to="/current-issue/paperlist?year=2025&volume=5&issue=3">
               Current Issue
             </NavLink>
           </li>
           <li className="hover:text-primary">
-            <NavLink className={({ isActive }) => (isActive ? "text-primary" : "")} to="/archives">
+            <NavLink onClick={()=>dispatch(setCurrentPage(1))} className={({ isActive }) => (isActive ? "text-primary" : "")} to="/archives">
               Archives
             </NavLink>
           </li>
@@ -122,13 +125,13 @@ const Navbar = () => {
           </li>
 
           <li className="hover:text-primary">
-            <NavLink className={({ isActive }) => (isActive ? "text-primary" : "")} to="/blogs">
+            <NavLink onClick={()=>dispatch(setCurrentPage(1))} className={({ isActive }) => (isActive ? "text-primary" : "")} to="/blogs">
               Blog
             </NavLink>
           </li>
 
           <li className="hover:text-primary">
-            <NavLink className={({ isActive }) => (isActive ? "text-primary" : "")} to="/contact-us">
+            <NavLink onClick={()=>dispatch(setCurrentPage(1))} className={({ isActive }) => (isActive ? "text-primary" : "")} to="/contact-us">
               Contact Us
             </NavLink>
           </li>

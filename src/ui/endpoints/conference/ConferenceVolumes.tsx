@@ -43,8 +43,9 @@ export default function ConferenceVolumes() {
   // Listing pagination
   const totalPage = useAppSelector((state) => state.pagination.total_pages);
   const perPage = useAppSelector((state) => state.pagination.per_page);
-  const [pageNumber, setPageNumber] = useState<number>(1);
-  const [trackPage, setTrackPage] = useState<number>(1);
+  const currentPage = useAppSelector((state) => state.pagination.current_page);
+  const [pageNumber, setPageNumber] = useState<number>(currentPage);
+  const [trackPage, setTrackPage] = useState<number>(currentPage);
 
   const getVisiblePages = () => {
     const maxVisible = 5;
