@@ -26,17 +26,16 @@ export default function EMSPage() {
                         </div>
                     </div>
                     <div className="image flex flex-col gap-8 justify-center">
-                        <img loading='lazy' 
-src="/EMS/EMS1.webp" alt="submit article image" />
-                        <img loading='lazy' 
-src="/EMS/EMS1.webp" alt="submit article image 2" />
+                        <img loading='lazy'
+                            src="/EMS/EMS1.webp" alt="submit article image" />
+                        <iframe loading="lazy" height="210" src="https://www.youtube.com/embed/LqCgSWHjVrY" title="IJSREAT _Article Submission" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ></iframe>
                     </div>
                 </div>
                 <hr className="text-gray-300" />
                 <div className="_cardSectionEMS items-center gap-y-6 sm:gap-x-6 grid sm:grid-cols-2 justify-between">
                     <div className="image grid gap-4">
-                        <img loading='lazy' 
-src="/EMS/EMS3.webp" alt=" Author can know task Process image" />
+                        <img loading='lazy'
+                            src="/EMS/EMS3.webp" alt=" Author can know task Process image" />
                     </div>
                     <div className="textsection space-y-4">
                         <div>
@@ -64,15 +63,15 @@ src="/EMS/EMS3.webp" alt=" Author can know task Process image" />
                         </div>
                     </div>
                     <div className="image grid gap-4">
-                        <img loading='lazy' 
-src="/EMS/EMS4.webp" alt="Author can know Review Process image" />
+                        <img loading='lazy'
+                            src="/EMS/EMS4.webp" alt="Author can know Review Process image" />
                     </div>
                 </div>
                 <hr className="text-gray-300" />
                 <div className="_cardSectionEMS items-center gap-y-6 sm:gap-x-6 grid sm:grid-cols-2 justify-between">
                     <div className="image grid gap-4">
-                        <img loading='lazy' 
-src="/EMS/EMS5.webp" alt="How Author can Know submitted Article Accepted or Not image" />
+                        <img loading='lazy'
+                            src="/EMS/EMS5.webp" alt="How Author can Know submitted Article Accepted or Not image" />
                     </div>
                     <div className="textsection space-y-4">
                         <div>
@@ -96,15 +95,15 @@ src="/EMS/EMS5.webp" alt="How Author can Know submitted Article Accepted or Not 
                         </div>
                     </div>
                     <div className="image grid gap-4">
-                        <img loading='lazy' 
-src="/EMS/EMS6.webp" alt="What is the Procedure for Accepted Article to be publish image" />
+                        <img loading='lazy'
+                            src="/EMS/EMS6.webp" alt="What is the Procedure for Accepted Article to be publish image" />
                     </div>
                 </div>
                 <hr className="text-gray-300" />
                 <div className="_cardSectionEMS items-center gap-y-6 sm:gap-x-6 grid sm:grid-cols-2 justify-between">
                     <div className="image grid gap-4">
-                        <img loading='lazy' 
-src="/EMS/EMS7.webp" alt="Copyright Form image" />
+                        <img loading='lazy'
+                            src="/EMS/EMS7.webp" alt="Copyright Form image" />
                     </div>
                     <div className="textsection space-y-4">
                         <div>
@@ -123,8 +122,7 @@ src="/EMS/EMS7.webp" alt="Copyright Form image" />
                         </div>
                     </div>
                     <div className="image grid gap-4">
-                        <img loading='lazy' 
-src="/EMS/EMS8.webp" alt="Article Processing fee receipt (with DOI, With out DOI) image" />
+                        <iframe loading="lazy" height="210" className="w-full" src="https://www.youtube.com/embed/pg2HI9QzTWo" title="IJSREAT _ Article Review &amp; Acceptance" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
                     </div>
                 </div>
                 <div>
@@ -136,15 +134,15 @@ src="/EMS/EMS8.webp" alt="Article Processing fee receipt (with DOI, With out DOI
                     </h2>
                     <div className="_cardSectionEMS items-center gap-y-6 sm:gap-x-6 grid sm:grid-cols-2 justify-between mt-6">
                         <div className="textsection space-y-4">
-                            <img loading='lazy' 
-src="/EMS/EMS9.webp" alt="Process verification image 1" />
+                            <img loading='lazy'
+                                src="/EMS/EMS9.webp" alt="Process verification image 1" />
                         </div>
                         <div className="image grid gap-y-8">
                             <div>
                                 <h2 className="">d&#41; Final Submission Upload your <span className="text-green-500">final article, copyright form, and APC receipt</span>. Verify your uploaded documents, and then click &gt; <span className="text-green-500">Final Submit</span> Button-for final submission.</h2>
                             </div>
-                            <img loading='lazy' 
-src="/EMS/EMS10.webp" alt="Process verification image 2" />
+                            <img loading='lazy'
+                                src="/EMS/EMS10.webp" alt="Process verification image 2" />
                         </div>
                     </div>
                 </div>
@@ -155,13 +153,12 @@ src="/EMS/EMS10.webp" alt="Process verification image 2" />
                             <h2 className="font-medium text-lg xl:text-xl 2xl:text-2xl mb-2">6. Author will get certificates including corresponding authors?</h2>
                             <p>
                                 Yes. All author will get certificates. Author can download <span className="text-green-500">file Tab</span>. Also Published Article Copy and Journal Archive link also.
-                                
+
                             </p>
                         </div>
                     </div>
                     <div className="image grid gap-4">
-                        <img loading='lazy' 
-src="/EMS/EMS11.webp" alt="Author will get certificates including corresponding authors image" />
+                        <iframe height={210} className="w-full" loading="lazy" src="https://www.youtube.com/embed/BPmcgfeZV1A" title="IJSREAT _ Article Final Submission &amp; Publish"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
                     </div>
                 </div>
             </article>
