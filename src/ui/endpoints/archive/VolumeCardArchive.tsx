@@ -18,7 +18,7 @@ export default function VolumeCardArchive({ paper, setActive, navigate }: { pape
                 <Link
                     onClick={() => setActive(paper)}
                     to={endpoint}
-                    className="text-xl 2xl:text-2xl font-serif  text-orange-500 hover:underline sm:max-w-5/6 relative"
+                    className="text-xl 2xl:text-2xl font-serif  text-primary hover:underline sm:max-w-5/6 relative"
                 >
                     {paper.paper_title}<ArrowUpRight fill="none" className="inline-block ml-1" />
                 </Link>

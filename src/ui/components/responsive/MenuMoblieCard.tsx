@@ -17,7 +17,7 @@ const MenuMoblieCard = ({ onClose }: { onClose: () => void }) => {
                 <NavLink
                     to="/"
                     className={({ isActive }) =>
-                        `block font-medium ${isActive ? "text-orange-500" : "text-black"
+                        `block font-medium ${isActive ? "text-primary" : "text-black"
                         }`
                     }
                     onClick={onClose}

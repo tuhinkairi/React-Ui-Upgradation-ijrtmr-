@@ -17,7 +17,7 @@ export default function ArchiveSection() {
   const navigate = useNavigate()
   const thesis = useLocation().pathname.includes('thesis');
   const issue = useLocation().pathname.includes('current-issue');
-  //console.log(thesis)
+  console.log(thesis)
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const [volume, setVolumes] = useState<ArchiveIndexVolume[]>(useAppSelector(state => state.archiveSection.indexPage));
@@ -61,7 +61,7 @@ export default function ArchiveSection() {
     }
     else {
       if (volume.length === 0) {
-        //console.log("ruing")
+        console.log("ruing")
         fetchArchive().then((data) => {
           const reversedData = [...data].reverse()
           setVolumes(reversedData)

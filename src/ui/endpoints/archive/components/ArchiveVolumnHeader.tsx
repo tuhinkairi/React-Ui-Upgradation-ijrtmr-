@@ -155,8 +155,8 @@ function ArchiveVolumnHeader({
                                 onClick={() => handleIssueClick(issue)}
                                 className={`flex whitespace-nowrap justify-between items-center w-fit px-8 py-3 font-medium rounded-md transition 
                             ${issue === activeIssue
-                                        ? "text-white bg-gradient-to-b from-[#FF8C42] to-[#995428] "
-                                        : "hover:text-white bg-gradient-to-b hover:from-[#FF8C42] hover:to-[#995428] from-[#fae0d0] to-[#fae0d0] text-primary-text"
+                                        ? "text-white bg-gradient-to-b from-primary to-primary-hover "
+                                        : "hover:text-white bg-gradient-to-b hover:from-primary hover:to-primary-hover from-[#d6d0fa] to-[#d6d0fa] text-primary-text"
                                     }`}
                             >
                                 {issue}

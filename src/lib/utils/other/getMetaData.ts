@@ -10,7 +10,7 @@ export interface metaData {
     }
 }
 export default function getMetaData({path,baseUrl}:{path: string, baseUrl:string}): metaData {
-    //console.log(path, baseUrl)
+    console.log(path, baseUrl)
     let meta: metaData = {
         title: `${path.split("/")[1].toLocaleUpperCase()} | International Journal of Scientific Research in Engineering`,
         description: 'IJSRET publishes high-quality research in engineering and technology. Submit your paper or explore the latest scientific advancements.',

@@ -17,7 +17,7 @@ const IndexingPartnerArchive: React.FC = () => {
     };
     loadData();
   }, [fetchIndexData]);
-  //console.log(indexData);
+  console.log(indexData);
   return (
     <section className="bg-white text-center py-6 overflow-hidden">
       {!endpoint.includes("aim-and-scope") && !endpoint.includes("ethics") && !endpoint.includes("archives") && !endpoint.includes("/thesis") ?

@@ -8,13 +8,13 @@ export default function Footer() {
   const handleSubmit = () => {
     // Handle newsletter subscription
     if (email) {
-      //console.log('Subscribing email:', email);
+      console.log('Subscribing email:', email);
       setEmail('');
     }
   };
 
   return (
-    <footer className="bg-[#FF8C421A] py-12 px-6 mt-6">
+    <footer className="bg-[#0000991A] py-12 px-6 mt-6">
       <div className="max-w-6xl mx-auto 2xl:max-w-full">
         {/* Main Footer Content */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mb-12">
@@ -76,11 +76,11 @@ export default function Footer() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter email address"
-                className="flex-1 px-3 py-2 border border-gray-200 bg-white rounded-l-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent text-sm 2xl:text-base"
+                className="flex-1 px-3 py-2 border border-gray-200 bg-white rounded-l-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-sm 2xl:text-base"
               />
               <button
                 onClick={handleSubmit}
-                className="px-6 py-2 bg-primary text-white rounded-r-md hover:bg-primary-hover focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 text-sm 2xl:text-base font-medium"
+                className="px-6 py-2 bg-primary text-white rounded-r-md hover:bg-primary-hover focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 text-sm 2xl:text-base font-medium"
               >
                 Join
               </button>
@@ -89,7 +89,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Section */}
-        <div className="border-t border-gray-200 pt-8">
+        <div className="border-t border-primary pt-8">
           <div className="flex flex-col lg:flex-row justify-between items-start space-y-4 lg:space-y-0 relative">
             {/* Copyright and Licensing */}
             <div className="text-center w-fit mx-auto">

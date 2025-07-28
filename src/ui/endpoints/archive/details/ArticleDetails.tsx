@@ -126,7 +126,7 @@ const ArticleDetails = () => {
             }
           </div>
 
-          <button className="inline-flex sm:hidden items-center justify-center bg-[#fae0d0] text-primary-text text-sm xl:text-base 2xl:text-lg font-medium w-12 h-12 xl:w-16 xl:h-16 hover:bg-[#f6d5c3] transition-colors rounded-full">
+          <button className="inline-flex sm:hidden items-center justify-center bg-[#d6d0fa] text-primary-text text-sm xl:text-base 2xl:text-lg font-medium w-12 h-12 xl:w-16 xl:h-16 hover:bg-[#f6d5c3] transition-colors rounded-full">
             <Share2 size={13} className="inline-block " />
           </button>
 
@@ -142,7 +142,7 @@ const ArticleDetails = () => {
             </Link>
           </div>
 
-          <button className={`hidden sm:inline-flex items-center justify-center ${copy ? "bg-green-300 hover:bg-green-400" : "bg-[#fae0d0] hover:bg-[#f6d5c3]"} text-primary-text text-sm xl:text-base 2xl:text-lg font-medium w-12 h-12  xl:h-16 xl:w-16 transition-colors rounded-full`} onClick={() => {
+          <button className={`hidden sm:inline-flex items-center justify-center ${copy ? "bg-green-300 hover:bg-green-400" : "bg-[#d6d0fa] hover:bg-[#f6d5c3]"} text-primary-text text-sm xl:text-base 2xl:text-lg font-medium w-12 h-12  xl:h-16 xl:w-16 transition-colors rounded-full`} onClick={() => {
             navigator.clipboard.writeText(window.location.href)
             SetCopy(true)
             setTimeout(() => {

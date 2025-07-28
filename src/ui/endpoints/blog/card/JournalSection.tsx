@@ -20,7 +20,7 @@ const JournalSelection: React.FC<JournalSelectionProps> = ({
 }) => {
   return (
     <div className="bg-white py-3 pb-6 p-6 shadow shadowSprade rounded-xl space-y-6">
-      <h2 className="text-xl font-semibold bg-gradient-to-r from-[#FF8C42] to-[#995428] bg-clip-text text-transparent mb-6 leading-snug">{mainTitle}</h2>
+      <h2 className="text-xl font-semibold bg-gradient-to-r from-primary to-primary-hover bg-clip-text text-transparent mb-6 leading-snug">{mainTitle}</h2>
 
       {sections.map((section, index) => (
         <div key={index}>

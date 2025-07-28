@@ -18,9 +18,9 @@ export default function VolumeCardThesis({ paper, setActive, navigate }: { paper
                 <Link
                     onClick={() => setActive(paper)}
                     to={endpoint}
-                    className="text-xl 2xl:text-2xl font-serif  text-orange-500 hover:underline max-w-5/6"
+                    className="text-xl 2xl:text-2xl font-serif  text-primary hover:underline max-w-5/6"
                 >
-                    {paper.title} <span className="text-orange-500">↗</span>
+                    {paper.title} <span className="text-primary">↗</span>
                 </Link>
                 <button onClick={HandleGoolge} className="hidden text-base sm:inline-flex items-center justify-center gap-2 text-primary border border-orange-400 px-3 py-1" style={{ borderRadius: 9999 }}>
                     <SearchIcon className="w-5" /> Google

@@ -53,7 +53,7 @@ export default function EditorialManagement() {
         {editorialData.map((item, i) => (
           <div
             key={i}
-            className="bg-white rounded-xl border border-gray-200 shadow-md p-6 flex flex-col text-left hover:bg-[#fae0d0] transition-all duration-300"
+            className="bg-white rounded-xl border border-gray-200 shadow-md p-6 flex flex-col text-left hover:bg-[#d6d0fa] transition-all duration-300"
           >
             <div className="mb-4">{item.icon}</div>
             <h3 className="font-semibold text-lg  2xl:text-lg text-gray-900 mb-2">{item.title}</h3>

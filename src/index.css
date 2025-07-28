@@ -17,10 +17,10 @@ button{
     @apply shadow-[0_0_40px_0_rgba(0,0,0,0.1)];
 }
 .borderPrimary{
-    @apply border border-[#f4b183];
+    @apply border border-primary;
 }
 .borderPrimaryHover{
-    @apply border border-[#f0f0f0] hover:bg-[#fae0d0];
+    @apply border border-[#f0f0f0] hover:bg-[#d6d0fa];
 }
 .primaryBtn{
     @apply inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-hover text-white px-6 py-3 rounded-md text-sm  2xl:text-base sm:text-base font-medium shadow-sm transition;

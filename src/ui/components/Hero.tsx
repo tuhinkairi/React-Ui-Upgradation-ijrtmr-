@@ -7,7 +7,7 @@ export default function Hero() {
       <div className="max-w-full lg:max-w-1/2 text-left space-y-4 xl:space-y-6 2xl:space-y-8">
 
         <h1 className="text-3xl sm:text-4xl 2xl:text-5xl font-bold leading-tight md:w-4/5 lg:w-full">
-          <span className="bg-gradient-to-b from-[#FF8C42]  to-[#C85104] text-transparent bg-clip-text text-[2rem] 2xl:text-[3.5rem] sm:text-5xl block">International Journal</span>{' '}
+          <span className="bg-gradient-to-b from-primary  to-primary-hover text-transparent bg-clip-text text-[2rem] 2xl:text-[3.5rem] sm:text-5xl block">International Journal</span>{' '}
           <span className="text-primaryText">
             of Scientific Research in Engineering & Technology
           </span>

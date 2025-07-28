@@ -27,7 +27,7 @@ export default function LatestPublication() {
         <div key={index} className="space-y-2">
           <Link to={pub.ink}>
             <h3 className="text-sm 2xl:text-base text-gray-800">{pub.title}</h3>
-            <h3 className="text-sm 2xl:text-base font-medium text-orange-500">Paper ID : {pub.id}</h3>
+            <h3 className="text-sm 2xl:text-base font-medium text-primary">Paper ID : {pub.id}</h3>
             {index !== publications.length - 1 && (
               <hr className="border-gray-300 mt-2" />
             )}
