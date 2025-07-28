@@ -23,7 +23,7 @@ const ListingSection = ({
           const panelHeight = leftPanel.clientHeight;
           const listHeight = listRef.current.scrollHeight;
           const shouldBeDropdown = listHeight > panelHeight * 0.30;
-          console.log(panelHeight, listHeight, shouldBeDropdown)
+          // console.log(panelHeight, listHeight, shouldBeDropdown)
           setIsDropdown(shouldBeDropdown);
         }
       }
