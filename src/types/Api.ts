@@ -113,6 +113,7 @@ export interface EditorialMember {
   created_at: string
   updated_at: string
   member_publication_list: string
+  social_links:{name:string, link:string|null}[]
   member_orcid_id: string
   member_scopus_id: string | null
   member_thomson_reuters: string | null
