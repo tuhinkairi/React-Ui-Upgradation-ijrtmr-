@@ -4,7 +4,7 @@ import { about_menu, auther_menu, conference_menu, thesis_menu } from "../../dat
 import MenuCard from "./cards/MenuCard";
 import { BiMenuAltRight } from "react-icons/bi";
 import MenuMoblieCard from "./responsive/MenuMoblieCard";
-import { useAppDispatch } from "../../lib/store/store";
+import { useAppDispatch, useAppSelector } from "../../lib/store/store";
 import { setCurrentPage } from "../../lib/store/Features/paginationSlice";
 
 const Navbar = () => {
@@ -12,7 +12,24 @@ const Navbar = () => {
   const auther = useRef<HTMLDivElement>(null);
   const thesis = useRef<HTMLDivElement>(null);
   const conference = useRef<HTMLDivElement>(null);
+  const activeIssue = useAppSelector(s => s.archiveSection.indexPage);
+  const [IssueUrl, setIssueUrl] = useState<string>("/current-issue");
   const dispatch = useAppDispatch()
+  // update the current issue url
+  useEffect(()=>{
+    setIssueUrl( activeIssue &&
+    Array.isArray(activeIssue) &&
+    activeIssue[0] &&
+    activeIssue[0].volumes &&
+    Array.isArray(activeIssue[0].volumes) &&
+    activeIssue[0].volumes[0] &&
+    activeIssue[0].volumes[0].issue &&
+    Array.isArray(activeIssue[0].volumes[0].issue) &&
+    activeIssue[0].volumes[0].issue[0]
+      ? `/current-issue/paperlist?year=${activeIssue[0].year}&volume=${activeIssue[0].volumes[0].volume}&issue=${activeIssue[0].volumes[0].issue[0]}`
+      : "/current-issue")
+  },[activeIssue])
+  
   // responsive
   const [isShowing, setShowing] = useState<boolean>(false)
 
@@ -38,6 +55,7 @@ const Navbar = () => {
   };
 
   useEffect(() => {
+    
     const handleClickOutside = (event: MouseEvent) => {
       if (
         !about.current?.contains(event.target as Node) &&
@@ -95,7 +113,7 @@ const Navbar = () => {
             <MenuCard hide={hideAllMenus} ref={auther} links={auther_menu} />
           </li>
           <li className="hover:text-primary">
-            <NavLink onClick={()=>dispatch(setCurrentPage(1))} className={({ isActive }) => (isActive ? "text-primary" : "")} to="/current-issue/paperlist?year=2025&volume=5&issue=3">
+            <NavLink onClick={()=>dispatch(setCurrentPage(1))} className={({ isActive }) => (isActive ? "text-primary" : "")} to={IssueUrl}>
               Current Issue
             </NavLink>
           </li>
