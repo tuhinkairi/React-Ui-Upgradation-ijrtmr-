@@ -7,25 +7,33 @@ import { useAppDispatch, useAppSelector } from "../../../lib/store/store";
 import { Pagination } from "../Editorial/Pagination";
 import Loading from "../../components/Loading";
 import { setCurrentPage } from "../../../lib/store/Features/paginationSlice";
-import { searchArchive, type ArchivePaperListtingArg } from "../../../lib/axios/api/archive";
+import { fetchArchive, searchArchive, type ArchivePaperListtingArg } from "../../../lib/axios/api/archive";
 import { getArticalDetails } from "../../../lib/utils/conference/articalFunctions";
-import { setActiveIndexVolume, setActivePaper } from "../../../lib/store/Features/ArchiveSlice";
+import { setActiveIndexVolume, setActivePaper, setArchiveIndexVolume } from "../../../lib/store/Features/ArchiveSlice";
 import { GrClear } from "react-icons/gr";
 import MetaDataWrapper from "../../components/layout/MetaDataWrapper";
 import Titleh2 from "../../other/Titleh2";
 import VolumeCardArchive from "../archive/VolumeCardArchive";
+import { setLoading } from "../../../lib/store/Features/loadingSlice";
 
 // Constants
 const ITEMS_PER_PAGE = 5;
 const SEARCH_PER_PAGE = 100;
-const MAX_ISSUE_2025 = 3;
 const MAX_VISIBLE_PAGES = 5;
 
 export default function CurrentIssueVolumes() {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  const [params] = useSearchParams();
-  
+  const [params, setParams] = useSearchParams();
+  const loading = useAppSelector((state) => state.loadingScreen.loading);
+
+  const URL_Issue = params.get("issue");
+  const URL_Year = params.get("year");
+  const URL_Volume = params.get("volume");
+
+  const indexList = useAppSelector(s => s.archiveSection.indexPage);
+  const MAX_ISSUE_2025 = indexList.length > 0 ? indexList[0].volumes[0].issue.length : 1;
+
   // URL parameters
   const urlParams = useMemo(() => ({
     issue: params.get("issue"),
@@ -38,29 +46,45 @@ export default function CurrentIssueVolumes() {
     activeIndexPage: ArchiveIndex,
     papers: ArchiveData
   } = useAppSelector((state) => state.archiveSection);
-  
-  const { total_pages: totalPage, per_page: perPage} = useAppSelector((state) => state.pagination);
+
+  const { total_pages: totalPage, per_page: perPage } = useAppSelector((state) => state.pagination);
 
   // Local state
-  const [loadingState, setLoadingState] = useState(false);
+  const [subLoading, setSubLoading] = useState(false);
   const [activeArchiveIndex, setActiveArchiveIndex] = useState<ActiveIndexArchive | null>(ArchiveIndex);
   const [ArticalVolumes, setArticalVolumes] = useState<ArchivePaperDetailProps[]>(ArchiveData);
   const [ArticalVolumesSearch, setArticalVolumesSearch] = useState<ArchivePaperDetailProps[] | null>(null);
   const [pageNumber, setPageNumber] = useState(1);
   const [trackPage, setTrackPage] = useState(1);
-  const [form, setForm] = useState<SearchProp>({ 
-    search: "", 
-    page: 1, 
-    per_page: SEARCH_PER_PAGE ?? perPage
+  const [form, setForm] = useState<SearchProp>({
+    search: "",
+    page: 1,
+    per_page: SEARCH_PER_PAGE
   });
 
   // Memoized metadata
   const metaData = useMemo(() => ({
-    title: activeArchiveIndex 
+    title: activeArchiveIndex
       ? `${activeArchiveIndex.year} Volume ${activeArchiveIndex.volume} Issue ${activeArchiveIndex.issue} | International Journal | IJSREAT`
       : "Current Issue | International Journal | IJSREAT",
     description: "Explore the IJSREAT archives for top research papers in engineering and technology. Access past volumes and stay updated with the latest innovations"
   }), [activeArchiveIndex]);
+
+  // Initial data fetch effect - similar to ArchiveVolumes2
+  useEffect(() => {
+    if (!activeArchiveIndex && URL_Issue && URL_Year && URL_Volume) {
+      dispatch(setLoading(true));
+      fetchArchive().then((data) => {
+        const reversedData = [...data].reverse();
+        dispatch(setArchiveIndexVolume(reversedData));
+      });
+      setActiveArchiveIndex({
+        year: URL_Year,
+        volume: URL_Volume,
+        issue: URL_Issue
+      });
+    }
+  }, [URL_Issue, URL_Year, URL_Volume, activeArchiveIndex, dispatch]);
 
   // Memoized pagination helpers
   const getVisiblePages = useMemo(() => {
@@ -83,21 +107,9 @@ export default function CurrentIssueVolumes() {
     return Array.from({ length: endPage - startPage + 1 }, (_, i) => startPage + i);
   }, [pageNumber, totalPage]);
 
-  const shouldShowPagination = useMemo(() => 
-    ArticalVolumesSearch === null && totalPage > 1, 
+  const shouldShowPagination = useMemo(() =>
+    ArticalVolumesSearch === null && totalPage > 1,
     [ArticalVolumesSearch, totalPage]
-  );
-
-  // Memoized data check to prevent unnecessary re-renders
-  const isDataCurrent = useMemo(() => 
-    ArticalVolumes.length > 0 && 
-    activeArchiveIndex && 
-    ArchiveIndex &&
-    activeArchiveIndex.year === ArchiveIndex.year &&
-    activeArchiveIndex.volume === ArchiveIndex.volume &&
-    activeArchiveIndex.issue === ArchiveIndex.issue &&
-    trackPage === pageNumber,
-    [ArticalVolumes.length, activeArchiveIndex, ArchiveIndex, trackPage, pageNumber]
   );
 
   // Optimized active paper setter
@@ -105,59 +117,72 @@ export default function CurrentIssueVolumes() {
     dispatch(setActivePaper(paper));
   }, [dispatch]);
 
-  // Optimized data fetching
+  // Optimized data fetching - enhanced with store data checking
   const fetchArticalData = useCallback(async () => {
-    if (!activeArchiveIndex?.year) {
-      navigate("/current-issue");
-      return;
-    }
-
     try {
-      // Handle 2025 issue limit
-      let currentIndex = activeArchiveIndex;
-      if (activeArchiveIndex.year === "2025" && parseInt(activeArchiveIndex.issue) > MAX_ISSUE_2025) {
-        currentIndex = { ...activeArchiveIndex, issue: "1" };
-        setActiveArchiveIndex(currentIndex);
-        setPageNumber(1);
-        return; // Return early to trigger re-render with corrected data
+      if (activeArchiveIndex) {
+        // Check if we need to fetch data (similar logic to ArchiveVolumes2)
+        if (ArchiveData.length === 0 || trackPage !== pageNumber ||
+          activeArchiveIndex?.year !== ArchiveIndex?.year ||
+          activeArchiveIndex?.volume !== ArchiveIndex?.volume ||
+          activeArchiveIndex?.issue !== ArchiveIndex?.issue) {
+
+          // Handle 2025 issue limit
+          if (indexList.length > 0 &&
+            activeArchiveIndex.year === indexList[0].year.toString() &&
+            parseInt(activeArchiveIndex.issue) > MAX_ISSUE_2025) {
+            setActiveArchiveIndex({ ...activeArchiveIndex, issue: "1" });
+            setPageNumber(1);
+            return;
+          }
+
+          // Reset data if switching volumes/issues
+          if (activeArchiveIndex.year !== ArchiveIndex?.year ||
+            activeArchiveIndex.volume !== ArchiveIndex?.volume ||
+            activeArchiveIndex.issue !== ArchiveIndex?.issue) {
+            setPageNumber(1);
+            setArticalVolumes([]);
+            dispatch(setActiveIndexVolume(activeArchiveIndex));
+          }
+
+          setSubLoading(true);
+
+          const params: ArchivePaperListtingArg = {
+            year: parseInt(activeArchiveIndex.year),
+            volume: parseInt(activeArchiveIndex.volume),
+            issue: parseInt(activeArchiveIndex.issue),
+            page: pageNumber,
+            per_page: ITEMS_PER_PAGE
+          };
+
+          setTrackPage(pageNumber);
+          dispatch(setCurrentPage(pageNumber));
+          dispatch(setActiveIndexVolume(activeArchiveIndex));
+
+          await getArticalDetails(params, setArticalVolumes, dispatch);
+        }
       }
-
-      const params: ArchivePaperListtingArg = {
-        year: parseInt(currentIndex.year),
-        volume: parseInt(currentIndex.volume),
-        issue: parseInt(currentIndex.issue),
-        page: pageNumber,
-        per_page: ITEMS_PER_PAGE
-      };
-
-      // Update tracking before API call
-      setTrackPage(pageNumber);
-      dispatch(setCurrentPage(pageNumber));
-      dispatch(setActiveIndexVolume(currentIndex));
-      
-      await getArticalDetails(params, setArticalVolumes, dispatch);
     } catch (err) {
       console.error("Error fetching article data:", err);
-      setLoadingState(false);
     }
-  }, [activeArchiveIndex, pageNumber, dispatch, navigate]);
+  }, [pageNumber, dispatch, trackPage, activeArchiveIndex, ArchiveIndex, ArchiveData, indexList, MAX_ISSUE_2025]);
 
   // URL parameters effect
   useEffect(() => {
     const { issue, year, volume } = urlParams;
-    
+
     if (issue && year && volume) {
       const newIndex = {
         year: year.toString(),
         volume: volume.toString(),
         issue: issue.toString()
       };
-      
+
       // Only update if different from current
-      if (!activeArchiveIndex || 
-          activeArchiveIndex.year !== newIndex.year ||
-          activeArchiveIndex.volume !== newIndex.volume ||
-          activeArchiveIndex.issue !== newIndex.issue) {
+      if (!activeArchiveIndex ||
+        activeArchiveIndex.year !== newIndex.year ||
+        activeArchiveIndex.volume !== newIndex.volume ||
+        activeArchiveIndex.issue !== newIndex.issue) {
         setActiveArchiveIndex(newIndex);
         setPageNumber(1);
         setTrackPage(0); // Reset to force refetch
@@ -167,36 +192,52 @@ export default function CurrentIssueVolumes() {
     }
   }, [urlParams, ArchiveIndex, activeArchiveIndex]);
 
-  // Main data fetching effect
+  // Main data fetching effect - enhanced with better data state management
   useEffect(() => {
-    if (!activeArchiveIndex) {
-      redirect("/current-issue");
-      return;
-    }
-
-    setLoadingState(true);
-
-    if (isDataCurrent) {
-      setLoadingState(false);
+    if (ArchiveData.length > 0 && ArchiveIndex &&
+      activeArchiveIndex?.year === ArchiveIndex?.year &&
+      activeArchiveIndex?.volume === ArchiveIndex?.volume &&
+      activeArchiveIndex?.issue === ArchiveIndex?.issue &&
+      trackPage === pageNumber) {
+      dispatch(setLoading(false));
     } else {
-      fetchArticalData().finally(() => setLoadingState(false));
+      if (!activeArchiveIndex) redirect("/current-issue");
+
+      fetchArticalData().finally(() => {
+        setArticalVolumesSearch(null);
+        setParams({
+          year: activeArchiveIndex?.year ?? URL_Year ?? "",
+          volume: activeArchiveIndex?.volume ?? URL_Volume ?? "",
+          issue: activeArchiveIndex?.issue ?? URL_Issue ?? ""
+        });
+        setSubLoading(false);
+      });
     }
-  }, [activeArchiveIndex, pageNumber, trackPage, isDataCurrent, fetchArticalData]);
+  }, [pageNumber, trackPage, fetchArticalData, dispatch, perPage, ArticalVolumes, activeArchiveIndex,
+    ArchiveIndex, totalPage, ArchiveData.length, URL_Issue, URL_Year, URL_Volume, setParams]);
 
   // Optimized search handlers
   const handleSearch = useCallback((e: React.FormEvent) => {
     e.preventDefault();
     if (!form.search.trim()) return;
 
-    setLoadingState(true);
-    
     searchArchive(form)
-      .then((data) => setArticalVolumesSearch(data || []))
+      .then((data) => {
+        dispatch(setLoading(true));
+        if (!data) {
+          setArticalVolumesSearch([]);
+
+        }
+        const tempo: ArchivePaperDetailProps[] = data
+        const result = tempo.filter(i => i.year === activeArchiveIndex?.year && i.volume === activeArchiveIndex?.volume && i.issue === activeArchiveIndex?.issue)
+        setArticalVolumesSearch(result);
+
+      })
       .finally(() => {
-        setLoadingState(false);
+        dispatch(setLoading(false));
         setForm(prev => ({ ...prev, search: "" }));
       });
-  }, [form]);
+  }, [form, dispatch, activeArchiveIndex]);
 
   const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -208,7 +249,7 @@ export default function CurrentIssueVolumes() {
   }, []);
 
   // Render loading state
-  if (loadingState) {
+  if (loading || subLoading) {
     return <Loading title="Volumes" />;
   }
 
@@ -235,9 +276,8 @@ export default function CurrentIssueVolumes() {
             value={form.search}
             placeholder="Search by Paper ID, Paper Name"
             className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm xl:text-base 2xl:text-lg"
-            disabled={loadingState}
           />
-          {ArticalVolumesSearch !== null && !form.search ? (
+          {!form.search && ArticalVolumesSearch !== null ? (
             <PrimaryBtn event={clearSearch}>
               <GrClear size={16} /> Clear
             </PrimaryBtn>
@@ -249,20 +289,24 @@ export default function CurrentIssueVolumes() {
         </form>
 
         {/* Paper Cards */}
-        <div className="space-y-6">
-          {hasData ? (
-            displayData.map((paper, idx) => (
-              <VolumeCardArchive
-                paper={paper}
-                key={`${paper.paper_id || idx}`} // Better key using paper ID if available
-                setActive={setActiveArtical}
-                navigate={navigate}
-              />
-            ))
-          ) : (
-            <Titleh2>No Paper Found</Titleh2>
-          )}
-        </div>
+        {(trackPage === pageNumber || !loading) ? (
+          <div className="space-y-6">
+            {hasData ? (
+              displayData.map((paper, idx) => (
+                <VolumeCardArchive
+                  paper={paper}
+                  key={`${paper.paper_id || idx}`}
+                  setActive={setActiveArtical}
+                  navigate={navigate}
+                />
+              ))
+            ) : (
+              <Titleh2>No Paper Found</Titleh2>
+            )}
+          </div>
+        ) : (
+          <Loading title="Volume Pages" />
+        )}
 
         {/* Pagination */}
         {shouldShowPagination && (
