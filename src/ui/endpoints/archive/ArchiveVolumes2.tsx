@@ -107,7 +107,7 @@ export default function ArchiveVolumes2() {
                     activeArchiveIndex?.issue !== ArchiveIndex?.issue) {
 
                     // Update the issue and page for 2025
-                    if (activeArchiveIndex.year === "2025" && parseInt(activeArchiveIndex.issue) > 3) {
+                    if (activeArchiveIndex.year === indexPage[0].year.toString() && parseInt(activeArchiveIndex.issue) > indexPage[0].volumes[0].issue.length) {
                         setActiveArchiveIndex({ ...activeArchiveIndex, issue: "1" });
                         setPageNumber(1);
                     }
@@ -124,7 +124,7 @@ export default function ArchiveVolumes2() {
                         page: pageNumber,
                         per_page: 5
                     };
-                    console.log(params)
+                    // console.log(params)
                     setTrackPage(pageNumber);
                     dispatch(setCurrentPage(pageNumber));
                     dispatch(setActiveIndexVolume(activeArchiveIndex));
@@ -136,7 +136,7 @@ export default function ArchiveVolumes2() {
         } catch (err) {
             console.error("Error fetching artical data:", err);
         }
-    }, [pageNumber, dispatch, trackPage, activeArchiveIndex, ArchiveIndex, ArchiveData]);
+    }, [pageNumber, dispatch, trackPage, activeArchiveIndex, ArchiveIndex, ArchiveData,indexPage]);
 
     useEffect(() => {
 
@@ -213,7 +213,7 @@ export default function ArchiveVolumes2() {
                         placeholder="Search by Paper ID, Paper Name"
                         className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm xl:text-base 2xl:text-lg"
                     />
-                    {ArticalVolumesSearch ? (
+                    {!form.search && ArticalVolumesSearch ? (
                         <PrimaryBtn event={() => setArticalVolumesSearch(null)}>
                             <GrClear size={16} /> Clear
                         </PrimaryBtn>
