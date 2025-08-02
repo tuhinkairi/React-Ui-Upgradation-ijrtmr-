@@ -2,19 +2,19 @@ import { Link } from "react-router-dom";
 
 const publications = [
   {
-    title: 'Effect of Blood Cancer in Human',
-    id: '197',
-    ink: "/archives/paper-details?paperid=197&papertitle=Effect-of-Blood-Cancer-in-Human"
+    title: 'Fiber-Reinforced Rebar for Improved Slab Construction Efficiency and Strength',
+    id: '191',
+    ink: "/archives/paper-details?paperid=191&papertitle=Fiber-Reinforced-Rebar-for-Improved-Slab-Construction-Efficiency-and-Strength"
   },
   {
-    title: 'Smart Delivery Bot: An Autonomous Indoor Delivery System Using Embedded Technology',
-    id: '198',
-    ink: "/archives/paper-details?paperid=198&papertitle=Smart-Delivery-Bot%3A-An-Autonomous-Indoor-Delivery-System-Using-Embedded-Technology"
+    title: 'DC Motor Plant Modeling and Closed-Loop Performance Evaluation with PID Controller',
+    id: '192',
+    ink: "/archives/paper-details?paperid=192&papertitle=DC-Motor-Plant-Modeling-and-Closed-Loop-Performance-Evaluation-with-PID-Controller"
   },
   {
-    title: 'A Comparative Study of Machine Learning and Deep Learning Approaches For Hotel Booking Cancellation Prediction',
-    id: '199',
-    ink: "/archives/paper-details?paperid=199&papertitle=A-Comparative-Study-of-Machine-Learning-and-Deep-Learning-Approaches-For-Hotel-Booking-Cancellation-Prediction"
+    title: 'Stress Detection through Heart Rate Variability and Live Facial Expression Analysis',
+    id: '194',
+    ink: "/archives/paper-details?paperid=194&papertitle=Stress-Detection-through-Heart-Rate-Variability-and-Live-Facial-Expression-Analysis"
   },
 ];
 

@@ -1,5 +1,4 @@
 import { Share2 } from "lucide-react";
-import { IoReload } from "react-icons/io5";
 import { useEffect, useRef, useState } from "react";
 
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
@@ -100,7 +99,7 @@ const ConferenceDetails = () => {
                 </span>
               ))}
             </div> */}
-              <button className="hidden sm:inline-flex items-center justify-center bg-[#d6d0fa]  text-sm xl:text-base 2xl:text-lg font-medium px-6 py-2.5 gap-3 hover:bg-[#f6d5c3]  text-paragraph transition-colors rounded-full h-fit">
+              <button className="hidden sm:inline-flex items-center justify-center bg-[#d6d0fa]  text-sm xl:text-base 2xl:text-lg font-medium px-6 py-2.5 gap-3 hover:bg-[#c5bbff]  text-paragraph transition-colors rounded-full h-fit">
                 <Share2 size={13} className="inline-block" /> Share
               </button>
             </div>
@@ -139,7 +138,7 @@ const ConferenceDetails = () => {
             }
           </div>
 
-          <button className="inline-flex sm:hidden items-center justify-center bg-[#d6d0fa] text-primary-text text-sm xl:text-base 2xl:text-lg font-medium w-12 h-12 hover:bg-[#f6d5c3] transition-colors rounded-full">
+          <button className="inline-flex sm:hidden items-center justify-center bg-[#d6d0fa] text-primary-text text-sm xl:text-base 2xl:text-lg font-medium w-12 h-12 hover:bg-[#c5bbff] transition-colors rounded-full">
             <Share2 size={13} className="inline-block" />
           </button>
 
@@ -150,20 +149,19 @@ const ConferenceDetails = () => {
                 <VscFilePdf size={18} className="ml-4" />
               </PrimaryBtn>
             </Link>
-            <button className="bg-gradient-to-b from-gray-100  to-zinc-300 border border-gray-300 hover:scale-105 transition-all text-dark px-3 py-2 rounded-md font-semibold flex items-center justify-center space-x-3 text-sm xl:text-base 2xl:text-lg">
-              <span>
-                Check for Updates</span> <IoReload height={20} />
-            </button>
+            <Link to="https://www.google.com/search?vsrid=COOX4YXQ3LTLOBACGAEiJDBiZDliZDNjLTFmOTMtNDEzYS1iMDc3LWJiYjBkNTU4NjVkNjIGIgJ0cCgXOKSW2vqQ3Y4D&vsint=CAIqDAoCCAcSAggKGAEgAToiChYNAAAAPxUAAAA_HQAAgD8lAACAPzABEPsDGGMlAACAPw&udm=26&lns_mode=un&source=lns.web.gisivli&vsdim=507,99&gsessionid=MEe5nLFgKkpw61lPRzTizbLuDmFtyOpy_alFhg2WyJag7KJrm3nngw&lsessionid=W5ZeX3DIvGZGjgwH9J6Krc-Z7ADog1IXWZ5n5ckps_pGHgh9XrH9ZA&lns_surface=19&authuser=0&qsubts=1753622518509&biw=375&bih=631&ved=2ahUKEwiq99nwkN2OAxVOxzgGHaIZLOEQh6cGegUI3gMQGg&tbnid=VrqyejqFWaGG5M&ictx=2#imgrc=c33bqrBnl_OOQM&imgdii=Yuf27tXGSk4KgM" className="hover:scale-105 transition-all text-dark rounded-md font-semibold flex items-center justify-center space-x-3 text-sm xl:text-base 2xl:text-lg">
+              <img loading="lazy" src="/checkupdate.webp" alt=" check update" width={180} />
+            </Link>
           </div>
 
-          <button className={`hidden sm:inline-flex items-center justify-center ${copy ? "bg-green-300 hover:bg-green-400" : "bg-[#d6d0fa] hover:bg-[#f6d5c3]"} text-primary-text text-sm xl:text-base 2xl:text-lg font-medium w-12 h-12  transition-colors rounded-full`} onClick={() => {
+          <button className={`hidden sm:inline-flex items-center justify-center ${copy ? "bg-green-300 hover:bg-green-400" : "bg-[#d6d0fa] hover:bg-[#c5bbff]"} text-primary-text text-sm xl:text-base 2xl:text-lg font-medium w-12 h-12  xl:h-16 xl:w-16 transition-colors rounded-full`} onClick={() => {
             navigator.clipboard.writeText(window.location.href)
             SetCopy(true)
             setTimeout(() => {
               SetCopy(false)
             }, 2000)
           }}>
-            {!copy ? <Share2 size={13} className="inline-block" /> : <MdDone size={13} className="inline-block" />}
+            {!copy ? <Share2 size={13} className="inline-block xl:scale-150" /> : <MdDone size={13} className="inline-block xl:scale-150" />}
 
           </button>
         </div>

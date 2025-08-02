@@ -90,7 +90,7 @@ export default function ArchiveSection() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 border-collapse">
         {/* thesis */}
         {thesis && yearVolumeThesis && yearVolumeThesis.map((vol, index) => (
-          <div key={index} className={`relative border ${openIndex === index ? "border-[#FF8C42B2] text-[#FF8C42B2] rounded-bl-none rounded-br-none " : "hover:border-[#FF8C42B2] hover:text-[#FF8C42B2] border-gray-400"} rounded-md`}>
+          <div key={index} className={`relative border ${openIndex === index ? "border-[#000099B2] text-[#000099B2] rounded-bl-none rounded-br-none " : "hover:border-[#000099B2] hover:text-[#000099B2] border-gray-400"} rounded-md`}>
             <button
               onClick={() => {
                 handelActiveThesisIndex(vol)
@@ -107,10 +107,10 @@ export default function ArchiveSection() {
         ))}
         {/* archive */}
         {!thesis && !issue && volume && volume.map((vol, index) => (
-          <div key={index} className={`relative border ${openIndex === index ? "border-[#FF8C42B2] text-[#FF8C42B2] rounded-bl-none rounded-br-none " : "hover:border-[#FF8C42B2] hover:text-[#FF8C42B2] border-gray-400"} rounded-md`}>
+          <div key={index} className={`relative border ${openIndex === index ? "border-[#000099B2] text-[#000099B2] rounded-bl-none rounded-br-none " : "hover:border-[#000099B2] hover:text-[#000099B2] border-gray-400"} rounded-md`}>
             <button
               onClick={() => toggleDropdown(index)}
-              className="w-full flex justify-between items-center px-4 py-3 text-left focus:outline-none"
+              className="w-full flex justify-between items-center px-4 py-3 text-left focus:outline-none "
             >
               <span className="">
                 Volume {vol.volumes[0].volume} {vol.year}
@@ -133,7 +133,7 @@ export default function ArchiveSection() {
                           })}
                           key={`${elem.volume}-${issue}`}
                           to={`/archives/paperlist?year=${vol.year}&volume=${elem.volume}&issue=${issue}`}
-                          className="block border border-[#FF8C421F] hover:bg-[#FF8C421F] py-4 px-6  transition-colors"
+                          className="block border borderPrimaryHover py-4 px-6  transition-colors"
                         >
                           <div className="flex items-center ">
                             <h1 className="text-primary-text">Volume {elem.volume} Issue {issue}</h1>
@@ -151,7 +151,7 @@ export default function ArchiveSection() {
         {/* current issue */}
         {!thesis && issue && volume && volume.map((vol, index) => (
 
-          (index == 0 && <div key={index} className={`relative border ${openIndex === index ? "border-[#FF8C42B2] text-[#FF8C42B2] rounded-bl-none rounded-br-none " : "hover:border-[#FF8C42B2] hover:text-[#FF8C42B2] border-gray-400"} rounded-md`}>
+          (index == 0 && <div key={index} className={`relative border ${openIndex === index ? "border-[#000099B2] text-[#000099B2] rounded-bl-none rounded-br-none " : "hover:border-[#000099B2] hover:text-[#000099B2] border-gray-400"} rounded-md`}>
             <button
               onClick={() => toggleDropdown(index)}
               className="w-full flex justify-between items-center px-4 py-3 text-left focus:outline-none"

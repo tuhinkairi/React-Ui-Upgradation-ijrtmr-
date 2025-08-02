@@ -22,7 +22,7 @@ export default function VolumeCardConference({ paper, setActive, navigate }: { p
                 >
                     {paper.title} <ArrowUpRight fill="none" className="inline-block ml-1" />
                 </Link>
-                <button onClick={HandleGoolge} className="hidden text-base sm:inline-flex items-center justify-center gap-2 text-primary border border-orange-400 px-3 py-1" style={{ borderRadius: 9999 }}>
+                <button onClick={HandleGoolge} className="hidden text-base sm:inline-flex items-center justify-center gap-2 text-primary border border-primary px-3 py-1" style={{ borderRadius: 9999 }}>
                     <SearchIcon className="w-5" /> Google
                 </button>
             </div>
@@ -83,7 +83,7 @@ export default function VolumeCardConference({ paper, setActive, navigate }: { p
                         Download PDF <Download size={16} />
                     </PrimaryBtn>
                 </NavLink>
-                <button onClick={HandleGoolge} className="sm:hidden text-base inline-flex items-center justify-center gap-2 text-primary border border-orange-400 px-3 py-1" style={{ borderRadius: 9999 }}>
+                <button onClick={HandleGoolge} className="sm:hidden text-base inline-flex items-center justify-center gap-2 text-primary border border-primary px-3 py-1" style={{ borderRadius: 9999 }}>
                     <SearchIcon className="w-5" /> Google
                 </button>
             </div>
