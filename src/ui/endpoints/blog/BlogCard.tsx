@@ -14,7 +14,7 @@ export const BlogCard = ({ blog, keyProp }: { blog: Blog, keyProp: number }) => 
     return (
         <div key={keyProp} className=" rounded-md overflow-hidden border border-gray-200 max-w-[400px] mx-auto">
             <img loading='lazy'
-                src={blog.image !== "https://ijsreat.com/blogImage/" ? blog.image ?? "" : "/blog.webp"} alt={blog.title ?? "blog image"} className="w-full h-64 object-cover" />
+                src={blog.image !== "https://ijrtmr.com/blogImage/" ? blog.image ?? "" : "/blog.webp"} alt={blog.title ?? "blog image"} className="w-full h-64 object-cover" />
             <div className="p-5">
                 <h2 onClick={handelNavigate} className="bg-gradient-to-r from-primary to-primary-hover bg-clip-text text-transparent text-2xl  mb-3 leading-snug font-serif relative cursor-pointer">
                     {blog.title}

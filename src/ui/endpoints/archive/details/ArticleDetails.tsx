@@ -151,7 +151,7 @@ const ArticleDetails = () => {
           }}>
             {!copy ? <Share2 size={13} className="inline-block xl:scale-150" /> : <MdDone size={13} className="inline-block xl:scale-150" />}
 
-          </button>npm run dev
+          </button>
         </div>
 
         {/* Navigation Tabs */}
