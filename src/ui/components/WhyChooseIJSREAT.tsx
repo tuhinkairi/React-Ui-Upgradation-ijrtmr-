@@ -23,7 +23,7 @@ export default function WhyChooseIJSREAT() {
         <div className="flex justify-center">
           <img
             src="/feature/features3.webp"
-            alt="Why choose IJSREAT"
+            alt="Why choose IJRTMR"
             className="w-full max-w-md object-contain"
           />
         </div>
@@ -31,7 +31,7 @@ export default function WhyChooseIJSREAT() {
         {/* Textual content */}
         <div>
           <h2 className="text-2xl md:text-3xl font-semibold text-dark mb-6">
-            Why choose the IJSREAT journal?
+            Why choose the IJRTMR journal?
           </h2>
           <ul className="space-y-4">
             {reasons.map((item, index) => (

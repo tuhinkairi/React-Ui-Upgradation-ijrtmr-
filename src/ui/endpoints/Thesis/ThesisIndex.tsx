@@ -6,20 +6,20 @@ const ThesisIndex = () => {
         <CommonLayout className="bg-white px-0 sm:px-6 pb-6  mx-auto space-y-10 text-base leading-8 text-[#333333]">
             <Title>Thesis Publication</Title>
             <p className="">
-                International Journal of Scientific Research in Engineering & Technology (IJSREAT) is an
+                International Journal of Scientific Research in Engineering & Technology (IJRTMR) is an
                 open-access journal that publishes research papers in engineering and technology. Below are
                 the application procedure and publication terms & conditions for submitting your thesis/dissertation work.
             </p>
             <div className="section-1 space-y-6">
                 <h3 className="text-xl font-semibold text-primary">
-                    Procedure to Apply for Publication in IJSREAT
+                    Procedure to Apply for Publication in IJRTMR
                 </h3>
                 <ol className="list-decimal space-y-6 ml-6">
                     <li>
                         <h2 className="text-xl mb-2 font-semibold"><>Prepare Your Thesis/dissertation</></h2>
                         <ul className="list-disc ml-5 mt-1 space-y-1">
                             <li>
-                                Ensure your <span className="font-semibold">thesis/dissertation</span> follows IJSREAT’s{' '}
+                                Ensure your <span className="font-semibold">thesis/dissertation</span> follows IJRTMR’s{' '}
                                 <span className="font-semibold">formatting guidelines</span> (font, structure, citations, etc.).
                             </li>
                             <li>The Thesis should be original, unpublished, and free from plagiarism.</li>
@@ -45,7 +45,7 @@ const ThesisIndex = () => {
                         <ul className="list-disc ">
                             <h2 className="text-xl mb-2 font-semibold"><>Pay the Publication Fee (if applicable)</></h2>
                             <li className="ml-5">
-                                IJSREAT may charge a <span className="font-semibold">processing/publication fee INR 5000/USD 150</span> (varies based on paper
+                                IJRTMR may charge a <span className="font-semibold">processing/publication fee INR 5000/USD 150</span> (varies based on paper
                                 length, type, and urgency).
                             </li>
                         </ul>
@@ -88,7 +88,7 @@ const ThesisIndex = () => {
                     <li>
                         <h2 className="text-xl mb-2 font-semibold"><>Copyright Policy</></h2>
                         <ul className="list-disc ml-5 space-y-1">
-                            <li>Authors retain copyright but grant IJSREAT the right to publish.</li>
+                            <li>Authors retain copyright but grant IJRTMR the right to publish.</li>
                             <li>
                                 Some rights may be reserved under{' '}
                                 <span className="font-semibold">Creative Commons licenses</span>.
@@ -125,7 +125,7 @@ const ThesisIndex = () => {
                         <h2 className="text-xl mb-2 font-semibold"><>Indexing & Archiving</></h2>
                         <ul className="ml-5 list-disc">
                             <li>
-                                IJSREAT is indexed in Google Scholar, ResearchBib, Elsevier Mendeley, SSRN, Thomson
+                                IJRTMR is indexed in Google Scholar, ResearchBib, Elsevier Mendeley, SSRN, Thomson
                                 Reuters Research ID etc. (check latest status).</li>
                         </ul>
                     </li>
@@ -138,7 +138,7 @@ const ThesisIndex = () => {
 
                 <ul className="space-y-6 list-inside list-disc">
                     <li>
-                        <h2 className="text-xl mb-2 font-semibold inline-block">IJSREAT Submission Process Timeline:</h2> <p>The total time from submission to publication in International Journal of Scientific Research in Engineering & Technology (IJSREAT) typically takes 1-2 weeks, depending on the review process and revisions.</p>
+                        <h2 className="text-xl mb-2 font-semibold inline-block">IJRTMR Submission Process Timeline:</h2> <p>The total time from submission to publication in International Journal of Scientific Research in Engineering & Technology (IJRTMR) typically takes 1-2 weeks, depending on the review process and revisions.</p>
                     </li>
                     <li>
                         <h2 className="text-xl mb-2 font-semibold inline-block">Submissions Time line (No Fixed Deadline):</h2><p>
@@ -146,18 +146,18 @@ const ThesisIndex = () => {
                         </p>
                     </li>
                     <li>
-                        <h2 className="text-xl mb-2 font-semibold inline-block">Can I publish my entire thesis in IJSREAT?</h2>
+                        <h2 className="text-xl mb-2 font-semibold inline-block">Can I publish my entire thesis in IJRTMR?</h2>
                         <p>
                             <span className="font-semibold">Yes</span><br />
                             Extract <span className="font-semibold">key findings</span> as a research paper. <br />
-                            Adapt content to fit <span className="font-semibold">IJSREAT</span> scope (Science/engineering/technology). <br />
+                            Adapt content to fit <span className="font-semibold">IJRTMR</span> scope (Science/engineering/technology). <br />
                             Avoid self-plagiarism (cite your thesis if reusing text/data).
                         </p>
                     </li>
                     <li>
                         <h2 className="text-xl mb-2 font-semibold inline-block">What’s the submission process?</h2>
                         <ul>
-                            <li><span className="font-semibold mr-1">Prepare Manuscript:</span> Follow IJSREAT template (check website).</li>
+                            <li><span className="font-semibold mr-1">Prepare Manuscript:</span> Follow IJRTMR template (check website).</li>
                             <li><span className="font-semibold mr-1">Submit Online:</span> Via Editorial Management System (<span className="font-semibold">EMS</span>) (register as author).</li>
                             <li><span className="font-semibold mr-1">Peer Review:</span> Takes <span className="font-semibold">2-4 weeks</span>; may require revisions.</li>
                             <li><span className="font-semibold mr-1">Payment:</span> If accepted, pay the Thesis Processing Charge</li>
@@ -165,7 +165,7 @@ const ThesisIndex = () => {
                         </ul>
                     </li>
                     <li>
-                        <h2 className="text-xl mb-2 font-semibold inline-block">Is IJSREAT peer-reviewed?</h2><br /> <span className="font-semibold">Claimed to be</span>, but: <br />
+                        <h2 className="text-xl mb-2 font-semibold inline-block">Is IJRTMR peer-reviewed?</h2><br /> <span className="font-semibold">Claimed to be</span>, but: <br />
                         Verify recent publications for quality.
                         Check if reviewers’ comments are provided.
                         Be cautious of <span className="font-semibold">predatory</span> signs (e.g., rapid acceptance without review).
@@ -188,7 +188,7 @@ const ThesisIndex = () => {
                         </p>
                     </li>
                     <li>
-                        <h2 className="text-xl mb-2 font-semibold inline-block">Does IJSREAT provide a certificate?</h2>
+                        <h2 className="text-xl mb-2 font-semibold inline-block">Does IJRTMR provide a certificate?</h2>
                         <p>
                             <span className="font-semibold">Yes</span>, upon payment and final approval. <br />
                             Digital certificates are typically emailed
@@ -196,7 +196,7 @@ const ThesisIndex = () => {
                     </li>
                     <li>
                         <h2 className="text-xl mb-2 font-semibold inline-block">Copyright Policy:</h2>
-                        <p>Authors retain copyright but grant IJSREAT <span className="font-semibold">publishing rights</span>. <br />
+                        <p>Authors retain copyright but grant IJRTMR <span className="font-semibold">publishing rights</span>. <br />
                             Uses <span className="font-semibold">Creative Commons License (CC BY-NC)</span> for open access.</p>
                     </li>
                     <li>
@@ -210,7 +210,7 @@ const ThesisIndex = () => {
                     <li>
                         <h2 className="text-xl mb-2 font-semibold inline-block">Tips to Avoid Rejection:</h2>
                         <p>Ensure {"<"}<span className="font-semibold">15% plagiarism</span> (use Turnitin/iThenticate). <br />
-                            Follow IJSREAT’s <span className="font-semibold">formatting guidelines</span> strictly. <br />
+                            Follow IJRTMR’s <span className="font-semibold">formatting guidelines</span> strictly. <br />
                             Focus on <span className="font-semibold">applied engineering/technology</span> topics.</p>
                     </li>
                 </ul>

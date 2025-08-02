@@ -4,27 +4,27 @@ import Title2h2 from "../../other/Title2h2";
 const steps = [
   {
     title: 'Submission',
-    description: 'Submit your article using the Editorial Management System',
+    description: 'Submit your paper through our advanced editorial management system anytime, from anywhere in the world.',
     image: './submitPaper.webp',
     button: true,
   },
   {
-    title: 'Initial Check',
-    description: 'Plagiarism (<30%) and formatting are reviewed by the editorial team.',
+    title: 'Initial Review',
+    description: 'Our editorial team conducts a quick quality check and assigns reviewers within 12 hours of submission.',
     image: './review.webp',
   },
   {
     title: 'Peer Review',
-    description: 'Peer review ensures quality, originality, and relevance.',
+    description: 'Expert reviewers evaluate your paper\'s quality, originality, and significance within 2-7 days.',
     image: './acceptance.webp',
   },
   {
-    title: 'Acceptance',
-    description: 'Accepted authors receive a formal letter and payment instructions through EMS.',
+    title: 'Decision Notification',
+    description: 'Receive acceptance, revision, or rejection notification within 3-7 days of submission.',
     image: './processing.webp',
   },
   {
-    title: 'Payment & Copy Right',
+    title: 'Publication & Certification',
     description: 'Submit the Final article, Copyright Form, APC and required forms.',
     image: './copyright.webp',
   },

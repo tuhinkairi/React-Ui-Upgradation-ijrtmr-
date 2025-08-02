@@ -6,14 +6,14 @@ const Paper = () => {
       <Title>Call for Papers</Title>
 
       <p className="my-6 text-justify leading-relaxed">
-        International Journal of Scientific Research in Engineering and Technology (IJSREAT) has ISSN: 2583-1240 (online), Bi Monthly international journal by Fifth Dimension Research Publication.
+        International Journal of Scientific Research in Engineering and Technology (IJRTMR) has ISSN: 2583-1240 (online), Bi Monthly international journal by Fifth Dimension Research Publication.
         It is an academic, online, open access, Peer reviewed international journal. It aims to publish original, theoretical, and practical advances in Computer Science, Engineering,
         Internet of things, Data Science, Machine learning, Information Technology, Electrical and Electronics Engineering, Electronics and Telecommunication, Mechanical Engineering,
-        Civil Engineering, Textile Engineering, and all interdisciplinary streams of Engineering Sciences. The board of committee of IJSREAT will verify submitted papers.
+        Civil Engineering, Textile Engineering, and all interdisciplinary streams of Engineering Sciences. The board of committee of IJRTMR will verify submitted papers.
       </p>
 
       <p className="mb-4 text-justify leading-relaxed">
-        International Journal Papers for the regular issues of the Journal can be submitted, around the year, electronically at <span className="font-medium">editorinchief@ijsreat.com</span>.
+        International Journal Papers for the regular issues of the Journal can be submitted, around the year, electronically at <span className="font-medium">editorinchief@ijrtmr.com</span>.
         After the final acceptance of the paper, based upon the detailed review process, it will immediately be published online. However, the assignment of the report to a specific Volume / Issue (see archive) of the journal will be taken up by the Editorial Board later;
         and the author will be intimated accordingly. For Theme Based Special Issues, time-bound Special Calls for Papers will be informed, and the same will only apply to that specific issue.
       </p>

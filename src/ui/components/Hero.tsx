@@ -9,7 +9,8 @@ export default function Hero() {
         <h1 className="text-3xl sm:text-4xl 2xl:text-5xl font-bold leading-tight md:w-4/5 lg:w-full">
           <span className="bg-gradient-to-b from-primary  to-primary-hover text-transparent bg-clip-text text-[2rem] 2xl:text-[3.5rem] sm:text-5xl block">International Journal</span>{' '}
           <span className="text-primaryText">
-            of Scientific Research in Engineering & Technology
+            of Recent Trends in Multidisciplinary
+            Research
           </span>
         </h1>
         <p className=" text-base sm:text-lg 2xl:text-xl">
@@ -27,8 +28,8 @@ export default function Hero() {
         </Link>
       </div>
       <div className='m-auto md:max-w-4/5 lg:w-1/2 xl:w-3/7'>
-        <img loading='lazy' 
-className='block' src="/HomeBanner.webp" alt="bannerimage" />
+        <img loading='lazy'
+          className='block' src="/HomeBanner.webp" alt="bannerimage" />
       </div>
     </section>
   );

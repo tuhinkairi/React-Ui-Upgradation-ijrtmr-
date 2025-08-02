@@ -7,7 +7,7 @@ const SubmitPaperSection = () => {
       <div className="sm:w-1/2 text-center sm:text-left px-4 sm:px-0">
         <h2 className="text-2xl md:text-4xl font-semibold text-primary-text mb-4">Ready to Publish your Research?</h2>
         <p className="text-gray-700 mb-6 max-w-md mx-auto md:mx-0">
-          Join our network of esteemed researchers and experience the IJSREAT advantage - where efficiency meets excellence in academic publishing.
+          Join our network of esteemed researchers and experience the IJRTMR advantage - where efficiency meets excellence in academic publishing.
         </p>
         <Link target="_black" to="https://editorial.fdrpjournals.org/login?journal=2">
           <button className="w-fit max-w-1/3 sm:max-w-1/2 md:w-auto primaryBtn whitespace-nowrap">

@@ -30,9 +30,9 @@ export default function WithdrawPolicy() {
                     duplicates of other published article(s), or are determined to violate our journal
                     publishing ethics guidelines in the view of the editors (such as multiple submission,
                     bogus claims of authorship, plagiarism, fraudulent use of data or the like), may be
-                    “Withdrawn” from IJSREAT . Withdrawn means that the article content (HTML and
+                    “Withdrawn” from IJRTMR . Withdrawn means that the article content (HTML and
                     PDF) is removed and replaced with a HTML page and PDF simply stating that the
-                    article has been withdrawn according to the IJSREAT Policy on Article in Press
+                    article has been withdrawn according to the IJRTMR Policy on Article in Press
                     Withdrawal with a link to the current policy document.
                 </p>
             </div>
@@ -47,7 +47,7 @@ export default function WithdrawPolicy() {
                     its authors or the editor under the advice of members of the scholarly community has
                     long been an occasional feature of the learned world. Standards for dealing with
                     retractions have been developed by a number of library and scholarly bodies, and this
-                    best practice is adopted for article retraction by IJSREAT
+                    best practice is adopted for article retraction by IJRTMR
                 </p>
                 <ul className="space-y-1 ml-6 mt-6 list-disc">
                     <li>

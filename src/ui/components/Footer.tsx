@@ -28,7 +28,7 @@ export default function Footer() {
               <p>No: 38D5F, Rajaji nagar, Ariyalur-621713.</p>
               <p>Tamilnadu, India.</p>
               <div className="mt-4">
-                <p>Email: <NavLink to="mailto:editorinchief@ijsreat.com" className="text-blue-600 hover:text-blue-800 underline">editorinchief@ijsreat.com</NavLink></p>
+                <p>Email: <NavLink to="mailto:editorinchief@ijrtmr.com" className="text-blue-600 hover:text-blue-800 underline">editorinchief@ijrtmr.com</NavLink></p>
                 <p><NavLink to="mailto:Support@fdrpjournals.org" className="text-blue-600 hover:text-blue-800 underline">Support@fdrpjournals.org</NavLink></p>
               </div>
               <p>Mobile: +91 9840521421</p>
@@ -94,7 +94,7 @@ export default function Footer() {
             {/* Copyright and Licensing */}
             <div className="text-center w-fit mx-auto">
               <p className="text-sm 2xl:text-base text-gray-600 mb-2">
-                Copyright © 2025 IJSREAT Published by Fifth Dimension research Publication (P) Ltd. All Rights Reserved.
+                Copyright © 2025 IJRTMR Published by Fifth Dimension research Publication (P) Ltd. All Rights Reserved.
               </p>
               <p className="text-sm 2xl:text-base text-gray-600">
                 Work is licensed under a Creative Commons Attribution 4.0 International License.

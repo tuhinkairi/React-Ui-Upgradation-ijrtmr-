@@ -8,17 +8,17 @@ const JournalParticulars: React.FC = () => {
         <div className="space-y-2">
           <p className='text-paragraph'><span className="font-semibold text-primary-text">Title :</span> npm International Journal Of Scientific Research In Engineering & Technology</p>
           <p className='text-paragraph'><span className="font-semibold text-primary-text">Publication Format :</span> Online</p>
-          <p className='text-paragraph'><span className="font-semibold text-primary-text">Email-ID :</span> editorinchief@ijsreat.com</p>
+          <p className='text-paragraph'><span className="font-semibold text-primary-text">Email-ID :</span> editorinchief@ijrtmr.com</p>
           <p className='text-paragraph'><span className="font-semibold text-primary-text">Editor–in–Chief :</span> Dr. S. Sivaganesan (Professor & Head)</p>
           <p className='text-paragraph'><span className="font-semibold text-primary-text">Mobile No :</span> +91 9840521421</p>
           <p className='text-paragraph'><span className="font-semibold text-primary-text">ISSN :</span> 2583–1240</p>
-          <p className='text-paragraph'><span className="font-semibold text-primary-text">Website :</span> www.ijsreat.com</p>
+          <p className='text-paragraph'><span className="font-semibold text-primary-text">Website :</span> www.ijrtmr.com</p>
         </div>
 
         <div className="space-y-2">
           <p className='text-paragraph'><span className="font-semibold text-primary-text">Frequency :</span> Bi-Monthly</p>
           <p className='text-paragraph'><span className="font-semibold text-primary-text">Publisher :</span> Fifth Dimension Research Publication (P) Ltd.</p>
-          <p className='text-paragraph'><span className="font-semibold text-primary-text">DOI :</span> 10.59256/ijsreat</p>
+          <p className='text-paragraph'><span className="font-semibold text-primary-text">DOI :</span> 10.59256/ijrtmr</p>
           <p className='text-paragraph'><span className="font-semibold text-primary-text">Copyright :</span> Fifth Dimension Research Publication (P) Ltd.</p>
           <p className='text-paragraph'><span className="font-semibold text-primary-text">Starting Year :</span> 2021</p>
           <p className='text-paragraph'><span className="font-semibold text-primary-text">Language :</span> English</p>

@@ -168,7 +168,7 @@ export default function OwnerShip() {
                     Disclaimer
                 </h3>
                 <p>
-                    The opinions expressed and figures provided in this Journal; IJSREAT, are the sole
+                    The opinions expressed and figures provided in this Journal; IJRTMR, are the sole
                     responsibility of the authors. The publisher and the editors bear no responsibility in this
                     regard. Any and all such liabilities are disclaimed.
                     <br />
@@ -181,7 +181,7 @@ export default function OwnerShip() {
                 <h3 className="text-lg xl:text-2xl 2xl:text-3xl font-medium mb-4">
                     Address for Correspondence:
                 </h3>
-                <h3>Editor-In-Chief, IJSREAT</h3>
+                <h3>Editor-In-Chief, IJRTMR</h3>
                 <h3 className="w-2/3">Fifth Dimension Research Publications, No: 38D5F, Rajajinagar, Ariyalur, Tamil Nadu
                 621713.</h3>
                 <h3>E-mail ID: <Link to="mailto:support@fdrpjournals.org" className="text-primary">support@fdrpjournals.org</Link></h3>

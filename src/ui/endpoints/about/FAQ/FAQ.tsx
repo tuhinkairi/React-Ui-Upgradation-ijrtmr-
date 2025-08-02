@@ -15,7 +15,7 @@ export default function FAQ() {
 
                 <div>
                     <p><span className="font-semibold">Q–2: When it was started? | When first issue of the journal was published?</span></p>
-                    <p className="text-paragraph">Ans: It was started in year 2021. IJSREAT is being published by 5th Dimension Research Publication. First Issue: January–February 2021</p>
+                    <p className="text-paragraph">Ans: It was started in year 2021. IJRTMR is being published by 5th Dimension Research Publication. First Issue: January–February 2021</p>
                 </div>
 
                 <div>

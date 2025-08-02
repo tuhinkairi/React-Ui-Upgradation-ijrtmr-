@@ -15,7 +15,7 @@ export default function TermsAndConditions() {
                     </h2>
                     <p>
                         By submitting a manuscript, registering as a reviewer, or accessing content from the International
-                        Journal of Scientific Research in Engineering & Technology (IJSREAT), you agree to comply with
+                        Journal of Scientific Research in Engineering & Technology (IJRTMR), you agree to comply with
                         these Terms and Conditions. If you do not agree, please refrain from using our services.
                     </p>
                 </div>
@@ -43,7 +43,7 @@ export default function TermsAndConditions() {
                         <h3>
                             b. Peer Review Process</h3>
                         <p>
-                            IJSREAT follows a Single peer review process.
+                            IJRTMR follows a Single peer review process.
                             Reviewers must maintain confidentiality and declare conflicts of interest.
                             The editorial board reserves the right to accept, reject, or request revisions without explanation.
                         </p>
@@ -52,11 +52,11 @@ export default function TermsAndConditions() {
 
                         <h3>c. Open Access &amp; Copyright</h3>
                         <p>
-                            IJSREAT is an open-access journal; published articles are freely available under a Creative
+                            IJRTMR is an open-access journal; published articles are freely available under a Creative
                             <br />
                             Commons license (CC BY-NC-ND 4.0) unless otherwise stated.
                             <br />
-                            Authors retain copyright but grant IJSREAT the right to publish, distribute, and archive the work.
+                            Authors retain copyright but grant IJRTMR the right to publish, distribute, and archive the work.
                             <br />
                             Commercial reuse requires permission.
                         </p>
@@ -94,7 +94,7 @@ export default function TermsAndConditions() {
                     </h2>
                     <div>
                         <p className="list-disc list-inside">
-                            IJSREAT follows its Privacy Policy (available on the website) in compliance with GDPR and other
+                            IJRTMR follows its Privacy Policy (available on the website) in compliance with GDPR and other
                             regulations. <br />
                             Personal data (author, reviewer, editor details) is used only for journal operations.
                         </p>
@@ -105,7 +105,7 @@ export default function TermsAndConditions() {
                         6. Disclaimer of Warranties
                     </h2>
                     <p>
-                        IJSREAT provides content  “as is” without warranties of accuracy or completeness. <br />
+                        IJRTMR provides content  “as is” without warranties of accuracy or completeness. <br />
                         The journal is not liable for any errors, omissions, or consequences arising from published work.
                     </p>
                 </div>
@@ -115,7 +115,7 @@ export default function TermsAndConditions() {
                     </h2>
                     <div>
                         <h2>
-                            IJSREAT, its editors, and affiliates are not liable for:
+                            IJRTMR, its editors, and affiliates are not liable for:
                         </h2>
                         <h4>
                             Loss of data, profits, or reputation due to publication.
@@ -130,7 +130,7 @@ export default function TermsAndConditions() {
                         8. Termination of Access
                     </h2>
                     <h3>
-                        IJSREAT reserves the right to suspend or terminate access for violations of these terms.
+                        IJRTMR reserves the right to suspend or terminate access for violations of these terms.
                     </h3>
                 </div>
                 <div className="space-y-3">
@@ -145,7 +145,7 @@ export default function TermsAndConditions() {
                         10. Changes to Terms
                     </h2>
                     <h3>
-                        IJSREAT may update these terms periodically. Continued use implies acceptance of revisions.
+                        IJRTMR may update these terms periodically. Continued use implies acceptance of revisions.
                     </h3>
                 </div>
 
@@ -158,13 +158,13 @@ export default function TermsAndConditions() {
                             For inquiries, contact:
                         </li>
                         <li>
-                            International Journal of Scientific Research in Engineering &amp; Technology (IJSREAT)
+                            International Journal of Scientific Research in Engineering &amp; Technology (IJRTMR)
                         </li>
                         <li>
-                            Email: <a href="mailto:editorinchief@ijsreat.com" className="text-accent-blue hover:underline">editorinchief@ijsreat.com</a>
+                            Email: <a href="mailto:editorinchief@ijrtmr.com" className="text-accent-blue hover:underline">editorinchief@ijrtmr.com</a>
                         </li>
                         <li>
-                            Website: <Link to="https://www.ijsreat.com" className="text-accent-blue hover:underline">https://www.ijsreat.com/</Link>
+                            Website: <Link to="https://www.ijrtmr.com" className="text-accent-blue hover:underline">https://www.ijrtmr.com/</Link>
                         </li>
                         <li>
                             Publisher Website: <Link to="https://fdrpjournals.org" className="text-accent-blue hover:underline">https://fdrpjournals.org/</Link>

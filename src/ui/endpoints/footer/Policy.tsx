@@ -160,7 +160,7 @@ export default function Policy() {
                                 Data portability (for automated data).
                             </li>
                             <li>
-                                To exercise these rights, contact us at editorinchief@ijsreat.com
+                                To exercise these rights, contact us at editorinchief@ijrtmr.com
                             </li>
                         </ul>
                     </div>
@@ -198,7 +198,7 @@ export default function Policy() {
                     <ul>
                         <li>For privacy-related inquiries, contact:</li>
                         <li>International Journal Of Scientific Research In Engineering & Technology</li>
-                        <li>editorinchief@ijsreat.com</li>
+                        <li>editorinchief@ijrtmr.com</li>
                         <li>Publisher:</li>
                         <li>Fifth Dimension research Publication (P) Ltd.</li>
                         <li>No: 38D5F, Rajaji nagar, Ariyalur-621713. Tamilnadu, India.</li>

@@ -152,8 +152,8 @@ export default function ArchiveVolumes2() {
             fetchArticalData().finally(() => {
                 setArticalVolumesSearch(null)
                 SetMetaData({
-                    title: `${activeArchiveIndex?.year} Volume ${activeArchiveIndex?.volume} Issue ${activeArchiveIndex?.issue} | International Journal | IJSREAT`,
-                    description: "Explore the IJSREAT archives for top research papers in engineering and technology. Access past volumes and stay updated with the latest innovations"
+                    title: `${activeArchiveIndex?.year} Volume ${activeArchiveIndex?.volume} Issue ${activeArchiveIndex?.issue} | International Journal | IJRTMR`,
+                    description: "Explore the IJRTMR archives for top research papers in engineering and technology. Access past volumes and stay updated with the latest innovations"
                 });
                 setParams({
                     year: activeArchiveIndex?.year ?? URL_Year??"",

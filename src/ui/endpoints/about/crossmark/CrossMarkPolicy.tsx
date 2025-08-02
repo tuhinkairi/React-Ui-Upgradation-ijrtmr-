@@ -10,7 +10,7 @@ function CrossMarkPolicy() {
                 <div className='flex items-center justify-between flex-wrap '>
                     <Titleh2>Crossmark Policy</Titleh2>
                     <p className="text-sm xl:text-base 2xl:text-lg text-muted-foreground lg:mt-1">
-                        <span className='font-medium text-base 2xl:text-lg'>Crossmark Policy DOI : </span><Link target='_blank' to="http://dx.doi.org/10.59256/ijsreat/CrossMark-Policy-Page" className="text-primary hover:text-primary-hover underline">http://dx.doi.org/10.59256/ijsreat/CrossMark-Policy-Page</Link>
+                        <span className='font-medium text-base 2xl:text-lg'>Crossmark Policy DOI : </span><Link target='_blank' to="http://dx.doi.org/10.59256/ijrtmr/CrossMark-Policy-Page" className="text-primary hover:text-primary-hover underline">http://dx.doi.org/10.59256/ijrtmr/CrossMark-Policy-Page</Link>
                     </p>
                 </div>
                 <div className="my-4 mt-2 space-y-4 text-[#333333]">

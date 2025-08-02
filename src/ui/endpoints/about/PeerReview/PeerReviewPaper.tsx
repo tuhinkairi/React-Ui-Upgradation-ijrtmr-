@@ -11,20 +11,20 @@ export default function PeerReviewPaper() {
 
       <p>
         <h2 className="mb-2 font-semibold">
-          International Journal of Scientific Research in Engineering &amp; Technology (IJSREAT) is having
+          International Journal of Scientific Research in Engineering &amp; Technology (IJRTMR) is having
         </h2>
         <strong>ISSN NO:</strong> 2583–1240 (Online), Bi-monthly international journal for publication of new ideas founded by academicians,
         educationist, engineers and corporate people. The research results and fundamental advancement are all aspects of Innovative Research in
-        Advanced Engineering & Technology and various engineering disciplines, etc. IJSREAT is a scholarly open access, Single Peer Review Journal
+        Advanced Engineering & Technology and various engineering disciplines, etc. IJRTMR is a scholarly open access, Single Peer Review Journal
         which helps to academic person as well as student community.
       </p>
       <p className="mt-2">
-        IJSREAT provides the academic community and industry for the submission of original research and applications related to Various Engineering
+        IJRTMR provides the academic community and industry for the submission of original research and applications related to Various Engineering
         discipline and Advanced Technologies by FDRP Publications, TFDPR || Nadu, India since year 2020.
       </p>
 
       <p className="mt-4">
-        Reviewers play a central role in scholarly publishing. IJSREAT uses Single peer review process, which means that both the reviewer(s) and
+        Reviewers play a central role in scholarly publishing. IJRTMR uses Single peer review process, which means that both the reviewer(s) and
         author(s) identities are concealed from the reviewer(s), and vice versa, throughout the review process. This means that the reviewer(s) of
         the paper won’t get to know the identity of the author(s), and the author(s) won’t get to know the identity of the reviewer(s). Peer review
         helps validate research, establish a method by which it can be evaluated, and increase networking possibilities within research communities.
@@ -37,7 +37,7 @@ export default function PeerReviewPaper() {
       </p>
 
       <p className="mt-4">
-        IJSREAT is committed to prompt evaluation and publication of fully accepted papers. To maintain a high-quality publication, all submissions
+        IJRTMR is committed to prompt evaluation and publication of fully accepted papers. To maintain a high-quality publication, all submissions
         undergo a rigorous review process. Characteristics of the peer review process are as follows:
       </p>
 
@@ -58,7 +58,7 @@ export default function PeerReviewPaper() {
           All submitted manuscripts are treated as confidential documents. All submitted papers will be reviewed by double blind review process.
         </li>
         <li>
-          All manuscripts submitted for publication in IJSREAT cross-checked for plagiarism software. Manuscripts found to be plagiarized during
+          All manuscripts submitted for publication in IJRTMR cross-checked for plagiarism software. Manuscripts found to be plagiarized during
           initial stages of review are out-rightly rejected and not considered for publication in the journal.
         </li>
         <li>
@@ -66,7 +66,7 @@ export default function PeerReviewPaper() {
           with the help of a suitable committee constituted for the purpose. If the manuscript is found to be plagiarized beyond the acceptable
           limits, the journal will contact the author's Institute / College / University and Funding Agency, if any.
         </li>
-        <li>IJSREAT strictly uses following Single peer review process</li>
+        <li>IJRTMR strictly uses following Single peer review process</li>
       </ul>
     </section>
   )

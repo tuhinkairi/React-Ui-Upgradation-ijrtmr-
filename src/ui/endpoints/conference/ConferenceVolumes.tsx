@@ -114,8 +114,8 @@ export default function ConferenceVolumes() {
     } else {
       fetchConferenceData().finally(() => {
         SetMetaData({
-          title: `${activeConferencePage?.year} Volume ${activeConferencePage?.volume} Issue ${activeConferencePage?.issue} | International Journal | IJSREAT`,
-          description: "Stay updated on IJSREAT conferences, events, and calls for papers. Join global experts in science and technology discussions."
+          title: `${activeConferencePage?.year} Volume ${activeConferencePage?.volume} Issue ${activeConferencePage?.issue} | International Journal | IJRTMR`,
+          description: "Stay updated on IJRTMR conferences, events, and calls for papers. Join global experts in science and technology discussions."
         });
         setLoadingState(false);
       });

@@ -53,10 +53,10 @@ export default function WhyPublishWithUs() {
     <section className="">
       <div className="">
         {/* <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-2">
-          Why Publish With IJSREAT?
+          Why Publish With IJRTMR?
         </h2> */}
         <Title2h2>
-          Why Publish With IJSREAT?
+          Why Publish With IJRTMR?
         </Title2h2>
         <p className="text-gray-600 mb-10">
           We combine academic excellence with efficient processes to maximize your research impact beyond academia

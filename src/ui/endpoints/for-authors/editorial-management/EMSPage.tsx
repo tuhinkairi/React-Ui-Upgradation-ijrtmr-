@@ -28,7 +28,7 @@ export default function EMSPage() {
                     <div className="image flex flex-col gap-8 justify-center">
                         <img loading='lazy'
                             src="/EMS/EMS1.webp" alt="submit article image" />
-                        <iframe loading="lazy" height="210" src="https://www.youtube.com/embed/LqCgSWHjVrY" title="IJSREAT _Article Submission" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ></iframe>
+                        <iframe loading="lazy" height="210" src="https://www.youtube.com/embed/LqCgSWHjVrY" title="IJRTMR _Article Submission" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ></iframe>
                     </div>
                 </div>
                 <hr className="text-gray-300" />
@@ -122,7 +122,7 @@ export default function EMSPage() {
                         </div>
                     </div>
                     <div className="image grid gap-4">
-                        <iframe loading="lazy" height="210" className="w-full" src="https://www.youtube.com/embed/pg2HI9QzTWo" title="IJSREAT _ Article Review &amp; Acceptance" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+                        <iframe loading="lazy" height="210" className="w-full" src="https://www.youtube.com/embed/pg2HI9QzTWo" title="IJRTMR _ Article Review &amp; Acceptance" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
                     </div>
                 </div>
                 <div>
@@ -158,7 +158,7 @@ export default function EMSPage() {
                         </div>
                     </div>
                     <div className="image grid gap-4">
-                        <iframe height={210} className="w-full" loading="lazy" src="https://www.youtube.com/embed/BPmcgfeZV1A" title="IJSREAT _ Article Final Submission &amp; Publish"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+                        <iframe height={210} className="w-full" loading="lazy" src="https://www.youtube.com/embed/BPmcgfeZV1A" title="IJRTMR _ Article Final Submission &amp; Publish"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
                     </div>
                 </div>
             </article>

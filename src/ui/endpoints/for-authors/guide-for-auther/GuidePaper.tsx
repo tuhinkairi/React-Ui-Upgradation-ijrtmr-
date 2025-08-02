@@ -8,20 +8,20 @@ export default function GuidePaper() {
     <article className="space-y-6 leading-relaxed xl:text-base 2xl:text-lg">
       {location?<Titleh2>Instructions for Authors</Titleh2>:<Title>Guide for Authors</Title>}
       <p className=" my-6">
-        International Journal of Scientific Research in Engineering &amp; Technology (IJSREAT) is
+        International Journal of Scientific Research in Engineering &amp; Technology (IJRTMR) is
         (Online), Bi-monthly international journal for publication of new ideas founded by
         academicians, educationist, engineers and corporate people. The research results and
         fundamental advancement are all aspects of Innovative Research in Advanced Engineering
-        & Technology and various engineering disciplines, etc. IJSREAT is a scholarly open access,
+        & Technology and various engineering disciplines, etc. IJRTMR is a scholarly open access,
         Single Peer Review Journal which helps to academic person as well as student community.
-        IJSREAT provides the academic community and industry for the submission of original
+        IJRTMR provides the academic community and industry for the submission of original
         research and applications related to Various Engineering discipline and Advanced
         Technologies by Fifth Dimension Research Publications (FDRP), Tamil Nadu, and India
         since year 2020.
         <br />
         <br />
         Papers for the regular issues of the journal can be submitted, round the year, electronically
-        at Editorial Management System /editorinchief@ijsreat.com, after the final acceptance of
+        at Editorial Management System /editorinchief@ijrtmr.com, after the final acceptance of
         the paper, based upon the detailed review process, the paper will immediately be published
         online. However, assignment of the paper to a specific Volume / Issue of the Journal will be
         taken up by the Editorial Board later; and the author will be intimated accordingly. For Theme
@@ -34,7 +34,7 @@ export default function GuidePaper() {
         and is not under consideration for publication elsewhere. The submission should be
         approved by all the authors of the paper. If a paper is finally accepted, the authorities, where
         the work had been carried out, shall be responsible for not publishing the work elsewhere in
-        the same form. Paper, once submitted for consideration in IJSREAT, cannot be withdrawn
+        the same form. Paper, once submitted for consideration in IJRTMR, cannot be withdrawn
         unless the same is finally rejected.
       </p>
       <div>
@@ -93,7 +93,7 @@ export default function GuidePaper() {
           <span className="font-medium text-lg 2xl:text-xl pr-2">eCopyright:</span>  All authors will submit e-copyright to the Journal/ FDRP, India
         </p>
         <p>
-          <span className="font-medium text-lg 2xl:text-xl pr-2">Template:</span>  All accepted papers should be formatted as per IJSREAT Journal
+          <span className="font-medium text-lg 2xl:text-xl pr-2">Template:</span>  All accepted papers should be formatted as per IJRTMR Journal
           Template. It is be sure that contents of the paper are fine and satisfactory. Author(s)
           can make rectification in the final paper but after the final submission to the journal,
           rectification is not possible. In the formatted paper, volume no/ issue no will be in the
@@ -132,10 +132,10 @@ export default function GuidePaper() {
           Prospective authors are invited to submit full text papers including abstract, keywords,
           introduction, methodology, result description, tables, figures and references. Full text papers
           (.doc, .pdf) may submit to Editorial Management system (online) or send by e-mail
-          at <Link to={"mailto:editorinchief@ijsreat.com"} target="_blank" className="text-blue-500">editorinchief@ijsreat.com.</Link>
+          at <Link to={"mailto:editorinchief@ijrtmr.com"} target="_blank" className="text-blue-500">editorinchief@ijrtmr.com.</Link>
           <br />
           <br />
-          Paper Template of IJSREAT available at <Link to={"/downloads"} className="text-primary">Downloads</Link>
+          Paper Template of IJRTMR available at <Link to={"/downloads"} className="text-primary">Downloads</Link>
           <br />
           <br />
           <span className="font-medium text-lg 2xl:text-xl pr-2">Title Page:</span> The title page should include the name(s) of the author(s), a concise and informative title, the affiliation(s) and address of the author(s), the e-mail address of the corresponding author.
@@ -188,7 +188,7 @@ export default function GuidePaper() {
           reading the article, sponsoring the research, etc.) may be acknowledged here.
           <br />
           <span className="font-medium text-lg 2xl:text-xl pr-2">References:</span> Citation in text- Please ensure that every reference cited in the text is also present in the reference list (and vice versa). The references in the reference list
-          should follow the IJSREAT reference style of the journal and citation of a reference.
+          should follow the IJRTMR reference style of the journal and citation of a reference.
           Web references- As a minimum, the full URL should be given and the date when the
           reference was last accessed. Any further information, if known (DOI, author names,
           dates, reference to a source publication, etc.), should also be given. Web references
@@ -239,8 +239,8 @@ export default function GuidePaper() {
             Copyright
           </h2>
           <p>
-            Copyright of all accepted papers will belong to IJSREAT and the author(s) must affirm that
-            accepted papers for publication in IJSREAT must not be re-published elsewhere without the
+            Copyright of all accepted papers will belong to IJRTMR and the author(s) must affirm that
+            accepted papers for publication in IJRTMR must not be re-published elsewhere without the
             written consent of the editor in chief of AM Publications, India. To comply with this policy,
             authors will be required to submit a signed copy of Copyright Transfer Form, after
             acceptance of their paper, before the same is published. Copyright form available
@@ -292,8 +292,8 @@ export default function GuidePaper() {
             link will be provided in the e-mail so that the authors can download the files themselves.
             These PDF proofs can be annotated; for this you need to download Adobe Reader version 7
             (or higher) available free at get.adobe.com/reader If authors do not wish to use the PDF
-            annotations function, they may list the corrections and return them to IJSREAT in an e-
-            mail <Link to="mailto:editorinchief@ijsreat.com" className="text-blue-500">editorinchief@ijsreat.com</Link>, Please list corrections quoting line number. If, for any reason,
+            annotations function, they may list the corrections and return them to IJRTMR in an e-
+            mail <Link to="mailto:editorinchief@ijrtmr.com" className="text-blue-500">editorinchief@ijrtmr.com</Link>, Please list corrections quoting line number. If, for any reason,
             this is not possible, then mark the corrections and any other comments on a printout of the
             proof and then scan the pages having corrections and e-mail them back, within 05 days.
             Please use this proof only for checking the typesetting, editing, completeness and
@@ -301,7 +301,7 @@ export default function GuidePaper() {
             accepted for publication will not be considered at this stage without prior permission. It is
             important to ensure that all corrections are sent back to us in one communication: please
             check carefully before replying, as inclusion of any subsequent corrections cannot be
-            guaranteed. Proofreading is solely authors’ responsibility. Note that IJSREAT will proceed
+            guaranteed. Proofreading is solely authors’ responsibility. Note that IJRTMR will proceed
             with the publication of paper, if no response is received within 05 days.
           </p>
         </div>

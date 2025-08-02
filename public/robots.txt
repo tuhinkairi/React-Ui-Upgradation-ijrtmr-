@@ -1,6 +1,6 @@
-# robots.txt for IJSREAT
+# robots.txt for IJRTMR
 
 User-agent: *
 Allow: /
 
-Sitemap: https://ijsreat-react.vercel.app/sitemap.xml
+Sitemap: https://ijrtmr-react.vercel.app/sitemap.xml

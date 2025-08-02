@@ -65,9 +65,9 @@ export default function CurrentIssueVolumes() {
   // Memoized metadata
   const metaData = useMemo(() => ({
     title: activeArchiveIndex
-      ? `${activeArchiveIndex.year} Volume ${activeArchiveIndex.volume} Issue ${activeArchiveIndex.issue} | International Journal | IJSREAT`
-      : "Current Issue | International Journal | IJSREAT",
-    description: "Explore the IJSREAT archives for top research papers in engineering and technology. Access past volumes and stay updated with the latest innovations"
+      ? `${activeArchiveIndex.year} Volume ${activeArchiveIndex.volume} Issue ${activeArchiveIndex.issue} | International Journal | IJRTMR`
+      : "Current Issue | International Journal | IJRTMR",
+    description: "Explore the IJRTMR archives for top research papers in engineering and technology. Access past volumes and stay updated with the latest innovations"
   }), [activeArchiveIndex]);
 
   // Initial data fetch effect - similar to ArchiveVolumes2

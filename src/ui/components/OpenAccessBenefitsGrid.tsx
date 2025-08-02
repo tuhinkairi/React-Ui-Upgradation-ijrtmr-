@@ -26,7 +26,7 @@ const benefits = [
   {
     icon: <MdHighQuality size={26} className="text-primary" />,
     title: 'Quality',
-    description: 'Manuscripts are rigorously peer-reviewed and many of our journals are listed in the DOAJ.',
+    description: 'Manuscripts are rigorously peer-reviewed and a growing number of our journals are listed in the DOAJ (Directory of Open Access Journals).',
   },
   {
     icon: <Download size={26} className="text-primary" />,
@@ -46,7 +46,7 @@ const benefits = [
   {
     icon: <MdOutlineSupport size={26} className="text-primary" />,
     title: 'Support',
-    description: 'Our editors and support team are here to guide you through the publishing process.',
+    description: 'Our experienced editors and editorial boards are here to advise and guide you throughout the publishing process.',
   },
 ];
 

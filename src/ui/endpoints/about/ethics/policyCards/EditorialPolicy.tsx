@@ -123,13 +123,13 @@ export default function EditorialPolicy() {
                     <br />
                     <br />
 
-                    Send a message to the publisher’s contact at editorinchief@ijsreat.com if they are the target of
+                    Send a message to the publisher’s contact at editorinchief@ijrtmr.com if they are the target of
                     the complaint.
                     <br />
                     <br />
                     Complaints within a year of the original publication date will be considered about any published
                     items. Authors are requested to send any concerns to the editorial office by email
-                    at <Link to="mailto:editorinchief@ijsreat.com" target="_blank" className="text-blue-500">editorinchief@ijsreat.com</Link> along with their justifications.
+                    at <Link to="mailto:editorinchief@ijrtmr.com" target="_blank" className="text-blue-500">editorinchief@ijrtmr.com</Link> along with their justifications.
                 </p>
             </div>
             <div>
@@ -137,7 +137,7 @@ export default function EditorialPolicy() {
                     4. Conflicts of interest/competing interests
                 </h3>
                 <p>
-                    IJSREAT’s Conflict of Interest policy is based on the COPE’s definition and guidelines:
+                    IJRTMR’s Conflict of Interest policy is based on the COPE’s definition and guidelines:
                     ‘Conflicts of interest comprise those which may not be fully apparent and which may influence the
                     judgment of author, reviewers, and editors. They have been described as those which, when revealed
                     later, would make a reasonable reader feel misled or deceived. They may be personal, commercial,
@@ -270,9 +270,9 @@ export default function EditorialPolicy() {
                     7. Intellectual property
                 </h3>
                 <p>
-                    The Article Processing Charge (APC) allows IJSREAT to provide open access to all the articles it
+                    The Article Processing Charge (APC) allows IJRTMR to provide open access to all the articles it
                     publishes. The fee is set at a minimal possible level to ensure the inclusivity of submissions. It covers
-                    the publishing services provided by IJSREAT and allows for its continued operations.
+                    the publishing services provided by IJRTMR and allows for its continued operations.
                     <br />
                     <br />
                     The fee covers the following services:
@@ -288,12 +288,12 @@ export default function EditorialPolicy() {
                     the approval and the outstanding payment. Please note that papers will not be published until the
                     APC is paid.
                     <br />
-                    APC can be paid via a credit card using IJSREAT’s  via a bank transfer/Razorpay Payment Gateway,
+                    APC can be paid via a credit card using IJRTMR’s  via a bank transfer/Razorpay Payment Gateway,
                     in which case the author must request the invoice and arrange for the payment within 30 days
                     following the paper’s publication approval.
                     <br />
                     <br />
-                    The author publishes in IJSREAT agrees to the following terms:
+                    The author publishes in IJRTMR agrees to the following terms:
                     The journal allows the authors to hold the copyright without restrictions and allows the authors to
                     retain publishing rights without restrictions. Authors retain copyright and grant the journal right of first
                     publication with the work simultaneously licensed under a  Creative Commons Attribution 4.0
@@ -306,7 +306,7 @@ export default function EditorialPolicy() {
                     Authors are permitted and encouraged to post their work online (e.g., in institutional repositories or on
                     their website) before and during the submission process, as it can lead to productive exchanges, as
                     well as earlier and greater citation of published work. International Journal of Scientific Research in
-                    Engineering & Technology (IJSREAT) is (Online) (IJSREAT). (E-ISSN: 2583-1240) is licensed under
+                    Engineering & Technology (IJRTMR) is (Online) (IJRTMR). (E-ISSN: 2583-1240) is licensed under
                     a Creative Commons Attribution 4.0 International License.<br />
                     The journal is licensed under a Attribution 4.0 International (CC BY 4.0).
                     <br />
@@ -372,17 +372,17 @@ export default function EditorialPolicy() {
                     8. Peer review processes
                 </h3>
                 <p>
-                    International Journal of Scientific Research in Engineering &amp; Technology (IJSREAT) is having
+                    International Journal of Scientific Research in Engineering &amp; Technology (IJRTMR) is having
                     ISSN NO: 2583-1240 (Online), Bi-monthly international journal for publication of new ideas founded
                     by academicians, educationist, engineers and corporate people. The research results and FDRP
                     advancement are all aspects of Innovative Research in Advanced Engineering & Technology and
-                    various engineering disciplines, etc. IJSREAT is a scholarly open access, Single Peer Review Journal
-                    which helps to academic person as well as student community. IJSREAT provides the academic
+                    various engineering disciplines, etc. IJRTMR is a scholarly open access, Single Peer Review Journal
+                    which helps to academic person as well as student community. IJRTMR provides the academic
                     community and industry for the submission of original research and applications related to Various
                     Engineering discipline and Advanced Technologies by FDRP Publications, TFDRP il Nadu, India
                     since year 2020
                     <br />
-                    Reviewers play a central role in scholarly publishing. IJSREAT uses Single peer review process,
+                    Reviewers play a central role in scholarly publishing. IJRTMR uses Single peer review process,
                     which means that both the reviewer(s) and author(s) identities are concealed from the reviewer(s),
                     and vice versa, throughout the review process. This means that the reviewer(s) of the paper won’t get
                     to know the identity of the author(s), and the author(s) won’t get to know the identity of the
@@ -394,7 +394,7 @@ export default function EditorialPolicy() {
                     03 weeks from the date of submission. We are advising to all the author(s), do not submit sFDRP e
                     paper to the multiple journals. You should wait for review status of paper.
                     <br />
-                    IJSREAT is committed to prompt evaluation and publication of fully accepted papers. To maintain a
+                    IJRTMR is committed to prompt evaluation and publication of fully accepted papers. To maintain a
                     high-quality publication, all submissions undergo a rigorous review process. Characteristics of the
                     peer review process are as follows:
                     <br />
@@ -413,7 +413,7 @@ export default function EditorialPolicy() {
                     All submitted manuscripts are treated as confidential documents. All submitted papers will be
                     reviewed by double blind review process.
                     <br />
-                    All manuscripts submitted for publication in IJSREAT cross-checked for plagiarism software.
+                    All manuscripts submitted for publication in IJRTMR cross-checked for plagiarism software.
                     Manuscripts found to be plagiarized during initial stages of review are out-rightly rejected and not
                     considered for publication in the journal.
                     <br />
@@ -427,8 +427,8 @@ export default function EditorialPolicy() {
                 <h3 className="text-primary text-lg xl:text-2xl 2xl:text-3xl mt-6 mb-2">
                     9. Post-publication discussions and corrections</h3>
                 <p>
-                    IJSREAT allows post-publication discussion on the journal’s website, through emails
-                    to the editor-in-chief. IJSREAT has mechanisms for correcting, revising, or retracting
+                    IJRTMR allows post-publication discussion on the journal’s website, through emails
+                    to the editor-in-chief. IJRTMR has mechanisms for correcting, revising, or retracting
                     articles after publication.
                 </p>
             </div>
@@ -439,7 +439,7 @@ export default function EditorialPolicy() {
                 </h3>
                 <p>
                     Erratum is an error that affects the accuracy of the published paper, and the
-                    reputation of the authors. Errata are published as distinct articles. IJSREAT publishes
+                    reputation of the authors. Errata are published as distinct articles. IJRTMR publishes
                     errata in the case of a serious mistake or a factual error or omission in the methods,
                     results, or conclusions. To warrant an erratum, the scientific error must be serious
                     enough to affect the scientific content of the article and interpretation of results.
@@ -457,13 +457,13 @@ export default function EditorialPolicy() {
                     <li>An author accidentally is missed out.</li>
                 </ul>
                 <p>
-                    A notice of correction will be issued by IJSREAT to the article and correct
+                    A notice of correction will be issued by IJRTMR to the article and correct
                     considerable errors that appear in online articles when these errors considerably
                     affect the content or understanding of the work reported (e.g., error in data
                     presentation) or when the error affects the publication’s metadata (e.g., misspelling
-                    of an author’s name). In these cases, IJSREAT will publish a correction that will be
+                    of an author’s name). In these cases, IJRTMR will publish a correction that will be
                     linked to the original article.
-                    Furthermore, IJSREAT assumes authors inform the editorial office of any errors they
+                    Furthermore, IJRTMR assumes authors inform the editorial office of any errors they
                     have observed (or have been informed of) in their article once published.
                 </p>
 
@@ -474,11 +474,11 @@ export default function EditorialPolicy() {
                 </h3>
                 <ul className="list-disc ml-6 mb-2 space-y-1">
                     <li>
-                        In extraordinary situations, IJSREAT reserves the right to remove a paper from its
+                        In extraordinary situations, IJRTMR reserves the right to remove a paper from its
                         website. This happens when:
                     </li>
                     <li>
-                        IJSREAT is advised that content is libelous that contains false information
+                        IJRTMR is advised that content is libelous that contains false information
                         about a method or a researcher ;
                     </li>
                     <li>
@@ -499,9 +499,9 @@ export default function EditorialPolicy() {
                 <p>
                     An addendum is a notification to add information to a published paper. It should be
                     noted that the supplements do not contradict the original publication and are not
-                    used to fix the error. For the errors, IJSREAT will publish a correction notice.
+                    used to fix the error. For the errors, IJRTMR will publish a correction notice.
                     Actually, if the author needs to update or add some key information then, they can
-                    publish an addendum. According to the IJSREAT policies, the addenda may be peer-
+                    publish an addendum. According to the IJRTMR policies, the addenda may be peer-
                     reviewed and are normally subject to oversight by the editor of the research article</p>
             </div>
             <div>
@@ -510,7 +510,7 @@ export default function EditorialPolicy() {
                 </h3>
                 <p>
 
-                    International Journal of Scientific Research in Engineering &amp; Technology (IJSREAT) is
+                    International Journal of Scientific Research in Engineering &amp; Technology (IJRTMR) is
                     having ISSN NO: 2583-1240 (Online), Bi-monthly international journal is committed to
                     maintaining the highest standards of ethical conduct throughout the publication process. We
                     adhere strictly to the guidelines and standards set by the Committee on Publication Ethics
@@ -525,7 +525,7 @@ export default function EditorialPolicy() {
                 </h3>
                 <p>
 
-                    The IJSREAT of Fifth Dimension Research Publication invites submissions from historically
+                    The IJRTMR of Fifth Dimension Research Publication invites submissions from historically
                     marginalised scholars within the academic landscape, encompassing a broad spectrum of individuals
                     whose viewpoints and experiences, shaped by their geographic backgrounds, institutional affiliations,
                     gender identities, (dis)abilities, language proficiency, and various other distinctive characteristics, are
@@ -535,7 +535,7 @@ export default function EditorialPolicy() {
                     Through this commitment, the journal aims to enrich discourse and scholarship by highlighting the
                     invaluable insights that these underrepresented scholars bring to the field.
                     <br />
-                    The IJSREAT of Fifth Dimension Research Publication (FDRP) is committed to fostering equitable
+                    The IJRTMR of Fifth Dimension Research Publication (FDRP) is committed to fostering equitable
                     opportunities that embrace and honour the diversity inherent in all individuals, regardless of gender,
                     ethnicity, sexual orientation, age, religion, or socioeconomic status. The journal stands against any
                     forms of bias, discrimination, and racism, striving to foster an environment where everyone feels

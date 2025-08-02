@@ -11,7 +11,9 @@ const features = [
   "High Visibility & Indexing",
   "Publication Ethics: COPE’s Best Practice Guidelines",
   "Publisher License under Creative Commons By NC ND",
-  "Published By: Fifth Dimension Research Publication",
+  "Good Impact Factor",
+  "Reputed Editorial Board",
+  "Rapid/Fast Track Publication"
 ];
 
 
@@ -23,8 +25,8 @@ export default function IJSREATFeaturesSection() {
       <div className="grid md:grid-cols-2 items-center gap-10">
         {/* Features List */}
         <div>
-          {/* <h2 className="text-2xl md:text-3xl font-semibold text-dark mb-4">IJSREAT Features</h2> */}
-          <Title2h2 className='mb-4'>IJSREAT Features</Title2h2>
+          {/* <h2 className="text-2xl md:text-3xl font-semibold text-dark mb-4">IJRTMR Features</h2> */}
+          <Title2h2 className='mb-4'>IJRTMR Features</Title2h2>
           <ul className="space-y-4">
             {features.map((item, index) => (
               <li key={index} className="flex items-start gap-3 text-gray-700 text-base 2xl:text-base">

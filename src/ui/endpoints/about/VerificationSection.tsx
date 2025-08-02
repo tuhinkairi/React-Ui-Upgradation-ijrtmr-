@@ -12,7 +12,7 @@ const VerificationSection = () => {
           />
           <h3 className="text-gray-600 leading-relaxed 2xl:text-lg">
             CrossRef DOI is assigned to research Article published in our journal.
-            IJSREAT DOI prefix is <span className="font-semibold">10.59256/ijsreat</span>
+            IJRTMR DOI prefix is <span className="font-semibold">10.59256/ijrtmr</span>
           </h3>
         </div>
 
