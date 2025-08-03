@@ -12,8 +12,8 @@ export default function PlagiarismPolicy() {
                 manuscript with some new data.
                 <br />
                 <br />
-                International Journal of Scientific Research in Engineering &amp; Technology (IJRTMR) is
-                having ISSN NO: 2583-1240 (Online), Bi-monthly international journal for publication of new
+                International Journal of Recent Trends in Multidisciplinary Research (IJRTMR) is
+                having ISSN NO: 2583-0368 (Online), Bi-monthly international journal for publication of new
                 ideas founded by academicians, educationist, engineers and corporate people. The research
                 results and fundamental advancement are all aspects of Innovative Research in Advanced
                 Engineering & Technology and various engineering disciplines, etc. IJRTMR is a scholarly

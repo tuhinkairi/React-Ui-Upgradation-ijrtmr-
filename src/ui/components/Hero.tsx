@@ -14,7 +14,7 @@ export default function Hero() {
           </span>
         </h1>
         <p className=" text-base sm:text-lg 2xl:text-xl">
-          e-ISSN:2583-1240, Follows UGC-CARE Guidelines
+          e-ISSN:2583-0368, Follows UGC-CARE Guidelines
         </p>
         <article className="text-muted sm:text-base 2xl:text-lg max-w-xl 2xl:max-w-3xl  text-paragraph leading-6 sm:leading-normal">
           <p>

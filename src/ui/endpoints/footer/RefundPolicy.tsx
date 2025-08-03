@@ -8,7 +8,7 @@ export default function RefundPolicy() {
             <article className="xl:text-base 2xl:text-lg space-y-6 px-0 bg-white">
 
                 <Title>Return and Refund Policy</Title>
-                <h2>International Journal of Scientific Research in Engineering &amp; Technology (IJRTMR)</h2>
+                <h2>International Journal of Recent Trends in Multidisciplinary Research (IJRTMR)</h2>
                 <div className="space-y-3">
                     <h2 className="text-lg md:text-xl font-semibold">
                         1. General Policy

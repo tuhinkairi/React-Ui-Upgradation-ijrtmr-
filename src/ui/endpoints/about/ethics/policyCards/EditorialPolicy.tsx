@@ -9,7 +9,7 @@ export default function EditorialPolicy() {
                 <h3 className="text-primary text-lg xl:text-2xl 2xl:text-3xl mt-6 mb-2">
                     1. Allegations of misconduct
                 </h3>
-                International Journal of Scientific Research in Engineering & Technology resolves all the allegations
+               International Journal of Recent Trends in Multidisciplinary Research resolves all the allegations
                 and research misconduct on publication ethics and publication malpractice. We follow the code of
                 conduct and best publication practices in scientific publication and adhere to the guidelines of
                 the <span className="text-primary">
@@ -42,7 +42,7 @@ export default function EditorialPolicy() {
             <div>
                 <h3 className="text-lg xl:text-2xl 2xl:text-3xl font-medium mb-2">Retraction Policy</h3>
                 <p>
-                    International Journal of Scientific Research in Engineering &amp; Technology will do retraction of articles
+                    International Journal of Recent Trends in Multidisciplinary Research will do retraction of articles
                     when there are significant errors, Ethical concerns and fraudulent data in the published work.
                     <br />
                     <br />
@@ -306,7 +306,7 @@ export default function EditorialPolicy() {
                     Authors are permitted and encouraged to post their work online (e.g., in institutional repositories or on
                     their website) before and during the submission process, as it can lead to productive exchanges, as
                     well as earlier and greater citation of published work. International Journal of Scientific Research in
-                    Engineering & Technology (IJRTMR) is (Online) (IJRTMR). (E-ISSN: 2583-1240) is licensed under
+                    Engineering & Technology (IJRTMR) is (Online) (IJRTMR). (E-ISSN: 2583-0368) is licensed under
                     a Creative Commons Attribution 4.0 International License.<br />
                     The journal is licensed under a Attribution 4.0 International (CC BY 4.0).
                     <br />
@@ -372,8 +372,8 @@ export default function EditorialPolicy() {
                     8. Peer review processes
                 </h3>
                 <p>
-                    International Journal of Scientific Research in Engineering &amp; Technology (IJRTMR) is having
-                    ISSN NO: 2583-1240 (Online), Bi-monthly international journal for publication of new ideas founded
+                    International Journal of Recent Trends in Multidisciplinary Research (IJRTMR) is having
+                    ISSN NO: 2583-0368 (Online), Bi-monthly international journal for publication of new ideas founded
                     by academicians, educationist, engineers and corporate people. The research results and FDRP
                     advancement are all aspects of Innovative Research in Advanced Engineering & Technology and
                     various engineering disciplines, etc. IJRTMR is a scholarly open access, Single Peer Review Journal
@@ -510,8 +510,8 @@ export default function EditorialPolicy() {
                 </h3>
                 <p>
 
-                    International Journal of Scientific Research in Engineering &amp; Technology (IJRTMR) is
-                    having ISSN NO: 2583-1240 (Online), Bi-monthly international journal is committed to
+                    International Journal of Recent Trends in Multidisciplinary Research (IJRTMR) is
+                    having ISSN NO: 2583-0368 (Online), Bi-monthly international journal is committed to
                     maintaining the highest standards of ethical conduct throughout the publication process. We
                     adhere strictly to the guidelines and standards set by the Committee on Publication Ethics
                     (COPE).These guidelines ensure best practices in areas such as duplicate publication,

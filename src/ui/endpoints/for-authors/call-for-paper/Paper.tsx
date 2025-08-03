@@ -6,8 +6,8 @@ const Paper = () => {
       <Title>Call for Papers</Title>
 
       <p className="my-6 text-justify leading-relaxed">
-        International Journal of Scientific Research in Engineering and Technology (IJRTMR) has
-        ISSN: 2583-1240 (online), Bi Monthly international journal by Fifth Dimension Research
+        International Journal of Recent Trends in Multidisciplinary Research (IJRTMR) has
+        ISSN: 2583-0368 (online), Bi Monthly international journal by Fifth Dimension Research
         Publication. It is an academic, online, open access, Peer reviewed international journal. It aims
         to publish original, theoretical, and practical advances in Computer Science Engineering,
         Internet of things, Data Science, Machine learning, Information Technology, Electrical and

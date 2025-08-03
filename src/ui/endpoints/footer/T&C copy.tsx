@@ -158,7 +158,7 @@ export default function TermsAndConditions() {
                             For inquiries, contact:
                         </li>
                         <li>
-                            International Journal of Scientific Research in Engineering &amp; Technology (IJRTMR)
+                            International Journal of Recent Trends in Multidisciplinary Research (IJRTMR)
                         </li>
                         <li>
                             Email: <a href="mailto:editorinchief@ijrtmr.com" className="text-accent-blue hover:underline">editorinchief@ijrtmr.com</a>

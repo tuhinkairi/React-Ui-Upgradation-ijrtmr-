@@ -14,7 +14,7 @@ export default function PublicationEthicsAndMalpracticeStatement() {
         be achieved if ethics are well practiced by following participants:</h2>
       <div>
         <h2 className="font-medium text-lg xl:text-2xl 2xl:text-3xl mb-2">Ethical guidelines for journal publication</h2>
-        <span className="text-primary">International Journal of Scientific Research in Engineering & Technology</span> is committed to
+        <span className="text-primary">International Journal of Recent Trends in Multidisciplinary Research</span> is committed to
         ensuring ethics in publication and quality of articles. Especially, International Journal
         of Innovative Research in Advanced Engineering is following the Code of Conduct
         as defined by the <span className="text-primary">Committee of Publication Ethics (COPE)</span>.

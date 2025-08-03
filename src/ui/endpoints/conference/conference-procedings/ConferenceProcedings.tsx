@@ -6,7 +6,7 @@ const ConferenceProcedings = () => {
         <CommonLayout className="bg-white px-0 sm:px-6 pb-6  mx-auto space-y-10 text-base leading-8 text-[#333333]">
             <Title>Conference Proceedings - IJRTMR</Title>
             <p className="">
-                Here is a detailed explanation of the full conference collaboration procedure with IJRTMR (International Journal of Scientific Research in Engineering & Technology – e-ISSN: 2583-1240), along with the purpose, roles, process flow, and post-conference services, FAQ's.
+                Here is a detailed explanation of the full conference collaboration procedure with IJRTMR (International Journal of Recent Trends in Multidisciplinary Research – e-ISSN: 2583-0368), along with the purpose, roles, process flow, and post-conference services, FAQ's.
             </p>
             
             <div className="section-1 space-y-6">
@@ -120,7 +120,7 @@ const ConferenceProcedings = () => {
                             <li>e-Certificate of Publication</li>
                             <li>DOI (Digital Object Identifier)</li>
                             <li>Open-access indexing (Google Scholar, CrossRef, ResearchGate, etc.)</li>
-                            <li>Journal issue with e-ISSN: 2583-1240</li>
+                            <li>Journal issue with e-ISSN: 2583-0368</li>
                         </ul>
                         <p className="mt-2"><span className="font-semibold">📢 Timeline:</span> Publication within 5–10 days after final approval.</p>
                     </li>

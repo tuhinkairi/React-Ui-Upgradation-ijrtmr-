@@ -6,7 +6,7 @@ const ThesisIndex = () => {
         <CommonLayout className="bg-white px-0 sm:px-6 pb-6  mx-auto space-y-10 text-base leading-8 text-[#333333]">
             <Title>Thesis Publication</Title>
             <p className="">
-                International Journal of Scientific Research in Engineering & Technology (IJRTMR) is an
+               International Journal of Recent Trends in Multidisciplinary Research (IJRTMR) is an
                 open-access journal that publishes research papers in engineering and technology. Below are
                 the application procedure and publication terms & conditions for submitting your thesis/dissertation work.
             </p>
@@ -138,7 +138,7 @@ const ThesisIndex = () => {
 
                 <ul className="space-y-6 list-inside list-disc">
                     <li>
-                        <h2 className="text-xl mb-2 font-semibold inline-block">IJRTMR Submission Process Timeline:</h2> <p>The total time from submission to publication in International Journal of Scientific Research in Engineering & Technology (IJRTMR) typically takes 1-2 weeks, depending on the review process and revisions.</p>
+                        <h2 className="text-xl mb-2 font-semibold inline-block">IJRTMR Submission Process Timeline:</h2> <p>The total time from submission to publication inInternational Journal of Recent Trends in Multidisciplinary Research (IJRTMR) typically takes 1-2 weeks, depending on the review process and revisions.</p>
                     </li>
                     <li>
                         <h2 className="text-xl mb-2 font-semibold inline-block">Submissions Time line (No Fixed Deadline):</h2><p>

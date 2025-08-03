@@ -13,7 +13,7 @@ export default function Policy() {
                         1. Introduction
                     </h2>
                     <p>
-                        International Journal of Scientific Research in Engineering & Technology  (“we”, “our”,  or  “the
+                       International Journal of Recent Trends in Multidisciplinary Research  (“we”, “our”,  or  “the
                         Journal”) is committed to protecting the privacy of authors, reviewers, editors, and readers (“users”
                         or  “you”). This Privacy Policy outlines how we collect, use, disclose, and safeguard your personal
                         data in compliance with applicable data protection laws, including the General Data Protection

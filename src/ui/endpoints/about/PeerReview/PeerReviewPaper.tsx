@@ -11,7 +11,7 @@ export default function PeerReviewPaper() {
 
       <p>
         <h2 className="mb-2 font-semibold">
-          International Journal of Scientific Research in Engineering &amp; Technology (IJRTMR) is having
+          International Journal of Recent Trends in Multidisciplinary Research (IJRTMR) is having
         </h2>
         <strong>ISSN NO:</strong> 2583–1240 (Online), Bi-monthly international journal for publication of new ideas founded by academicians,
         educationist, engineers and corporate people. The research results and fundamental advancement are all aspects of Innovative Research in
