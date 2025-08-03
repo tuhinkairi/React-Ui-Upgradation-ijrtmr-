@@ -6,10 +6,14 @@ const Paper = () => {
       <Title>Call for Papers</Title>
 
       <p className="my-6 text-justify leading-relaxed">
-        International Journal of Scientific Research in Engineering and Technology (IJRTMR) has ISSN: 2583-1240 (online), Bi Monthly international journal by Fifth Dimension Research Publication.
-        It is an academic, online, open access, Peer reviewed international journal. It aims to publish original, theoretical, and practical advances in Computer Science, Engineering,
-        Internet of things, Data Science, Machine learning, Information Technology, Electrical and Electronics Engineering, Electronics and Telecommunication, Mechanical Engineering,
-        Civil Engineering, Textile Engineering, and all interdisciplinary streams of Engineering Sciences. The board of committee of IJRTMR will verify submitted papers.
+        International Journal of Scientific Research in Engineering and Technology (IJRTMR) has
+        ISSN: 2583-1240 (online), Bi Monthly international journal by Fifth Dimension Research
+        Publication. It is an academic, online, open access, Peer reviewed international journal. It aims
+        to publish original, theoretical, and practical advances in Computer Science Engineering,
+        Internet of things, Data Science, Machine learning, Information Technology, Electrical and
+        Electronics Engineering, Electronics and Telecommunication, Mechanical Engineering, Civil
+        Engineering, Textile Engineering, and all interdisciplinary streams of Engineering Sciences.
+        The board of committee of IJRTMR will review all submitted papers.
       </p>
 
       <p className="mb-4 text-justify leading-relaxed">
