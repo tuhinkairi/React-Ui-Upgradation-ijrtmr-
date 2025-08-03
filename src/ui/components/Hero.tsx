@@ -21,7 +21,7 @@ export default function Hero() {
             An International Scholarly Open Access Journal, Peer-reviewed, Refereed Journal.  High Impact factor, Bi-Monthly, Multidisciplinary Journal.
           </p>
         </article>
-        <Link to="https://editorial.fdrpjournals.org/login?journal=2" target='_blank'>
+        <Link to="https://editorial.fdrpjournals.org/login?journal=3" target='_blank'>
           <button className="primaryBtn">
             Submit Article <ArrowRight className="w-4 h-4" />
           </button>

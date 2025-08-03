@@ -9,7 +9,7 @@ const SubmitPaperSection = () => {
         <p className="text-gray-700 mb-6 max-w-md mx-auto md:mx-0">
           Join our network of esteemed researchers and experience the IJRTMR advantage - where efficiency meets excellence in academic publishing.
         </p>
-        <Link target="_black" to="https://editorial.fdrpjournals.org/login?journal=2">
+        <Link target="_black" to="https://editorial.fdrpjournals.org/login?journal=3">
           <button className="w-fit max-w-1/3 sm:max-w-1/2 md:w-auto primaryBtn whitespace-nowrap">
             Submit Paper
           </button>

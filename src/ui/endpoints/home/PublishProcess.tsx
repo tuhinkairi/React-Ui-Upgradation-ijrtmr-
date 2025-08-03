@@ -62,7 +62,7 @@ export default function PublishProcess() {
             <h4 className="text-lg  2xl:text-lg  font-semibold text-gray-900">{step.title}</h4>
             <p className="text-sm  2xl:text-base text-paragraph">{step.description}</p>
             {step.button && (
-              <Link to="https://editorial.fdrpjournals.org/login?journal=2" target="_blank">
+              <Link to="https://editorial.fdrpjournals.org/login?journal=3" target="_blank">
                 <button className="mt-2 bg-teal-400  border border-teal-400 text-white text-base 2xl:text-lg  font-medium px-4 py-2 rounded-lg hover:bg-teal-500 transition-all inline-flex items-center gap-2 animate-bounce">
                   Submit
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">

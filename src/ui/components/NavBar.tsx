@@ -78,7 +78,7 @@ const Navbar = () => {
       <nav className="hidden lg:flex justify-between items-center py-6 gap-4 mx-auto ml-16 mr-4 xl:mr-16  text-sm xl:text-base 2xl:text-base">
         {/* Logo */}
         <div className="flex items-center space-x-3">
-          <img loading='lazy'
+          <img loading='eager'
             src="/logo.webp" alt="Fifth Dimension Logo" className="h-10 lg:h-12" />
         </div>
 
@@ -158,7 +158,7 @@ const Navbar = () => {
         {/* CTA */}
         <div className="flex space-x-4">
           <Link
-            to="https://editorial.fdrpjournals.org/login?journal=2"
+            to="https://editorial.fdrpjournals.org/login?journal=3"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -180,7 +180,7 @@ const Navbar = () => {
         {/* CTA + Hamburger */}
         <div className="flex items-center space-x-4">
           <Link
-            to="https://editorial.fdrpjournals.org/login?journal=2"
+            to="https://editorial.fdrpjournals.org/login?journal=3"
             target="_blank"
             rel="noopener noreferrer"
           >

@@ -16,7 +16,7 @@ export default function ArchiveSubmitPaperCard() {
         <p className="text-base 2xl:text-lg text-gray-700 mb-5 leading-relaxed">
           Submit your Article through our editorial management system.
         </p>
-        <Link target="_blank" to="https://editorial.fdrpjournals.org/login?journal=2">
+        <Link target="_blank" to="https://editorial.fdrpjournals.org/login?journal=3">
         <button className="inline-flex items-center gap-3 bg-green-200 text-sm 2xl:text-base animate-bounce px-6 py-2 hover:bg-green-300 transition-colors rounded-md text-green-600 font-semibold">
           Submit <ArrowUpRight size={16} />
         </button>
