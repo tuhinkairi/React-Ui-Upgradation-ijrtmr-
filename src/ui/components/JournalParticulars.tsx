@@ -7,7 +7,7 @@ const JournalParticulars: React.FC = () => {
       <Title>Journal Particulars</Title>
       <div className="grid grid-cols-1 gap-8 text-sm xl:text-base 2xl:text-lg leading-relaxed">
         <div className="space-y-2">
-          <p className='text-paragraph'><span className="font-semibold text-primary-text">Title :</span>: International Journal Of Recent Trends In Multidisciplinary Research</p>
+          <p className='text-paragraph'><span className="font-semibold text-primary-text">Title :</span> International Journal Of Recent Trends In Multidisciplinary Research</p>
           <p className='text-paragraph'><span className="font-semibold text-primary-text">Frequency :</span> Bi-Monthly</p>
           <p className='text-paragraph'><span className="font-semibold text-primary-text">ISSN :</span> 2583–0368</p>
           <p className='text-paragraph'><span className="font-semibold text-primary-text">Publisher :</span> Fifth Dimension Research Publication (P) Ltd.</p>
