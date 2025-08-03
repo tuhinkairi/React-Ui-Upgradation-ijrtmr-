@@ -4,6 +4,7 @@ import Navbar from "./ui/components/NavBar";
 import RouteControl from "./RouteControl";
 import Footer from "./ui/components/Footer";
 import ScrollToTopBtn from "./ui/components/Btns/ScrollToTopBtn";
+const ServeChat = React.lazy(()=> import("./ui/components/layout/ServeChat") )
 
 const ScrollToTop = React.lazy(() => import("./ui/other/ScrollToTop"));
 
@@ -18,6 +19,7 @@ export default function App() {
 
       <Footer />
       <ScrollToTopBtn />
+      <ServeChat/>
     </section>
   )
 }
