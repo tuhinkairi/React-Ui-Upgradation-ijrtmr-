@@ -6,7 +6,7 @@ export default function GuidePaper() {
   const location = useLocation().pathname.includes("ethics")
   return (
     <article className="space-y-6 leading-relaxed xl:text-base 2xl:text-lg">
-      {location?<Titleh2>Instructions for Authors</Titleh2>:<Title>Guide for Authors</Title>}
+      {location ? <Titleh2>Instructions for Authors</Titleh2> : <Title>Guide for Authors</Title>}
       <p className=" my-6">
         International Journal of Scientific Research in Engineering &amp; Technology (IJRTMR) is
         (Online), Bi-monthly international journal for publication of new ideas founded by
@@ -246,7 +246,7 @@ export default function GuidePaper() {
             acceptance of their paper, before the same is published. Copyright form available
             at Downloads.
           </p>
-        </div>       
+        </div>
         <div>
           <h2 className="font-medium text-lg xl:text-xl 2xl:text-2xl mb-2">
             Copyright Policy:
