@@ -34,6 +34,7 @@ export const about_menu = [
   {"title":"Ethics & Policy","link":"/ethics"},
   {"title":"Cross Mark Policy","link":"/cross-mark-policy"},
   {"title":"Impact Factor","link":"/impact-Factor"},
+  {"title":"Journal Particulars","link":"/journal-particulars"},
   {"title":"FAQ'S","link":"/FAQs"}
     
 ];

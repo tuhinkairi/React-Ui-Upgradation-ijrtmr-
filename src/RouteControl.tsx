@@ -10,6 +10,7 @@ import Policy from "./ui/endpoints/footer/Policy";
 import TermsAndConditions from "./ui/endpoints/footer/RefundPolicy";
 import RefundPolicy from "./ui/endpoints/footer/RefundPolicy";
 import ConferenceProcedings from "./ui/endpoints/conference/conference-procedings/ConferenceProcedings";
+import JournalParticularsContainer from "./ui/endpoints/about/journal-particulers/JournalParticularsContainer";
 const ThesisDetails= React.lazy(()=>import("./ui/endpoints/Thesis/ThesisDetails"));
 const Home = React.lazy(() => import("./ui/endpoints/home/Home"));
 const Archives = React.lazy(() => import("./ui/endpoints/archive/Archives"));
@@ -86,6 +87,8 @@ export default function RouteControl() {
             <Route path="/cross-mark-policy" element={<MetaDataWrapper><CrossMarkPolicy /></MetaDataWrapper>} />
             <Route path="/impact-Factor" element={<MetaDataWrapper><ImactFactor /></MetaDataWrapper>} />
             <Route path="/FAQs" element={<MetaDataWrapper><FAQ /></MetaDataWrapper>} />
+            <Route path="/journal-particulars" element={<MetaDataWrapper><JournalParticularsContainer /></MetaDataWrapper>} />
+            
             {/* about end */}
 
             {/* for authors */}

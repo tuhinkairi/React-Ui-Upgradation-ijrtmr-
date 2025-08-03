@@ -95,7 +95,7 @@ const Publishing = () => {
       <Title>Journal Publishing Process</Title>
       <p className="text-gray-600 my-6 mb-10 leading-relaxed text-sm xl:text-base 2xl:text-lg">
         We know it’s important to you to have your research published as quickly as possible. Our journals offer
-Rapid Publication Process that allows an article to be published online.
+        Rapid Publication Process that allows an article to be published online.
       </p>
 
       <div className="grid sm:grid-cols-2 gap-5">
