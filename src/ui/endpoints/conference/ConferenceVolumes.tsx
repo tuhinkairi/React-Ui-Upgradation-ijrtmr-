@@ -114,13 +114,13 @@ export default function ConferenceVolumes() {
     } else {
       fetchConferenceData().finally(() => {
         SetMetaData({
-          title: `${activeConferencePage?.year} Volume ${activeConferencePage?.volume} Issue ${activeConferencePage?.issue} | International Journal | IJRTMR`,
+          title: `${activeConferencePage?.year|| ConferenceYear} Volume ${activeConferencePage?.volume|| ConferenceVolume} Issue ${activeConferencePage?.issue|| ConferenceIssue} | International Journal | IJRTMR`,
           description: "Stay updated on IJRTMR conferences, events, and calls for papers. Join global experts in science and technology discussions."
         });
         setLoadingState(false);
       });
     }
-  }, [pageNumber, trackPage, fetchConferenceData, dispatch, perPage, activeConferencePage, totalPage, ConferenceVolumes.length]);
+  }, [pageNumber, trackPage, fetchConferenceData, dispatch, perPage, activeConferencePage, totalPage, ConferenceVolumes.length, ConferenceYear, ConferenceVolume, ConferenceIssue]);
 
   // Search functionality
   const [form, setForm] = useState<SearchProp>({ search: "", page: pageNumber, per_page: 100 });
