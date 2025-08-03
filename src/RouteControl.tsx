@@ -111,9 +111,9 @@ export default function RouteControl() {
                 <Route path="paper-details" element={<ConferenceDetails />} />
             </Route>
 
-            <Route path="/privacy-policy" element={<MetaDataWrapper desciptionDynamic="How we collect, use, disclose, and safeguard your personal data in compliance with applicable data protection laws."><Policy /></MetaDataWrapper>} />
-            <Route path="/terms-and-conditions" element={<MetaDataWrapper desciptionDynamic="By submitting a manuscript, registering as a reviewer, or accessing content from the IJRTMR, you agree to comply with these Terms and Conditions."><TermsAndConditions/></MetaDataWrapper>} />
-            <Route path="/refund-policy" element={<MetaDataWrapper desciptionDynamic="IJRTMR operates as an open-access academic journal with Article Processing Charges (APCs). Due to the digital nature of our publications and the costs associated with peer review, editing, and hosting, we maintain a strict no-refund policy in most cases."><RefundPolicy/></MetaDataWrapper>} />
+            <Route path="/privacy-policy" element={<MetaDataWrapper><Policy /></MetaDataWrapper>} />
+            <Route path="/terms-and-conditions" element={<MetaDataWrapper ><TermsAndConditions/></MetaDataWrapper>} />
+            <Route path="/refund-policy" element={<MetaDataWrapper><RefundPolicy/></MetaDataWrapper>} />
             {/* error */}
             <Route path="*" element={<Page404 />} />
         </Routes>
