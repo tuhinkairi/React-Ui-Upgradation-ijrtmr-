@@ -35,7 +35,7 @@ export default function EMSPage() {
                 <div className="_cardSectionEMS items-center gap-y-6 sm:gap-x-6 grid sm:grid-cols-2 justify-between">
                     <div className="image grid gap-4">
                         <img loading='lazy'
-                            src="/EMS/EMS3.webp" alt=" Author can know task Process image" />
+                            src="/EMS/EMS2.webp" alt=" Author can know task Process image" />
                     </div>
                     <div className="textsection space-y-4">
                         <div>
@@ -64,14 +64,14 @@ export default function EMSPage() {
                     </div>
                     <div className="image grid gap-4">
                         <img loading='lazy'
-                            src="/EMS/EMS4.webp" alt="Author can know Review Process image" />
+                            src="/EMS/EMS3.webp" alt="Author can know Review Process image" />
                     </div>
                 </div>
                 <hr className="text-gray-300" />
                 <div className="_cardSectionEMS items-center gap-y-6 sm:gap-x-6 grid sm:grid-cols-2 justify-between">
                     <div className="image grid gap-4">
                         <img loading='lazy'
-                            src="/EMS/EMS5.webp" alt="How Author can Know submitted Article Accepted or Not image" />
+                            src="/EMS/EMS4.webp" alt="How Author can Know submitted Article Accepted or Not image" />
                     </div>
                     <div className="textsection space-y-4">
                         <div>
@@ -83,33 +83,33 @@ export default function EMSPage() {
                     </div>
                 </div>
                 <hr className="text-gray-300" />
-                <div className="_cardSectionEMS items-center gap-y-6 sm:gap-x-6 grid sm:grid-cols-2 justify-between">
+                <div className="_cardSectionEMS items-center gap-y-6 sm:gap-x-6 grid justify-between">
                     <div className="textsection space-y-4">
                         <div>
                             <h2 className="font-medium text-lg xl:text-xl 2xl:text-2xl mb-2">5. What is the Procedure for Accepted Article to be publish?</h2>
                             <p>
-                                Once you’re Article Accepted for Publication, Author have to follow 3 steps.
+                                Once you’re Article Accepted for Publication, Author have to submit below mentioned Documents within a Week.
                                 <h2 className="font-medium text-lg xl:text-xl 2xl:text-2xl my-2">a&#41; Final Manuscript</h2>
                                 As per <span className="text-green-500">our journal format</span>
                             </p>
                         </div>
                     </div>
-                    <div className="image grid gap-4">
+                    {/* <div className="image grid gap-4">
                         <img loading='lazy'
-                            src="/EMS/EMS6.webp" alt="What is the Procedure for Accepted Article to be publish image" />
-                    </div>
+                            src="/EMS/EMS5.webp" alt="What is the Procedure for Accepted Article to be publish image" />
+                    </div> */}
                 </div>
                 <hr className="text-gray-300" />
                 <div className="_cardSectionEMS items-center gap-y-6 sm:gap-x-6 grid sm:grid-cols-2 justify-between">
                     <div className="image grid gap-4">
                         <img loading='lazy'
-                            src="/EMS/EMS7.webp" alt="Copyright Form image" />
+                            src="/EMS/EMS5.webp" alt="Copyright Form image" />
                     </div>
                     <div className="textsection space-y-4">
                         <div>
                             <h2 className="font-medium text-lg xl:text-xl 2xl:text-2xl mb-2">b&#41; Copyright Form</h2>
                             <p>
-                                (For generating copyright form-Author have to update profile. Like, Address, etc. then only copyright form will generate. Take print out, manually corresponding author have to signature)
+                                (For generating copyright form-Author have to update profile. <span className="text-green-500 font-medium">Like</span>, <span className="text-green-500 font-medium">Address</span>, etc. then only copyright form will <span className="text-green-500 font-medium">generate</span>. Take print out, manually corresponding author have to signature)
                             </p>
                         </div>
                     </div>
@@ -122,27 +122,27 @@ export default function EMSPage() {
                         </div>
                     </div>
                     <div className="image grid gap-4">
-                        <iframe loading="lazy" height="210" className="w-full" src="https://www.youtube.com/embed/ZIyJ7cgJ4qw" title="IJRTMR _ Article Review &amp; Acceptance" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+                        <img loading='lazy'
+                            src="/EMS/EMS6.webp" alt="Copyright Form image" />
                     </div>
+                    {/* <div className="image grid gap-4">
+                        <iframe loading="lazy" height="210" className="w-full" src="https://www.youtube.com/embed/ZIyJ7cgJ4qw" title="IJRTMR _ Article Review &amp; Acceptance" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+                    </div> */}
                 </div>
                 <div>
                     <h2>
                         <span className="text-red-500 text-lg xl:text-xl 2xl:text-2xl">
                             Note:
                         </span><br />
-                        Once we received all necessary Documents. We will process your article. Article will publish with in 24hrs to 48hrs.
+                        Once we received all necessary Documents. We will process your article. Article will publish with in <span className="text-green-500">24hrs to 48hrs</span>.
                     </h2>
-                    <div className="_cardSectionEMS items-center gap-y-6 sm:gap-x-6 grid sm:grid-cols-2 justify-between mt-6">
-                        <div className="textsection space-y-4">
-                            <img loading='lazy'
-                                src="/EMS/EMS9.webp" alt="Process verification image 1" />
-                        </div>
+                    <div className="_cardSectionEMS items-center gap-y-6 sm:gap-x-6 grid justify-between mt-6">
                         <div className="image grid gap-y-8">
                             <div>
                                 <h2 className="">d&#41; Final Submission Upload your <span className="text-green-500">final article, copyright form, and APC receipt</span>. Verify your uploaded documents, and then click &gt; <span className="text-green-500">Final Submit</span> Button-for final submission.</h2>
                             </div>
                             <img loading='lazy'
-                                src="/EMS/EMS10.webp" alt="Process verification image 2" />
+                                src="/EMS/EMS7.webp" alt="Process verification image 2" />
                         </div>
                     </div>
                 </div>
