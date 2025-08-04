@@ -33,9 +33,12 @@ export default function EMSPage() {
                 </div>
                 <hr className="text-gray-300" />
                 <div className="_cardSectionEMS items-center gap-y-6 sm:gap-x-6 grid sm:grid-cols-2 justify-between">
-                    <div className="image grid gap-4">
+                    <div className="image grid gap-8">
                         <img loading='lazy'
                             src="/EMS/EMS2.webp" alt=" Author can know task Process image" />
+                        <div className="image grid gap-4">
+                            <iframe loading="lazy" height="210" className="w-full" src="https://www.youtube.com/embed/ZIyJ7cgJ4qw" title="IJRTMR _ Article Review &amp; Acceptance" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+                        </div>
                     </div>
                     <div className="textsection space-y-4">
                         <div>
@@ -72,6 +75,7 @@ export default function EMSPage() {
                     <div className="image grid gap-4">
                         <img loading='lazy'
                             src="/EMS/EMS4.webp" alt="How Author can Know submitted Article Accepted or Not image" />
+
                     </div>
                     <div className="textsection space-y-4">
                         <div>
@@ -121,13 +125,14 @@ export default function EMSPage() {
                             <h2 className="font-medium text-lg xl:text-xl 2xl:text-2xl mb-2">c&#41; Article Processing fee receipt (with DOI, With out DOI)</h2>
                         </div>
                     </div>
-                    <div className="image grid gap-4">
+                    <div className="image grid gap-8">
                         <img loading='lazy'
                             src="/EMS/EMS6.webp" alt="Copyright Form image" />
+                             <div className="image grid gap-4">
+                        <iframe height={210} className="w-full" loading="lazy" src="https://www.youtube.com/embed/FtLSCMLBpyw" title="IJRTMR _ Article Final Submission &amp; Publish" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
                     </div>
-                    {/* <div className="image grid gap-4">
-                        <iframe loading="lazy" height="210" className="w-full" src="https://www.youtube.com/embed/ZIyJ7cgJ4qw" title="IJRTMR _ Article Review &amp; Acceptance" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
-                    </div> */}
+                    </div>
+
                 </div>
                 <div>
                     <h2>
@@ -136,18 +141,16 @@ export default function EMSPage() {
                         </span><br />
                         Once we received all necessary Documents. We will process your article. Article will publish with in <span className="text-green-500">24hrs to 48hrs</span>.
                     </h2>
-                    <div className="_cardSectionEMS items-center gap-y-6 sm:gap-x-6 grid justify-between mt-6">
-                        <div className="image grid gap-y-8">
-                            <div>
-                                <h2 className="">d&#41; Final Submission Upload your <span className="text-green-500">final article, copyright form, and APC receipt</span>. Verify your uploaded documents, and then click &gt; <span className="text-green-500">Final Submit</span> Button-for final submission.</h2>
-                            </div>
-                            <img loading='lazy'
-                                src="/EMS/EMS7.webp" alt="Process verification image 2" />
+                    <div className="_cardSectionEMS items-center gap-y-6 sm:gap-x-6 grid xl:grid-cols-2 justify-between mt-6">
+                        <div>
+                            <h2 className="">d&#41; Final Submission Upload your <span className="text-green-500">final article, copyright form, and APC receipt</span>. Verify your uploaded documents, and then click &gt; <span className="text-green-500">Final Submit</span> Button-for final submission.</h2>
                         </div>
+                        <img loading='lazy'
+                            src="/EMS/EMS7.webp" alt="Process verification image 2" />
                     </div>
                 </div>
                 <hr className="text-gray-300" />
-                <div className="_cardSectionEMS items-center gap-y-6 sm:gap-x-6 grid sm:grid-cols-2 justify-between">
+                <div className="_cardSectionEMS items-center gap-y-6 sm:gap-x-6 grid  justify-between">
                     <div className="textsection space-y-4">
                         <div>
                             <h2 className="font-medium text-lg xl:text-xl 2xl:text-2xl mb-2">6. Author will get certificates including corresponding authors?</h2>
@@ -156,9 +159,6 @@ export default function EMSPage() {
 
                             </p>
                         </div>
-                    </div>
-                    <div className="image grid gap-4">
-                        <iframe height={210} className="w-full" loading="lazy" src="https://www.youtube.com/embed/FtLSCMLBpyw" title="IJRTMR _ Article Final Submission &amp; Publish"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
                     </div>
                 </div>
             </article>
