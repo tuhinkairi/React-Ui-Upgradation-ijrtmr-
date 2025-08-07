@@ -113,10 +113,10 @@ const EditorBoard = () => {
                         />
                         <ContactCard
                             role="Managing Editor :"
-                            name="Dr. S. Thanga Revathi"
-                            designation="Assistant Professor Department of Computer Science and Engineering"
-                            organization="SRM Institute of Science and Technology, Chennai–603203. India."
-                            email="thangars@srmist.edu.in"
+                            name="Dr. Vetriveeran Rajamani"
+                            designation="Associate Professor"
+                            organization="Vellore Institute of Technology (VIT) University, Vellore 632 014, Tamil Nadu, India."
+                            email="vetriveeran.r@vit.ac.in"
                         />
                     </div>
                     
