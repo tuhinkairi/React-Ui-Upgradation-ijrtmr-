@@ -79,7 +79,7 @@ export default function AuthorProfile({ member }: { member: EditorialMember | nu
               <span className="text-primary font-medium">{pub.doi}</span>
             </p>
           </div> */}
-        {member.member_publication_list.split(".").map((pub, idx) => (
+        {member.member_publication ? member.member_publication.split(".").map((pub, idx) => (
           pub.trim().length > 50 && (
             <ul key={idx} className="flex items-start gap-2 list-inside list-decimal text-shadow">
               <li>
@@ -87,7 +87,11 @@ export default function AuthorProfile({ member }: { member: EditorialMember | nu
               </li>
             </ul>
           )
-        ))}
+        ))
+        :<>
+        <h4 className="text-xl">No Publication Yet</h4>
+        </>
+      }
         {/* <p>{member.member_publication_list}</p> */}
         <div className="sm:hidden w-full">
           <ResearchAreaCard des={member?.member_researcharea.split(",") || ''} />
