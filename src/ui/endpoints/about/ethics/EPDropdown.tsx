@@ -129,7 +129,7 @@ const EPDropdown: React.FC = () => {
             {openIndex === item.id ? <ChevronUp /> : <ChevronDown />}
           </button>
           {openIndex === item.id && (
-            <div className="cardPolicy bg-white text-gray-800 p-4 border border-orange-300 rounded-md mt-2 shadow shadowSprade">
+            <div className="cardPolicy bg-white text-gray-800 p-4 border border-primary rounded-md mt-2 shadow shadowSprade">
               {item.component}
             </div>
           )}

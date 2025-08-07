@@ -11,16 +11,16 @@ export default function PeerReviewPaper() {
 
       <p>
         <h2 className="mb-2 font-semibold">
-          International Journal of Recent Trends in Multidisciplinary Research (IJRTMR) is having
+          International Journal of Recent Trends in Multidisciplinary Research (IJRTMR) is having
         </h2>
-        <strong>ISSN NO:</strong> 2583–1240 (Online), Bi-monthly international journal for publication of new ideas founded by academicians,
+        <strong>ISSN NO:</strong> 2583–0368 (Online), Bi-monthly international journal for publication of new ideas founded by academicians,
         educationist, engineers and corporate people. The research results and fundamental advancement are all aspects of Innovative Research in
         Advanced Engineering & Technology and various engineering disciplines, etc. IJRTMR is a scholarly open access, Single Peer Review Journal
         which helps to academic person as well as student community.
       </p>
       <p className="mt-2">
         IJRTMR provides the academic community and industry for the submission of original research and applications related to Various Engineering
-        discipline and Advanced Technologies by FDRP Publications, TFDPR || Nadu, India since year 2020.
+        discipline and Advanced Technologies by FDRP Publications, Tamilnadu, India since year 2020.
       </p>
 
       <p className="mt-4">
