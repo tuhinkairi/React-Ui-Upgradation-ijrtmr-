@@ -6,7 +6,7 @@ export default function GuidePaper() {
   const location = useLocation().pathname.includes("ethics")
   return (
     <article className="space-y-6 leading-relaxed xl:text-base 2xl:text-lg">
-      {location ? <Titleh2>Instructions for Authors</Titleh2> : <Title>Guide for Authors</Title>}
+      {location ? <Titleh2>Instruction for Authors</Titleh2> : <Title>Instruction for Authors</Title>}
       <p className=" my-6">
         International Journal of Recent Trends in Multidisciplinary Research (IJRTMR) is
         (Online), Bi-monthly international journal for publication of new ideas founded by
