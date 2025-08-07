@@ -5,7 +5,7 @@ import Title2h2 from "../other/Title2h2";
 const faqData = [
   {
     question: "When it was started? | when first issue of the journal was published?",
-    answer: "It was started in year 2021. IJRTMR is being published by 5th Dimension Research Publication. First Issue: January-February 2021.",
+    answer: "It was started in year 2021. IJRTMR is being published by 5th Dimension Research Publication. First Issue: July-August 2021.",
   },
   {
     question: "What is the plagiarism policy",

@@ -10,19 +10,19 @@ export default function FAQ() {
 
                 <div className="mt-6">
                     <p><span className="font-semibold">Q–1: What is the ISSN of the journal?</span></p>
-                    <p className="text-paragraph">Ans: ISSN: ISSN–2583–1240</p>
+                    <p className="text-paragraph">Ans: ISSN: ISSN-2583-0368</p>
                 </div>
 
                 <div>
                     <p><span className="font-semibold">Q–2: When it was started? | When first issue of the journal was published?</span></p>
-                    <p className="text-paragraph">Ans: It was started in year 2021. IJRTMR is being published by 5th Dimension Research Publication. First Issue: January–February 2021</p>
+                    <p className="text-paragraph">Ans: It was started in year 2021. IJRTMR is being published by 5th Dimension Research Publication. First Issue: July-August 2021</p>
                 </div>
 
                 <div>
                     <p><span className="font-semibold">Q–3: Is it open access journal?</span></p>
                     <p className="text-paragraph">Ans: Yes, it is an open access journal.</p>
                 </div>
-
+            
                 <div>
                     <p><span className="font-semibold">Q–4: Is it peer reviewed journal?</span></p>
                     <p className="text-paragraph">Ans: Yes, it is peer reviewed journal.</p>
