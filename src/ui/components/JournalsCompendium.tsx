@@ -57,6 +57,7 @@ const JournalsCompendium = () => {
       <div className="relative  mx-auto">
         <button
           onClick={handlePrevClick}
+          aria-label="move-left"
           className="absolute -left-3.5 sm:-left-5 lg:-left-10 top-1/2 transform -translate-y-1/2 z-10 bg-gray-800 text-white p-2 rounded-full"
         >
           <ChevronLeft />
@@ -70,6 +71,7 @@ const JournalsCompendium = () => {
 
         <button
           onClick={handleNextClick}
+          aria-label="move-right"
           className="absolute -right-3.5 sm:-right-5 lg:-right-10 top-1/2 transform -translate-y-1/2 z-10 bg-gray-800 text-white p-2 rounded-full"
         >
           <ChevronRight />

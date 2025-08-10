@@ -7,7 +7,7 @@ export default function AuthorFeatureCard({ logo ,icon, title }: {logo?:React.Re
         {logo ? logo :<img loading='lazy'
           src={icon} alt={title} className="h-14 w-14 xl:h-16 xl:w-16 2xl:h-20 2xl:w-20" />}
       </div>
-      <h4 className="font-semibold text-xl 2xl:text-lg  text-dark mb-4">{title}</h4>
+      <h3 className="font-semibold text-xl 2xl:text-lg  text-dark mb-4">{title}</h3>
       {/* <p className="text-sm 2xl:text-base text-paragraph mt-1 md:hidden">{description}</p> */}
     </div>
   );

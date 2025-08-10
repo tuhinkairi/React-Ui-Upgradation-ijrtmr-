@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Twitter, Facebook, Instagram, Linkedin } from 'lucide-react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 export default function Footer() {
   const [email, setEmail] = useState('');
@@ -112,32 +112,32 @@ export default function Footer() {
 
             {/* Social Media Icons */}
             <div className="flex xl:hidden space-x-4 mx-auto lg:mx-0 lg:absolute right-0">
-              <NavLink to="#" className="text-gray-400 hover:text-gray-500">
+              <Link aria-label='got to Twitter of ijrtmr' to="#" className="text-gray-400 hover:text-gray-500">
                 <Twitter size={20} />
-              </NavLink>
-              <NavLink to="#" className="text-gray-400 hover:text-gray-500">
+              </Link>
+              <Link aria-label='got to Facebook of ijrtmr' to="#" className="text-gray-400 hover:text-gray-500">
                 <Facebook size={20} />
-              </NavLink>
-              <NavLink to="#" className="text-gray-400 hover:text-gray-500">
+              </Link>
+              <Link aria-label='got to Instagram of ijrtmr' to="#" className="text-gray-400 hover:text-gray-500">
                 <Instagram size={20} />
-              </NavLink>
-              <NavLink to="#" className="text-gray-400 hover:text-gray-500">
+              </Link>
+              <Link aria-label='got to Linkedin of ijrtmr' to="#" className="text-gray-400 hover:text-gray-500">
                 <Linkedin size={20} />
-              </NavLink>
+              </Link>
             </div>
             <div className="hidden xl:flex space-x-4 mx-auto lg:mx-0 lg:absolute right-0 top-1">
-              <NavLink to="#" className="text-gray-400 hover:text-gray-500">
+              <Link aria-label='got to Twitter of ijrtmr' to="#" className="text-gray-400 hover:text-gray-500">
                 <Twitter size={26} />
-              </NavLink>
-              <NavLink to="#" className="text-gray-400 hover:text-gray-500">
+              </Link>
+              <Link aria-label='got to Facebook of ijrtmr' to="#" className="text-gray-400 hover:text-gray-500">
                 <Facebook size={26} />
-              </NavLink>
-              <NavLink to="#" className="text-gray-400 hover:text-gray-500">
+              </Link>
+              <Link aria-label='got to Instagram of ijrtmr' to="#" className="text-gray-400 hover:text-gray-500">
                 <Instagram size={26} />
-              </NavLink>
-              <NavLink to="#" className="text-gray-400 hover:text-gray-500">
+              </Link>
+              <Link aria-label='got to Linkedin of ijrtmr' to="#" className="text-gray-400 hover:text-gray-500">
                 <Linkedin size={26} />
-              </NavLink>
+              </Link>
             </div>
           </div>
 
