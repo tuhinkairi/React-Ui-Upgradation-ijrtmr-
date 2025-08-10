@@ -83,7 +83,7 @@ export default function ConferenceVolumes() {
         const response = await conference_categories();
         const conference = response.filter(item => item.id.toString()===ConferenceId && item.name.toLowerCase() === ConferenceName?.toLowerCase())[0];
         dispatch(setActiveConference(conference));
-        console.log(conference, ConferenceName, ConferenceId)
+        // console.log(conference, ConferenceName, ConferenceId)
         if (conference) {
           dispatch(setActiveConference(conference));
         }

@@ -30,7 +30,7 @@ export default function PlumMetricsCard() {
         </div>; // Return PlumDemo component if doi is not available
   }
   // Move script tag outside of the component to prevent multiple script loads
-  console.log(doi)
+  // console.log(doi)
   return (
     <>
       {/* <script type="text/javascript" src="//cdn.plu.mx/widget-popup.js"></script> */}

@@ -8,7 +8,7 @@ export const fetchArchive = async (): Promise<ArchiveIndexVolume[]> => {
         const response = await axiosClient.post("/archiveYearListing");
         // parse the response data
         const parsed = ArchiveIndexJsonUpdate(response.data["archives"])
-        console.log(parsed)
+        // console.log(parsed)
         return parsed; //return years volumn issues
     } catch (error) {
         throw new Error(`Failed to fetch archive: ${error}`);
@@ -19,7 +19,7 @@ export const fetchArchiveNormal = async () => {
         const response = await axiosClient.post("/archiveYearListing");
         // parse the response data
         const parsed =response.data["archives"]
-        console.log(parsed)
+        // console.log(parsed)
         return parsed; //return years volumn issues
     } catch (error) {
         throw new Error(`Failed to fetch archive: ${error}`);
@@ -38,7 +38,7 @@ export const ArchivePaperListting = async (req: ArchivePaperListtingArg) => {
         const res = await axiosClient.post("/archivePaperListing",
             req
         );
-        console.log(res.data)
+        // console.log(res.data)
         return res.data
     }
     catch (error) {
@@ -66,7 +66,7 @@ export const FetchActiveArticle = async (
     const res = await axiosClient.post("/archivePaperNew", req);
     const modify = UpdateOneFetch(res.data.paperdetails)
     
-    console.log(modify);
+    // console.log(modify);
     return modify;
   } catch (error) {
     console.log(error);
@@ -80,7 +80,7 @@ export const searchArchive = async (req: SearchProp) => {
         const res = await axiosClient.post("/searchArchive",
             req
         );
-        console.log(res.data.papersList)
+        // console.log(res.data.papersList)
         return res.data.papersList
     }
     catch (error) {

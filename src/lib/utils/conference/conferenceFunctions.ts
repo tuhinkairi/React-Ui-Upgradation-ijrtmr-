@@ -5,10 +5,10 @@ import { setCurrentPage, setPerPage, setTotalItems, setTotalPages } from "../../
 import type { AppDispatch } from "../../store/store";
 
 export async function getConferenceDetails(params: conferenceDetailsType, setVolumes: (arg: ConferenceArticleProps[]) => void, reducer: AppDispatch) {
-    console.log("1")
+    // console.log("1")
     
     const res = await conference_detials(params)
-    console.log("get details", res)
+    // console.log("get details", res)
     reducer(setConferenceArticleList([ ...res.ConferenceList]));
     reducer(setCurrentPage(res.current_page))
     reducer(setPerPage(res.per_page))
@@ -17,6 +17,6 @@ export async function getConferenceDetails(params: conferenceDetailsType, setVol
 
     setVolumes(res.ConferenceList)
 
-    console.log("2")
+    // console.log("2")
     // reducer(setLoading(false));
 }

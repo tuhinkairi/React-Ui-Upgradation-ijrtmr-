@@ -12,7 +12,7 @@ export type latestUpdate ={
 export const fetchUpdates = async ():Promise<latestUpdate> => {
     try {
         const response = await axiosClient.post("/latestUpdate");
-        console.log(response.data.latestUpdates[0])
+        // console.log(response.data.latestUpdates[0])
         return response.data.latestUpdates[0]; 
     } catch (error) {
         throw new Error(`Failed to fetch archive: ${error}`);

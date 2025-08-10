@@ -37,7 +37,7 @@ export default function Blog() {
         dispatch(setLoading(false));
         // setTotalPages(BlogList.length/itemsPerPage)
     }, [dispatch, BlogList]);
-    console.log(totalPages)
+    // console.log(totalPages)
     const paginatedBlogs = BlogList.slice(
         (page - 1) * itemsPerPage,
         page * itemsPerPage

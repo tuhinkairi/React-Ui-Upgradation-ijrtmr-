@@ -51,7 +51,7 @@ const ThesisDetails = () => {
         // fetch conference here
         FetchThesisPaperDetails({ thesis_id: id }).then((data) => {
           if (data) {
-            console.log(data)
+            // console.log(data)
             dispatch(setActiveThesis(data))
             setPaper(data)
           }

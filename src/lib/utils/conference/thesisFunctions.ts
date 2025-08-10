@@ -5,7 +5,7 @@ import { setThesisList } from "../../store/Features/ThesisSlice";
 import type { AppDispatch } from "../../store/store";
 
 export async function getThesisDetails(params: ThesisListingParams, setVolumes: (arg: ThesisListingItem[]) => void, reducer: AppDispatch) {
-    console.log("1")
+    // console.log("1")
     const res = await ThesisListing(params)
     // console.log("get details", res)
     reducer(setThesisList([...res.papersList]));
@@ -16,6 +16,6 @@ export async function getThesisDetails(params: ThesisListingParams, setVolumes: 
 
     setVolumes(res.papersList)
 
-    console.log("2")
+    // console.log("2")
     // reducer(setLoading(false));
 }

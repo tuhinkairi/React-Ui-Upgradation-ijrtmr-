@@ -102,9 +102,9 @@ const EPDropdown: React.FC = () => {
   
   useEffect(() => {
     if (id) {
-      console.log(id)
+      // console.log(id)
       const element = document.getElementById(id)
-      console.log(element)
+      // console.log(element)
       if (element) {
         element.scrollIntoView({
           behavior: "smooth"

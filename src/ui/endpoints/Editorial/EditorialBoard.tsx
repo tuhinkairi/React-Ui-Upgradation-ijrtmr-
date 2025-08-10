@@ -67,7 +67,7 @@ const EditorBoard = () => {
             dispatch(setLoading(true));
             try {
                 const data = await editorialFetch();
-                console.log('Fetched editorial data:', data);
+                // console.log('Fetched editorial data:', data);
                 
                 setAllEditorialMembers(data);
                 dispatch(setEditorialMembers(data));
@@ -97,7 +97,7 @@ const EditorBoard = () => {
             dispatch(setCurrentPage(newPage));
         }
     };
-    console.log(currentPageItems)
+    // console.log(currentPageItems)
     return (
         <section className="editorial-board-section px-3 sm:px-6 md:px-10 lg:px-16 py-2 space-y-6">
             <Title>Editorial Board</Title>

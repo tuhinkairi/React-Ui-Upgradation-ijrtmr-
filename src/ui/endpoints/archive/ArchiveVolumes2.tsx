@@ -100,7 +100,7 @@ export default function ArchiveVolumes2() {
         try {
             if (activeArchiveIndex) {
 
-                console.log("ernter")
+                // console.log("ernter")
                 if (ArchiveData.length === 0 || trackPage !== pageNumber ||
                     activeArchiveIndex?.year !== ArchiveIndex?.year ||
                     activeArchiveIndex?.volume !== ArchiveIndex?.volume ||
@@ -148,7 +148,7 @@ export default function ArchiveVolumes2() {
             dispatch(setLoading(false))
         } else {
             if (!activeArchiveIndex) redirect("/archives");
-            console.log("running")
+            // console.log("running")
             fetchArticalData().finally(() => {
                 setArticalVolumesSearch(null)
                 SetMetaData({

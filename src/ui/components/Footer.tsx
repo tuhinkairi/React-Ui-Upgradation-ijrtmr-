@@ -8,7 +8,7 @@ export default function Footer() {
   const handleSubmit = () => {
     // Handle newsletter subscription
     if (email) {
-      console.log('Subscribing email:', email);
+      // console.log('Subscribing email:', email);
       setEmail('');
     }
   };
