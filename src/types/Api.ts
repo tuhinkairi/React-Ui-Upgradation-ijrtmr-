@@ -23,7 +23,9 @@ export interface ConferenceArticleProps {
   category_id: number;
   created_at: string; // ISO timestamp
   updated_at: string;
-
+  volume: string;
+  year: string;
+  month:string;
   author_1: string | null;
   author_2: string | null;
   author_3: string | null;

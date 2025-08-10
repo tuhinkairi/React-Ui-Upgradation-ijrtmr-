@@ -32,7 +32,7 @@ export default function VolumeCardConference({ paper, setActive, navigate }: { p
                     if (e) return index === 0 ? e.toString() : (", ").concat(e.toString())
                 })}
                 <br />
-                <span className="font-bold">Published Online : </span> {new Date(paper.created_at).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
+                <span className="font-bold">Published Online : </span> {paper.year && paper.month? `${paper.month} ${paper.year}`:new Date(paper.updated_at).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
                 <br />
                 <span className="font-bold">Pages : </span> {paper.pages}
             </div>

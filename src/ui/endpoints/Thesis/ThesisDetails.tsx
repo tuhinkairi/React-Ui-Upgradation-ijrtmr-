@@ -118,7 +118,7 @@ const ThesisDetails = () => {
             {superscriptifyAllNumbers(activePaper?.designation ?? "")}
           </h2>
           {/* <h3 className="font-medium">Published Online: {activePaper?.created_at.split("T")[0]}</h3> */}
-          <h3 className="font-medium">Published Online: {new Date(activePaper.created_at).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</h3>
+          <h3 className="font-medium">Published Online: {activePaper.year && activePaper.month? `${activePaper.month} ${activePaper.year}`: new Date(activePaper.updated_at).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</h3>
           <h3 className="font-medium">Pages: {activePaper?.pages}</h3>
         </div>
 
