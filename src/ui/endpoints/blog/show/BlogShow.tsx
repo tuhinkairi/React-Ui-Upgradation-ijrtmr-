@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../../../lib/store/store';
 import CommonLayout from '../../../components/layout/CommonLayout';
 import JournalOverview from '../card/JournalOverview';
@@ -12,6 +12,7 @@ import Loading from '../../../components/Loading';
 import MetaDataWrapper from '../../../components/layout/MetaDataWrapper';
 
 const BlogShow = () => {
+  const path = useLocation().pathname;
   const data = useAppSelector((state) => state.blog.activeBlog);
   const blogList = useAppSelector((state) => state.blog.blogList);
   const { slug } = useParams<{ slug: string }>();
@@ -83,7 +84,7 @@ const BlogShow = () => {
 
   return (
     <MetaDataWrapper desciptionDynamic={data?.meta_description?.split(".")[0] ?? 'Blog Details'} titleDynamic={data?.title ?? slug}>
-      <CommonLayout className='space-y-6' title='Blog'>
+       <CommonLayout className='space-y-6' title={path.includes("blogs") ? "Blog" : "Tag"}>
         <JournalOverview
           category={data?.category ?? ""}
           title={data?.title ?? ""}
